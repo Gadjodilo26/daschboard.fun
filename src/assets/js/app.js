@@ -49,6 +49,7 @@ async function initApp() {
     renderFaq(site.faq || []);
 
     setupToolsMenu();
+    setupMobileNav();
     setupShareButtons();
     setupObserver();
     applyTikTokParams(site.proofs || []);
@@ -493,6 +494,60 @@ function setupToolsMenu() {
   document.addEventListener('click', (event) => {
     if (event.target !== toggle && !menu.contains(event.target)) {
       closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
+  });
+}
+
+function setupMobileNav() {
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('primaryNav');
+  const nav = document.querySelector('.top-nav');
+  if (!toggle || !menu || !nav) return;
+
+  const closeMenu = ({ immediate } = {}) => {
+    if (toggle.getAttribute('aria-expanded') === 'false') return;
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('is-open');
+    nav.classList.remove('menu-open');
+    if (!immediate) {
+      toggle.focus();
+    }
+  };
+
+  const openMenu = () => {
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.classList.add('is-open');
+    nav.classList.add('menu-open');
+  };
+
+  toggle.addEventListener('click', () => {
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      closeMenu({ immediate: true });
+    } else {
+      openMenu();
+    }
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => closeMenu({ immediate: true }));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeMenu({ immediate: true });
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (toggle.getAttribute('aria-expanded') === 'true' && !nav.contains(event.target)) {
+      closeMenu({ immediate: true });
     }
   });
 

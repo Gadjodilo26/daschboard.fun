@@ -1,9 +1,9 @@
 const DATA_SOURCES = {
-  site: '/src/data/site.json',
-  projects: '/src/data/projects.json',
-  links: '/src/data/links.json',
-  timeline: '/src/data/timeline.json',
-  kpis: '/src/data/kpis.json'
+  site: 'src/data/site.json',
+  projects: 'src/data/projects.json',
+  links: 'src/data/links.json',
+  timeline: 'src/data/timeline.json',
+  kpis: 'src/data/kpis.json'
 };
 
 const PRIVATE_PATTERNS = [/XXXXXXXX/, /manager\.infomaniak\.com/, /kdrive\.infomaniak\.com/];

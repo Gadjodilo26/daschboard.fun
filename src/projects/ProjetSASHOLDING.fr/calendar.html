@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier des flux — Atelier Entreprendre</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="calendar">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">Atelier Entreprendre</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html" class="is-active" aria-current="page">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel__content">
+          <div class="panel__header">
+            <div>
+              <h1>Calendrier des entrées / sorties</h1>
+              <p class="form__hint">Visualisez jour par jour vos encaissements et dépenses pour anticiper la trésorerie.</p>
+            </div>
+          </div>
+          <div id="bookkeeping-summary" class="metrics-grid"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__content">
+          <div class="calendar-controls">
+            <button type="button" class="btn btn--ghost" id="calendar-prev-month">&larr; Mois précédent</button>
+            <div class="calendar-controls__label">
+              <strong id="calendar-month-label"></strong>
+            </div>
+            <button type="button" class="btn btn--ghost" id="calendar-next-month">Mois suivant &rarr;</button>
+            <button type="button" class="btn btn--outline" id="calendar-today">Mois actuel</button>
+            <label class="form__field">
+              <span>Mois</span>
+              <input type="month" id="calendar-month-filter">
+            </label>
+          </div>
+          <div id="bookkeeping-calendar"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

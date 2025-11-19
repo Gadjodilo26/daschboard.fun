@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eden Horizon | Votre bien, protégé — Publication #5</title>
+  <meta name="description" content="Comment Eden Horizon protège juridiquement et physiquement votre bien : contrats, assurances, contrôle des séjours, inspections, maintenance et reporting visuel.">
+  <meta name="keywords" content="protection propriétaire, assurance sous-location, contrôle sous-locataire, inspection logement, suivi visuel, Eden Horizon">
+  <meta property="og:title" content="Votre bien, protégé — Eden Horizon" />
+  <meta property="og:description" content="Contrats clairs, assurances adaptées, inspections régulières et suivi visuel : découvrez notre dispositif de protection propriétaire." />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="theme-color" content="#0E3A52" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0E3A52; /* bleu pétrole */
+      --accent:#23B6A9;  /* turquoise */
+      --accent-2:#18a0a0;/* turquoise foncé */
+      --bg:#f6fbfa;      /* fond clair */
+      --ink:#1b2a36;     /* texte principal */
+      --muted:#61798a;   /* texte secondaire */
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(14,58,82,.18);
+      --maxw: 980px;
+    }
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 100% -20%, rgba(35,182,169,.20), transparent 60%),
+        linear-gradient(180deg, #eaf7f5 0%, #ffffff 100%);
+    }
+    /* Topbar */
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter: blur(9px);
+      background:linear-gradient(180deg, rgba(246,251,250,.85), rgba(246,251,250,.65));
+      border-bottom:1px solid rgba(14,58,82,.06);
+    }
+    .topbar .wrap{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; gap:16px; padding:12px 18px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; color:var(--primary)}
+    .brand img{width:36px; height:36px; object-fit:contain; filter: drop-shadow(0 4px 10px rgba(14,58,82,.15));}
+    .brand .sub{font-size:12px; color:var(--muted); font-weight:600}
+    .nav{margin-left:auto; display:flex; gap:18px}
+    .nav a{color:var(--ink); text-decoration:none; font-weight:600; font-size:14px; opacity:.85}
+    .nav a:hover{color:var(--primary)}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden;}
+    .hero .bg{
+      background: radial-gradient(1000px 600px at 15% -20%, rgba(14,58,82,.12), transparent 60%),
+                  radial-gradient(600px 400px at 85% 10%, rgba(35,182,169,.18), transparent 60%),
+                  linear-gradient(120deg, #0E3A52 0%, #23B6A9 100%);
+      height:280px; display:grid; place-items:center; color:white;
+    }
+    .hero h1{margin:0; padding:0 18px; text-align:center; max-width:var(--maxw);
+      font-family: Montserrat, Inter, sans-serif; font-weight:700; font-size: clamp(28px, 3.8vw, 42px);} 
+    .hero p{margin:10px 0 0; text-align:center; opacity:.92; font-weight:500}
+
+    /* Article */
+    .shell{max-width:var(--maxw); margin:40px auto 80px; padding:0 18px}    
+    article{background:#fff; border-radius:calc(var(--radius) + 4px); box-shadow:var(--shadow);
+      padding: clamp(18px, 2.8vw, 36px);} 
+
+    .meta{display:flex; gap:12px; align-items:center; color:var(--muted); font-size:14px; margin: 4px 0 18px}
+    .meta .pill{background: #e9f7f5; color: var(--primary); padding:6px 10px; border-radius: 999px; font-weight:600;}
+
+    h2{font-family: Montserrat, Inter, sans-serif; color:var(--primary); font-weight:700; margin: 26px 0 10px;}
+    h3{font-family: Montserrat, Inter, sans-serif; color:#163447; margin: 14px 0 8px}
+    p{line-height:1.7;}
+    .lead{font-size:18px; color:#163447}
+
+    .grid{display:grid; grid-template-columns: 1fr; gap:16px}
+    @media(min-width:920px){ .grid{grid-template-columns: 1fr 1fr;} }
+
+    .card{background:#f8fbfb; border:1px solid rgba(14,58,82,.07); border-radius:12px; padding:16px 16px}
+
+    .list{display:grid; gap:10px}
+    .row{display:flex; gap:10px; align-items:flex-start; margin:10px 0}
+
+    .kpi{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin: 16px 0}
+    .kpi .box{background:linear-gradient(180deg,#ffffff, #f3fbfa); border:1px solid rgba(14,58,82,.08); border-radius:12px; padding:14px; text-align:center}
+    .kpi .val{font-size:22px; font-weight:700; color:var(--primary)}
+    .kpi .lab{font-size:12px; color:var(--muted); font-weight:600; letter-spacing:.3px}
+
+    .cta{margin-top:24px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+    .cta a{
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color:#fff; text-decoration:none; font-weight:700; padding:12px 16px; border-radius:999px;
+      box-shadow: 0 8px 20px rgba(35,182,169,.28); transition: transform .15s ease, box-shadow .15s ease
+    }
+    .cta a:hover{ transform: translateY(-1px); box-shadow:0 10px 26px rgba(35,182,169,.36) }
+    .cta small{color:var(--muted)}
+
+    .note{background:#eefbf9;border:1px solid rgba(35,182,169,.35); color:#0b4b58; border-radius:12px; padding:12px 14px; margin-top:14px}
+
+    footer{max-width:var(--maxw); margin:20px auto 60px; padding:0 18px; color:var(--muted)}
+    footer .line{height:1px; background:rgba(14,58,82,.08); margin:24px 0}
+    .footwrap{display:flex; gap:12px; align-items:center}
+    .footwrap img{width:26px; height:26px; object-fit:contain}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Votre bien, protégé — Publication #5",
+    "description": "Dispositif de protection propriétaire : contrats, assurances, contrôle des séjours, inspections, maintenance et reporting visuel.",
+    "author": {"@type": "Organization", "name": "Eden Horizon"},
+    "publisher": {"@type": "Organization", "name": "Eden Horizon"},
+    "inLanguage": "fr-FR"
+  }
+  </script>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="https://www.eden-horizon.fr" target="_blank" rel="noopener">
+        <img src="assets/img/logo.png" alt="Eden Horizon logo" />
+        <div>
+          <div>Eden Horizon</div>
+          <div class="sub">Sous-location légale & encadrée</div>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="intro">
+    <div class="bg">
+      <div>
+        <h1>Votre bien, protégé.</h1>
+        <p>Publication #5 — Thème : Cadre légal & sécurité</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article -->
+  <div class="shell">
+    <article>
+      <div class="meta">
+        <span class="pill">Protection</span>
+        <span>⏱️ Lecture 3 min</span>
+        <span>•</span>
+        <span>Mise à jour : <time datetime="2025-10-04">04/10/2025</time></span>
+      </div>
+
+      <p class="lead">Chez Eden Horizon, la protection du propriétaire est au cœur de notre modèle. Nous combinons <strong>sécurité juridique</strong> et <strong>contrôle opérationnel</strong> pour que votre bien soit exploité en toute sérénité.</p>
+
+      <h2 id="juridique">Bouclier juridique</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-top:0">Contrats clairs & autorisations</h3>
+          <p>Autorisation écrite du bailleur, <strong>contrat de sous-location</strong> adapté, clauses de sortie et de responsabilité : tout est formalisé.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Assurances adaptées</h3>
+          <p>Couverture spécifique au modèle de sous-location encadrée, pour sécuriser les risques liés à l’occupation.</p>
+        </div>
+      </div>
+
+      <h2 id="operationnel">Contrôle opérationnel continu</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin-top:0">Sélection & traçabilité des séjours</h3>
+          <p>Process d’identification, vérifications et <strong>traçabilité de chaque occupation</strong>. Vous accédez au reporting à la demande.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Inspections & entretien</h3>
+          <p><strong>Check-in/out</strong>, états des lieux, maintenance planifiée, travaux d’usure pris en charge selon le contrat.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Suivi visuel</h3>
+          <p>Envoi régulier de <strong>photos/vidéos</strong> avant/après séjour pour une transparence totale.</p>
+        </div>
+      </div>
+
+      <div class="kpi">
+        <div class="box"><div class="val">100%</div><div class="lab">séjours tracés</div></div>
+        <div class="box"><div class="val">0 vacance</div><div class="lab">objectif d’occupation continue</div></div>
+        <div class="box"><div class="val">24–48h</div><div class="lab">délais d’intervention maintenance</div></div>
+      </div>
+
+      <h2 id="incident">Et en cas d’incident ?</h2>
+      <div class="card">
+        <p><b>Procédure structurée :</b> déclaration, sécurisation, intervention, reporting au propriétaire.</p>
+        <p><b>Assurances & garanties :</b> activation des couvertures prévues et accompagnement jusqu’à résolution.</p>
+      </div>
+
+      <div class="note">Ces informations sont données à titre général ; elles dépendent du contrat signé et des règles locales applicables.</div>
+
+      <div class="cta" id="contact">
+        <a href="./index.html/#devis" rel="nofollow">🛡️ Parler de la protection de mon bien</a>
+        <small>Réponse sous 24h ouvrées.</small>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="line"></div>
+    <div class="footwrap">
+      <img src="assets/img/logo.png" alt="Eden Horizon"/>
+      <div>
+        <strong>Eden Horizon</strong> — Sous-location légale & encadrée<br/>
+        <span style="font-size:13px">© <span id="y"></span> — Tous droits réservés</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

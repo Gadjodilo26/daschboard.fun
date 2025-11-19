@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMS Launchpad — Tableau de bord personnel & ressources</title>
+  <meta name="description" content="Espace perso pour suivre mes projets clonables, classer mes ressources, envoyer des notes WhatsApp et préparer la prochaine landing clients." />
+  <meta property="og:title" content="RMS Launchpad — Tableau de bord personnel & ressources" />
+  <meta property="og:description" content="Projets téléchargeables, ressources par domaine, outils IA et timeline pour la future landing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daschboard.fun" />
+  <meta property="og:image" content="https://daschboard.fun/src/assets/img/logo/atlas/logo-mark.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="src/assets/img/logo/atlas/logo-mark.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="src/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RMS Launchpad",
+    "url": "https://daschboard.fun",
+    "sameAs": ["https://www.tiktok.com/@rms_launchpad"],
+    "logo": "https://daschboard.fun/src/assets/img/logo/atlas/logo-mark.svg"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://daschboard.fun",
+    "name": "RMS Launchpad",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://daschboard.fun/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body data-rms-branding="native">
+  <a class="skip-link" href="#mainContent">Passer au contenu</a>
+  <div class="page-shell">
+    <nav class="top-nav" aria-label="Navigation principale">
+      <div class="nav-branding">
+        <img class="brand-logo" src="src/assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <div class="brand-copy">
+          <p class="eyebrow">RMS Launchpad</p>
+          <p class="brand-claim">Board perso • Liens • Downloads.</p>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="btn ghost" id="favoriteButton" type="button">Ajouter aux favoris</button>
+        <button class="btn ghost" id="shareButton" type="button">Partager</button>
+        <div class="nav-tools">
+          <button class="btn primary" id="toolsToggle" type="button" aria-expanded="false" aria-controls="toolsMenu">Outils favoris</button>
+          <div class="nav-tools-menu" id="toolsMenu" hidden>
+            <div class="tools-group">
+              <p>IA & création</p>
+              <ul>
+                <li><a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a></li>
+                <li><a href="https://www.perplexity.ai/" target="_blank" rel="noopener">Perplexity</a></li>
+                <li><a href="https://picsart.com/" target="_blank" rel="noopener">Picsart</a></li>
+                <li><a href="https://1min.ai/" target="_blank" rel="noopener">1minAI</a></li>
+                <li><a href="https://app.emergent.sh/" target="_blank" rel="noopener">Emergent</a></li>
+              </ul>
+            </div>
+            <div class="tools-group">
+              <p>Infrastructure & dev</p>
+              <ul>
+                <li><a href="https://manager.infomaniak.com/" target="_blank" rel="noopener">Infomaniak</a></li>
+                <li><a href="https://kinsta.com/" target="_blank" rel="noopener">Kinsta</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </div>
+            <div class="tools-group">
+              <p>Data & marketing</p>
+              <ul>
+                <li><a href="https://docs.google.com/spreadsheets/" target="_blank" rel="noopener">Google Sheets</a></li>
+                <li><a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></li>
+                <li><a href="https://partenaires.amazon.fr/" target="_blank" rel="noopener">Club Partenaire Amazon</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#approach">Focus</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#resources">Ressources</a></li>
+        <li><a href="#toolkit">Outils IA</a></li>
+        <li><a href="#timeline">Landing 2025</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero-panel section is-visible" id="hero">
+      <div class="hero-intro">
+        <p class="eyebrow">Tableau de bord personnel • Optimisé mobile</p>
+        <h1>RMS Launchpad devient mon espace de travail.</h1>
+        <p class="lead">Je centralise ici tout ce qu’il me faut pour développer mes projets digitaux : liens fiables, outils IA, exports ZIP et notes WhatsApp. La timeline me sert à préparer la future landing qui expliquera ma manière de travailler avec les clients.</p>
+        <div class="hero-actions">
+          <button class="btn primary" data-open="contactModal">Ajouter une note WhatsApp</button>
+          <a class="btn secondary" href="#timeline">Voir la feuille de route</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="approach" class="section ad-carousel" aria-label="Focus du moment">
+      <div class="carousel-shell" data-ad-carousel>
+        <header class="carousel-head">
+          <div>
+            <p class="eyebrow">Focus du moment</p>
+          </div>
+          <div class="carousel-controls" role="group" aria-label="Contrôles du carrousel">
+            <button class="btn ghost carousel-btn" type="button" data-carousel-prev aria-label="Slide précédent">‹</button>
+            <button class="btn ghost carousel-btn" type="button" data-carousel-next aria-label="Slide suivant">›</button>
+          </div>
+        </header>
+        <div class="carousel-track" data-carousel-track aria-live="polite">
+          <article class="ad-slide is-active" data-slide="notes">
+            <div class="slide-media">
+              <img class="ad-logo" src="src/assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+              <p class="chip subtle">Board perso</p>
+            </div>
+            <div class="slide-body">
+              <p class="eyebrow">Notes & décisions</p>
+              <h3>J’utilise WhatsApp comme boîte noire créative.</h3>
+              <p class="lead">Depuis ce site (desktop ou mobile) je capture mes idées, TODO et boucles de suivi en un clic. Les messages partent directement sur mon WhatsApp pro.</p>
+              <ul class="ad-benefits">
+                <li>Contact modal + mini dock flottant WhatsApp</li>
+                <li>Classement par thèmes (services, commerce, outils)</li>
+                <li>Historique visible dans mes conversations pour agir vite</li>
+              </ul>
+              <div class="ad-actions">
+                <a class="btn primary" href="#contactModal" data-open="contactModal">Envoyer une note</a>
+                <a class="btn tertiary" href="#resources">Classer les liens</a>
+              </div>
+            </div>
+          </article>
+          <article class="ad-slide" data-slide="commerce">
+            <div class="slide-media">
+              <div class="ad-logo ad-logo--mono" aria-hidden="true">Projets</div>
+              <p class="chip subtle">Clonables & ZIP</p>
+            </div>
+            <div class="slide-body">
+              <p class="eyebrow">Projets clonables</p>
+              <h3>Tous mes sites & apps restent consultables et téléchargeables.</h3>
+              <p class="lead">Les cartes projets affichent le statut, le focus à travailler et proposent un .zip prêt à déployer (FTP ou Netlify). C’est ma base pour inspirer les futurs clients.</p>
+              <ul class="ad-benefits">
+                <li>Exports ZIP rangés dans /src/projects/exports</li>
+                <li>Workflow dédié par projet dans la section Ops</li>
+                <li>Notes “Focus” pour savoir quoi améliorer en premier</li>
+              </ul>
+              <div class="ad-actions">
+                <a class="btn primary" href="#projects">Parcourir les projets</a>
+                <a class="btn tertiary" href="#pilotage">Voir les workflows</a>
+              </div>
+            </div>
+          </article>
+          <article class="ad-slide" data-slide="portfolio">
+            <div class="slide-media">
+              <div class="ad-logo ad-logo--mono" aria-hidden="true">Landing</div>
+              <p class="chip subtle">Roadmap</p>
+            </div>
+            <div class="slide-body">
+              <p class="eyebrow">Landing 2025</p>
+              <h3>La timeline documente la future page clients.</h3>
+              <p class="lead">Je garde une trace de chaque étape (offre, preuves, CTA, tunnel) pour construire une landing dédiée aux créateurs d’entreprise qui veulent des outils digitaux fiables.</p>
+              <ul class="ad-benefits">
+                <li>Timeline + checklist “Chantiers prioritaires”</li>
+                <li>Ressources organisées par domaine</li>
+                <li>Notes WhatsApp pour itérer rapidement</li>
+              </ul>
+              <div class="ad-actions">
+                <a class="btn primary" href="#timeline">Parcourir la roadmap</a>
+                <a class="btn secondary" href="#reader-space">Voir les chantiers</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-indicators" data-carousel-indicators aria-label="Pagination carrousel"></div>
+      </div>
+    </section>
+
+    <section class="section" id="tiktokProof" hidden aria-live="polite"></section>
+
+    <main id="mainContent">
+      <section id="projects" class="section board">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Portfolio actif</p>
+            <h2>Projets ouverts & preuves</h2>
+          </div>
+          <p>Chaque projet reste consultable en ligne et téléchargeable en ZIP pour être déployé tel quel ou adapté à un futur client.</p>
+        </div>
+        <div class="project-filters" role="tablist" aria-label="Filtres projets">
+          <button type="button" data-filter="all" class="active">Tous</button>
+          <button type="button" data-filter="client">Client</button>
+          <button type="button" data-filter="perso">Perso</button>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      </section>
+
+      <section id="resources" class="section board">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Guides pratiques</p>
+            <h2>Ressources fiables pour entreprendre</h2>
+          </div>
+          <p>Liens rangés par domaine (vision, IA, commerce, ops) pour accélérer mes décisions et nourrir la prochaine landing.</p>
+        </div>
+        <div class="resource-layout">
+          <div class="resource-grid" id="resourceGrid" aria-live="polite"></div>
+          <aside class="dock-sidebar" aria-label="Dock apps épinglé">
+            <div class="dock-grid" id="dockGrid"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="toolkit" class="section board">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Boîte à outils</p>
+            <h2>Outils validés pour chaque étape</h2>
+          </div>
+          <p>Stack testée sur mes projets pour rédiger, prototyper un site, créer des contenus ou lancer une boutique légère.</p>
+        </div>
+        <div class="ai-tools-grid">
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/chatgpt.com" alt="Logo ChatGPT">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Texte</p>
+              <h3>ChatGPT</h3>
+              <p>Rédigez offres, emails d’onboarding ou scripts vidéo pour présenter votre activité.</p>
+            </div>
+            <a class="ai-tool-link" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/lumalabs.ai" alt="Logo Luma Labs">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Vidéos</p>
+              <h3>Luma Labs</h3>
+              <p>Produisez des démos produit ou visites guidées pour rassurer les prospects hésitants.</p>
+            </div>
+            <a class="ai-tool-link" href="https://lumalabs.ai/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/leonardo.ai" alt="Logo Leonardo AI">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Images</p>
+              <h3>Leonardo AI</h3>
+              <p>Créez des visuels de présentation, packshots ou moodboards sans passer par une agence.</p>
+            </div>
+            <a class="ai-tool-link" href="https://leonardo.ai/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/suno.com" alt="Logo Suno">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Musiques</p>
+              <h3>Suno</h3>
+              <p>Créez vos bandes-son pour TikTok, trailers de lancement ou podcasts pédagogiques.</p>
+            </div>
+            <a class="ai-tool-link" href="https://suno.com/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/gamma.app" alt="Logo Gamma">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Présentations</p>
+              <h3>Gamma</h3>
+              <p>Générez des pitch decks ou offres commerciales structurées automatiquement.</p>
+            </div>
+            <a class="ai-tool-link" href="https://gamma.app/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/10web.io" alt="Logo 10Web">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Sites web</p>
+              <h3>10Web</h3>
+              <p>Builder WordPress boosté à l’IA pour lancer un site vitrine performant sans se ruiner.</p>
+            </div>
+            <a class="ai-tool-link" href="https://10web.io/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/looka.com" alt="Logo Looka">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Logos</p>
+              <h3>Looka</h3>
+              <p>Identités visuelles instantanées avec exports haute résolution pour vos supports.</p>
+            </div>
+            <a class="ai-tool-link" href="https://looka.com/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/agen.com" alt="Logo Agen">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Avatars vidéo</p>
+              <h3>Agen</h3>
+              <p>Avatar IA multilingue pour modules onboarding ou mini-formations clients.</p>
+            </div>
+            <a class="ai-tool-link" href="https://agen.com/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+          <article class="ai-tool-card">
+            <div class="ai-tool-logo">
+              <img src="https://logo.clearbit.com/elevenlabs.io" alt="Logo ElevenLabs">
+            </div>
+            <div class="ai-tool-body">
+              <p class="ai-tool-category">Voix off</p>
+              <h3>ElevenLabs</h3>
+              <p>Voix off réalistes pour vidéos tutoriels, publicités audio ou assistants.</p>
+            </div>
+            <a class="ai-tool-link" href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer">Ouvrir</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="lab" class="section board">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Veille & inspiration</p>
+            <h2>Notes pour créateurs d’entreprise</h2>
+          </div>
+          <p>Liens vérifiés pour financer, commercialiser et digitaliser vos offres.</p>
+        </div>
+        <div class="lab-controls" role="group" aria-label="Filtrer la veille">
+          <button class="chip active" data-topic="all" type="button">Tout</button>
+          <button class="chip" data-topic="business" type="button">Services</button>
+          <button class="chip" data-topic="tech" type="button">Outils</button>
+          <button class="chip" data-topic="dropshipping" type="button">Commerce</button>
+        </div>
+        <div class="lab-feed" id="insightList" aria-live="polite"></div>
+      </section>
+
+      <section id="pilotage" class="section board creator-only">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Carnet interne</p>
+            <h2>KPIs & checklists d’accompagnement</h2>
+          </div>
+          <p>Réservé au mode créateur pour suivre les expérimentations et itérations en coulisses.</p>
+        </div>
+        <div class="kpi-grid" id="kpiGrid" aria-live="polite"></div>
+        <div class="workflow-grid" id="workflowGrid"></div>
+      </section>
+
+      <section id="timeline" class="section board">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Parcours type</p>
+            <h2>Roadmap landing clients 2025</h2>
+          </div>
+          <p>Étapes à suivre pour livrer une landing claire (offre, preuves, CTA WhatsApp, pack e-commerce).</p>
+        </div>
+        <ul class="timeline" id="timelineList" aria-live="polite"></ul>
+      </section>
+
+      <section id="reader-space" class="section board reader-only">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Chantiers</p>
+            <h2>Priorités à travailler</h2>
+          </div>
+          <p>Je garde en tête les trois actions majeures avant de lancer la landing publique.</p>
+        </div>
+        <div class="services-grid" id="servicesGrid"></div>
+        <ol class="method-steps" id="methodList"></ol>
+      </section>
+
+      <section id="faq" class="section board reader-only">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">FAQ</p>
+            <h2>Questions à garder en tête</h2>
+          </div>
+          <p>Notes stratégiques pour guider mes choix et rassurer les futurs clients.</p>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand-lockup" href="index.html">
+        <img class="brand-logo" src="src/assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Tableau de bord perso — projets & outils digitaux.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 — Board personnel mis à jour pour préparer la landing clients.</p>
+    </footer>
+  </div>
+
+  <section id="linkReport" class="sr-only" aria-live="polite"></section>
+
+  <div class="contact-modal" id="contactModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal__content">
+      <button class="modal__close" type="button" data-close>&times;</button>
+      <p class="eyebrow">Bloc-notes WhatsApp</p>
+      <h2 id="contactTitle">Envoyer une note à mon WhatsApp pro</h2>
+      <form class="contact-form" id="contactForm">
+        <label>Thème de la note
+          <select name="topic" required>
+            <option value="Landing clients">Landing clients</option>
+            <option value="Projets clonables">Projets clonables</option>
+            <option value="Commerce & paiements">Commerce & paiements</option>
+            <option value="Inspiration">Inspiration</option>
+          </select>
+        </label>
+        <label>Action à planifier
+          <input type="text" name="action" placeholder="Ex : préparer la version mobile FM Multiservices">
+        </label>
+        <label>Note détaillée
+          <textarea name="note" placeholder="Idée, insight, tâche ou reminder..." required></textarea>
+        </label>
+        <button class="btn primary" type="submit">Envoyer sur WhatsApp</button>
+        <p id="contactStatus" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <button class="sticky-cta" id="stickyCta" data-open="contactModal" aria-label="Ajouter une note">
+    <span data-cta-label>Ajouter une note</span>
+  </button>
+
+  <aside class="whatsapp-dock" data-whatsapp="33649856716" aria-live="polite">
+    <button class="whatsapp-toggle" type="button" data-wa-toggle aria-expanded="false">
+      WhatsApp Pro
+    </button>
+    <div class="whatsapp-panel" hidden>
+      <p>Note rapide → WhatsApp (0649856716)</p>
+      <form id="whatsappQuickForm">
+        <label>Catégorie
+          <select name="waTopic">
+            <option value="Landing">Landing</option>
+            <option value="Projets">Projets</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Idées">Idées</option>
+          </select>
+        </label>
+        <label>Note
+          <textarea name="waNote" rows="3" placeholder="Idée express..." required></textarea>
+        </label>
+        <button class="btn secondary" type="submit">Envoyer</button>
+      </form>
+    </div>
+  </aside>
+
+  <script defer src="src/assets/js/app.js"></script>
+  <script defer src="src/assets/js/contact.js"></script>
+  <script defer src="src/assets/js/whatsapp.js"></script>
+  <script defer src="src/assets/js/link-audit.js"></script>
+</body>
+</html>

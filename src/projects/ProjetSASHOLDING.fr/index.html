@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Atelier Entreprendre  —  Portail Business Plan
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+  <script defer="" src="src/main.js" type="module">
+  </script>
+ </head>
+ <body data-page="landing">
+  <header class="site-header">
+   <div class="site-brand">
+    <img src="../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+    <div>
+     <a href="index.html">
+      Atelier Entreprendre
+     </a>
+     <span class="site-tagline">Propulsé par RMS Suite</span>
+    </div>
+   </div>
+   <nav class="site-nav">
+    <div class="site-nav__group">
+     <span class="site-nav__label">
+      Simulation
+     </span>
+     <a href="simulation.html">
+      Simulation mensuelle
+     </a>
+     <a href="projection.html">
+      Prévisionnel 3 ans
+     </a>
+     <a href="financing.html">
+      Financement &amp; prêt
+     </a>
+     <a href="summary.html">
+      Synthèse banquier
+     </a>
+     <a href="exports.html">
+      Exports
+     </a>
+    </div>
+    <div class="site-nav__group">
+     <span class="site-nav__label">
+      Outils de gestion
+     </span>
+     <a href="bookkeeping.html">
+      Frais &amp; factures
+     </a>
+     <a href="calendar.html">
+      Calendrier
+     </a>
+    </div>
+   </nav>
+  </header>
+  <main>
+   <section class="panel panel--highlight" id="tech-guide">
+    <div class="panel__content panel__content--highlight">
+     <div class="panel__header">
+      <h2>Mode d’emploi — comment utiliser l’Atelier</h2>
+      <p>Avant de remplir la simulation, lis ces trois étapes : tu gagneras du temps et tu sauras comment conserver tes scénarios.</p>
+     </div>
+     <div class="tech-grid">
+      <article class="tech-card">
+       <h3>1 — Configurer le scénario</h3>
+       <ul>
+        <li>Ouvre la <strong>Simulation mensuelle</strong> et renseigne tous les champs (vision, investissement, charges, rémunération).</li>
+        <li>Décide si la <strong>sauvegarde auto</strong> reste activée (bouton en haut à droite). Elle stocke les données en local (<code>atelier-entreprendre</code>).</li>
+        <li>Chaque passage vers le <strong>Prévisionnel</strong> ou le <strong>Financement</strong> recalculera automatiquement les tableaux.</li>
+       </ul>
+      </article>
+      <article class="tech-card">
+       <h3>2 — Lire les résultats</h3>
+       <ul>
+        <li>La page <strong>Financement</strong> détaille investissement, BFR et plan d’amortissement avec mensualités.</li>
+        <li>La <strong>Synthèse</strong> regroupe ratios bancaires, analyse qualitative et bloc impression/PDF.</li>
+        <li>Les vues <strong>Frais</strong> et <strong>Calendrier</strong> servent ensuite à suivre les dépenses réelles.</li>
+       </ul>
+      </article>
+      <article class="tech-card">
+       <h3>3 — Sauvegarder / dupliquer</h3>
+       <ul>
+        <li>Depuis <strong>Exports</strong>, clique “Exporter le scénario (JSON)” pour télécharger <code>atelier-entreprendre.json</code>.</li>
+        <li>Ces fichiers peuvent être archivés, versionnés ou envoyés à un associé.</li>
+        <li>Utilise “Importer un scénario” pour recharger un JSON et poursuivre le travail.</li>
+       </ul>
+      </article>
+     </div>
+     <div class="export-callout">
+      <article>
+       <h4>Exporter</h4>
+       <p>1. Va sur <strong>Exports</strong>.<br/>2. Clique “Exporter le scénario (JSON)”.<br/>3. Range le fichier téléchargé dans ton dossier projet.</p>
+      </article>
+      <article>
+       <h4>Importer</h4>
+       <p>1. Toujours sur <strong>Exports</strong>, clique “Importer un scénario”.<br/>2. Choisis le JSON voulu.<br/>3. Toutes les pages se rechargent avec ces valeurs.</p>
+      </article>
+     </div>
+     <p class="export-note">Astuce : désactive l’auto-save si tu préfères travailler uniquement avec des fichiers (pratique sur poste partagé).</p>
+    </div>
+   </section>
+   <section class="panel">
+    <div class="panel__content">
+     <section class="page-hero">
+      <div class="page-hero__content">
+       <h1>
+        Portail Business Plan pour entrepreneurs en devenir
+       </h1>
+       <p>
+        Simulez n’importe quel projet (artisanat, service, commerce, SaaS), structurez les besoins financiers et produisez un dossier clair pour tester votre idée ou convaincre un partenaire.
+       </p>
+       <div class="page-hero__actions">
+        <a class="btn btn--primary" href="simulation.html">
+         Commencer la simulation
+        </a>
+        <a class="btn btn--outline" href="summary.html">
+         Voir la synthèse banquier
+        </a>
+       </div>
+      </div>
+      <div class="page-hero__card">
+       <h2>
+        Plan de navigation
+       </h2>
+       <ul>
+        <li>
+         <strong>
+          Simulation mensuelle
+         </strong>
+         — Formulaire unique pour cadrer chiffre d’affaires, charges et rémunération.
+        </li>
+        <li>
+         <strong>
+          Prévisionnel 3 ans
+         </strong>
+         — Projection automatique sur 36 mois pour visualiser la trésorerie.
+        </li>
+        <li>
+         <strong>
+          Financement &amp; prêt
+         </strong>
+         — Plan d’investissement + BFR pour discuter avec sa banque.
+        </li>
+        <li>
+         <strong>
+          Synthèse décision
+         </strong>
+         — Résumé exécutif et ratios prêts à partager.
+        </li>
+        <li>
+         <strong>
+          Exports
+         </strong>
+         — Sauvegardes JSON et génération PDF en un clic.
+        </li>
+       </ul>
+      </div>
+     </section>
+     <section class="panel__content">
+      <div class="panel__header">
+       <h2>
+        Comprendre l’Atelier Entreprendre
+       </h2>
+       <p>
+        Une interface unique pour préparer un budget de démarrage et structurer un dossier de financement en quelques minutes.
+       </p>
+      </div>
+      <div class="concept-grid">
+       <article>
+        <h3>
+         Pourquoi cette application ?
+        </h3>
+        <p>
+         Beaucoup d’entrepreneurs de services savent vendre, mais peinent à projeter les chiffres. L’Atelier Entreprendre rassemble en un seul endroit : hypothèses de revenus, charges, trésorerie et synthèse prête à partager.
+        </p>
+        <ul>
+         <li>
+          Un formulaire guidé pour cadrer ton offre, ton revenu cible et tes charges.
+         </li>
+         <li>
+          Des calculs automatiques : BFR, mensualité de prêt, ratios financiers.
+         </li>
+         <li>
+          Des exports (PDF, JSON) pour dupliquer tes scénarios ou les partager.
+         </li>
+        </ul>
+       </article>
+       <article>
+        <h3>
+         Ce que tu obtiens
+        </h3>
+        <ul>
+         <li>Des modules connectés (Simulation, Prévisionnel, Financement, Synthèse, Exports).</li>
+         <li>Des calculs automatiques : besoins, BFR, mensualité, ratios banquiers.</li>
+         <li>Des exports PDF et JSON pour documenter ou partager ton plan.</li>
+         <li>Un suivi frais/calendrier pour passer du prévisionnel au réel.</li>
+        </ul>
+       </article>
+       <article>
+        <h3>
+         À qui s’adresse-t-il ?
+        </h3>
+        <p>
+         Principalement aux activités de services (agence, coaching, artisanat, tech orienté SaaS/NoCode) qui veulent :
+        </p>
+        <ul>
+         <li>
+          Tester rapidement un budget de démarrage réaliste.
+         </li>
+         <li>
+          Présenter un dossier clair à un partenaire, un mentor ou une banque.
+         </li>
+         <li>
+          Suivre leurs dépenses mensuelles via les pages Frais &amp; Calendrier.
+         </li>
+        </ul>
+       </article>
+      </div>
+     </section>
+    </div>
+   </section>
+  <section class="panel" id="status-guide">
+    <div class="panel__content">
+     <div class="panel__header">
+      <h2>
+       Quel statut juridique choisir ?
+      </h2>
+      <p>
+       Compare les formes les plus courantes pour lancer une activité de services et identifie le régime adapté à ton budget.
+      </p>
+     </div>
+     <div class="status-grid">
+      <article>
+       <h3>
+        Micro-entreprise
+       </h3>
+       <p>
+        Idéale pour tester un marché ou démarrer en solo avec peu de charges.
+       </p>
+       <ul>
+        <li>
+         <strong>
+          Avantages :
+         </strong>
+         formalités légères, compta simplifiée, cotisations proportionnelles au CA.
+        </li>
+        <li>
+         <strong>
+          Limites :
+         </strong>
+         plafonds de CA (77 700 € pour services), peu de charges déductibles, pas de salaire mais un prélèvement.
+        </li>
+        <li>
+         <strong>
+          À privilégier si :
+         </strong>
+         tu veux lancer rapidement et rester sous le plafond.
+        </li>
+       </ul>
+      </article>
+      <article>
+       <h3>
+        EURL / SARL
+       </h3>
+       <p>
+        Structure à associé unique (EURL) ou multiple (SARL) avec responsabilité limitée.
+       </p>
+       <ul>
+        <li>
+         <strong>
+          Avantages :
+         </strong>
+         protection du patrimoine, facilité à accueillir un associé, rémunération sous statut TNS (cotisations ≈45 %).
+        </li>
+        <li>
+         <strong>
+          Limites :
+         </strong>
+         démarches plus lourdes (statuts, dépôt capital), charges sociales minimales même sans rémunération.
+        </li>
+        <li>
+         <strong>
+          À privilégier si :
+         </strong>
+         tu investis, embauches ou veux te verser un revenu stable.
+        </li>
+       </ul>
+      </article>
+      <article>
+       <h3>
+        SASU / SAS
+       </h3>
+       <p>
+        Forme souple pour attirer des associés ou lever des fonds.
+       </p>
+       <ul>
+        <li>
+         <strong>
+          Avantages :
+         </strong>
+         président assimilé salarié (cotisations plus élevées mais meilleure couverture), liberté statutaire pour les actions.
+        </li>
+        <li>
+         <strong>
+          Limites :
+         </strong>
+         coût social important, obligations juridiques proches d’une PME.
+        </li>
+        <li>
+         <strong>
+          À privilégier si :
+         </strong>
+         tu vises une croissance rapide, des investisseurs ou une image corporate.
+        </li>
+       </ul>
+      </article>
+    </div>
+    <div class="quiz">
+      <h3>Questionnaire express</h3>
+      <p>Réponds aux questions ci-dessous pour obtenir une recommandation personnalisée.</p>
+      <form aria-label="Choix du statut" class="quiz-form">
+       <label>Souhaites-tu tester une activité avec peu de charges au départ ?
+        <select id="quiz-test-market">
+         <option value="oui">Oui</option>
+         <option value="non">Non</option>
+        </select>
+       </label>
+       <label>As-tu besoin d’associés ou d’investisseurs ?
+        <select id="quiz-associe">
+         <option value="non">Non</option>
+         <option value="oui">Oui</option>
+        </select>
+       </label>
+       <label>Quel niveau de protection sociale souhaites-tu ?
+        <select id="quiz-protection">
+         <option value="leger">Maximiser le net disponible</option>
+         <option value="fort">Couverture proche d’un salarié</option>
+        </select>
+       </label>
+       <label>Investissement initial estimé ?
+        <select id="quiz-invest">
+         <option value="faible">&lt; 10 000 €</option>
+         <option value="moyen">10 000 – 50 000 €</option>
+         <option value="fort">&gt; 50 000 €</option>
+        </select>
+       </label>
+       <label>Chiffre d’affaires visé la 1ère année ?
+        <select id="quiz-ca">
+         <option value="micro">&lt; 77 700 €</option>
+         <option value="pm">77 700 – 250 000 €</option>
+         <option value="gros">&gt; 250 000 €</option>
+        </select>
+       </label>
+       <label>Souhaites-tu un salaire régulier ?
+        <select id="quiz-salaire">
+         <option value="oui">Oui</option>
+         <option value="non">Non, plutôt dividendes/variable</option>
+        </select>
+       </label>
+       <button class="btn btn--primary" id="quiz-submit" type="button">Obtenir une recommandation</button>
+       <p aria-live="polite" class="quiz-result" id="quiz-result"></p>
+     </form>
+    </div>
+   </div>
+  </section>
+   <section class="panel" id="rms-services">
+    <div class="panel__content">
+     <div class="panel__header">
+      <h2>Services RMS Suite disponibles</h2>
+      <p>Besoin d’aller plus loin ? Les modules RMS Suite sont prêts à être lancés pour structurer tes ventes, tes devis et ta communication.</p>
+     </div>
+     <div class="rms-services-grid">
+      <article class="rms-service-card">
+       <h3>Brief site web</h3>
+       <p>Collecte les contenus, parcours utilisateurs et blocs nécessaires pour construire une landing page efficace.</p>
+       <a class="btn btn--outline" href="../RMS-SUITE.com/services/site-web.html" target="_blank" rel="noopener">Ouvrir le brief</a>
+      </article>
+      <article class="rms-service-card">
+       <h3>Module Devis</h3>
+       <p>Compose des devis complets, exporte en JSON et imprime instantanément pour tes prospects.</p>
+       <a class="btn btn--outline" href="../RMS-SUITE.com/services/devis.html" target="_blank" rel="noopener">Créer un devis</a>
+      </article>
+      <article class="rms-service-card">
+       <h3>Module Factures</h3>
+       <p>Transforme tes devis en factures conformes, gère les échéances et les encaissements.</p>
+       <a class="btn btn--outline" href="../RMS-SUITE.com/services/factures.html" target="_blank" rel="noopener">Émettre une facture</a>
+      </article>
+      <article class="rms-service-card">
+       <h3>Cartes &amp; branding</h3>
+       <p>Génère des cartes de visite, flyers ou éléments de marque prêts à imprimer.</p>
+       <a class="btn btn--outline" href="../RMS-SUITE.com/services/cartes.html" target="_blank" rel="noopener">Créer une carte</a>
+      </article>
+     </div>
+     <div class="rms-link">
+      <p>Découvre l’ensemble de la suite : <a href="../RMS-SUITE.com/index.html" target="_blank" rel="noopener">RMS-SUITE.com</a></p>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="footer-brand">
+    <img src="../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+    <div>
+     <strong>Atelier Entreprendre</strong>
+     <span>Portail Business Plan par RMS Suite</span>
+    </div>
+   </div>
+   <div class="footer-links">
+    <a href="../RMS-SUITE.com/index.html" target="_blank" rel="noopener">RMS Suite</a>
+    <a href="../RMS-SUITE.com/services/devis.html" target="_blank" rel="noopener">Module Devis</a>
+    <a href="../RMS-SUITE.com/services/factures.html" target="_blank" rel="noopener">Module Factures</a>
+    <a href="../RMS-SUITE.com/services/site-web.html" target="_blank" rel="noopener">Brief site web</a>
+    <a href="../RMS-SUITE.com/services/cartes.html" target="_blank" rel="noopener">Cartes &amp; branding</a>
+   </div>
+  </footer>
+  <div aria-atomic="true" aria-live="polite" id="toast-region">
+  </div>
+  <script defer="" src="../../assets/js/rms-branding.js">
+  </script>
+ </body>
+</html>

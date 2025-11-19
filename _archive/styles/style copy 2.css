@@ -1,0 +1,388 @@
+/* =====================================================
+   RESET CSS / STYLES GLOBAUX
+======================================================= */
+
+/* --- Reset Général --- */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Avenir, sans-serif;
+}
+
+/* --- Liens --- */
+a {
+  text-decoration: none;
+  color: gold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+/* --- Body et Arrière-plan --- */
+body {
+  position: relative;
+  /* Dégradé d'arrière-plan */
+  background: linear-gradient(350deg, rgba(30,80,175,1) 2%, rgba(10,45,120,1) 51%, rgba(0,80,255,1) 100%);
+  color: aliceblue;
+}
+
+/* --- Logo --- */
+#logo {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+/* --- Listes Ordonnées --- */
+ol {
+  text-align: left;           /* Aligner le texte à gauche */
+  margin-left: auto;          /* Centrer la liste horizontalement */
+  margin-right: auto;
+  max-width: 600px;           /* Limiter la largeur */
+}
+
+/* --- Paragraphes (règles de base) --- */
+p {
+  width: 98%;
+  max-width: 600px;
+  margin: auto;               /* Centrage horizontal */
+  text-align: left;
+  margin-bottom: 60px;
+  word-spacing: 0.2em;
+  letter-spacing: 0.1em;
+  font-size: large;
+}
+
+/* =====================================================
+   TYPOGRAPHIE ET TITRES
+======================================================= */
+
+/* --- Titre Principal (h1) --- */
+h1 {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  /* Dégradé pour le h1 */
+  background: linear-gradient(350deg, rgba(20,70,90,1) 2%, rgba(20,10,120,1) 50%, rgba(25,60,120,1) 100%);
+  color: aliceblue;
+  height: 120px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0px 0px 10px #eee7e7, 0px 0px 30px #111111;
+}
+
+/* --- Titre Secondaire (h2) --- */
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 50%;
+  padding: 0 30px;
+  text-align: center;
+  /* Dégradé pour le h2 */
+  background: linear-gradient(350deg, rgba(20,70,90,1) 2%, rgba(20,10,120,1) 50%, rgba(25,60,120,1) 100%);
+  box-shadow: 0px 0px 10px #eee7e7, 0px 0px 30px #111111;
+  border-radius: 5px;
+  margin: 40px auto;
+}
+
+/* --- Titre Tertiaire (h3) --- */
+h3 {
+  margin: 20px;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+/* =====================================================
+   STRUCTURE DE LA PAGE
+======================================================= */
+
+/* --- Tableaux Centrés --- */
+table {
+  margin: 0 auto;
+}
+
+/* --- Contenu Principal --- */
+main {
+  z-index: 1;
+}
+
+/* --- Barre de Navigation --- */
+nav {
+  z-index: 5;
+}
+
+/* --- Articles --- */
+article {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.25);
+  border-radius: 5px;
+}
+
+/* --- Médias (images, vidéos, etc.) --- */
+.media {
+  width: 98%;
+  height: 600px;
+  margin: 30px auto;
+}
+
+/* =====================================================
+   MEDIA QUERIES
+======================================================= */
+
+/* ---------- Mobile / Tablette (max-width: 980px) ---------- */
+@media screen and (max-width: 980px) {
+  /* --- En-tête Mobile --- */
+  header {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    background: linear-gradient(350deg, rgba(29,79,173,1) 2%, rgba(9,44,121,1) 51%, rgba(0,80,255,1) 100%);
+  }
+
+  .firstlogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: auto;
+  }
+
+  .BlockDock {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    height: 100px;
+    background: linear-gradient(350deg, rgba(29,53,97,1) 2%, rgba(12,9,121,1) 51%, rgba(24,56,126,1) 100%);
+  }
+
+  h2 {
+    width: 80%;
+  }
+
+  /* Réduction de la taille des paragraphes sur mobile */
+  p {
+    font-size: medium;
+  }
+
+  /* --- Mise en Page Contenu Mobile --- */
+  main {
+    width: 100%;
+    margin: auto;
+  }
+
+  article {
+    margin: 20px 8px;
+    padding: 10px;
+  }
+}
+
+/* ---------- Desktop (min-width: 980px) ---------- */
+@media screen and (min-width: 980px) {
+  /* --- Barre de Navigation --- */
+  label,
+  input {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0,0,0,0.664);
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+  }
+
+  .menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    align-items: center;
+  }
+
+  .deroulant {
+    display: block;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    margin: auto;
+    text-decoration: none;
+  }
+
+  .sous {
+    display: none;
+    flex-flow: column;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(25,31,25,0.753);
+    list-style-type: none;
+    border-top: 2px solid gold;
+    margin-top: -2px;
+  }
+
+  .deroulant:hover .sous {
+    display: flex;
+  }
+
+  nav a {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    border-bottom: 2px solid transparent;
+    justify-content: center;
+    height: 100%;
+    color: aliceblue;
+    font-size: 20px;
+  }
+
+  nav a:hover {
+    color: gold;
+  }
+
+  .sous li {
+    height: 35px;
+    text-align: left;
+  }
+
+  .sous a {
+    color: aliceblue;
+  }
+
+  .sous a:hover {
+    background-color: rgba(0,0,0,0.103);
+    color: gold;
+  }
+
+  .logoreseau {
+    display: flex;
+    height: 80%;
+    min-width: 10%;
+    max-width: 12%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logoreseau a {
+    height: max-content;
+    width: max-content;
+  }
+
+  /* --- Articles Desktop --- */
+  article {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    font-size: 1.8em;
+    color: #f5f8fc;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 10px;
+  }
+
+  /* --- Listes Numérotées --- */
+  ol {
+    counter-reset: item;
+    margin-left: 0;
+    padding-left: 20px;
+  }
+
+  ol li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  ol li:before {
+    counter-increment: item;
+    content: counter(item) ".";
+    font-weight: bold;
+    color: #2980b9;
+    position: absolute;
+    left: -25px;
+    top: 0;
+  }
+
+  /* --- Paragraphes Desktop --- */
+  p {
+    margin: auto;
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-align: justify;
+  }
+
+  /* --- En-tête Desktop --- */
+  header {
+    width: 100%;
+    background: linear-gradient(350deg, rgba(29,79,173,1) 2%, rgba(9,44,121,1) 51%, rgba(0,80,255,1) 100%);
+    display: flex;
+    flex-flow: column;
+    height: auto;
+  }
+
+  .firstlogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: auto;
+    height: 50%;
+  }
+
+  .BlockDock {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 45px;
+    margin-bottom: 50px;
+  }
+
+  /* --- Mise en Page Principale --- */
+  .page {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
+
+  main {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    width: 65%;
+  }
+
+  aside {
+    width: 32%;
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    margin: 30px 15px;
+  }
+}

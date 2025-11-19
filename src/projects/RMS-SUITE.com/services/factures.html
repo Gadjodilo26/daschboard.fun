@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RMS Suite — Module Factures</title>
+    <link rel="stylesheet" href="../styles/app.css">
+  </head>
+  <body data-rms-branding="native" class="app theme-default density-normal layout-classic orientation-portrait">
+    <header class="service-toolbar" role="banner">
+      <div class="service-branding">
+        <img src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Signature RMS Suite</small>
+        </span>
+      </div>
+      <nav class="service-toolbar-actions">
+        <a class="btn btn-link" href="../index.html">← Retour à la landing</a>
+        <a class="btn btn-outline" href="devis.html">Module Devis</a>
+        <a class="btn btn-outline" href="cartes.html">Module Cartes</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="feature-section" aria-label="Outil de création de facture">
+        <header class="feature-header">
+          <div>
+            <p class="feature-kicker">Module Facture</p>
+            <h2>Transformez vos devis en factures détaillées</h2>
+            <p>Numérotation automatique, échéances, TVA et totaux précis. Exports JSON compatibles et impression prête pour l’archivage.</p>
+          </div>
+          <div class="feature-actions module-toolbar">
+            <button type="button" class="btn btn-primary" data-invoice-action="toggle-preview">Voir la prévisualisation</button>
+            <button type="button" class="btn btn-outline" data-invoice-action="import">Importer JSON</button>
+            <button type="button" class="btn btn-outline" data-invoice-action="export">Exporter JSON</button>
+            <button type="button" class="btn btn-link" data-invoice-action="reset">Réinitialiser</button>
+          </div>
+        </header>
+        <section class="form-layout" aria-label="Formulaire facture">
+          <form id="invoice-form" class="module-form" autocomplete="off">
+            <section class="panel">
+              <h2>Émetteur</h2>
+              <div class="grid two">
+                <label>Dénomination
+                  <input type="text" data-invoice-bind="company.name" placeholder="Votre entreprise">
+                </label>
+                <label>TVA intracom
+                  <input type="text" data-invoice-bind="company.vat" placeholder="FRXX…">
+                </label>
+                <label>Email
+                  <input type="email" data-invoice-bind="company.email" placeholder="contact@exemple.fr">
+                </label>
+                <label>Téléphone
+                  <input type="tel" data-invoice-bind="company.phone" placeholder="+33 ...">
+                </label>
+              </div>
+              <label>Adresse
+                <textarea data-invoice-bind="company.address" rows="3" placeholder="Rue, code postal, ville"></textarea>
+              </label>
+              <div class="logo-upload invoice-logo-upload">
+                <label>Logo
+                  <input type="file" accept="image/png,image/jpeg,image/svg+xml" data-invoice-logo-input>
+                </label>
+                <div class="logo-preview invoice-logo-preview" aria-live="polite"><img alt="Logo" hidden></div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2>Client</h2>
+              <div class="grid two">
+                <label>Nom / Société
+                  <input type="text" data-invoice-bind="client.name" placeholder="Client">
+                </label>
+                <label>Email
+                  <input type="email" data-invoice-bind="client.email">
+                </label>
+                <label>Téléphone
+                  <input type="tel" data-invoice-bind="client.phone">
+                </label>
+              </div>
+              <label>Adresse
+                <textarea data-invoice-bind="client.address" rows="3"></textarea>
+              </label>
+            </section>
+
+            <section class="panel">
+              <h2>Détails facture</h2>
+              <div class="grid three">
+                <label>Numéro
+                  <input type="text" data-invoice-bind="invoice.number" readonly>
+                </label>
+                <label>Date d'émission
+                  <input type="date" data-invoice-bind="invoice.issueDate">
+                </label>
+                <label>Date d'échéance
+                  <input type="date" data-invoice-bind="invoice.dueDate">
+                </label>
+                <label>Devise
+                  <select data-invoice-bind="invoice.currency">
+                    <option value="EUR">€ Euro</option>
+                    <option value="USD">$ Dollar</option>
+                    <option value="GBP">£ Livre</option>
+                    <option value="CHF">CHF Franc suisse</option>
+                  </select>
+                </label>
+                <label>Conditions de paiement
+                  <input type="text" data-invoice-bind="invoice.paymentTerms" placeholder="30 jours fin de mois">
+                </label>
+                <label>Notes
+                  <textarea data-invoice-bind="invoice.notes" rows="2"></textarea>
+                </label>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2>Lignes de facturation</h2>
+              <div class="table-scroll">
+                <table aria-describedby="invoice-items-toolbar">
+                  <thead>
+                    <tr>
+                      <th scope="col">Désignation</th>
+                      <th scope="col">Qté</th>
+                      <th scope="col">PU HT</th>
+                      <th scope="col">TVA %</th>
+                      <th scope="col">Total HT</th>
+                      <th scope="col" aria-label="Actions"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="invoice-items-body"></tbody>
+                </table>
+              </div>
+              <div class="module-toolbar minor" id="invoice-items-toolbar">
+                <button type="button" class="btn btn-outline" data-invoice-action="add-item">Ajouter une ligne</button>
+              </div>
+              <div class="invoice-totals">
+                <div>
+                  <span>Sous-total HT</span>
+                  <strong data-invoice-total="subtotal">0,00 €</strong>
+                </div>
+                <div>
+                  <span>TVA totale</span>
+                  <strong data-invoice-total="vat">0,00 €</strong>
+                </div>
+                <div class="highlight">
+                  <span>Total TTC</span>
+                  <strong data-invoice-total="total">0,00 €</strong>
+                </div>
+                <div>
+                  <span>Reste dû</span>
+                  <strong data-invoice-total="due">0,00 €</strong>
+                </div>
+              </div>
+            </section>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <div class="preview-overlay invoice-preview-overlay" aria-hidden="true">
+      <div class="preview-modal" role="dialog" aria-modal="true" aria-label="Prévisualisation de la facture">
+        <header class="preview-modal-header">
+          <h2>Prévisualisation</h2>
+          <div class="preview-modal-actions">
+            <button type="button" class="btn" data-invoice-preview="print">Imprimer</button>
+            <button type="button" class="btn btn-link" data-invoice-preview="close" aria-label="Fermer la prévisualisation">×</button>
+          </div>
+        </header>
+        <div class="preview-modal-body">
+          <article class="panel invoice-preview" id="invoice-preview" aria-label="Facture">
+            <header class="invoice-preview-header">
+              <div class="invoice-preview-company">
+                <img id="invoice-logo" class="invoice-logo" alt="Logo entreprise" hidden>
+                <h3 data-invoice-preview="company.name">Votre entreprise</h3>
+                <p data-invoice-preview="company.address">Adresse…</p>
+                <p>
+                  <span data-invoice-preview="company.phone"></span><br>
+                  <span data-invoice-preview="company.email"></span><br>
+                  <span data-invoice-preview="company.vat"></span>
+                </p>
+              </div>
+              <div class="invoice-meta">
+                <p><strong>Facture</strong></p>
+                <p>N° <span data-invoice-preview="invoice.number"></span></p>
+                <p>Émise le <span data-invoice-preview="invoice.issueDate"></span></p>
+                <p>Échéance <span data-invoice-preview="invoice.dueDate"></span></p>
+              </div>
+            </header>
+
+            <section class="invoice-client">
+              <h4>Client</h4>
+              <p>
+                <strong data-invoice-preview="client.name">Client</strong><br>
+                <span data-invoice-preview="client.address"></span><br>
+                <span data-invoice-preview="client.email"></span><br>
+                <span data-invoice-preview="client.phone"></span>
+              </p>
+            </section>
+
+            <section class="invoice-items-preview">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th>Qté</th>
+                    <th>PU HT</th>
+                    <th>TVA %</th>
+                    <th>Total HT</th>
+                  </tr>
+                </thead>
+                <tbody id="invoice-preview-items"></tbody>
+              </table>
+            </section>
+
+            <section class="invoice-summary">
+              <div><span>Sous-total HT</span><strong data-invoice-preview="totals.subtotal">0,00 €</strong></div>
+              <div><span>TVA</span><strong data-invoice-preview="totals.vat">0,00 €</strong></div>
+              <div class="highlight"><span>Total TTC</span><strong data-invoice-preview="totals.total">0,00 €</strong></div>
+              <div><span>Reste dû</span><strong data-invoice-preview="totals.due">0,00 €</strong></div>
+            </section>
+
+            <section class="invoice-terms" data-invoice-preview="invoice.paymentTerms" hidden></section>
+            <section class="invoice-notes" data-invoice-preview="invoice.notes" hidden></section>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <a class="brand-lockup" href="../../../../index.html">
+        <img class="brand-logo" src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo officiel RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Créateur de la RMS Suite — branding unifié.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 RMS Launchpad — Suite métiers hors ligne.</p>
+    </footer>
+
+    <script type="module" src="../scripts/invoice.js"></script>
+  </body>
+</html>

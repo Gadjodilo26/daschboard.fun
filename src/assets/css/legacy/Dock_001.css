@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+/* HTML
+
+<div class="dock_001">
+ <div class="button_001"><a href="#">
+  <div class="img_001">
+   <img class="hover_001" src="" alt=img>
+   <img class="unhover_001" src="" alt=img>
+  </div>
+ </a>
+ </div>
+</div>
+
+*/
+
+
+/*Chaque  type de Dock sera une .dock_none*/
+
+
+@media screen and (max-width: 980px) {
+  :root .dock_001 {
+
+    /*Variable config Dock*/
+
+
+    /*-----------------------------------*/
+    /*-----------------------------------
+    
+    -----------------------------------*/
+    --001-img-size-width: auto;
+    --001-img-size-height: 60px;
+    /* config dock*/
+
+    /*-----------------------------------
+    --001-dock-width: none;
+    --001-dock-height: none;
+    --001-dock-margin-right: none;
+    --001-dock-margin-left: none;
+    --001-dock-margin-top: none;
+    --001-dock-radius: none;
+    -----------------------------------*/
+    --001-dock-margin-bottom: 15px;
+    --001-dock-background: none;
+    --001-dock-border: none;
+
+    /* config button*/
+
+    /*-----------------------------------
+    --001-button-height: none;
+    --001-button-margin-right: none;
+    --001-button-margin-left: none;
+    --001-button-margin-top: none;
+--001-button-margin-bottom: none;
+--001-button-border: none;
+--001-button-radius: none;
+--001-button-background: none;
+-----------------------------------*/
+    --001-button-width: 7%;
+
+    /* décalage unhover*/
+
+    /*-----------------------------------
+--001-U-margin-right: none;
+--001-U-margin-bottom: none;
+-----------------------------------*/
+    --001-U-margin-top: -5px;
+    --001-U-margin-left: -5px;
+
+  }
+}
+
+@media screen and (min-width:980px) {
+
+  :root .dock_001 {
+    /*Variable config Dock*/
+
+
+    /*-----------------------------------*/
+    /*-----------------------------------
+  
+  -----------------------------------*/
+    --001-img-size-width: auto;
+    --001-img-size-height: 90px;
+    /* config dock*/
+
+    --001-dock-height: 105px;
+    --001-dock-width: 100%;
+    /*-----------------------------------
+  --001-dock-margin-right: none;
+  --001-dock-margin-left: none;
+  --001-dock-margin-top: none;
+  --001-dock-radius: none;
+  -----------------------------------*/
+  --001-dock-margin-bottom: 50px;
+    --001-dock-border: none;
+    --001-dock-background: none;
+
+    /* config button*/
+
+    --001-button-height: 100%;
+    --001-button-width: 10%;
+    /*-----------------------------------
+  --001-button-margin-right: none;
+  --001-button-margin-left: none;
+  --001-button-margin-top: none;
+  --001-button-margin-bottom: none;
+  --001-button-border: none;
+  --001-button-radius: none;
+  --001-button-background: none;
+  -----------------------------------*/
+
+    /* décalage unhover*/
+
+    /*-----------------------------------
+  --001-U-margin-right: none;
+  --001-U-margin-bottom: none;
+  -----------------------------------*/
+    --001-U-margin-left: -5px;
+    --001-U-margin-top: -5px;
+
+  }
+
+}
+
+
+/*button interactif index*/
+
+
+.dock_001 {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: var(--001-dock-width, 90%);
+  height: var(--001-dock-height, 100px);
+  margin-right: var(--001-dock-margin-right);
+  margin-left: var(--001-dock-margin-left);
+  margin-top: var(--001-dock-margin-top);
+  margin-bottom: var(--001-dock-margin-bottom);
+  border: var(--001-dock-border, 2px solid black);
+  border-radius: var(--001-dock-radius, 15px);
+  background: var(--001-dock-background, rgba(0, 0, 0, 0.322));
+}
+
+.button_001 {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: var(--001-button-height, 100%);
+  width: var(--001-button-width, 100%);
+  margin-right: var(--001-button-margin-right, 0);
+  margin-left: var(--001-button-margin-left, 0);
+  margin-top: var(--001-button-margin-top, 0);
+  margin-bottom: var(--001-button-margin-bottom, 0);
+  border: var(--001-button-border, none);
+  border-radius: var(--001-button-radius, none);
+  background: var(--001-button-background, none);
+
+}
+
+.button_001 img {
+  width: var(--001-img-size-width, auto);
+  height: var(--001-img-size-height, 85px);
+
+
+}
+
+.button_001 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_001 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  Height: 100%;
+  position: relative;
+}
+
+.unhover_001 {
+
+  opacity: 0;
+  z-index: 0;
+  position: absolute;
+
+  margin-right: var(--001-U-margin-right, 0);
+  margin-left: var(--001-U-margin-left, 5px);
+  margin-top: var(--001-U-margin-top, 5px);
+  margin-bottom: var(--001-U-margin-bottom, 0);
+}
+
+.hover_001 {
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
+
+.button_001:hover .unhover_001 {
+  opacity: 1;
+
+}
+
+.button_001:hover .hover_001 {
+  opacity: 0;
+}

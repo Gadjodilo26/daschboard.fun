@@ -1,0 +1,7 @@
+[
+  {"time": "08:00", "title": "Cartographier les offres", "detail": "Lister services (landing, commerce, subventions) pour la future page clients.", "status": "done"},
+  {"time": "10:30", "title": "Ranger les ressources", "detail": "Associer chaque domaine (vision, IA, commerce, ops) aux bons liens.", "status": "in-progress"},
+  {"time": "14:00", "title": "Prototype landing clients", "detail": "Esquisser hero, preuves et CTA WhatsApp pour rassurer.", "status": "upcoming"},
+  {"time": "16:30", "title": "Pack projets clonables", "detail": "Vérifier chaque ZIP + rédiger mini guide de mise en ligne.", "status": "upcoming"},
+  {"time": "19:00", "title": "Script d’accompagnement", "detail": "Décrire comment je collabore (diagnostic, outils livrés, suivi).", "status": "upcoming"}
+]

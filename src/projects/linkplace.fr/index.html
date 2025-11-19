@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinkPlace.fr – Votre hub de ressources</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="img/logo/logoBouton.svg">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">
+        <img src="img/logo/logoBouton.svg" alt="Logo LinkPlace.fr">
+      </a>
+      <nav class="main-nav">
+        <ul class="menu">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="https://linkplace.fun">LinkPlace.fun</a></li>
+          <li><a href="https://linkplace.store">LinkPlace.store</a></li>
+          <li class="dropdown">
+            <a href="#">Ressources</a>
+            <ul class="submenu">
+              <li><a href="#dropshipping">Dropshipping</a></li>
+              <li><a href="#marketing">Marketing</a></li>
+              <li><a href="#ia">IA & Tech</a></li>
+              <li><a href="#tutoriels">Tutoriels Vidéo</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO + RECHERCHE -->
+  <section class="hero">
+    <div class="container">
+      <h1>Bienvenue sur LinkPlace.fr</h1>
+      <p>Votre hub central pour découvrir, partager et organiser toutes vos ressources web indispensables.</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Rechercher une ressource…">
+        <button>Rechercher</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÉGORIES RAPIDES -->
+  <div class="container">
+    <div class="categories">
+      <button class="category-btn active" data-filter="all">Tout</button>
+      <button class="category-btn" data-filter="dropshipping">Dropshipping</button>
+      <button class="category-btn" data-filter="marketing">Marketing</button>
+      <button class="category-btn" data-filter="ia">IA & Tech</button>
+      <button class="category-btn" data-filter="tutoriels">Tutoriels</button>
+    </div>
+  </div>
+
+  <!-- RESSOURCES PRINCIPALES -->
+  <section id="resources" class="section">
+    <div class="container">
+      <h2>Ressources Populaires</h2>
+      <div class="cards">
+        <div class="card" data-category="dropshipping">
+          <h3>Guide Dropshipping 2025</h3>
+          <p>Les meilleures pratiques et outils pour lancer et gérer votre boutique efficacement.</p>
+          <a href="https://www.shippingbo.com/ecommerce/guide-dropshipping-fournisseurs-2025/" target="_blank">Lire la suite</a>
+        </div>
+        <div class="card" data-category="marketing">
+          <h3>Top 10 Outils Marketing</h3>
+          <p>Une sélection des logiciels incontournables pour optimiser vos campagnes.</p>
+          <a href="https://www.copyfy.io/" target="_blank">En savoir plus</a>
+        </div>
+        <div class="card" data-category="ia">
+          <h3>Actualités IA</h3>
+          <p>Dernières innovations et tendances de l’intelligence artificielle à suivre.</p>
+          <a href="https://meetcody.ai/fr/blog/previsions-2025" target="_blank">Découvrir</a>
+        </div>
+        <div class="card" data-category="tutoriels">
+          <h3>Tutoriels Vidéo</h3>
+          <p>Suivez pas à pas nos vidéos pour maîtriser le web, le design et le marketing.</p>
+          <a href="https://www.youtube.com/@LinkPlaceFR" target="_blank">Regarder</a>
+        </div>
+        <!-- Ajouter ici autant de cartes que nécessaire -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ALBUM DE CARTES SUPPLÉMENTAIRES -->
+  <section class="section" style="background: #f9f9f9;">
+    <div class="container">
+      <h2>Découvertes Récentes</h2>
+      <div class="cards">
+        <!-- Exemples supplémentaires -->
+        <div class="card" data-category="dropshipping">
+          <h3>Plateforme de sourcing rapide</h3>
+          <p>Comparez en un clin d’œil les meilleurs fournisseurs en dropshipping.</p>
+          <a href="https://www.alerivers.com/" target="_blank">Visiter</a>
+        </div>
+        <div class="card" data-category="marketing">
+          <h3>Analyse de trafic</h3>
+          <p>Un outil gratuit pour surveiller et analyser vos visiteurs en temps réel.</p>
+          <a href="https://analytics.google.com/" target="_blank">Explorer</a>
+        </div>
+        <div class="card" data-category="ia">
+          <h3>Chatbot IA pour support</h3>
+          <p>Intégrez une assistance automatisée et intelligente à votre site.</p>
+          <a href="https://www.landbot.io/" target="_blank">Découvrir</a>
+        </div>
+        <div class="card" data-category="tutoriels">
+          <h3>Masterclass SEO</h3>
+          <p>Optimisez votre référencement avec des conseils d’experts.</p>
+          <a href="https://moz.com/learn/seo" target="_blank">En apprendre plus</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <ul class="quick-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="#resources">Populaires</a></li>
+        <li><a href="#features">Services</a></li>
+        <li><a href="#dropshipping">Dropshipping</a></li>
+        <li><a href="#marketing">Marketing</a></li>
+        <li><a href="#ia">IA & Tech</a></li>
+        <li><a href="#tutoriels">Tutoriels</a></li>
+      </ul>
+      <p>&copy; 2025 LinkPlace.fr – Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- Script de filtrage -->
+  <script>
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+
+  <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

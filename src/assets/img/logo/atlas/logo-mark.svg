@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RMS Launchpad">
+  <rect width="64" height="64" rx="16" fill="#0b0f1f"/>
+  <path d="M18 46V18h10l4 6 4-6h10v28h-8V28l-6 8-6-8v18z" fill="#58f7d1"/>
+</svg>

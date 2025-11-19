@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RMS Suite — Module Cartes</title>
+    <link rel="stylesheet" href="../styles/app.css">
+  </head>
+  <body data-rms-branding="native" class="app theme-default density-normal layout-classic orientation-portrait">
+    <header class="service-toolbar" role="banner">
+      <div class="service-branding">
+        <img src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Signature RMS Suite</small>
+        </span>
+      </div>
+      <nav class="service-toolbar-actions">
+        <a class="btn btn-link" href="../index.html">← Retour à la landing</a>
+        <a class="btn btn-outline" href="devis.html">Module Devis</a>
+        <a class="btn btn-outline" href="factures.html">Module Facture</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="feature-section" aria-label="Module carte de visite">
+        <header class="feature-header">
+          <div>
+            <p class="feature-kicker">Module Carte de visite</p>
+            <h2>Créez une carte de visite moderne avec QR code intégré</h2>
+            <p>Personnalisez vos informations professionnelles, ajoutez un lien sécurisé et récupérez l’image prête à imprimer.</p>
+          </div>
+          <div class="feature-actions module-toolbar">
+            <button type="button" class="btn btn-outline" data-card-action="import">Importer JSON</button>
+            <button type="button" class="btn btn-outline" data-card-action="export">Exporter JSON</button>
+            <button type="button" class="btn btn-secondary" data-card-action="download">Télécharger PNG</button>
+            <button type="button" class="btn btn-primary" data-card-action="print">Imprimer</button>
+            <button type="button" class="btn btn-link" data-card-action="reset">Réinitialiser</button>
+          </div>
+        </header>
+
+        <div class="module-grid card-grid">
+          <form id="card-form" class="module-form" autocomplete="off">
+            <section class="panel">
+              <h2>Identité</h2>
+              <div class="grid two">
+                <label>Nom complet
+                  <input type="text" data-card-bind="fullName" placeholder="Prénom Nom">
+                </label>
+                <label>Poste / Fonction
+                  <input type="text" data-card-bind="title" placeholder="Fonction">
+                </label>
+                <label>Entreprise
+                  <input type="text" data-card-bind="company" placeholder="Société">
+                </label>
+                <label>Téléphone
+                  <input type="tel" data-card-bind="phone" placeholder="+33 ...">
+                </label>
+                <label>Email
+                  <input type="email" data-card-bind="email" placeholder="vous@exemple.fr">
+                </label>
+                <label>Site web
+                  <input type="url" data-card-bind="website" placeholder="https://...">
+                </label>
+              </div>
+              <label>Lien QR (https)
+                <input type="url" data-card-bind="qrLink" placeholder="https://...">
+              </label>
+            </section>
+
+            <section class="panel">
+              <h2>Apparence</h2>
+              <div class="grid two">
+                <label>Thème
+                  <select data-card-bind="theme">
+                    <option value="marine">Marine</option>
+                    <option value="graphite">Graphite</option>
+                    <option value="coral">Corail</option>
+                    <option value="emerald">Émeraude</option>
+                  </select>
+                </label>
+                <label>Couleur accent
+                  <input type="color" data-card-bind="accent" value="#1f6feb">
+                </label>
+              </div>
+            </section>
+          </form>
+
+          <aside class="panel card-preview-panel" aria-label="Aperçu carte">
+            <div class="card-preview" id="card-preview">
+              <canvas id="card-canvas" width="1004" height="650" aria-label="Carte générée"></canvas>
+              <canvas id="card-qr-temp" width="260" height="260" hidden></canvas>
+            </div>
+            <p class="card-preview-note">
+              Dimensions : 85 × 55 mm (format carte standard) — L'export PNG respecte ce ratio (300 dpi).
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <a class="brand-lockup" href="../../../../index.html">
+        <img class="brand-logo" src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo officiel RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Créateur de la RMS Suite — branding unifié.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 RMS Launchpad — Suite métiers hors ligne.</p>
+    </footer>
+
+    <script type="module" src="../scripts/cards.js"></script>
+  </body>
+</html>

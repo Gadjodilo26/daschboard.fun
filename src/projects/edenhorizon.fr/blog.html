@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eden Horizon — Présentation des publications (client)</title>
+  <meta name="description" content="Landing de présentation client : liste des 10 publications Eden Horizon avec visuels et textes d'annonce Facebook." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#0E3A52; /* bleu pétrole */
+      --accent:#23B6A9;  /* turquoise */
+      --ink:#12222d;     /* texte principal */
+      --muted:#6a7f8e;   /* texte secondaire */
+      --bg:#f7fbfa;      /* fond */
+      --radius:16px;
+      --shadow:0 10px 32px rgba(14,58,82,.12);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .hero{
+      display:grid; place-items:center; text-align:center; color:#fff;
+      background: radial-gradient(900px 420px at 15% -10%, rgba(35,182,169,.25), transparent 60%),
+                  linear-gradient(120deg,#0E3A52, #23B6A9);
+      padding: 24px 18px 0;
+    }
+    .hero img{width:min(1100px,92vw); height:auto; border-radius:18px; box-shadow:var(--shadow); margin-bottom:-40px}
+    h1{font-family:Montserrat,Inter,sans-serif; font-weight:800; font-size:clamp(24px,3.6vw,38px); margin:18px 0 6px}
+    .lead{color:#e9fffb; opacity:.9; margin:0 0 24px}
+    .shell{max-width:var(--maxw); margin:0 auto; padding:56px 18px 60px}
+    .grid{display:grid; gap:18px; grid-template-columns:1fr}
+    @media(min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+    .card{
+      background:#fff; border:1px solid rgba(14,58,82,.07); border-radius:18px; overflow:hidden; box-shadow:var(--shadow)
+    }
+    .thumb{aspect-ratio:1/1; width:100%; object-fit:cover; display:block}
+    .body{padding:16px 16px 18px}
+    .kicker{color:var(--accent); font-weight:800; font-size:12px; letter-spacing:.28px; text-transform:uppercase}
+    .title{font-family:Montserrat,Inter,sans-serif; font-weight:800; font-size:clamp(16px,2vw,20px); margin:6px 0 6px; color:var(--primary)}
+    .links{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 4px}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700;
+      padding:10px 14px; border-radius:999px; background:linear-gradient(180deg,#23B6A9,#189b95); color:#fff;
+      box-shadow:0 8px 20px rgba(35,182,169,.28);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    details{margin-top:10px; border:1px solid rgba(14,58,82,.08); border-radius:12px; padding:10px 12px; background:#f8fbfb}
+    details summary{cursor:pointer; font-weight:700; color:#153a49}
+    .fb{font-size:14px; color:#1d2f3a; line-height:1.6; margin-top:8px}
+    .foot{max-width:var(--maxw); margin:0 auto 40px; padding:0 18px; color:var(--muted); text-align:center}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Pré-sélection des 10 publications — Présentation client</h1>
+    <p class="lead">Aperçu des pages blog, visuels Facebook et textes d’annonce associés.</p>
+    <img src="https://www.daschboard.fun/VisuelEden/Visuelblog.png" alt="Aperçu des publications Eden Horizon">
+  </section>
+
+  <main class="shell">
+    <div class="grid">
+
+      <!-- 1 -->
+      <article class="card">
+        <a href="./blog%231.html"><img class="thumb" src="https://www.daschboard.fun/VisuelEden/Visuelblog%231.png" alt="Publication 1 — Rentabilité & performance"></a>
+        <div class="body">
+          <div class="kicker">Publication #1</div>
+          <h2 class="title">Rentabilité & performance</h2>
+          <div class="links">
+            <a class="btn" href="./blog%231.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🔑 <strong>Et si votre bien pouvait rapporter plus, sans le moindre stress ?</strong><br>
+              Chez <strong>Eden Horizon</strong>, nous aidons les propriétaires à <strong>augmenter leur rentabilité de +15 à +35 %</strong>, tout en garantissant un <strong>loyer fixe</strong> et une <strong>gestion 100 % encadrée</strong>.<br>
+              Plus de vacance, plus d’imprévus — juste des revenus stables, dans un cadre <strong>légal et transparent</strong>.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card">
+        <a href="./blog%232.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%232.png" alt="Publication 2 — Partenariat gagnant"></a>
+        <div class="body">
+          <div class="kicker">Publication #2</div>
+          <h2 class="title">Le pouvoir d’un partenariat gagnant</h2>
+          <div class="links">
+            <a class="btn" href="./blog%232.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🤝 <strong>Et si votre bien devenait source de revenus garantis, sans les tracas de la gestion ?</strong><br>
+              Chez <strong>Eden Horizon</strong>, vous gardez le contrôle, nous gérons la performance : <strong>loyer garanti</strong>, <strong>zéro vacance</strong>, <strong>gestion clé en main</strong> et <strong>100 % encadrée</strong>.<br>
+              Un partenariat gagnant, transparent et durable.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card">
+        <a href="./blog%233.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%233.png" alt="Publication 3 — Avant / Après"></a>
+        <div class="body">
+          <div class="kicker">Publication #3</div>
+          <h2 class="title">Avant / Après — La différence Eden Horizon</h2>
+          <div class="links">
+            <a class="btn" href="./blog%233.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              📊 <strong>Et si votre bien pouvait passer du stress locatif… à la sérénité financière ?</strong><br>
+              Avant : revenus irréguliers, vacance, imprévus à gérer.<br>
+              Avec <strong>Eden Horizon</strong> : <strong>loyer garanti</strong>, <strong>zéro mois vacant</strong>, <strong>tranquillité retrouvée</strong>.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card">
+        <a href="./blog%234.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%234.png" alt="Publication 4 — Légalité"></a>
+        <div class="body">
+          <div class="kicker">Publication #4</div>
+          <h2 class="title">Sous-location légale, vraiment ?</h2>
+          <div class="links">
+            <a class="btn" href="./blog%234.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              ⚖️ <strong>Sous-location légale, vraiment ?</strong> Oui… à condition d’être <strong>encadrée et autorisée</strong>.<br>
+              <strong>Autorisation écrite</strong>, <strong>contrat conforme</strong>, <strong>assurances adaptées</strong> : avec Eden Horizon, la conformité est un pilier, pas une option.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card">
+        <a href="./blog%235.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%235.png" alt="Publication 5 — Protection"></a>
+        <div class="body">
+          <div class="kicker">Publication #5</div>
+          <h2 class="title">Votre bien, protégé.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%235.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🛡️ <strong>Votre bien mérite plus qu’une simple gestion : une vraie protection.</strong><br>
+              Contrats clairs, <strong>assurances adaptées</strong>, <strong>suivi visuel</strong> et maintenance planifiée.<br>
+              <strong>Zéro stress</strong>, <strong>zéro vacance</strong>, <strong>sérénité</strong>.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card">
+        <a href="./blog%236.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%236.png" alt="Publication 6 — Responsabilité"></a>
+        <div class="body">
+          <div class="kicker">Publication #6</div>
+          <h2 class="title">Votre bien, notre responsabilité.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%236.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🏡 <strong>Votre bien n’est pas un simple logement.</strong> C’est un lieu qui mérite attention et respect.<br>
+              Nous en prenons soin comme de notre propre outil de travail : <strong>entretien régulier</strong>, <strong>suivi visuel</strong>, <strong>gestes de soin</strong> continus.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card">
+        <a href="./blog%237.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%237.png" alt="Publication 7 — Confiance"></a>
+        <div class="body">
+          <div class="kicker">Publication #7</div>
+          <h2 class="title">La confiance, ça se construit.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%237.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🤝 <strong>La confiance ne se décrète pas, elle se prouve.</strong><br>
+              Transparence totale, <strong>communication claire</strong>, <strong>engagements tenus</strong> — une collaboration durable qui respecte la parole donnée.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 8 -->
+      <article class="card">
+        <a href="./blog%238.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%238.png" alt="Publication 8 — Durabilité"></a>
+        <div class="body">
+          <div class="kicker">Publication #8</div>
+          <h2 class="title">Un bien entretenu, c’est une histoire qui dure.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%238.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🌿 <strong>Un bien n’est pas qu’un logement : c’est un patrimoine vivant.</strong><br>
+              Entretiens réguliers, <strong>usage mesuré</strong>, <strong>suivi transparent</strong> — un soin durable pour préserver la valeur du lieu.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="card">
+        <a href="./blog%239.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%239.png" alt="Publication 9 — Institutionnel"></a>
+        <div class="body">
+          <div class="kicker">Publication #9</div>
+          <h2 class="title">Solide, structuré, responsable.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%239.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🏛️ <strong>La solidité d’un modèle ne se mesure pas aux promesses, mais à sa structure.</strong><br>
+              Procédures maîtrisées, <strong>organisation rigoureuse</strong>, <strong>contrôles qualité</strong> et conformité : la méthode avant le discours.
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- 10 -->
+      <article class="card">
+        <a href="./blog%2310.html"><img class="thumb" src="https://daschboard.fun/VisuelEden/Visuelblog%2310.png" alt="Publication 10 — Vision durable"></a>
+        <div class="body">
+          <div class="kicker">Publication #10</div>
+          <h2 class="title">Une vision durable de la location.</h2>
+          <div class="links">
+            <a class="btn" href="./blog%2310.html">Ouvrir la page</a>
+          </div>
+          <details>
+            <summary>Voir l’annonce Facebook</summary>
+            <div class="fb">
+              🌅 <strong>Construire, c’est penser au long terme.</strong><br>
+              Une location <strong>légale</strong>, <strong>soignée</strong> et <strong>transparente</strong> : notre approche responsable, tournée vers l’avenir.
+            </div>
+          </details>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div>Présentation interne — Eden Horizon • Page dédiée à votre client</div>
+  </footer>
+</body>
+</html>
+

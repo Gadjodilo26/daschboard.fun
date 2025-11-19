@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RMS Suite — Mode d’emploi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="styles/app.css">
+  </head>
+  <body class="app theme-default density-normal layout-classic orientation-portrait" data-rms-branding="native">
+    <header class="service-toolbar" role="banner">
+      <div class="service-branding">
+        <img src="../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Signature RMS Suite</small>
+        </span>
+      </div>
+      <nav class="service-toolbar-actions">
+        <a class="btn btn-link" href="index.html">← Retour à l’accueil</a>
+        <a class="btn btn-outline" href="services/devis.html">Module Devis</a>
+        <a class="btn btn-outline" href="services/factures.html">Module Facture</a>
+        <a class="btn btn-outline" href="services/cartes.html">Module Cartes</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="feature-section" aria-labelledby="guide-title">
+        <header class="feature-header">
+          <div>
+            <p class="feature-kicker">Mode d’emploi RMS Suite</p>
+            <h1 id="guide-title">Comprendre, structurer et sécuriser vos documents hors ligne</h1>
+            <p>Cette page détaille la méthode recommandée pour exploiter pleinement RMS Suite : création du dossier local <code>rms-suite</code>, gestion des imports/exports JSON et circulation des données entre les modules.</p>
+          </div>
+          <div class="feature-actions module-toolbar">
+            <a class="btn btn-primary" href="services/devis.html">Commencer un devis</a>
+            <a class="btn btn-outline" href="services/factures.html">Émettre une facture</a>
+          </div>
+        </header>
+
+        <article class="panel" aria-labelledby="section-overview">
+          <h2 id="section-overview">1. Principe général</h2>
+          <p>RMS Suite fonctionne entièrement côté navigateur et ne stocke rien automatiquement. Toutes vos données restent sur votre machine, afin de garantir la confidentialité et de permettre un usage hors connexion. Les formulaires (émetteur, clients, lignes d’articles) peuvent être exportés sous forme de fichiers JSON, que vous organisez ensuite dans votre dossier <strong>rms-suite</strong>.</p>
+          <ul>
+            <li><strong>Autonomie totale :</strong> aucune base de données, pas de compte à créer.</li>
+            <li><strong>Interopérabilité :</strong> les fichiers JSON sont réimportables dans chaque module (devis, factures, cartes).</li>
+            <li><strong>Traçabilité :</strong> chaque export contient l’état complet du document au moment de la sauvegarde.</li>
+          </ul>
+        </article>
+
+        <article class="panel" aria-labelledby="section-folder">
+          <h2 id="section-folder">2. Créer et organiser le dossier <code>rms-suite</code></h2>
+          <p>Pour garder vos documents en ordre, créez un dossier dédié sur votre poste (ordinateur, clé USB, drive synchronisé, etc.) :</p>
+          <div class="hero-actions">
+            <button type="button" class="btn btn-primary" id="download-folder-template">
+              Télécharger le kit dossier
+            </button>
+          </div>
+          <p class="guide-note">
+            Le fichier <strong>rms-suite-starter.zip</strong> sera enregistré dans votre dossier <em>Téléchargements</em>. Décompressez-le puis déplacez le dossier <code>rms-suite</code> sur votre Bureau ou dans l’emplacement de votre choix pour avoir vos exports sous la main.
+          </p>
+          <div class="panel">
+            <h3>Structure recommandée</h3>
+            <pre><code>rms-suite/
+├── profils/
+│   └── societe-principale.company.json
+├── devis/
+│   └── DEV-20240515-045.quote.json
+├── factures/
+│   └── FAC-20240530-012.invoice.json
+├── projets/
+│   └── projet-horizon.project.json
+└── cartes/
+    └── carte-camille.card.json</code></pre>
+          </div>
+          <p>Vous pouvez bien sûr adapter cette structure à vos besoins. L’important est de conserver un nommage explicite (numéro de devis/facture, client, date) et de ne pas mélanger les types de fichiers.</p>
+        </article>
+
+        <article class="panel" aria-labelledby="section-json">
+          <h2 id="section-json">3. Comprendre les exports JSON</h2>
+          <p>Chaque module propose un bouton <strong>Exporter</strong> (format JSON). Ce fichier contient :</p>
+          <ul>
+            <li>les coordonnées de l’émetteur (raison sociale, mentions légales, logo encodé) ;</li>
+            <li>les données propres au document (client, articles, options de calcul, conditions) ;</li>
+            <li>le type de fichier via la clé <code>kind</code> (<code>"companyProfile"</code>, <code>"project"</code>, <code>"quote"</code>, <code>"invoice"</code>, <code>"card"</code>).</li>
+          </ul>
+          <p>Au moment de l’import, RMS Suite détecte automatiquement ce type et route le contenu vers le formulaire concerné. Par exemple :</p>
+          <ul>
+            <li>Importer un <code>.company.json</code> recharge le profil émetteur sur la landing et dans chaque module.</li>
+            <li>Importer un <code>.project.json</code> ajoute les clients/lignes dans les formulaires Devis/Facture.</li>
+            <li>Les devis (<code>.quote.json</code>) peuvent être réutilisés tels quels pour générer une facture en conservant la même structure d’articles.</li>
+          </ul>
+          <p>Astuce : ouvrez les fichiers JSON avec un éditeur de texte pour vérifier leur contenu ou créer des variantes rapides.</p>
+        </article>
+
+        <article class="panel" aria-labelledby="section-workflow">
+          <h2 id="section-workflow">4. Workflow conseillé</h2>
+          <ol>
+            <li><strong>Renseignez votre profil entreprise</strong> sur la landing, puis exportez un fichier <code>.company.json</code> que vous placerez dans <code>rms-suite/profils/</code>.</li>
+            <li><strong>Préparez vos projets récurrents</strong> (client + prestations) via la section “Projets &amp; clients” de la landing, puis exportez un <code>.project.json</code>.</li>
+            <li><strong>Dans le module Devis :</strong> importez le profil et/ou le projet, complétez les informations restantes, puis exportez le devis final (<code>.quote.json</code>) et imprimez le PDF.</li>
+            <li><strong>Dans le module Factures :</strong> importez le devis ou le projet pour récupérer les lignes, ajustez les dates et conditions, puis exportez la facture (<code>.invoice.json</code>) et imprimez.</li>
+            <li><strong>Dans le module Cartes :</strong> importez le profil entreprise pour récupérer logo, site web et coordonnées, puis exportez la carte en JSON et en image PNG.</li>
+          </ol>
+          <p>Pensez à versionner vos documents (par exemple en ajoutant <code>-v2</code>, <code>-v3</code> au nom du fichier) et à conserver les exports JSON en parallèle des PDF imprimés.</p>
+        </article>
+
+        <article class="panel" aria-labelledby="section-offline">
+          <h2 id="section-offline">5. Utilisation hors ligne &amp; sécurité</h2>
+          <ul>
+            <li><strong>Mode hors connexion :</strong> une fois la page chargée, vous pouvez couper Internet. Toutes les opérations (saisie, calculs, impression) fonctionnent localement.</li>
+            <li><strong>Sauvegarde de vos données :</strong> RMS Suite n’écrit rien sur votre disque tant que vous n’utilisez pas l’export. Il est donc indispensable d’enregistrer régulièrement vos fichiers JSON.</li>
+            <li><strong>Logo et QR code :</strong> les images sont intégrées dans les exports (base64). Le lecteur de QR code doit être capable de lire des liens HTTPS uniquement.</li>
+            <li><strong>Respect RGPD :</strong> en conservant vos fichiers localement, vous contrôlez les données personnelles de vos clients.</li>
+          </ul>
+        </article>
+
+        <article class="panel" aria-labelledby="section-faq">
+          <h2 id="section-faq">6. Questions fréquentes</h2>
+          <dl>
+            <dt>Le dossier <code>rms-suite</code> est-il obligatoire ?</dt>
+            <dd>Vous pouvez utiliser un autre dossier, mais ce nom facilite la reconnaissance automatique lorsque vous ouvrez un répertoire via la section “Ressources” de la landing.</dd>
+
+            <dt>Puis-je partager mes modèles avec un collègue ?</dt>
+            <dd>Oui, copiez simplement les fichiers JSON sur une clé USB ou un espace partagé. Ils pourront être importés sur un autre poste.</dd>
+
+            <dt>Comment conserver une trace de mes documents ?</dt>
+            <dd>Pour chaque devis/facture, conservez à la fois le fichier JSON (permet de repartir d’un brouillon) et le PDF généré via l’impression navigateur.</dd>
+
+            <dt>Les exports JSON sont-ils compatibles avec d’autres outils ?</dt>
+            <dd>Ils suivent une structure simple (clef <code>kind</code> et objet <code>data</code>). Vous pouvez créer vos propres scripts pour les intégrer dans un ERP, un tableur ou un logiciel de comptabilité.</dd>
+          </dl>
+        </article>
+
+        <article class="panel" aria-labelledby="section-next">
+          <h2 id="section-next">7. Prochaines étapes</h2>
+          <p>Vous êtes prêt à utiliser RMS Suite. Commencez par compléter votre profil entreprise, puis enchaînez avec les modules :</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="index.html#company-section">Compléter mon profil</a>
+            <a class="btn btn-outline" href="index.html#project-section">Préparer un projet</a>
+            <a class="btn" href="services/devis.html">Créer un devis</a>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer class="app-footer">
+      <a class="brand-lockup" href="../../../index.html">
+        <img class="brand-logo" src="../../assets/img/logo/logoOfficielRMS.svg" alt="Logo officiel RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Créateur de la RMS Suite — branding unifié.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 RMS Launchpad — Suite métiers hors ligne.</p>
+    </footer>
+    <script>
+      const RMS_SUITE_ZIP_BASE64 = `
+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
+      `;
+      const folderButton = document.getElementById("download-folder-template");
+      if (folderButton) {
+        folderButton.addEventListener("click", () => {
+          try {
+            const cleaned = RMS_SUITE_ZIP_BASE64.replace(/\s+/g, "");
+            const binary = atob(cleaned);
+            const buffer = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i += 1) {
+              buffer[i] = binary.charCodeAt(i);
+            }
+            const blob = new Blob([buffer], { type: "application/zip" });
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = "rms-suite-starter.zip";
+            document.body.append(anchor);
+            anchor.click();
+            anchor.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+          } catch (error) {
+            console.error("Impossible de générer le dossier modèle.", error);
+            alert("Téléchargement impossible. Réessayez ou créez le dossier manuellement.");
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

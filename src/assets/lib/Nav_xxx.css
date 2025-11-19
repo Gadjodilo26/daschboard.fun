@@ -1,0 +1,168 @@
+/*Reset CSS*/
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+
+/*menu déroulant avec sous menu*/
+
+/*HTML
+
+<nav>
+<label for="mobile"><img src=""</label>
+<input type="checkbox" id="mobile" role="button">
+
+<ul class="menu">
+  <li class="deroulant"><a href="#">####</a>
+    <ul class="sous">
+      <li><a href="###">#################</a></li>
+      <li><a href="###">#################</a></li>
+    </ul>
+  </li>
+  <li class="deroulant"><a href="#">####</a>
+    <ul class="sous">
+      <li><a href="###">################</a></li>
+      <li><a href="###">################</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+
+HTML*/
+
+@media screen and (max-width: 980px) {
+
+:root {
+  /*CONFIG VAR*/
+  
+  /*MOBILE*/
+
+
+  /*Config barre label*/
+
+  --label-backrground: none;
+  --label-width: 100%;
+  --label-height: auto;
+  --label-padding: 0;
+  --label-margin: 0;
+
+  /*Config menu*/
+
+--menu-width: ;
+--menu-height: ;
+
+/* vertical | horizontal */
+/* haut | horizontal | bas */
+/* haut | droit | bas | gauche */
+--menu-margin: ;
+--menu-padding: ;
+
+--menu-background: ;
+--menu-border: ;
+--menu-radius: ;
+--menu-shadow: 0px 4px 10px #ccc;
+
+
+  
+
+}
+
+
+  .menu {
+    list-style-type: none;
+    display: none;
+    z-index: 1;
+  }
+
+  label {
+    top: 0;
+    z-index: 5;
+    position: fixed;
+    text-align: center;
+
+    width: var(--label-width, 100%);
+    height: var(--label-height, 50px);
+    background-color: var(--label-backrground, black);
+    padding: var(--label-padding, 0);
+    margin: var(--label-margin, 0);
+
+  }
+
+  nav input[type=checkbox] {
+    display: none;
+  }
+
+  nav input[type=checkbox]:checked+ul {
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--menu-width,98%);
+    height: var(--menu-height,auto);
+    background-color: var(--menu-background,black);
+    margin:var(--menu-margin,50px 0 0 0 );
+    padding: var(--menu-padding, 0 0 0 0 );
+    box-shadow: var(--menu-shadow, 0px 0px 10px #eee7e7,
+    0px 0px 30px #111111);
+    border: var(--menu-border,0.5px solid aliceblue);
+    border-radius: var(--menu-radius,15px);
+  }
+
+  .deroulant {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    background-color: darkgray;
+
+  }
+
+  .deroulant a {
+    text-decoration: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid aliceblue;
+    color: aliceblue;
+
+  }
+
+
+  .sous {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+  }
+
+  .sous a {
+
+    border-bottom: 1px solid transparent;
+
+  }
+
+  .sous li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+
+  }
+}

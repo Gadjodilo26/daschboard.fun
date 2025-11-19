@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exports & sauvegardes — Atelier Entreprendre</title>
+    <link rel="stylesheet" href="styles.css">
+  <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="exports">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">Atelier Entreprendre</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html" class="is-active" aria-current="page">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="panel__content">
+        <header class="panel__header">
+          <h1>Exports &amp; sauvegardes</h1>
+          <p>Conservez vos hypothèses, générez un PDF et archivez vos scénarios JSON pour itérer ou partager.</p>
+        </header>
+        <div class="export-guide">
+          <article class="tech-card">
+            <h3>Pourquoi exporter ?</h3>
+            <ul>
+              <li>Chaque fichier JSON contient toutes les hypothèses + le suivi de frais.</li>
+              <li>Tu peux en conserver plusieurs versions (ex : scénario optimiste / prudent).</li>
+              <li>Ces fichiers sont lisibles et ré-importables depuis cette même page.</li>
+            </ul>
+          </article>
+          <article class="tech-card">
+            <h3>Sauvegarde auto</h3>
+            <ul>
+              <li>Le bouton “Sauvegarde auto” écrit les données en local (<code>atelier-entreprendre</code>).</li>
+              <li>Désactive-le avant d’importer un scénario pour éviter d’écraser ton brouillon.</li>
+              <li>Pour repartir de zéro, utilise “Réinitialiser” (les fichiers JSON restent intacts).</li>
+            </ul>
+          </article>
+        </div>
+        <div class="export-callout export-callout--inline">
+          <article>
+            <h4>Exporter</h4>
+            <p>1. Clique “Exporter le scénario (JSON)”.<br>2. Range le fichier dans ton dossier projet.<br>3. (Optionnel) Imprime le PDF pour ton banquier.</p>
+          </article>
+          <article>
+            <h4>Importer</h4>
+            <p>1. Clique “Importer un scénario”.<br>2. Choisis un JSON sauvegardé.<br>3. Les pages se rechargent avec ce scénario.</p>
+          </article>
+        </div>
+        <div class="export-actions">
+          <button class="btn btn--primary" id="btn-print" type="button">Imprimer / PDF</button>
+          <button class="btn btn--secondary" id="btn-export-json" type="button">Exporter le scénario (JSON)</button>
+          <label class="btn btn--outline btn--file">
+            Importer un scénario
+            <input type="file" id="input-import-json" accept="application/json">
+          </label>
+          <button class="btn btn--ghost" id="btn-reset" type="button">Réinitialiser</button>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

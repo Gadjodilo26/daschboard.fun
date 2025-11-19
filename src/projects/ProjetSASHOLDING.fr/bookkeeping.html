@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des frais — Atelier Entreprendre</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="bookkeeping">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">Atelier Entreprendre</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html" class="is-active" aria-current="page">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel__content">
+          <div class="panel__header">
+            <div>
+              <h1>Gestion des frais &amp; factures</h1>
+              <p>Suivez vos encaissements/décaissements pour construire un bilan mensuel fiable.</p>
+            </div>
+            <div>
+              <p class="form__hint">Mois suivi : <strong id="bookkeeping-month-label"></strong></p>
+            </div>
+          </div>
+          <div id="bookkeeping-summary" class="metrics-grid"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__content">
+          <div class="panel__header">
+            <div>
+              <h2>Ajouter / modifier une écriture</h2>
+              <p class="form__hint">Saisissez vos factures, notes de frais ou encaissements puis affectez-les au calendrier.</p>
+            </div>
+          </div>
+          <form id="bookkeeping-form" class="form">
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Date</span>
+                <input type="date" name="entry-date" required>
+              </label>
+              <label class="form__field">
+                <span>Nature</span>
+                <select name="entry-type">
+                  <option value="income">Entrée (recette)</option>
+                  <option value="expense">Sortie (dépense)</option>
+                </select>
+              </label>
+              <label class="form__field">
+                <span>Statut</span>
+                <select name="entry-status">
+                  <option value="prévu">Prévu</option>
+                  <option value="enregistré" selected>Enregistré</option>
+                  <option value="payé">Payé</option>
+                </select>
+              </label>
+            </div>
+            <div class="form__grid form__grid--2">
+              <label class="form__field">
+                <span>Libellé</span>
+                <input type="text" name="entry-label" maxlength="80" placeholder="Ex : Facture client pilote">
+              </label>
+              <label class="form__field">
+                <span>Catégorie</span>
+                <select name="entry-category">
+                  <option value="Revenus principaux">Revenus principaux</option>
+                  <option value="Autres revenus">Autres revenus</option>
+                  <option value="Marketing &amp; acquisition">Marketing &amp; acquisition</option>
+                  <option value="Fournitures &amp; production">Fournitures &amp; production</option>
+                  <option value="Abonnements &amp; logiciels">Abonnements &amp; logiciels</option>
+                  <option value="Logistique &amp; déplacements">Logistique &amp; déplacements</option>
+                  <option value="Assurances">Assurances</option>
+                  <option value="Salaires &amp; charges">Salaires &amp; charges</option>
+                  <option value="Honoraires &amp; conseils">Honoraires &amp; conseils</option>
+                  <option value="Investissements &amp; matériel">Investissements &amp; matériel</option>
+                  <option value="Autre charge">Autre charge</option>
+                </select>
+              </label>
+            </div>
+            <div class="form__grid form__grid--2">
+              <label class="form__field">
+                <span>Montant (€)</span>
+                <input type="number" name="entry-amount" min="0" step="0.01" required>
+              </label>
+              <label class="form__field">
+                <span>Notes</span>
+                <textarea name="entry-notes" rows="2" placeholder="Référence facture, mode de paiement, etc."></textarea>
+              </label>
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary" data-role="submit">Enregistrer l’écriture</button>
+              <button type="button" class="btn btn--ghost" id="bookkeeping-cancel-edit">Réinitialiser</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__content">
+          <div class="panel__header">
+            <div>
+              <h2>Écritures mensuelles</h2>
+              <p class="form__hint">Filtrez par mois puis exportez vos écritures pour archivage JSON.</p>
+            </div>
+            <div class="bookkeeping-actions">
+              <label class="form__field">
+                <span>Mois suivi</span>
+                <input type="month" id="bookkeeping-month-filter">
+              </label>
+              <button type="button" class="btn btn--outline" id="bookkeeping-export">Exporter JSON</button>
+              <label class="btn btn--ghost btn--small">
+                Importer JSON
+                <input type="file" id="bookkeeping-import" accept="application/json" hidden>
+              </label>
+            </div>
+          </div>
+          <div id="bookkeeping-entries"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

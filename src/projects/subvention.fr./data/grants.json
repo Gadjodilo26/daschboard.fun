@@ -1,0 +1,3552 @@
+[
+  {
+    "id": "d4ebd951-bfc9-453c-a255-de905a175971",
+    "title": "Compte Personnel de Formation (CPF)",
+    "source": "Caisse des Dépôts",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement",
+      "services à la personne"
+    ],
+    "naf": [
+      "85.59A",
+      "88.10A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant",
+      "association"
+    ],
+    "eligibility": "Salariés, indépendants et demandeurs d'emploi cumulant 500 € par an (800 € pour les moins qualifiés) jusqu'à 5 000 € pour financer des formations certifiantes via MonCompteFormation.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 5000,
+      "rate": null,
+      "notes": "Crédit annuel mobilisable à tout moment sur la plateforme officielle."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-15",
+    "link": "https://www.moncompteformation.gouv.fr/",
+    "tags": [
+      "formation",
+      "reconversion",
+      "compétences"
+    ],
+    "documents": [
+      {
+        "label": "Guide CPF 2025",
+        "url": "https://www.learnthings.fr/guide/types-formation/professionnelle/aides/"
+      }
+    ]
+  },
+  {
+    "id": "70037829-d9b8-44cd-b7f3-f476b509dcc0",
+    "title": "Projet de Transition Professionnelle (PTP)",
+    "source": "Transitions Pro",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "enseignement",
+      "industrie"
+    ],
+    "naf": [
+      "85.42Z",
+      "43.99B"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Salariés souhaitant changer de métier avec formation certifiante financée et maintien de 55% à 100% du salaire pendant la formation (temps plein ou partiel).",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 24000,
+      "rate": 0.9,
+      "notes": "Prise en charge des frais pédagogiques, rémunération calculée selon le salaire de référence."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-10",
+    "link": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/",
+    "tags": [
+      "reconversion",
+      "formation",
+      "salariés"
+    ],
+    "documents": [
+      {
+        "label": "Fiche PTP",
+        "url": "https://travail-emploi.gouv.fr/le-projet-de-transition-professionnelle"
+      }
+    ]
+  },
+  {
+    "id": "c97638d3-9646-428d-be8f-3cf5df820ecc",
+    "title": "PTP Prévention Usure – Reconversion",
+    "source": "Transitions Pro",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "industrie",
+      "santé"
+    ],
+    "naf": [
+      "43.99C",
+      "86.90E"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "Salariés exposés aux contraintes physiques bénéficiant d'un congé reconversion avec cofinancement employeur de 5% et maintien de la rémunération.",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 25000,
+      "rate": 0.95,
+      "notes": "Cofinancement employeur 5% des coûts pédagogiques."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-10",
+    "link": "https://travail-emploi.gouv.fr/le-projet-de-transition-professionnelle",
+    "tags": [
+      "prévention",
+      "santé",
+      "reconversion"
+    ],
+    "documents": [
+      {
+        "label": "Note prévention usure",
+        "url": "https://www.transitionspro-idf.fr/actualites/options-financement-de-la-reconversion-professionnelle/"
+      }
+    ]
+  },
+  {
+    "id": "6a288aa5-0454-4950-80fb-ed6724fb676a",
+    "title": "Aide Individuelle à la Formation (AIF)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement",
+      "insertion"
+    ],
+    "naf": [
+      "85.59A"
+    ],
+    "audience": [
+      "association",
+      "indépendant"
+    ],
+    "eligibility": "Demandeurs d'emploi finançant une formation non couverte par d'autres dispositifs, après validation du conseiller France Travail.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 8000,
+      "rate": 1.0,
+      "notes": "Complète les financements existants pour couvrir l'intégralité des frais pédagogiques."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-05",
+    "link": "https://www.je-change-de-metier.com/financement-reconversion-professionnelle",
+    "tags": [
+      "formation",
+      "demandeur d'emploi",
+      "insertion"
+    ],
+    "documents": [
+      {
+        "label": "Guide AIF",
+        "url": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/"
+      }
+    ]
+  },
+  {
+    "id": "d4ea4f0f-11ce-42e9-8556-8f64308801cb",
+    "title": "Rémunération des Formations de France Travail (RFPE)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement",
+      "insertion"
+    ],
+    "naf": [
+      "85.59A"
+    ],
+    "audience": [
+      "association"
+    ],
+    "eligibility": "Demandeurs d'emploi non indemnisés suivant une formation agréée et percevant jusqu'à 712,40 € par mois pendant 3 ans.",
+    "amount": {
+      "type": "subvention",
+      "min": 350,
+      "max": 25646,
+      "rate": null,
+      "notes": "Montant lié à la durée de la formation et aux heures suivies."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/",
+    "tags": [
+      "formation",
+      "revenu",
+      "insertion"
+    ],
+    "documents": [
+      {
+        "label": "RFPE",
+        "url": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/"
+      }
+    ]
+  },
+  {
+    "id": "3ed60ecb-d631-4439-995a-91288a82f898",
+    "title": "Rémunération de Fin de Formation (RFF)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement",
+      "insertion"
+    ],
+    "naf": [
+      "85.59A"
+    ],
+    "audience": [
+      "association"
+    ],
+    "eligibility": "Allocation maintenue quand les droits au chômage s'épuisent avant la fin d'une formation qualifiante suivie avec France Travail.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 2000,
+      "rate": null,
+      "notes": "Montant mensuel calé sur la RFPE ou l'ARE restante."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/",
+    "tags": [
+      "formation",
+      "revenu",
+      "sécurité"
+    ],
+    "documents": [
+      {
+        "label": "RFF",
+        "url": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/"
+      }
+    ]
+  },
+  {
+    "id": "9f822aaa-3f77-4ba7-a2fa-375e156967c8",
+    "title": "Action de Formation Conventionnée (AFC)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "85.59A",
+      "56.10A"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Formations achetées par France Travail pour répondre aux besoins en compétences locaux avec prise en charge totale des coûts pédagogiques.",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 12000,
+      "rate": 1.0,
+      "notes": "Formations gratuites pour le bénéficiaire, allocations selon situation."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.transitionspro.fr/blog/financer-reconversion/ce-qui-est-finance/quelles-sont-les-aides-financieres-pour-une-reconversion-professionnelle/",
+    "tags": [
+      "formation",
+      "compétences",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "AFC",
+        "url": "https://travail-emploi.gouv.fr/acces-emploi/insertion-professionnelle-des-jeunes"
+      }
+    ]
+  },
+  {
+    "id": "3bd769df-962d-4a53-8c80-83039fed2e02",
+    "title": "Subvention modernisation commerces et artisans",
+    "source": "Collectivités",
+    "level": "local",
+    "region": "France entière",
+    "sectors": [
+      "artisanat",
+      "services à la personne"
+    ],
+    "naf": [
+      "47.19B",
+      "95.22Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Commerçants et artisans de moins de 10 salariés finançant agencement, sécurisation ou digitalisation avec subvention jusqu'à 25% plafonnée à 15 000 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 4000,
+      "max": 15000,
+      "rate": 0.25,
+      "notes": "Investissement minimum entre 4 000 et 7 500 € selon le territoire."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-22",
+    "link": "https://www.fonds-publics.fr/aides/aide-commercants-artisans",
+    "tags": [
+      "commerce",
+      "modernisation",
+      "artisanat"
+    ],
+    "documents": [
+      {
+        "label": "Aide commerces-artisans",
+        "url": "https://les-aides.fr/aide/KIVf3w/ca-du-pays-de-laon/aide-a-l-investissement-des-artisans-et-des-commercants.html"
+      }
+    ]
+  },
+  {
+    "id": "2c145342-df71-41c0-bbc5-95b9ea332696",
+    "title": "Aide investissement artisans & TPE numériques",
+    "source": "France Num",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "artisanat",
+      "numérique"
+    ],
+    "naf": [
+      "32.13Z",
+      "62.01Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Artisans et TPE finançant outils numériques, cybersécurité ou e-commerce avec subventions jusqu'à 50% des dépenses.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 20000,
+      "rate": 0.5,
+      "notes": "Cumulable avec le Pass France Num et les aides régionales."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-20",
+    "link": "https://www.francenum.gouv.fr/aides-financieres/aide-linvestissement-des-artisans-commercants-et-tpe",
+    "tags": [
+      "numérique",
+      "artisanat",
+      "transformation"
+    ],
+    "documents": [
+      {
+        "label": "Fiche France Num",
+        "url": "https://www.francenum.gouv.fr/aides-financieres/aide-linvestissement-des-artisans-commercants-et-tpe"
+      }
+    ]
+  },
+  {
+    "id": "b022bc36-b932-4a5f-acc5-7f68e5b54a3b",
+    "title": "Aide à la Création ou Reprise d'Entreprise (ACRE)",
+    "source": "Urssaf",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "artisanat",
+      "numérique",
+      "services à la personne"
+    ],
+    "naf": [
+      "62.02A",
+      "88.10A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Créateurs ou repreneurs bénéficiant d'une exonération partielle ou totale de cotisations sociales la première année d'activité.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 15000,
+      "rate": 0.65,
+      "notes": "Exonération dégressive selon le revenu professionnel."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-05",
+    "link": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html",
+    "tags": [
+      "création",
+      "cotisations",
+      "entrepreneuriat"
+    ],
+    "documents": [
+      {
+        "label": "Dossier ACRE",
+        "url": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html"
+      }
+    ]
+  },
+  {
+    "id": "7536d974-d988-4628-a107-24b9fb1dc5e7",
+    "title": "Maintien ARE pour créateurs",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "artisanat",
+      "numérique",
+      "services à la personne"
+    ],
+    "naf": [
+      "62.01Z",
+      "96.09Z"
+    ],
+    "audience": [
+      "indépendant",
+      "micro-entreprise"
+    ],
+    "eligibility": "Demandeurs d'emploi créateurs conservant leur allocation chômage mensuelle pendant la phase de lancement de l'activité.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 25000,
+      "rate": null,
+      "notes": "Versement mensuel tant que l'activité ne génère pas de revenus supérieurs à l'ARE."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-05",
+    "link": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html",
+    "tags": [
+      "création",
+      "revenu",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "Guide ARE maintien",
+        "url": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html"
+      }
+    ]
+  },
+  {
+    "id": "5d8bd5e3-0d3c-4667-a34d-4ad6375b84a9",
+    "title": "Aide à la Reprise ou Création d'Entreprise (ARCE)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "VTC",
+      "artisanat",
+      "numérique"
+    ],
+    "naf": [
+      "49.39A",
+      "62.09Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Demandeurs d'emploi percevant 60% des droits ARE restants en deux versements pour financer leur projet entrepreneurial.",
+    "amount": {
+      "type": "avance",
+      "min": 3000,
+      "max": 40000,
+      "rate": null,
+      "notes": "Deux versements à 6 mois d'intervalle conditionnés à l'activité."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-05",
+    "link": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html",
+    "tags": [
+      "création",
+      "capital",
+      "entrepreneuriat"
+    ],
+    "documents": [
+      {
+        "label": "ARCE",
+        "url": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html"
+      }
+    ]
+  },
+  {
+    "id": "c1a64b25-3f21-4f02-be1f-234f4fc945af",
+    "title": "Contrat d'Engagement Jeune (CEJ)",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "88.99B",
+      "96.09Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Jeunes 16-29 ans éloignés de l'emploi accompagnés intensivement et percevant une allocation pouvant aller jusqu'à 528 € par mois.",
+    "amount": {
+      "type": "subvention",
+      "min": 100,
+      "max": 6336,
+      "rate": null,
+      "notes": "Montant conditionné à l'engagement dans le parcours et à l'assiduité."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://travail-emploi.gouv.fr/acces-emploi/insertion-professionnelle-des-jeunes",
+    "tags": [
+      "jeunesse",
+      "insertion",
+      "formation"
+    ],
+    "documents": [
+      {
+        "label": "Fiche CEJ",
+        "url": "https://travail-emploi.gouv.fr/acces-emploi/insertion-professionnelle-des-jeunes"
+      }
+    ]
+  },
+  {
+    "id": "f7938cec-36ef-4d58-afee-d91367ee9cca",
+    "title": "Statut National Étudiant-Entrepreneur",
+    "source": "Ministère de l'Enseignement supérieur",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement",
+      "numérique"
+    ],
+    "naf": [
+      "85.42Z",
+      "62.02A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "association"
+    ],
+    "eligibility": "Étudiants porteurs de projet entrepreneurial accompagnés par le réseau PEPITE avec accès à un diplôme d'établissement et du mentorat.",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 5000,
+      "rate": null,
+      "notes": "Accompagnement en nature, accès aux espaces de coworking et mentors."
+    },
+    "deadline": "2025-10-31",
+    "updated_at": "2025-02-05",
+    "link": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html",
+    "tags": [
+      "startup",
+      "étudiants",
+      "mentorat"
+    ],
+    "documents": [
+      {
+        "label": "PEPITE",
+        "url": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html"
+      }
+    ]
+  },
+  {
+    "id": "1ce6156c-b3cf-4209-83db-b79838eb7b29",
+    "title": "Aide régionale jeunes créateurs",
+    "source": "Régions",
+    "level": "régional",
+    "region": "France entière",
+    "sectors": [
+      "artisanat",
+      "culture",
+      "numérique"
+    ],
+    "naf": [
+      "90.03A",
+      "32.12Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Jeunes de moins de 26 ans pouvant mobiliser subventions ou prêts d'honneur régionaux dédiés selon leur territoire.",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 30000,
+      "rate": 0.45,
+      "notes": "Conditions spécifiques par région, cumulable avec ACRE et CEJ."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-04",
+    "link": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html",
+    "tags": [
+      "jeunesse",
+      "entrepreneuriat",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Panorama aides jeunes",
+        "url": "https://les-aides.fr/actualites/dw8/toutes-les-aides-a-la-creation-d-entreprise-en-2025-guide-par-profil.html"
+      }
+    ]
+  },
+  {
+    "id": "474a255d-52ae-40d0-a316-5386af23ccfb",
+    "title": "Droits à Paiement de Base (DPB) PAC",
+    "source": "ASP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.11Z",
+      "01.13Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Exploitants agricoles reconnus actifs percevant 127 € par DPB en moyenne sous condition de surfaces admissibles.",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 150000,
+      "rate": null,
+      "notes": "Montant dépendant du portefeuille de DPB détenus et activés."
+    },
+    "deadline": "2025-05-15",
+    "updated_at": "2025-03-08",
+    "link": "https://agriculture.gouv.fr/la-pac-2023-2027-en-un-coup-doeil",
+    "tags": [
+      "PAC",
+      "revenu",
+      "agriculture"
+    ],
+    "documents": [
+      {
+        "label": "DPB 2025",
+        "url": "https://marne.chambres-agriculture.fr/sinformer/reglementation/detail-reglementation/politique-agricole-commune-pac"
+      }
+    ]
+  },
+  {
+    "id": "75eeec50-5d1d-42a9-9ff7-0733f8a58edb",
+    "title": "Écorégime PAC",
+    "source": "ASP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.45Z",
+      "01.30Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Agriculteurs engagés dans les pratiques agroécologiques percevant une prime de 49,69 à 97,30 €/ha selon le niveau d'ambition.",
+    "amount": {
+      "type": "subvention",
+      "min": 4969,
+      "max": 97300,
+      "rate": null,
+      "notes": "Montants calculés sur la surface admissible déclarée."
+    },
+    "deadline": "2025-05-15",
+    "updated_at": "2025-03-08",
+    "link": "https://conseilenagriculture.fr/calculer-aides-pac/",
+    "tags": [
+      "écologie",
+      "agriculture",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "Guide écorégime",
+        "url": "https://agriculture.gouv.fr/la-pac-2023-2027-en-un-coup-doeil"
+      }
+    ]
+  },
+  {
+    "id": "fa50b0a6-0bc3-4c9e-9883-a3b9ceaa60d5",
+    "title": "Aide redistributive complémentaire PAC",
+    "source": "ASP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.19Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Petites et moyennes exploitations percevant une majoration sur les premiers hectares déclarés (52 premiers ha en moyenne).",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 25000,
+      "rate": null,
+      "notes": "Montant variable selon la taille des surfaces éligibles."
+    },
+    "deadline": "2025-05-15",
+    "updated_at": "2025-03-07",
+    "link": "https://www.asp.gouv.fr/aides/aides-de-la-politique-agricole-commune-pac",
+    "tags": [
+      "PAC",
+      "structuration",
+      "revenu"
+    ],
+    "documents": [
+      {
+        "label": "Aide redistributive",
+        "url": "https://www.asp.gouv.fr/aides/aides-de-la-politique-agricole-commune-pac"
+      }
+    ]
+  },
+  {
+    "id": "577ddfc8-ba39-4f95-9396-db29c52bb955",
+    "title": "Indemnité Compensatoire de Handicap Naturel (ICHN)",
+    "source": "ASP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.45Z",
+      "01.42Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Exploitations situées en zones défavorisées percevant une indemnité pour compenser les surcoûts liés aux handicaps naturels.",
+    "amount": {
+      "type": "subvention",
+      "min": 3500,
+      "max": 40000,
+      "rate": null,
+      "notes": "Conditions d'éligibilité liées aux surfaces fourragères et au chargement."
+    },
+    "deadline": "2025-05-15",
+    "updated_at": "2025-03-07",
+    "link": "https://www.asp.gouv.fr/aides/aides-de-la-politique-agricole-commune-pac",
+    "tags": [
+      "territoires",
+      "montagne",
+      "PAC"
+    ],
+    "documents": [
+      {
+        "label": "Fiche ICHN",
+        "url": "https://agriculture.gouv.fr/la-pac-2023-2027-en-un-coup-doeil"
+      }
+    ]
+  },
+  {
+    "id": "6c16636a-02bb-43c2-a57a-8ab0087681d5",
+    "title": "Mesures Agro-Environnementales et Climatiques (MAEC)",
+    "source": "Ministère de l'Agriculture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.13Z",
+      "01.50Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant",
+      "micro-entreprise"
+    ],
+    "eligibility": "Exploitations s'engageant sur des itinéraires agroécologiques (prairies, biodiversité, réductions intrants) avec primes pluriannuelles.",
+    "amount": {
+      "type": "subvention",
+      "min": 3000,
+      "max": 60000,
+      "rate": 0.8,
+      "notes": "Contrats de 5 ans avec engagements précis et contrôles annuels."
+    },
+    "deadline": "2025-06-30",
+    "updated_at": "2025-03-07",
+    "link": "https://agriculture.gouv.fr/la-pac-2023-2027-en-un-coup-doeil",
+    "tags": [
+      "transition",
+      "agroécologie",
+      "PAC"
+    ],
+    "documents": [
+      {
+        "label": "MAEC",
+        "url": "https://www.asp.gouv.fr/aides/aides-de-la-politique-agricole-commune-pac"
+      }
+    ]
+  },
+  {
+    "id": "913ec61d-601f-4030-b404-6ce1230d99fa",
+    "title": "Aides couplées productions animales et végétales",
+    "source": "Ministère de l'Agriculture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.21Z",
+      "01.23Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Production bovine, ovine, caprine ou grandes cultures percevant des aides couplées en fonction des têtes ou hectares déclarés.",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 80000,
+      "rate": null,
+      "notes": "Montants calculés selon les références nationales par filière."
+    },
+    "deadline": "2025-05-15",
+    "updated_at": "2025-03-07",
+    "link": "https://www.asp.gouv.fr/aides/aides-de-la-politique-agricole-commune-pac",
+    "tags": [
+      "élevage",
+      "filière",
+      "PAC"
+    ],
+    "documents": [
+      {
+        "label": "Aides couplées",
+        "url": "https://agriculture.gouv.fr/la-pac-2023-2027-en-un-coup-doeil"
+      }
+    ]
+  },
+  {
+    "id": "c300b676-7c7b-4e59-832d-146c5512aaed",
+    "title": "Contrat d'Aide à l'Installation des Médecins (CAIM)",
+    "source": "Assurance Maladie",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "santé"
+    ],
+    "naf": [
+      "86.21Z"
+    ],
+    "audience": [
+      "indépendant"
+    ],
+    "eligibility": "Médecins s'installant 5 ans en zone prioritaire percevant un forfait jusqu'à 50 000 € avec bonus de 2 500 € en hôpital de proximité.",
+    "amount": {
+      "type": "subvention",
+      "min": 20000,
+      "max": 52500,
+      "rate": null,
+      "notes": "Versement en deux étapes : installation puis pérennisation."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.macsf.fr/exercice-liberal/s-installer/aides-financieres-installation-liberale",
+    "tags": [
+      "santé",
+      "installation",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Guide CAIM",
+        "url": "https://urpsml-centre.org/wp-content/uploads/2022/09/URPS-GUIDE-QUELLES-AIDES-POUR-LINSTALLATION-1-1.pdf"
+      }
+    ]
+  },
+  {
+    "id": "7665b9f2-ebb7-4d54-8d38-cf6937860656",
+    "title": "Contrat d'Engagement de Service Public (CESP)",
+    "source": "Ministère de la Santé",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "santé"
+    ],
+    "naf": [
+      "86.22A"
+    ],
+    "audience": [
+      "indépendant"
+    ],
+    "eligibility": "Étudiants en médecine ou odontologie percevant 1 200 € brut mensuels et s'engageant à exercer en zone fragile.",
+    "amount": {
+      "type": "subvention",
+      "min": 7200,
+      "max": 57600,
+      "rate": null,
+      "notes": "Bourse versée durant les études avec durée d'engagement équivalente."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.grand-est.ars.sante.fr/media/14534/download",
+    "tags": [
+      "santé",
+      "bourse",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Fiche CESP",
+        "url": "https://www.macsf.fr/exercice-liberal/s-installer/aides-financieres-installation-liberale"
+      }
+    ]
+  },
+  {
+    "id": "cd9f7841-58d2-4a70-83c4-78ef015bf6f9",
+    "title": "Contrat de début d'exercice / COSCOM",
+    "source": "Assurance Maladie",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "santé"
+    ],
+    "naf": [
+      "86.22A"
+    ],
+    "audience": [
+      "indépendant"
+    ],
+    "eligibility": "Médecins libéraux en zone sous-dotée bénéficiant d'un soutien financier pour structurer leur offre et coordonner le parcours patient.",
+    "amount": {
+      "type": "subvention",
+      "min": 6000,
+      "max": 35000,
+      "rate": null,
+      "notes": "Primes modulées selon l'activité déclarée et les missions de coordination."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.grand-est.ars.sante.fr/media/14534/download",
+    "tags": [
+      "santé",
+      "coordination",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Guide installation",
+        "url": "https://www.grand-est.ars.sante.fr/media/14534/download"
+      }
+    ]
+  },
+  {
+    "id": "3dbd5a26-ac1c-4264-8371-a2516c055f76",
+    "title": "Soutien Île-de-France professionnels de santé libéraux",
+    "source": "Région Île-de-France",
+    "level": "régional",
+    "region": "Île-de-France",
+    "sectors": [
+      "santé"
+    ],
+    "naf": [
+      "86.90E",
+      "86.21Z"
+    ],
+    "audience": [
+      "indépendant"
+    ],
+    "eligibility": "Cabinets libéraux finançant mobilier, informatique ou sécurisation (50% à 70% des dépenses) jusqu'à 30 000 € par cabinet.",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 30000,
+      "rate": 0.7,
+      "notes": "Plafond de 15 000 € par type d'équipement avec bonus sécurisation."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.iledefrance.fr/aides-et-appels-a-projets/soutien-au-maintien-et-la-securisation-des-professionnels-de-sante-liberaux",
+    "tags": [
+      "santé",
+      "infrastructures",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Dispositif IDF santé",
+        "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/soutien-au-maintien-et-la-securisation-des-professionnels-de-sante-liberaux"
+      }
+    ]
+  },
+  {
+    "id": "057dc2d4-1857-4da6-96bd-ca893ace26a9",
+    "title": "Certificats d'Économie d'Énergie (CEE)",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "industrie",
+      "services à la personne"
+    ],
+    "naf": [
+      "43.29A",
+      "35.30Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "association"
+    ],
+    "eligibility": "Entreprises réalisant des travaux d'efficacité énergétique (pompes à chaleur, isolation) cumulant primes CEE jusqu'à 11 €/m² ou 10 800 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 50000,
+      "rate": 0.4,
+      "notes": "Montants plafonnés selon les fiches d'opérations standardisées."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-05",
+    "link": "https://sonergia.fr/guide-des-aides/autres-aides/5-aides-financieres-pour-renover-une-maison-ancienne/",
+    "tags": [
+      "énergie",
+      "rénovation",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "Guide CEE",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/aides-financieres-renovation-energetique"
+      }
+    ]
+  },
+  {
+    "id": "2b479dbd-ecd4-4bf1-a078-9a339ebe6947",
+    "title": "Plan France Relance - Bâtiments publics",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP"
+    ],
+    "naf": [
+      "43.39Z",
+      "84.11Z"
+    ],
+    "audience": [
+      "collectivité",
+      "association"
+    ],
+    "eligibility": "Collectivités rénovant leurs bâtiments publics avec enveloppe nationale de 4 Md€ pour atteindre 30% d'économie d'énergie.",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 4500000,
+      "rate": 0.5,
+      "notes": "Financement conditionné à un audit énergétique et à des gains mesurés."
+    },
+    "deadline": "2025-09-30",
+    "updated_at": "2025-03-06",
+    "link": "https://www.ecologie.gouv.fr/politiques-publiques/savoir-renovation-energetique",
+    "tags": [
+      "rénovation",
+      "collectivités",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "France Relance Bâtiments",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/savoir-renovation-energetique"
+      }
+    ]
+  },
+  {
+    "id": "2f0ee43d-9bdf-41fc-988b-4bd976dfddce",
+    "title": "Rénovation énergétique collectivités Île-de-France",
+    "source": "Région Île-de-France",
+    "level": "régional",
+    "region": "Île-de-France",
+    "sectors": [
+      "BTP"
+    ],
+    "naf": [
+      "84.11Z",
+      "43.39Z"
+    ],
+    "audience": [
+      "collectivité"
+    ],
+    "eligibility": "Collectivités <20 000 habitants finançant 50% des travaux (plafond 450 000 €) avec gain énergétique d'au moins 30%.",
+    "amount": {
+      "type": "subvention",
+      "min": 30000,
+      "max": 450000,
+      "rate": 0.5,
+      "notes": "Obligation de présenter un plan de performance énergétique."
+    },
+    "deadline": "2025-10-31",
+    "updated_at": "2025-03-05",
+    "link": "https://www.iledefrance.fr/aides-et-appels-a-projets/renovation-energetique-des-batiments-publics",
+    "tags": [
+      "collectivités",
+      "rénovation",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "Aide IDF rénovation",
+        "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/renovation-energetique-des-batiments-publics"
+      }
+    ]
+  },
+  {
+    "id": "191b583e-3137-4031-a7e0-662501563101",
+    "title": "Prêt GPI Ambre Caisse des Dépôts",
+    "source": "Caisse des Dépôts",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "industrie"
+    ],
+    "naf": [
+      "43.39Z",
+      "84.11Z"
+    ],
+    "audience": [
+      "collectivité",
+      "entreprise"
+    ],
+    "eligibility": "Collectivités finançant la rénovation énergétique via prêt à taux fixe exigeant 30% d'économie d'énergie minimum.",
+    "amount": {
+      "type": "prêt",
+      "min": 500000,
+      "max": 5000000,
+      "rate": 0.015,
+      "notes": "Différé d'amortissement possible selon la durée du projet."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-05",
+    "link": "https://france-renov.gouv.fr/collectivites/financements",
+    "tags": [
+      "financement",
+      "rénovation",
+      "collectivités"
+    ],
+    "documents": [
+      {
+        "label": "Prêt GPI Ambre",
+        "url": "https://france-renov.gouv.fr/collectivites/financements"
+      }
+    ]
+  },
+  {
+    "id": "2bff08a0-7ced-4ea8-9dcd-9f7ddfee88bc",
+    "title": "Bonus écologique véhicules VTC",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "VTC"
+    ],
+    "naf": [
+      "49.39A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "indépendant",
+      "entreprise"
+    ],
+    "eligibility": "Chauffeurs VTC achetant un véhicule électrique/hybride rechargeable percevant jusqu'à 7 000 € selon les émissions.",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 7000,
+      "rate": null,
+      "notes": "Montant dépend de la masse et des émissions de CO2 du véhicule."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-28",
+    "link": "https://www.roadstr.fr/blog/articles/aide-vtc-voiture-hybride/",
+    "tags": [
+      "mobilité",
+      "transition",
+      "transport"
+    ],
+    "documents": [
+      {
+        "label": "Bonus VTC",
+        "url": "https://www.roadstr.fr/blog/articles/aide-vtc-voiture-hybride/"
+      }
+    ]
+  },
+  {
+    "id": "f2c75f96-6bf3-40f0-8584-48601db0ebed",
+    "title": "Prime à la conversion flotte VTC",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "VTC"
+    ],
+    "naf": [
+      "49.39A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Chauffeurs remplaçant un ancien véhicule thermique par un modèle propre et cumulant la prime à la conversion avec le bonus écologique.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 9000,
+      "rate": null,
+      "notes": "Montant selon revenu fiscal et type de véhicule mis au rebut."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-28",
+    "link": "https://actu.rentalsolution.fr/posts/chauffeur-vtc-comment-financer-son-vehicule-professionnel",
+    "tags": [
+      "transition",
+      "transport",
+      "VTC"
+    ],
+    "documents": [
+      {
+        "label": "Prime conversion VTC",
+        "url": "https://actu.rentalsolution.fr/posts/chauffeur-vtc-comment-financer-son-vehicule-professionnel"
+      }
+    ]
+  },
+  {
+    "id": "e7f69389-3851-4c20-9ef0-0312f851e6b5",
+    "title": "CPF financement carte professionnelle VTC",
+    "source": "Caisse des Dépôts",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "VTC",
+      "enseignement"
+    ],
+    "naf": [
+      "49.39A",
+      "85.59A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Candidats VTC mobilisant leur CPF pour financer la formation initiale ou la formation continue obligatoire.",
+    "amount": {
+      "type": "subvention",
+      "min": 1200,
+      "max": 3500,
+      "rate": 1.0,
+      "notes": "Prise en charge totale possible via CPF ou Pôle emploi."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-27",
+    "link": "https://www.vtc-solutions.com/financement-vtc/",
+    "tags": [
+      "formation",
+      "transport",
+      "certification"
+    ],
+    "documents": [
+      {
+        "label": "Guide financement VTC",
+        "url": "https://www.vtc-solutions.com/financement-vtc/"
+      }
+    ]
+  },
+  {
+    "id": "c0036c6c-b128-47ec-bf97-3ec6293cda14",
+    "title": "Aide à l'embauche de jeunes CHR",
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "services à la personne"
+    ],
+    "naf": [
+      "56.10A",
+      "55.10Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Restaurants, hôtels et cafés recrutant un jeune de moins de 26 ans en CDI ou CDD ≥ 6 mois perçoivent jusqu'à 5 000 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 3000,
+      "max": 5000,
+      "rate": null,
+      "notes": "Versée sur 12 mois, conditionnée au maintien du contrat."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-03",
+    "link": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/",
+    "tags": [
+      "emploi",
+      "jeunesse",
+      "CHR"
+    ],
+    "documents": [
+      {
+        "label": "Guide embauche jeunes",
+        "url": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/"
+      }
+    ]
+  },
+  {
+    "id": "5837fb4c-4e1d-417d-8e78-3b67bf8e149d",
+    "title": "Aide apprentissage secteur CHR",
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "enseignement"
+    ],
+    "naf": [
+      "56.10A",
+      "85.59A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Employeurs CHR percevant 6 000 € pour la première année d'un contrat d'apprentissage signé en 2025.",
+    "amount": {
+      "type": "subvention",
+      "min": 6000,
+      "max": 6000,
+      "rate": null,
+      "notes": "Montant réduit à 5 000 € à partir de février 2025 pour certains diplômes."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-03",
+    "link": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/",
+    "tags": [
+      "apprentissage",
+      "formation",
+      "CHR"
+    ],
+    "documents": [
+      {
+        "label": "Aide apprentis CHR",
+        "url": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/"
+      }
+    ]
+  },
+  {
+    "id": "388ed427-e7b7-4bd5-b466-f03d78b46fde",
+    "title": "Prime contrats de professionnalisation CHR",
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "enseignement"
+    ],
+    "naf": [
+      "56.30Z",
+      "85.59A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Employeurs percevant jusqu'à 6 000 € pour un contrat de professionnalisation jeune ou demandeur d'emploi.",
+    "amount": {
+      "type": "subvention",
+      "min": 4000,
+      "max": 6000,
+      "rate": null,
+      "notes": "Montant modulé selon l'âge et le statut du bénéficiaire."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-03",
+    "link": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/",
+    "tags": [
+      "emploi",
+      "formation",
+      "CHR"
+    ],
+    "documents": [
+      {
+        "label": "Contrats pro CHR",
+        "url": "https://www.emploichr.net/actualites/aides-embauche-hotellerie-restauration-2025/"
+      }
+    ]
+  },
+  {
+    "id": "e4e5e0ff-b9e0-4614-b3e1-6fb717786b70",
+    "title": "Prêt Garanti par l'État (PGE) CHR",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "industrie"
+    ],
+    "naf": [
+      "55.30Z",
+      "56.10B"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Entreprises CHR accédant au PGE jusqu'à 25% du CA 2019 ou 2x la masse salariale avec différé d'un an.",
+    "amount": {
+      "type": "prêt",
+      "min": 30000,
+      "max": 5000000,
+      "rate": 0.02,
+      "notes": "Taux 1% à 2,5%, garantie d'État jusqu'à 90%."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.joy.io/blog/quelles-aides-pour-les-cafes-hotels-restaurants-chr",
+    "tags": [
+      "trésorerie",
+      "relance",
+      "CHR"
+    ],
+    "documents": [
+      {
+        "label": "PGE CHR",
+        "url": "https://www.joy.io/blog/quelles-aides-pour-les-cafes-hotels-restaurants-chr"
+      }
+    ]
+  },
+  {
+    "id": "5875a267-24c8-4a9f-a630-2d97cdc3fce4",
+    "title": "France 2030 – Décarbonation de l'industrie",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie"
+    ],
+    "naf": [
+      "24.10Z",
+      "28.12Z"
+    ],
+    "audience": [
+      "entreprise",
+      "collectivité"
+    ],
+    "eligibility": "Projets industriels réduisant leurs émissions de CO2 avec aides modulées selon la taille (subventions + avances).",
+    "amount": {
+      "type": "subvention",
+      "min": 200000,
+      "max": 5000000,
+      "rate": 0.5,
+      "notes": "Aide mixte subvention et avance remboursable."
+    },
+    "deadline": "2025-11-30",
+    "updated_at": "2025-03-06",
+    "link": "https://www.fonds-publics.fr/domaines/industrie",
+    "tags": [
+      "décarbonation",
+      "industrie",
+      "innovation"
+    ],
+    "documents": [
+      {
+        "label": "France 2030 Industrie",
+        "url": "https://www.fonds-publics.fr/domaines/industrie"
+      }
+    ]
+  },
+  {
+    "id": "822978a8-ae37-4d2f-b7f3-2e00e85f9b47",
+    "title": "Crédit d'Impôt Innovation (CII)",
+    "source": "Ministère de l'Économie",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "62.01Z",
+      "72.19Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "PME innovantes déduisant 20% de leurs dépenses d'innovation plafonnées à 400 000 € jusqu'au 31 décembre 2027.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 80000,
+      "rate": 0.2,
+      "notes": "Crédit d'impôt imputable ou remboursable."
+    },
+    "deadline": "2027-12-31",
+    "updated_at": "2025-03-06",
+    "link": "https://www.fonds-publics.fr/domaines/industrie",
+    "tags": [
+      "fiscalité",
+      "innovation",
+      "R&D"
+    ],
+    "documents": [
+      {
+        "label": "Fiche CII",
+        "url": "https://www.fonds-publics.fr/domaines/industrie"
+      }
+    ]
+  },
+  {
+    "id": "a6fb30c5-f713-4482-994c-461faa3d5955",
+    "title": "Prêt Bpifrance Modernisation Industrie",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "28.49Z",
+      "62.02A"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "PME/ETI finançant machines et modernisation via prêts Bpifrance avec différé jusqu'à 2 ans.",
+    "amount": {
+      "type": "prêt",
+      "min": 50000,
+      "max": 5000000,
+      "rate": 0.03,
+      "notes": "Peut compléter un plan de financement bancaire."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-06",
+    "link": "https://www.fonds-publics.fr/projets/achatmodernisation-machines-equipements",
+    "tags": [
+      "investissement",
+      "industrie",
+      "modernisation"
+    ],
+    "documents": [
+      {
+        "label": "Modernisation Bpifrance",
+        "url": "https://www.fonds-publics.fr/projets/achatmodernisation-machines-equipements"
+      }
+    ]
+  },
+  {
+    "id": "6256340e-dd2d-4924-8458-edf1d5c382a2",
+    "title": "Subventions ADEME équipements performants",
+    "source": "ADEME",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "agriculture",
+      "industrie"
+    ],
+    "naf": [
+      "28.29B",
+      "43.99C"
+    ],
+    "audience": [
+      "entreprise",
+      "collectivité"
+    ],
+    "eligibility": "Aides ADEME pour équipements écologiques (fonds chaleur, économie circulaire, air-bois) avec taux selon analyse économique.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 1000000,
+      "rate": 0.6,
+      "notes": "Plafond selon le plan de financement et l'aide d'État autorisée."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://agirpourlatransition.ademe.fr/entreprises/aides-financieres",
+    "tags": [
+      "énergie",
+      "transition",
+      "industrie"
+    ],
+    "documents": [
+      {
+        "label": "Catalogue ADEME",
+        "url": "https://agirpourlatransition.ademe.fr/entreprises/aides-financieres"
+      }
+    ]
+  },
+  {
+    "id": "e36e3c87-85f4-4423-a4a8-5f58c9a88a86",
+    "title": "FEDER Transition énergétique & innovation",
+    "source": "Commission européenne",
+    "level": "européen",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "28.12Z",
+      "62.09Z"
+    ],
+    "audience": [
+      "entreprise",
+      "collectivité",
+      "association"
+    ],
+    "eligibility": "Projets régionaux de transition énergétique et d'innovation financés à 40-60% des dépenses éligibles.",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 2000000,
+      "rate": 0.6,
+      "notes": "Co-financement européen FEDER via programmes régionaux."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-06",
+    "link": "https://ecogreenenergy.fr/guide-subventions-industrie/",
+    "tags": [
+      "Europe",
+      "transition",
+      "innovation"
+    ],
+    "documents": [
+      {
+        "label": "Guide FEDER",
+        "url": "https://ecogreenenergy.fr/guide-subventions-industrie/"
+      }
+    ]
+  },
+  {
+    "id": "8579cab2-f82a-4b70-af84-25f2243a125e",
+    "title": "Programme Usine du Futur Nouvelle-Aquitaine",
+    "source": "Région Nouvelle-Aquitaine",
+    "level": "régional",
+    "region": "Nouvelle-Aquitaine",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "28.49Z",
+      "62.01Z"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "PME/ETI 10 à 500 salariés bénéficiant de 10 jours d'expertise gratuits pour transformer leurs process.",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 15000,
+      "rate": null,
+      "notes": "Accompagnement en nature valorisé en équivalent subvention."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-05",
+    "link": "https://www.francenum.gouv.fr/aides-financieres/programme-usine-du-futur",
+    "tags": [
+      "accompagnement",
+      "industrie",
+      "transformation"
+    ],
+    "documents": [
+      {
+        "label": "Usine du Futur",
+        "url": "https://www.francenum.gouv.fr/aides-financieres/programme-usine-du-futur"
+      }
+    ]
+  },
+  {
+    "id": "52c10919-2f83-4175-87fd-9f13a1143bd3",
+    "title": "Rebond Industriel",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie"
+    ],
+    "naf": [
+      "28.11Z",
+      "25.11Z"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "PME réalisant un projet d'investissement mature ≥ 400 k€ sur 24 mois accompagnées via subventions et avances.",
+    "amount": {
+      "type": "avance",
+      "min": 200000,
+      "max": 2000000,
+      "rate": null,
+      "notes": "Aide mixte subvention/avance remboursable selon la zone."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-05",
+    "link": "https://rebond-industriel.bpifrance.fr",
+    "tags": [
+      "industrie",
+      "investissement",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Rebond industriel",
+        "url": "https://rebond-industriel.bpifrance.fr"
+      }
+    ]
+  },
+  {
+    "id": "e870f971-87a4-4efd-b1ac-7f090216b48b",
+    "title": "Appel à projets Première Usine",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "28.99A",
+      "72.19Z"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "Startups industrielles implantant leur première unité de production avec aides 60% subvention /40% avances pour dépenses >5 M€.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000000,
+      "max": 15000000,
+      "rate": 0.3,
+      "notes": "Taux modulé selon l'ancrage territorial et l'innovation."
+    },
+    "deadline": "2025-09-30",
+    "updated_at": "2025-03-05",
+    "link": "https://les-aides.fr/aide/ZWBP3w/bpifrance/appel-a-projets-premiere-usine.html",
+    "tags": [
+      "industrie",
+      "startup",
+      "innovation"
+    ],
+    "documents": [
+      {
+        "label": "Première Usine",
+        "url": "https://les-aides.fr/aide/ZWBP3w/bpifrance/appel-a-projets-premiere-usine.html"
+      }
+    ]
+  },
+  {
+    "id": "159f7a58-9122-48d0-a02d-92cf775a1ded",
+    "title": "Bourse French Tech Emergence",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "numérique"
+    ],
+    "naf": [
+      "62.01Z",
+      "72.19Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Startups deeptech de moins d'un an bénéficiant jusqu'à 90 000 € couvrant 70% des dépenses de faisabilité.",
+    "amount": {
+      "type": "subvention",
+      "min": 30000,
+      "max": 90000,
+      "rate": 0.7,
+      "notes": "Ciblé sur les innovations de rupture avant levée de fonds."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.aread.eu/2024/12/03/5-aides-financieres-pour-soutenir-linnovation-en-2025/",
+    "tags": [
+      "startup",
+      "innovation",
+      "deeptech"
+    ],
+    "documents": [
+      {
+        "label": "French Tech Emergence",
+        "url": "https://www.acsio-conseil.com/subventions-innovation/"
+      }
+    ]
+  },
+  {
+    "id": "95270fe6-a6b6-4391-9c3b-83562f650eee",
+    "title": "Fonds Parisien pour l'Innovation (FPI)",
+    "source": "Ville de Paris",
+    "level": "local",
+    "region": "Île-de-France",
+    "sectors": [
+      "culture",
+      "numérique"
+    ],
+    "naf": [
+      "62.02A",
+      "90.04G"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "Startups parisiennes incubées finançant leur preuve de concept avec subvention jusqu'à 30 000 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 30000,
+      "rate": 0.5,
+      "notes": "Projet réalisé à Paris avec retombées locales."
+    },
+    "deadline": "2025-11-30",
+    "updated_at": "2025-03-04",
+    "link": "https://modelesdebusinessplan.com/blogs/infos/financement-startup-tech-france",
+    "tags": [
+      "innovation",
+      "startup",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "FPI Paris",
+        "url": "https://modelesdebusinessplan.com/blogs/infos/financement-startup-tech-france"
+      }
+    ]
+  },
+  {
+    "id": "9f25cee2-8c3c-47c8-af69-b0810523afea",
+    "title": "Subvention Innovation Bpifrance",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "62.02A",
+      "72.19Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "PME finançant études de faisabilité avec subvention couvrant 70% des dépenses dans la limite de 50 000 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 50000,
+      "rate": 0.7,
+      "notes": "Couvre prestations externes, salaires et propriété intellectuelle."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.minobia.ai/2025/06/09/aides-subventions-2025-pme-financer-ia-digital/",
+    "tags": [
+      "innovation",
+      "IA",
+      "PME"
+    ],
+    "documents": [
+      {
+        "label": "Subvention Innovation",
+        "url": "https://www.minobia.ai/2025/06/09/aides-subventions-2025-pme-financer-ia-digital/"
+      }
+    ]
+  },
+  {
+    "id": "590ff7fc-040c-43f9-b02e-db189b041b2d",
+    "title": "Avance Innovation Bpifrance",
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "62.09Z",
+      "28.99A"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "PME financées jusqu'à 65% des dépenses entre 50 000 et 3 M€ via avance remboursable conditionnée au succès.",
+    "amount": {
+      "type": "avance",
+      "min": 50000,
+      "max": 3000000,
+      "rate": null,
+      "notes": "Remboursement en cas de succès commercial, franchise jusqu'à 5 ans."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.minobia.ai/2025/06/09/aides-subventions-2025-pme-financer-ia-digital/",
+    "tags": [
+      "innovation",
+      "financement",
+      "PME"
+    ],
+    "documents": [
+      {
+        "label": "Avance Innovation",
+        "url": "https://www.minobia.ai/2025/06/09/aides-subventions-2025-pme-financer-ia-digital/"
+      }
+    ]
+  },
+  {
+    "id": "27cc1498-0bf5-43fd-b64e-9b5d415f5c76",
+    "title": "Programme French Tech 2030",
+    "source": "Mission French Tech",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "numérique"
+    ],
+    "naf": [
+      "72.19Z",
+      "26.11Z"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "Startups scale-up ayant levé ≥ 3 M€ depuis 2023 et TRL ≥6, accompagnées sur les filières stratégiques (cloud, IA, spatial).",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 200000,
+      "rate": null,
+      "notes": "Accompagnement personnalisé, accès aux financeurs publics et privés."
+    },
+    "deadline": "2025-09-01",
+    "updated_at": "2025-03-04",
+    "link": "https://lafrenchtech.gouv.fr/fr/programme/french-tech-2030/",
+    "tags": [
+      "startup",
+      "souveraineté",
+      "innovation"
+    ],
+    "documents": [
+      {
+        "label": "French Tech 2030",
+        "url": "https://lafrenchtech.gouv.fr/fr/programme/french-tech-2030/"
+      }
+    ]
+  },
+  {
+    "id": "dd833adf-b29b-46f7-a5ef-e85be47558cf",
+    "title": "Chèque Numérique Île-de-France",
+    "source": "Région Île-de-France",
+    "level": "régional",
+    "region": "Île-de-France",
+    "sectors": [
+      "artisanat",
+      "numérique"
+    ],
+    "naf": [
+      "62.02A",
+      "32.12Z"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "TPE/PME franciliennes finançant communication digitale et cybersécurité avec aide forfaitaire de 1 500 €.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 1500,
+      "rate": null,
+      "notes": "Couvre prestations de communication, visibilité internationale pour les métiers d'art."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://say-digital.io/blog/les-dispositifs-daide-financieres-2025-pour-la-transformation-numerique-et-la-cybersecurite-quelles-opportunites-pour-les-entreprises/",
+    "tags": [
+      "numérique",
+      "cybersécurité",
+      "PME"
+    ],
+    "documents": [
+      {
+        "label": "Chèque numérique IDF",
+        "url": "https://say-digital.io/blog/les-dispositifs-daide-financieres-2025-pour-la-transformation-numerique-et-la-cybersecurite-quelles-opportunites-pour-les-entreprises/"
+      }
+    ]
+  },
+  {
+    "id": "b85cf8d6-133d-427a-9435-f517e56de76e",
+    "title": "Tarifs d'achat énergies renouvelables",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture",
+      "industrie"
+    ],
+    "naf": [
+      "35.11Z",
+      "35.14Z"
+    ],
+    "audience": [
+      "entreprise",
+      "collectivité",
+      "association"
+    ],
+    "eligibility": "Producteurs ENR <500 kW (3 MW éolien) bénéficiant de tarifs d'achat garantis, avec primes pour les installations supérieures via appels d'offres.",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 500000,
+      "rate": null,
+      "notes": "Mécanisme de complément de rémunération sur 20 ans."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-03",
+    "link": "https://www.ecologie.gouv.fr/politiques-publiques/dispositifs-soutien-aux-energies-renouvelables",
+    "tags": [
+      "énergie",
+      "renouvelable",
+      "tarif"
+    ],
+    "documents": [
+      {
+        "label": "Soutiens ENR",
+        "url": "https://www.ecologie.gouv.fr/politiques-publiques/dispositifs-soutien-aux-energies-renouvelables"
+      }
+    ]
+  },
+  {
+    "id": "dd3cff88-8fe7-433d-b284-a8b468660674",
+    "title": "Impulsion Environnement Normandie",
+    "source": "Région Normandie",
+    "level": "régional",
+    "region": "Normandie",
+    "sectors": [
+      "BTP",
+      "industrie"
+    ],
+    "naf": [
+      "35.30Z",
+      "43.39A"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "TPE/PME investissant dans photovoltaïque, méthanisation, hydrogène ou process bas carbone via subvention ou prêt à taux zéro.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 300000,
+      "rate": 0.5,
+      "notes": "Inéligible aux entreprises B2C et exploitations agricoles."
+    },
+    "deadline": "2025-10-31",
+    "updated_at": "2025-03-03",
+    "link": "https://mission-transition-ecologique.beta.gouv.fr/aides-entreprise/impulsion-environnement",
+    "tags": [
+      "transition",
+      "industrie",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Impulsion Environnement",
+        "url": "https://mission-transition-ecologique.beta.gouv.fr/aides-entreprise/impulsion-environnement"
+      }
+    ]
+  },
+  {
+    "id": "8722d841-0818-4a8b-b6f6-6c8914093f58",
+    "title": "Prime Énergie CEE",
+    "source": "Fournisseurs d'énergie",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "services à la personne"
+    ],
+    "naf": [
+      "43.99D",
+      "96.09Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "association"
+    ],
+    "eligibility": "Prime énergie accessible aux propriétaires ou occupants réalisant isolation, changement de chauffage, bonus jusqu'au 31 décembre 2025.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 20000,
+      "rate": 0.35,
+      "notes": "Montant dépend des économies générées et des revenus."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-03",
+    "link": "https://sonergia.fr/guide-des-aides/autres-aides/5-aides-financieres-pour-renover-une-maison-ancienne/",
+    "tags": [
+      "rénovation",
+      "énergie",
+      "CEE"
+    ],
+    "documents": [
+      {
+        "label": "Prime énergie",
+        "url": "https://sonergia.fr/guide-des-aides/autres-aides/5-aides-financieres-pour-renover-une-maison-ancienne/"
+      }
+    ]
+  },
+  {
+    "id": "d8f32a59-37d9-48e8-bd1d-dbc7598ca66a",
+    "title": "Crédit d'impôt Services à la personne",
+    "source": "Direction Générale des Finances Publiques",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "services à la personne"
+    ],
+    "naf": [
+      "88.10A",
+      "96.01A"
+    ],
+    "audience": [
+      "association",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Particuliers employeurs bénéficiant d'un crédit d'impôt de 50% des dépenses engagées pour les SAP, remboursable aux non-imposables.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 12000,
+      "rate": 0.5,
+      "notes": "Plafond variable selon la composition du foyer et la nature des services."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://mmh-sap.fr/",
+    "tags": [
+      "SAP",
+      "fiscalité",
+      "domicile"
+    ],
+    "documents": [
+      {
+        "label": "Crédit d'impôt SAP",
+        "url": "https://www.service-public.fr/particuliers/vosdroits/F13244"
+      }
+    ]
+  },
+  {
+    "id": "d3a6ddcc-ae72-4afc-b636-61b724165d1f",
+    "title": "Services à la personne – appui France Travail",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "88.99B",
+      "96.09Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Structures SAP accédant à des aides à l'embauche et à la formation pour recruter des intervenants et jeunes en alternance.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 10000,
+      "rate": null,
+      "notes": "Mobilise les aides à l'emploi existantes via France Travail."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.francetravail.fr/actualites/le-dossier/services-a-la-personne/services-a-la-personne-1/services-a-la-personne--ce-quil.html",
+    "tags": [
+      "emploi",
+      "SAP",
+      "formation"
+    ],
+    "documents": [
+      {
+        "label": "Dossier SAP",
+        "url": "https://www.francetravail.fr/actualites/le-dossier/services-a-la-personne/services-a-la-personne-1/services-a-la-personne--ce-quil.html"
+      }
+    ]
+  },
+  {
+    "id": "f59dd6ff-4381-4811-87ae-870bee1b6db4",
+    "title": "Aides déconcentrées au spectacle vivant – projet",
+    "source": "Ministère de la Culture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "culture"
+    ],
+    "naf": [
+      "90.01Z",
+      "90.02Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Compagnies déposant un projet de création soutenu ponctuellement dans le cadre des ADSV.",
+    "amount": {
+      "type": "subvention",
+      "min": 15000,
+      "max": 80000,
+      "rate": 0.5,
+      "notes": "Sélection sur avis d'experts avec calendrier DRAC."
+    },
+    "deadline": "2025-09-30",
+    "updated_at": "2025-03-02",
+    "link": "https://www.culture.gouv.fr/catalogue-des-demarches-et-subventions/subvention/aides-aux-equipes-independantes-aides-deconcentrees-au-spectacle-vivant-adsv",
+    "tags": [
+      "spectacle",
+      "création",
+      "culture"
+    ],
+    "documents": [
+      {
+        "label": "ADSV projet",
+        "url": "https://www.culture.gouv.fr/catalogue-des-demarches-et-subventions/subvention/aides-aux-equipes-independantes-aides-deconcentrees-au-spectacle-vivant-adsv"
+      }
+    ]
+  },
+  {
+    "id": "1cbbc75e-8044-4b4e-811d-1dde956bdd25",
+    "title": "Aides déconcentrées au spectacle vivant – conventionnement",
+    "source": "Ministère de la Culture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "culture"
+    ],
+    "naf": [
+      "90.04G",
+      "90.01Z"
+    ],
+    "audience": [
+      "association"
+    ],
+    "eligibility": "Équipes artistiques confirmées conventionnées sur 2-4 ans (50 000 € à 200 000 €) pour diffuser leurs créations.",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 200000,
+      "rate": 0.6,
+      "notes": "Nécessite un rayonnement national et un plan de diffusion."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.artcena.fr/guide/produire-son-projet/rechercher-des-financements",
+    "tags": [
+      "culture",
+      "diffusion",
+      "pluriannuel"
+    ],
+    "documents": [
+      {
+        "label": "Conventionnement culture",
+        "url": "https://www.artcena.fr/guide/produire-son-projet/rechercher-des-financements"
+      }
+    ]
+  },
+  {
+    "id": "9448dc54-ca90-4875-84a4-54e404d96b60",
+    "title": "Aide Adami spectacle théâtre",
+    "source": "Adami",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "culture"
+    ],
+    "naf": [
+      "90.02Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Producteurs de théâtre finançant 40% des salaires bruts des artistes-interprètes (plafond 20 000 €).",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 20000,
+      "rate": 0.4,
+      "notes": "Minimum 4 artistes pour le théâtre, 3 pour cirque/marionnettes."
+    },
+    "deadline": "2025-11-30",
+    "updated_at": "2025-03-02",
+    "link": "https://www.adami.fr/que-fait-ladami-pour-moi/cherche-financement-projet-artistique/aide-spectacle-theatre/",
+    "tags": [
+      "spectacle",
+      "salaires",
+      "culture"
+    ],
+    "documents": [
+      {
+        "label": "Aide Adami",
+        "url": "https://www.adami.fr/que-fait-ladami-pour-moi/cherche-financement-projet-artistique/aide-spectacle-theatre/"
+      }
+    ]
+  },
+  {
+    "id": "1f28bc12-0723-4757-84dc-e8c718df40ca",
+    "title": "CNC – Aide sélective spectacle vivant",
+    "source": "CNC",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "culture",
+      "numérique"
+    ],
+    "naf": [
+      "59.11A",
+      "90.04G"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Captations audiovisuelles de spectacle vivant financées par le CNC via son aide sélective.",
+    "amount": {
+      "type": "subvention",
+      "min": 20000,
+      "max": 150000,
+      "rate": 0.5,
+      "notes": "Couvre développement, production et postproduction."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.cnc.fr/professionnels/aides-et-financements/audiovisuel/production/spectacle-vivant-aide-selective_191588",
+    "tags": [
+      "audiovisuel",
+      "culture",
+      "diffusion"
+    ],
+    "documents": [
+      {
+        "label": "Aide CNC",
+        "url": "https://www.cnc.fr/professionnels/aides-et-financements/audiovisuel/production/spectacle-vivant-aide-selective_191588"
+      }
+    ]
+  },
+  {
+    "id": "7a646047-1c05-4a28-8265-f60e3b72069b",
+    "title": "Compagnonnage Ministère de la Culture",
+    "source": "Ministère de la Culture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "culture"
+    ],
+    "naf": [
+      "90.04G"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Jeunes artistes accompagnés par des équipes établies avec soutien financier et temps de résidence.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 60000,
+      "rate": 0.6,
+      "notes": "Projet associant transmission, création et diffusion."
+    },
+    "deadline": "2025-10-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.compta-theatre.com/theatre-quelles-aides-et-subventions-pour-financer-vos-projets",
+    "tags": [
+      "mentorat",
+      "culture",
+      "création"
+    ],
+    "documents": [
+      {
+        "label": "Compagnonnage",
+        "url": "https://www.compta-theatre.com/theatre-quelles-aides-et-subventions-pour-financer-vos-projets"
+      }
+    ]
+  },
+  {
+    "id": "99ce6b33-17b7-4869-82d4-b85ff7d617cb",
+    "title": "Aide Île-de-France création spectacle vivant",
+    "source": "Région Île-de-France",
+    "level": "régional",
+    "region": "Île-de-France",
+    "sectors": [
+      "culture"
+    ],
+    "naf": [
+      "90.04G",
+      "90.02Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Equipes justifiant de partenariats franciliens et de coproducteurs pour financer leur création et diffusion.",
+    "amount": {
+      "type": "subvention",
+      "min": 20000,
+      "max": 150000,
+      "rate": 0.5,
+      "notes": "Exige au moins un lieu francilien et deux coproducteurs."
+    },
+    "deadline": "2025-09-30",
+    "updated_at": "2025-03-02",
+    "link": "https://www.iledefrance.fr/aides-et-appels-a-projets/aide-la-creation-dans-le-domaine-du-spectacle-vivant",
+    "tags": [
+      "culture",
+      "diffusion",
+      "territoires"
+    ],
+    "documents": [
+      {
+        "label": "Aide IDF spectacle",
+        "url": "https://www.iledefrance.fr/aides-et-appels-a-projets/aide-la-creation-dans-le-domaine-du-spectacle-vivant"
+      }
+    ]
+  },
+  {
+    "id": "f59e2834-abce-42b4-9253-b580847d781e",
+    "title": "Formiris – formation enseignants privés",
+    "source": "Formiris",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement"
+    ],
+    "naf": [
+      "85.31Z",
+      "85.42Z"
+    ],
+    "audience": [
+      "association"
+    ],
+    "eligibility": "Enseignants du privé sous contrat bénéficiant de formations financées par subvention publique (49 M€ annuels).",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 5000,
+      "rate": 0.9,
+      "notes": "Financements supérieurs à 90% via subventions publiques."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.snep-unsa.fr/la-formation-des-enseignants-du-prive-partie-invisible-des-subventions-de-letat",
+    "tags": [
+      "formation",
+      "enseignement",
+      "compétences"
+    ],
+    "documents": [
+      {
+        "label": "Formiris",
+        "url": "https://www.ifeap.fr/informations-pratiques/le-financement-des-formations/"
+      }
+    ]
+  },
+  {
+    "id": "0398127e-71b5-48c6-a39c-2112d2d93089",
+    "title": "Plan de Développement des Compétences – AKTO",
+    "source": "AKTO",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "enseignement",
+      "services à la personne"
+    ],
+    "naf": [
+      "85.59A",
+      "56.10A"
+    ],
+    "audience": [
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "Entreprises <50 salariés accédant à des prises en charge spécifiques pour les formations prioritaires de la branche.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 15000,
+      "rate": 0.6,
+      "notes": "Fonds conventionnel mutualisé mobilisable sur 2 ans."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.akto.fr/regles-de-prise-en-charge-enseignement-prive-independant/",
+    "tags": [
+      "formation",
+      "OPCO",
+      "compétences"
+    ],
+    "documents": [
+      {
+        "label": "Règles AKTO",
+        "url": "https://www.akto.fr/regles-de-prise-de-charge-enseignement-prive-independant/"
+      }
+    ]
+  },
+  {
+    "id": "2e8a9835-447a-467b-9c8f-3d778fee58cb",
+    "title": "Abondement CPF Enseignement privé",
+    "source": "AKTO",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "enseignement"
+    ],
+    "naf": [
+      "85.31Z",
+      "85.42Z"
+    ],
+    "audience": [
+      "association",
+      "entreprise"
+    ],
+    "eligibility": "Salariés de l'enseignement privé obtenant un abondement de 3 000 € pour les formations prioritaires de la branche.",
+    "amount": {
+      "type": "subvention",
+      "min": 3000,
+      "max": 3000,
+      "rate": null,
+      "notes": "Accord tripartite couvrant le reste à charge CPF."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.moncompteformation.gouv.fr/espace-public/un-nouveau-financement-complementaire-au-cpf-dans-la-branche-de-lenseignement-prive",
+    "tags": [
+      "formation",
+      "CPF",
+      "enseignement"
+    ],
+    "documents": [
+      {
+        "label": "Abondement CPF",
+        "url": "https://www.moncompteformation.gouv.fr/espace-public/un-nouveau-financement-complementaire-au-cpf-dans-la-branche-de-lenseignement-prive"
+      }
+    ]
+  },
+  {
+    "id": "75cf6f49-961f-4c20-aa66-073834cf1435",
+    "title": "FSE+ accompagnement jeunes Nouvelle-Aquitaine",
+    "source": "Union européenne",
+    "level": "européen",
+    "region": "Nouvelle-Aquitaine",
+    "sectors": [
+      "enseignement",
+      "insertion"
+    ],
+    "naf": [
+      "88.99B",
+      "85.59A"
+    ],
+    "audience": [
+      "association",
+      "collectivité"
+    ],
+    "eligibility": "Structures accompagnant les jeunes vers l'emploi mobilisant une enveloppe FSE+ de 15,7 M€ (2025-2027).",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 500000,
+      "rate": 0.6,
+      "notes": "Co-financement européen à articuler avec les aides nationales."
+    },
+    "deadline": "2027-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://nouvelle-aquitaine.dreets.gouv.fr/FSE-Accompagnement-des-jeunes-vers-l-emploi-et-l-alternance",
+    "tags": [
+      "insertion",
+      "Europe",
+      "jeunesse"
+    ],
+    "documents": [
+      {
+        "label": "FSE+ Jeunes",
+        "url": "https://nouvelle-aquitaine.dreets.gouv.fr/FSE-Accompagnement-des-jeunes-vers-l-emploi-et-l-alternance"
+      }
+    ]
+  },
+  {
+    "id": "0db48187-ddef-42d7-b33f-e14f4c01d980",
+    "title": "Atout Senior – reconversion 50+",
+    "source": "France Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "88.99B",
+      "25.11Z"
+    ],
+    "audience": [
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "Parcours de 8 mois (4 théoriques, 4 pratiques) cofinancé à 75% par les entreprises et 25% par les apprenants via CPF pour 50+.",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 8000,
+      "rate": 0.75,
+      "notes": "Abondement France Travail possible, objectif 1 000 bénéficiaires fin 2025."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://travail-emploi.gouv.fr/engager-son-entreprise-pour-lemploi-des-50",
+    "tags": [
+      "seniors",
+      "reconversion",
+      "insertion"
+    ],
+    "documents": [
+      {
+        "label": "Programme Atout Senior",
+        "url": "https://travail-emploi.gouv.fr/engager-son-entreprise-pour-lemploi-des-50"
+      }
+    ]
+  },
+  {
+    "id": "ec533511-45af-4720-9047-dd625f28565d",
+    "title": "Contrat de professionnalisation senior",
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "85.59A",
+      "96.09Z"
+    ],
+    "audience": [
+      "entreprise"
+    ],
+    "eligibility": "Employeurs recrutant un demandeur d'emploi ≥45 ans bénéficiant d'une aide d'État de 2 000 € et d'exonérations de cotisations.",
+    "amount": {
+      "type": "subvention",
+      "min": 2000,
+      "max": 2000,
+      "rate": null,
+      "notes": "Cumulable avec le contrat nouvelle carrière pour les 50+."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.atout-age.fr/point-sur-les-dispositifs-de-letat-pour-lemploi-des-seniors/",
+    "tags": [
+      "seniors",
+      "emploi",
+      "formation"
+    ],
+    "documents": [
+      {
+        "label": "Contrat pro senior",
+        "url": "https://www.atout-age.fr/point-sur-les-dispositifs-de-letat-pour-lemploi-des-seniors/"
+      }
+    ]
+  },
+  {
+    "id": "9988b871-6853-4724-81b7-b188417c4499",
+    "title": "Plan Local pour l'Insertion et l'Emploi (PLIE)",
+    "source": "Collectivités",
+    "level": "local",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "insertion",
+      "services à la personne"
+    ],
+    "naf": [
+      "88.99B",
+      "56.10A"
+    ],
+    "audience": [
+      "association",
+      "collectivité"
+    ],
+    "eligibility": "Parcours renforcés avec référent unique, actions d'insertion et suivi en poste pendant 6 mois (42% de sorties positives).",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 50000,
+      "rate": 0.6,
+      "notes": "Financement partagé collectivités, État, FSE."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.id-77.com/plie/",
+    "tags": [
+      "insertion",
+      "territoires",
+      "emploi"
+    ],
+    "documents": [
+      {
+        "label": "PLIE",
+        "url": "https://www.id-77.com/plie/"
+      }
+    ]
+  },
+  {
+    "id": "64835c14-07b3-48a1-9c3e-97548b3400d7",
+    "title": "Aide unique à l'apprentissage",
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "industrie",
+      "services à la personne"
+    ],
+    "naf": [
+      "25.11Z",
+      "56.10A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Entreprises <250 salariés versées 5 000 € (6 000 € si apprenti en situation de handicap) la 1re année pour un diplôme ≤ Bac+2.",
+    "amount": {
+      "type": "subvention",
+      "min": 5000,
+      "max": 6000,
+      "rate": null,
+      "notes": "Versement automatique via l'ASP sur la première année."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://bpifrance-creation.fr/encyclopedie/gerer-lentreprise/aides-au-recrutement/tableau-recapitulatif-aides-a-lembauche",
+    "tags": [
+      "apprentissage",
+      "emploi",
+      "formation"
+    ],
+    "documents": [
+      {
+        "label": "Tableau aides apprentissage",
+        "url": "https://bpifrance-creation.fr/encyclopedie/gerer-lentreprise/aides-au-recrutement/tableau-recapitulatif-aides-a-lembauche"
+      }
+    ]
+  },
+  {
+    "id": "2c90f0b3-f11c-4de0-aca3-f8c732762004",
+    "title": "AKTO – majoration handicap apprentis",
+    "source": "AKTO",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "CHR",
+      "enseignement",
+      "services à la personne"
+    ],
+    "naf": [
+      "56.10A",
+      "85.59A"
+    ],
+    "audience": [
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "AKTO finance jusqu'à 4 000 € supplémentaires pour les apprentis en situation de handicap, plus 500 € pour le premier équipement.",
+    "amount": {
+      "type": "subvention",
+      "min": 500,
+      "max": 4000,
+      "rate": null,
+      "notes": "Prise en charge de 3 €/repas, 6 €/nuit pour hébergement."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://www.akto.fr/regles-de-prise-de-charge-enseignement-prive-non-lucratif/",
+    "tags": [
+      "handicap",
+      "apprentissage",
+      "formation"
+    ],
+    "documents": [
+      {
+        "label": "AKTO handicap",
+        "url": "https://www.akto.fr/regles-de-prise-de-charge-enseignement-prive-non-lucratif/"
+      }
+    ]
+  },
+  {
+    "source": "ANAH",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "services à la personne"
+    ],
+    "naf": [
+      "43.39Z",
+      "43.21A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Entreprises RGE réalisant des rénovations globales ou gestes isolés chez les particuliers bénéficient d'un reste à charge réduit via MaPrimeRénov’.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 70000,
+      "rate": 0.4,
+      "notes": "Cumulable avec les CEE dans la limite de 80% du coût des travaux."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-15",
+    "link": "https://www.anah.gouv.fr/professionnels/beneficier-des-aides",
+    "tags": [
+      "rénovation",
+      "énergie",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "Guide MaPrimeRénov’ pro",
+        "url": "https://www.anah.gouv.fr/professionnels"
+      }
+    ],
+    "title": "MaPrimeRénov’ Pro",
+    "id": "a9ff5cc1-16e8-4389-9a3b-174b0a23cbba"
+  },
+  {
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP"
+    ],
+    "naf": [
+      "43.99C",
+      "68.32A"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Artisans et entreprises RGE proposant un bouquet de travaux financés par un prêt à taux zéro accordé au propriétaire occupant ou bailleur.",
+    "amount": {
+      "type": "prêt",
+      "min": 7000,
+      "max": 50000,
+      "rate": 0.0,
+      "notes": "Durée maximale 20 ans, cumulable avec MaPrimeRénov’."
+    },
+    "deadline": "2027-12-31",
+    "updated_at": "2025-02-18",
+    "link": "https://www.ecologie.gouv.fr/eco-pret-taux-zero",
+    "tags": [
+      "rénovation",
+      "financement",
+      "énergie"
+    ],
+    "documents": [
+      {
+        "label": "Fiche éco-PTZ",
+        "url": "https://www.ecologie.gouv.fr/eco-pret-taux-zero"
+      }
+    ],
+    "title": "Éco-prêt à taux zéro (éco-PTZ)",
+    "id": "85f60aee-dee8-4de7-86fa-21c843190623"
+  },
+  {
+    "source": "ANAH",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "BTP",
+      "services à la personne"
+    ],
+    "naf": [
+      "43.39Z"
+    ],
+    "audience": [
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "Opérateurs et entreprises accompagnant les ménages dans une rénovation globale générant au moins 35% de gains énergétiques.",
+    "amount": {
+      "type": "subvention",
+      "min": 15000,
+      "max": 50000,
+      "rate": 0.5,
+      "notes": "Prime bonifiée pour les ménages très modestes et bonus BBC."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-20",
+    "link": "https://www.ecologie.gouv.fr/politiques-publiques/aides-financieres-renovation-energetique",
+    "tags": [
+      "ANAH",
+      "rénovation",
+      "énergie"
+    ],
+    "documents": [
+      {
+        "label": "Guide Habiter Mieux",
+        "url": "https://www.anah.gouv.fr/"
+      }
+    ],
+    "title": "Habiter Mieux Sérénité – ANAH",
+    "id": "9449759a-fbd3-42ed-9805-c9df25d8fed6"
+  },
+  {
+    "source": "ASP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.11Z",
+      "01.45Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Jeunes agriculteurs de 18 à 40 ans s'installant pour la première fois avec un plan d'entreprise validé par la DDTM.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 40000,
+      "rate": null,
+      "notes": "Montant modulé selon la zone (montagne, biologique, collectif)."
+    },
+    "deadline": "2025-10-01",
+    "updated_at": "2025-03-09",
+    "link": "https://www.asp.gouv.fr/aides/dotation-jeunes-agriculteurs",
+    "tags": [
+      "installation",
+      "PAC",
+      "jeunesse"
+    ],
+    "documents": [
+      {
+        "label": "Notice DJA",
+        "url": "https://www.asp.gouv.fr/aides/dotation-jeunes-agriculteurs"
+      }
+    ],
+    "title": "Dotation Jeunes Agriculteurs (DJA)",
+    "id": "182111ef-74a6-4089-a6e3-ae4d730459d8"
+  },
+  {
+    "source": "Ministère de l'Agriculture",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "agriculture"
+    ],
+    "naf": [
+      "01.61Z",
+      "01.24Z"
+    ],
+    "audience": [
+      "entreprise",
+      "indépendant",
+      "collectivité"
+    ],
+    "eligibility": "Exploitations investissant dans la modernisation (irrigation, bien-être animal, agroéquipement) avec cofinancement FEADER et régions.",
+    "amount": {
+      "type": "subvention",
+      "min": 20000,
+      "max": 250000,
+      "rate": 0.5,
+      "notes": "Taux modulé selon la thématique (énergie, climat, élevage)."
+    },
+    "deadline": "2025-11-30",
+    "updated_at": "2025-03-09",
+    "link": "https://www.asp.gouv.fr/aides/plan-de-competitivite-et-dadaptation-des-exploitations",
+    "tags": [
+      "investissement",
+      "agriculture",
+      "transition"
+    ],
+    "documents": [
+      {
+        "label": "PCAE",
+        "url": "https://www.asp.gouv.fr/aides/plan-de-competitivite-et-dadaptation-des-exploitations"
+      }
+    ],
+    "title": "Plan de Compétitivité et d’Adaptation des Exploitations (PCAE)",
+    "id": "aec1314e-30f0-408a-a3ec-27a28176b5d3"
+  },
+  {
+    "source": "Ministère du Travail",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "services à la personne"
+    ],
+    "naf": [
+      "88.10A",
+      "96.01A"
+    ],
+    "audience": [
+      "association",
+      "entreprise",
+      "micro-entreprise"
+    ],
+    "eligibility": "Structures SAP intervenant auprès de publics fragiles obtenant l'agrément préfectoral ouvrant droit aux financements publics.",
+    "amount": {
+      "type": "subvention",
+      "min": 0,
+      "max": 0,
+      "rate": null,
+      "notes": "Condition d'accès aux crédits d'impôt et exonérations sociales."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-04",
+    "link": "https://www.service-public.fr/particuliers/vosdroits/F13244",
+    "tags": [
+      "SAP",
+      "agrément",
+      "réglementation"
+    ],
+    "documents": [
+      {
+        "label": "Guide agrément",
+        "url": "https://www.monparcourshandicap.gouv.fr/glossaire/sap"
+      }
+    ],
+    "title": "Agrément Services à la personne",
+    "id": "8ec00da5-119a-47fe-847e-49ceada4c295"
+  },
+  {
+    "source": "OPCO EP",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "services à la personne",
+      "insertion"
+    ],
+    "naf": [
+      "88.99B",
+      "96.09Z"
+    ],
+    "audience": [
+      "entreprise",
+      "association"
+    ],
+    "eligibility": "Entreprises SAP finançant la professionnalisation (DEAES, titres ADVF) via prises en charge OPCO EP.",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 8000,
+      "rate": 0.8,
+      "notes": "Financement des coûts pédagogiques, salaires, frais annexes."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-02",
+    "link": "https://www.francetravail.fr/actualites/le-dossier/services-a-la-personne/services-a-la-personne-1/services-a-la-personne--ce-quil.html",
+    "tags": [
+      "formation",
+      "SAP",
+      "compétences"
+    ],
+    "documents": [
+      {
+        "label": "Prise en charge OPCO",
+        "url": "https://www.akto.fr/regles-de-prise-de-charge-enseignement-prive-non-lucratif/"
+      }
+    ],
+    "title": "OPCO EP – formation Services à la personne",
+    "id": "33d43c7d-a6b6-4cff-8297-5b4b557e1a3e"
+  },
+  {
+    "source": "Bpifrance",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "numérique",
+      "artisanat",
+      "services à la personne"
+    ],
+    "naf": [
+      "62.01Z",
+      "32.12Z"
+    ],
+    "audience": [
+      "entreprise",
+      "micro-entreprise",
+      "indépendant"
+    ],
+    "eligibility": "Créateurs et repreneurs accompagnés par réseaux labellisés obtenant un prêt d'honneur pour renforcer leurs fonds propres.",
+    "amount": {
+      "type": "prêt",
+      "min": 3000,
+      "max": 50000,
+      "rate": 0.0,
+      "notes": "Prêt personnel sans garantie ni intérêts, à rembourser sur 2 à 5 ans."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-08",
+    "link": "https://bpifrance-creation.fr/encyclopedie/financement/pret-honneur",
+    "tags": [
+      "création",
+      "financement",
+      "entrepreneuriat"
+    ],
+    "documents": [
+      {
+        "label": "Guide prêt d'honneur",
+        "url": "https://bpifrance-creation.fr/encyclopedie/financement/pret-honneur"
+      }
+    ],
+    "title": "Prêt d’honneur Bpifrance Création",
+    "id": "8fae8470-ad9a-4c71-8ab2-b51c199c46f6"
+  },
+  {
+    "source": "Collectivités",
+    "level": "local",
+    "region": "France entière",
+    "sectors": [
+      "artisanat"
+    ],
+    "naf": [
+      "47.19B",
+      "56.10A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Commerces et artisans finançant la mise en accessibilité (rampe, signalétique, sanitaires) avec subventions locales jusqu'à 50%.",
+    "amount": {
+      "type": "subvention",
+      "min": 3000,
+      "max": 20000,
+      "rate": 0.5,
+      "notes": "Montant et critères variables selon la collectivité (commune, interco)."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-25",
+    "link": "https://www.fonds-publics.fr/aides/aide-commercants-artisans",
+    "tags": [
+      "accessibilité",
+      "commerce",
+      "artisanat"
+    ],
+    "documents": [
+      {
+        "label": "Exemple règlement accessibilité",
+        "url": "https://les-aides.fr/aide/KIVf3w/ca-du-pays-de-laon/aide-a-l-investissement-des-artisans-et-des-commercants.html"
+      }
+    ],
+    "title": "Aide accessibilité commerce de proximité",
+    "id": "adadc742-3221-4825-a6f5-f195015813cd"
+  },
+  {
+    "source": "Collectivités",
+    "level": "local",
+    "region": "France entière",
+    "sectors": [
+      "artisanat"
+    ],
+    "naf": [
+      "47.11D",
+      "56.10A"
+    ],
+    "audience": [
+      "micro-entreprise",
+      "entreprise"
+    ],
+    "eligibility": "Commerces finançant alarmes, rideaux métalliques, vidéosurveillance, coffres et dispositifs de protection via subventions locales.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 15000,
+      "rate": 0.4,
+      "notes": "Conditions : moins de 10 salariés, surface <150 m², devis éligibles."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-02-25",
+    "link": "https://annonces-legales.leparisien.fr/actualites/creation/quelles-sont-les-aides-specifiques-pour-les-entreprises-dans-le-secteur-de-lartisanat/",
+    "tags": [
+      "sécurité",
+      "commerce",
+      "artisanat"
+    ],
+    "documents": [
+      {
+        "label": "Guide sécurisation",
+        "url": "https://www.fonds-publics.fr/aides/aide-commercants-artisans"
+      }
+    ],
+    "title": "Aide sécurisation des commerces",
+    "id": "dc726b16-b81f-4d61-bdf4-3fedabc4067b"
+  },
+  {
+    "source": "ADEME",
+    "level": "national",
+    "region": "France entière",
+    "sectors": [
+      "industrie",
+      "BTP",
+      "agriculture"
+    ],
+    "naf": [
+      "35.30Z",
+      "28.99A"
+    ],
+    "audience": [
+      "entreprise",
+      "collectivité"
+    ],
+    "eligibility": "Projets biomasse, solaire thermique, géothermie, réseaux de chaleur renouvelable, récupérations de chaleur fatale.",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 2000000,
+      "rate": 0.5,
+      "notes": "Taux modulés selon la taille de l'entreprise et la technologie."
+    },
+    "deadline": "2025-12-31",
+    "updated_at": "2025-03-01",
+    "link": "https://agirpourlatransition.ademe.fr/entreprises/dispositifs-aides/fonds-chaleur",
+    "tags": [
+      "énergie",
+      "transition",
+      "renouvelable"
+    ],
+    "documents": [
+      {
+        "label": "Guide Fonds Chaleur",
+        "url": "https://agirpourlatransition.ademe.fr/entreprises/dispositifs-aides/fonds-chaleur"
+      }
+    ],
+    "title": "Fonds Chaleur ADEME",
+    "id": "082bc8da-e894-4255-8c41-5abbb07eec7d"
+  },
+  {
+    "id": "a9ff5cc1-16e8-4389-9a3b-174b0a23cbba",
+    "title": "MaPrimeRénov Pro",
+    "source": "Ministère de la Transition écologique",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["BTP"],
+    "naf": ["43.99C", "68.32A"],
+    "audience": ["entreprise", "micro-entreprise", "indépendant"],
+    "eligibility": "Entreprises RGE réalisant des rénovations globales ou gestes isolés chez les particuliers bénéficiant d'un reste à charge réduit via MaPrimeRénov.",
+    "amount": {
+      "type": "subvention",
+      "min": 1500,
+      "max": 70000,
+      "rate": 0.4
+    },
+    "notes": "Cumulable avec les Certificats d'Économie d'Énergie (CEE) dans la limite de 80% du coût des travaux.",
+    "deadline": "2025-12-31",
+    "updatedAt": "2025-03-15",
+    "link": "https://www.anah.gouv.fr/professionnels",
+    "tags": ["rénovation", "énergie", "transition"],
+    "documentsLabel": "Guide MaPrimeRénov pro"
+  },
+  {
+    "id": "182111ef-74a6-4089-a6e3-ae4d730459d8",
+    "title": "Dotation Jeunes Agriculteurs DJA",
+    "source": "Ministère de l'Agriculture",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["agriculture"],
+    "naf": ["01.61Z", "01.24Z"],
+    "audience": ["entreprise", "indépendant", "collectivité"],
+    "eligibility": "Jeunes agriculteurs de 18 à 40 ans s'installant pour la première fois avec un plan d'entreprise validé par la DDTM.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 40000,
+      "rate": null
+    },
+    "notes": "Montant modulé selon la zone (montagne, biologique, collectif).",
+    "deadline": "2025-10-01",
+    "updatedAt": "2025-03-09",
+    "link": "https://www.asp.gouv.fr/aides/dotation-jeunes-agriculteurs",
+    "tags": ["installation", "PAC", "jeunesse"],
+    "documentsLabel": "Notice DJA"
+  },
+  {
+    "id": "6c16636a-02bb-43c2-a57a-8ab0087681d5",
+    "title": "Mesures Agro-Environnementales et Climatiques MAEC",
+    "source": "Ministre de l'Agriculture",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["agriculture"],
+    "naf": ["01.13Z", "01.50Z"],
+    "audience": ["entreprise", "indépendant", "micro-entreprise"],
+    "eligibility": "Exploitations s'engageant sur des itinéraires agroécologiques (prairies, biodiversité, réductions intrants) avec primes pluriannuelles.",
+    "amount": {
+      "type": "subvention",
+      "min": 3000,
+      "max": 60000,
+      "rate": 0.8
+    },
+    "notes": "Contrats de 5 ans avec engagements précis et contrôles annuels.",
+    "deadline": "2025-06-30",
+    "updatedAt": "2025-03-07",
+    "link": "https://www.asp.gouv.fr/aides-de-la-politique-agricole-commune-pac",
+    "tags": ["transition", "agroécologie", "PAC"],
+    "documentsLabel": "MAEC"
+  },
+  {
+    "id": "2f0ee43d-9bdf-41fc-988b-4bd976dfddce",
+    "title": "Plan France Relance - Bâtiments publics",
+    "source": "Ministère de la Transition écologique",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["BTP"],
+    "naf": ["43.39Z", "84.11Z"],
+    "audience": ["collectivité", "association"],
+    "eligibility": "Collectivités rénovant leurs bâtiments publics avec enveloppe nationale de 4 milliards d'euros pour atteindre 30% d'économie d'énergie.",
+    "amount": {
+      "type": "subvention",
+      "min": 50000,
+      "max": 4500000,
+      "rate": 0.5
+    },
+    "notes": "Financement conditionné à un audit énergétique et des gains mesurés.",
+    "deadline": "2025-09-30",
+    "updatedAt": "2025-03-06",
+    "link": "https://www.ecologie.gouv.fr/politiques-publiques/savoir-renovation-energetique",
+    "tags": ["rénovation", "collectivités", "transition"],
+    "documentsLabel": "France Relance Bâtiments"
+  },
+  {
+    "id": "f5ec1e05-8338-458b-b6b0-ef3bff63dea8",
+    "title": "AAP France 2030 – Développement de technologies innovantes critiques",
+    "source": "Secrétariat général pour l’investissement",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["industrie", "numérique", "cybersécurité", "intelligence artificielle"],
+    "naf": [],
+    "audience": ["PME", "ETI", "startup", "consortiums"],
+    "eligibility": "Projets collaboratifs visant à structurer l’offre industrielle et souveraine sur l’IA, cybersécurité, robotique, quantique.",
+    "amount": {
+      "type": "mixte",
+      "min": 500000,
+      "max": 5000000,
+      "rate": null
+    },
+    "notes": "Avances remboursables + subventions, taux et montants généralement 30-50% de l’assiette du projet, clôture avril 2025.",
+    "deadline": "2025-04-30",
+    "updatedAt": "2025-02-01",
+    "link": "https://www.gouvernement.fr/france-2030/appels-a-projets",
+    "tags": ["AAP", "France2030", "innovation", "industrie", "souveraineté"],
+    "documentsLabel": "Dossier AAP France2030 Critiques"
+  },
+  {
+    "id": "ad35b121-610e-4997-8aad-3517911a7690",
+    "title": "Fonds Vert (collectivités, transition écologique)",
+    "source": "Ministère de la Transition Écologique",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["collectivités", "bâtiments publics", "environnement"],
+    "naf": [],
+    "audience": ["collectivité", "EPCI", "commune"],
+    "eligibility": "Investissements en mobilités douces, rénovation écologique, biodiversité, gestion de l’eau. Écoles, espaces publics, infrastructures vertes.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 1000000,
+      "rate": 0.5
+    },
+    "notes": "Pourcentage d’aide modulé selon la nature du projet (50 à 80%), demande possible toute l’année sur Aides-territoires.",
+    "deadline": "2025-12-31",
+    "updatedAt": "2025-03-01",
+    "link": "https://aides-territoires.beta.gouv.fr",
+    "tags": ["collectivités", "écologie", "mobilité", "rénovation"],
+    "documentsLabel": "Fonds Vert 2025"
+  },
+  {
+    "id": "bbd1a65c-e65e-4058-aed7-8ec27485c7df",
+    "title": "FISAC – Fonds d’Intervention pour les Services, l’Artisanat et le Commerce",
+    "source": "Ministère de l’Économie et des Finances",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["commerce", "artisanat", "centre-ville"],
+    "naf": [],
+    "audience": ["collectivité", "association commerçants", "petit commerce"],
+    "eligibility": "Redevance aux associations, entreprises, communes visant à préserver ou redynamiser l’activité des centres-bourgs ou des quartiers fragiles.",
+    "amount": {
+      "type": "subvention",
+      "min": 10000,
+      "max": 400000,
+      "rate": 0.6
+    },
+    "notes": "Taux en moyenne 30-60%. Financement modernisation vitrines, sécurité, accessibilité. Critères précis par département/par ville – veillez à la date d’appel à projets.",
+    "deadline": "2025-07-01",
+    "updatedAt": "2025-01-20",
+    "link": "https://www.economie.gouv.fr/fisac",
+    "tags": ["commerce", "artisans", "territoires", "centre-ville"],
+    "documentsLabel": "Dossier FISAC 2025"
+  },
+  {
+    "id": "b9ae0770-a295-491e-a253-930a2a7d5bd1",
+    "title": "DETR – Dotation d’Équipement des Territoires Ruraux",
+    "source": "Préfectures de département",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["bâtiment public", "collectivités", "ruralité"],
+    "naf": [],
+    "audience": ["commune", "EPCI"],
+    "eligibility": "Communes et intercommunalités rurales investissant pour rénovation écoles, accessibilité, transition, équipements de proximité.",
+    "amount": {
+      "type": "subvention",
+      "min": 20000,
+      "max": 500000,
+      "rate": 0.8
+    },
+    "notes": "Plafond en moyenne 150 000 €, taux 30 à 80% selon projet et carte zonée. Dossier à déposer à la préfecture de son département.",
+    "deadline": "2025-01-31",
+    "updatedAt": "2025-01-10",
+    "link": "https://www.prefectures-regions.gouv.fr",
+    "tags": ["ruralité", "collectivités", "infrastructures", "écoles"],
+    "documentsLabel": "Guide DETR 2025"
+  },
+  {
+    "id": "fd07cc72-141c-43fa-8d7c-e9b2003dba13",
+    "title": "Innovation Fund – Fonds Européen pour l’Innovation",
+    "source": "Commission européenne",
+    "level": "européen",
+    "region": "Union européenne",
+    "sectors": ["industrie", "énergies renouvelables", "développement durable"],
+    "naf": [],
+    "audience": ["entreprise", "grande industrie", "PME"],
+    "eligibility": "Projets d’investissement dans la décarbonation, l’hydrogène, le stockage ou captage du carbone, nouvelles énergies et mobilité durable (>2,5 M€).",
+    "amount": {
+      "type": "subvention",
+      "min": 2500000,
+      "max": 40000000,
+      "rate": 0.6
+    },
+    "notes": "Appel à projets multi-secteurs, accent sur l’impact environnemental – cofinancement recommandé.",
+    "deadline": "2025-09-15",
+    "updatedAt": "2025-01-15",
+    "link": "https://climate.ec.europa.eu/eu-innovation-fund_fr",
+    "tags": ["Europe", "industrie", "décarbonation", "mobility"],
+    "documentsLabel": "Appel Innovation Fund"
+  },
+  {
+    "id": "fipu-2025-ergonomie",
+    "title": "FIPU – Fonds d’Investissement pour la Prévention de l’Usure professionnelle",
+    "source": "Assurance Maladie - Risques Professionnels / CARSAT",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["BTP", "industrie", "logistique", "santé", "propreté", "commerce", "agroalimentaire", "nettoyage"],
+    "naf": [],
+    "audience": ["tpe", "pme", "indépendant"],
+    "eligibility": "Entreprises du régime général ou travailleurs indépendants cotisant AT/MP < 50 salariés, à jour URSSAF, DUERP mis à jour. Investissements visant à réduire la pénibilité (matériel ergonomique, outils d’assistance, aménagement de postes...).",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 25000,
+      "rate": 0.7
+    },
+    "notes": "Financement jusqu’à 70% du coût HT dans la limite de 25 000 € pour chaque action. Plafonné à 75 000 € sur 3 ans tous types d’investissement confondus. Liste précise des équipements subventionnables selon secteur (ex : tables élévatrices, chariots, systèmes de manutention, sièges ergonomiques, plateformes, etc.).",
+    "deadline": "2025-12-31",
+    "updatedAt": "2025-09-30",
+    "link": "https://les-aides.fr/aide/cXZf3w/carsat/subvention-prevention-des-risques-ergonomiques.html",
+    "tags": ["ergonomie", "pénibilité", "TMS", "prévention", "réduction risques"],
+    "documentsLabel": "CARSAT – Guide Prévention Ergonomique"
+  },
+  {
+    "id": "top-btp-2025",
+    "title": "TOP BTP – Subvention matériel pénibilité",
+    "source": "OPPBTP / Assurance Maladie / CARSAT",
+    "level": "national",
+    "region": "France entire",
+    "sectors": ["BTP"],
+    "naf": [],
+    "audience": ["tpe", "pme"],
+    "eligibility": "Entreprises BTP < 50 salariés, matériel neuf et conforme visant à réduire la pénibilité physique et les risques TMS (plateformes individuelles de travail, échafaudages, outils électroportatifs anti-vibrations, systèmes de levage...).",
+    "amount": {
+      "type": "subvention",
+      "min": 1000,
+      "max": 25000,
+      "rate": 0.5
+    },
+    "notes": "Subvention à hauteur de 50% des investissements éligibles. Document unique d’évaluation des risques et information CSE requis.",
+    "deadline": "2025-12-31",
+    "updatedAt": "2025-09-30",
+    "link": "https://www.preventionbtp.fr/actualites/risques/top-btp-2025-les-aides-pour-acheter-du-materiel-et-se-former-reconduites_EXWutc6gege7egY7hjMGdc",
+    "tags": ["BTP", "pénibilité", "TMS", "confort", "sécurité travail"],
+    "documentsLabel": "Guide TOP BTP"
+  }
+
+
+]

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RMS Suite — Brief Landing Page</title>
+    <link rel="stylesheet" href="../styles/app.css">
+    <style>
+      .brief-layout {
+        display: grid;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        grid-template-columns: minmax(260px, 340px) minmax(320px, 520px);
+        align-items: flex-start;
+      }
+
+      .brief-intro {
+        position: sticky;
+        top: calc(var(--space-lg) * 2);
+        align-self: flex-start;
+        display: grid;
+        gap: var(--space-lg);
+        padding: clamp(1.5rem, 4vw, 2rem);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .brief-intro .feature-kicker {
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        color: var(--color-muted);
+      }
+
+      .brief-intro h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 4vw, 2rem);
+      }
+
+      .brief-intro p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .brief-links {
+        display: grid;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+        border-radius: var(--radius-md);
+        background: #f5f7fb;
+        border: 1px dashed rgba(31, 111, 235, 0.4);
+      }
+
+      .brief-links h2 {
+        margin: 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--color-muted);
+      }
+
+      .brief-links ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        display: grid;
+        gap: 0.3rem;
+      }
+
+      .brief-links a[aria-disabled="true"] {
+        pointer-events: none;
+        color: var(--color-muted);
+        text-decoration: none;
+      }
+
+      .brief-progress {
+        display: grid;
+        gap: var(--space-xs);
+      }
+
+      .brief-progress progress {
+        width: 100%;
+        height: 10px;
+      }
+
+      .brief-form {
+        display: grid;
+        gap: var(--space-md);
+        width: 100%;
+        max-width: 520px;
+      }
+
+      .brief-form .section {
+        display: grid;
+        gap: var(--space-sm);
+        margin: 0;
+        padding: var(--space-lg);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        background: var(--color-surface);
+      }
+
+      .brief-form .section legend {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: var(--space-sm);
+      }
+
+      .brief-form .section fieldset {
+        border: 1px dashed var(--color-border);
+        border-radius: var(--radius-sm);
+        padding: var(--space-md);
+        background: #f8fafc;
+        display: grid;
+        gap: var(--space-sm);
+      }
+
+      .brief-form .section > .input-cluster,
+      .brief-form .section > .selection-cluster {
+        display: grid;
+        gap: var(--space-md);
+      }
+
+      .brief-form .grid.two {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .selection-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--space-sm);
+      }
+
+      .selection-grid label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.6rem;
+        border: 1px solid rgba(31, 111, 235, 0.25);
+        border-radius: 999px;
+        background: rgba(31, 111, 235, 0.1);
+        font-size: 0.95rem;
+      }
+
+      .selection-grid input[type="checkbox"] {
+        margin: 0;
+      }
+
+      .brief-form label {
+        font-weight: 600;
+        display: block;
+      }
+
+      .brief-form textarea,
+      .brief-form input[type="text"],
+      .brief-form input[type="email"],
+      .brief-form input[type="tel"],
+      .brief-form input[type="date"],
+      .brief-form select {
+        width: 100%;
+        min-height: 2.35rem;
+        margin-top: 0.4rem;
+      }
+
+      .brief-form textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .guide-note {
+        border-left: 4px solid rgba(31, 111, 235, 0.35);
+        padding-left: var(--space-md);
+        margin-top: var(--space-sm);
+      }
+
+      .preview-overlay {
+        display: none;
+      }
+
+      .preview-open .preview-overlay {
+        display: flex;
+      }
+
+      @media (max-width: 960px) {
+        .brief-layout {
+          grid-template-columns: 1fr;
+        }
+        .brief-intro {
+          position: static;
+          box-shadow: none;
+        }
+        .brief-form {
+          max-width: 100%;
+        }
+        .selection-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body data-rms-branding="native" class="app theme-default density-normal layout-classic orientation-portrait">
+    <header class="service-toolbar" role="banner">
+      <div class="service-branding">
+        <img src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Signature RMS Suite</small>
+        </span>
+      </div>
+      <nav class="service-toolbar-actions">
+        <a class="btn btn-link" href="../index.html">← Retour à la landing</a>
+        <a class="btn btn-outline" href="devis.html">Module Devis</a>
+        <a class="btn btn-outline" href="factures.html">Module Facture</a>
+        <a class="btn btn-outline" href="cartes.html">Module Cartes</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="feature-section" aria-labelledby="brief-title">
+        <div class="brief-layout">
+          <aside class="brief-intro" aria-labelledby="brief-title">
+            <p class="feature-kicker">Brief landing page</p>
+            <h1 id="brief-title">Expliquez votre future landing page en toute simplicité</h1>
+            <p>
+              Vous n’avez pas besoin de jargon : répondez aux questions ci-dessous, nous préparerons un e-mail clair à envoyer à
+              <a href="mailto:support@rms-suite.com">support@rms-suite.com</a> pour démarrer la conception de votre landing page HTML/CSS.
+            </p>
+            <p class="guide-note">
+              Solution landing page : prestation forfaitaire comprise entre <strong>300&nbsp;€ et 500&nbsp;€</strong>.
+              Les sites e-commerce ne sont pas visibles au catalogue mais il est possible d’en discuter si besoin.
+              RMS Suite prend en charge l’obtention du domaine et propose des mises à jour sous contrat.
+            </p>
+            <div class="brief-links" aria-label="Liens portfolio à venir">
+              <h2>Portfolio (à venir)</h2>
+              <p>
+                Ajoutez ici vos exemples de réalisations lorsque vous serez prêt. Chaque lien peut pointer vers une landing page, une maquette ou un case study.
+              </p>
+              <ul>
+                <li><a href="#" aria-disabled="true">Exemple 1 — à définir</a></li>
+                <li><a href="#" aria-disabled="true">Exemple 2 — à définir</a></li>
+                <li><a href="#" aria-disabled="true">Exemple 3 — à définir</a></li>
+              </ul>
+            </div>
+            <div class="brief-progress" id="brief-progress-label">
+              <strong>Complétude du brief :</strong>
+              <span id="brief-progress-percent">0%</span>
+              <progress id="brief-progress" max="100" value="0" aria-labelledby="brief-progress-label"></progress>
+            </div>
+          </aside>
+
+          <form id="brief-form" class="module-form brief-form" autocomplete="off" novalidate>
+            <div role="alert" id="form-errors" class="error" hidden></div>
+
+            <fieldset class="panel section">
+              <legend>Coordonnées</legend>
+              <div class="grid two">
+                <label for="contact-name">Nom / Prénom *</label>
+                <input id="contact-name" name="contactName" data-brief-field type="text" required>
+                <span class="error" data-error-for="contactName"></span>
+
+                <label for="contact-company">Société / Statut</label>
+                <input id="contact-company" name="contactCompany" data-brief-field type="text">
+
+                <label for="contact-email">Email *</label>
+                <input id="contact-email" name="contactEmail" data-brief-field type="email" required>
+                <span class="error" data-error-for="contactEmail"></span>
+
+                <label for="contact-phone">Téléphone</label>
+                <input id="contact-phone" name="contactPhone" data-brief-field type="tel">
+              </div>
+            </fieldset>
+
+            <fieldset class="panel section">
+              <legend>Projet landing page</legend>
+              <div class="grid two">
+                <label for="project-objective">Objectif principal *</label>
+                <select id="project-objective" name="projectObjective" data-brief-field required>
+                  <option value="">Choisissez...</option>
+                  <option value="collecte-leads">Collecter des leads</option>
+                  <option value="vente-produit">Vendre un produit / service</option>
+                  <option value="lancement">Lancer une offre / un évènement</option>
+                  <option value="application">Promouvoir une application</option>
+                  <option value="autre">Autre</option>
+                </select>
+                <span class="error" data-error-for="projectObjective"></span>
+
+                <label for="project-objective-other">Si autre, précisez</label>
+                <input id="project-objective-other" name="projectObjectiveOther" data-brief-field type="text">
+              </div>
+
+              <label for="project-value">Proposition de valeur (phrase simple)</label>
+              <input id="project-value" name="projectValue" data-brief-field type="text" placeholder="Ce qui vous rend unique">
+
+              <label for="project-audience">Public visé</label>
+              <textarea id="project-audience" name="projectAudience" data-brief-field rows="2" placeholder="À qui s’adresse la landing page ?"></textarea>
+
+              <div class="grid two">
+                <label for="project-offer">Offre / Promesse principale</label>
+                <input id="project-offer" name="projectOffer" data-brief-field type="text" placeholder="Ex. Session de coaching offerte">
+
+                <label for="project-cta">Call-to-action souhaité</label>
+                <input id="project-cta" name="projectCta" data-brief-field type="text" placeholder="Ex. Réserver ma démo">
+              </div>
+
+              <label for="project-tone">Ton &amp; style souhaité</label>
+              <input id="project-tone" name="projectTone" data-brief-field type="text" placeholder="Chaleureux, professionnel, fun...">
+            </fieldset>
+
+            <fieldset class="panel section">
+              <legend>Contenus &amp; sections</legend>
+              <fieldset>
+                <legend>Sections à prévoir *</legend>
+                <div class="selection-grid">
+                  <label><input type="checkbox" name="sections" value="hero" data-brief-field checked> Hero d’introduction</label>
+                  <label><input type="checkbox" name="sections" value="benefits" data-brief-field> Avantages / bénéfices</label>
+                  <label><input type="checkbox" name="sections" value="features" data-brief-field> Fonctionnalités</label>
+                  <label><input type="checkbox" name="sections" value="social-proof" data-brief-field> Témoignages / preuves</label>
+                  <label><input type="checkbox" name="sections" value="offer" data-brief-field> Offre / Tarifs</label>
+                  <label><input type="checkbox" name="sections" value="faq" data-brief-field> FAQ</label>
+                  <label><input type="checkbox" name="sections" value="final-cta" data-brief-field> CTA final</label>
+                  <label><input type="checkbox" name="sections" value="contact" data-brief-field> Contact / formulaire</label>
+                  <label><input type="checkbox" name="sections" value="other" data-brief-field> Autres</label>
+                </div>
+                <label for="sections-other" class="assistive">Autres sections</label>
+                <textarea id="sections-other" name="sectionsOther" data-brief-field rows="2" placeholder="Sections spécifiques souhaitées"></textarea>
+                <span class="error" data-error-for="sections"></span>
+              </fieldset>
+
+              <fieldset>
+                <legend>Contenus disponibles</legend>
+                <div class="selection-grid">
+                  <label><input type="checkbox" name="contents" value="textes" data-brief-field> Textes</label>
+                  <label><input type="checkbox" name="contents" value="visuels" data-brief-field> Visuels / photos</label>
+                  <label><input type="checkbox" name="contents" value="videos" data-brief-field> Vidéos</label>
+                  <label><input type="checkbox" name="contents" value="logos" data-brief-field> Logos / branding</label>
+                  <label><input type="checkbox" name="contents" value="a-produire" data-brief-field> À produire</label>
+                </div>
+              </fieldset>
+
+              <label for="assets-links">Liens utiles (Drive, site actuel, documents)</label>
+              <textarea id="assets-links" name="assetsLinks" data-brief-field data-validate="urls" rows="2" placeholder="https://drive.google.com/...&#10;https://votre-site.com"></textarea>
+              <span class="error" data-error-for="assetsLinks"></span>
+            </fieldset>
+
+            <fieldset class="panel section">
+              <legend>Identité &amp; inspirations</legend>
+                <div class="selection-grid">
+                <label for="design-style">Style visuel souhaité</label>
+                <input id="design-style" name="designStyle" data-brief-field type="text" placeholder="Moderne, minimal, coloré...">
+
+                <label for="design-colors">Couleurs à utiliser</label>
+                <input id="design-colors" name="designColors" data-brief-field type="text" placeholder="#0A84FF, #111111">
+              </div>
+
+              <label for="design-inspirations">Landing pages qui vous inspirent (URLs)</label>
+              <textarea id="design-inspirations" name="designInspirations" data-brief-field data-validate="urls" rows="3" placeholder="https://exemple.com&#10;https://autre.com"></textarea>
+              <span class="error" data-error-for="designInspirations"></span>
+            </fieldset>
+
+            <fieldset class="panel section">
+              <legend>Logistique &amp; technique</legend>
+              <div class="grid two">
+                <label for="logistics-deadline">Deadline souhaitée</label>
+                <input id="logistics-deadline" name="logisticsDeadline" data-brief-field type="date">
+
+                <label for="logistics-budget">Budget estimé</label>
+                <input id="logistics-budget" name="logisticsBudget" data-brief-field type="text" placeholder="Ex. 1 200 – 1 800 €">
+              </div>
+
+              <div class="grid two">
+                <label for="logistics-support">Besoin d’accompagnement technique</label>
+                <select id="logistics-support" name="logisticsSupport" data-brief-field>
+                  <option value="oui-creation">Oui, créer et mettre en ligne</option>
+                  <option value="oui-integration">Oui, intégrer sur mon outil</option>
+                  <option value="non">Non, je gère</option>
+                  <option value="a-definir">À définir</option>
+                </select>
+
+                <label for="logistics-ecommerce">Souhaitez-vous échanger sur une version e-commerce ?</label>
+                <select id="logistics-ecommerce" name="logisticsEcommerce" data-brief-field>
+                  <option value="non">Non, landing page uniquement</option>
+                  <option value="oui">Oui, j’aimerais en discuter</option>
+                </select>
+              </div>
+
+              <label for="logistics-updates">Mises à jour régulières (contrat)</label>
+              <select id="logistics-updates" name="logisticsUpdates" data-brief-field>
+                <option value="a-definir">À définir</option>
+                <option value="oui">Oui, à prévoir</option>
+                <option value="non">Non, besoin ponctuel</option>
+              </select>
+
+              <label for="logistics-notes">Notes complémentaires</label>
+              <textarea id="logistics-notes" name="logisticsNotes" data-brief-field rows="2" placeholder="Délais impératifs, outils marketing actuels, etc."></textarea>
+
+              <p class="guide-note">
+                RMS Suite s’occupe de l’enregistrement du domaine pour simplifier le lancement. Les mises à jour du site peuvent être gérées sous contrat.
+              </p>
+            </fieldset>
+
+            <fieldset class="panel section">
+              <legend>Consentement</legend>
+              <label class="checkbox">
+                <input type="checkbox" id="consent-rgpd" name="consentRgpd" data-brief-field required>
+                J’accepte que mes données soient utilisées pour établir un devis. *
+              </label>
+              <span class="error" data-error-for="consentRgpd"></span>
+            </fieldset>
+
+            <div class="actions module-toolbar">
+              <button type="button" class="btn btn-primary" id="btn-preview">Voir la prévisualisation</button>
+              <button type="button" class="btn btn-outline" id="btn-copy-message">Copier le message</button>
+              <button type="button" class="btn btn-outline" id="btn-open-mail">Ouvrir dans le client mail</button>
+              <button type="button" class="btn btn-link" id="btn-reset">Réinitialiser</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div class="preview-overlay" id="preview-overlay" aria-hidden="true">
+      <div class="preview-modal" role="dialog" aria-modal="true" aria-label="Prévisualisation du brief">
+        <header class="preview-modal-header">
+          <h2>Prévisualisation du message</h2>
+          <div class="preview-modal-actions">
+            <button type="button" class="btn btn-outline" data-copy-target="preview-text">Copier texte</button>
+            <button type="button" class="btn btn-outline" data-copy-target="preview-html" data-copy-html="true">Copier HTML</button>
+            <button type="button" class="btn btn-outline" data-copy-target="preview-json">Copier JSON</button>
+            <button type="button" class="btn btn-link" id="btn-close-preview" aria-label="Fermer la prévisualisation">×</button>
+          </div>
+        </header>
+        <div class="preview-modal-body">
+          <article class="preview-content" aria-live="polite">
+            <section class="preview-block">
+              <h3>Objet &amp; message texte</h3>
+              <p><strong>Sujet :</strong> <span id="preview-subject">—</span></p>
+              <textarea id="preview-text" rows="14" readonly aria-label="Corps du mail (texte)"></textarea>
+            </section>
+            <section class="preview-block">
+              <h3>Version HTML</h3>
+              <div id="preview-html" class="preview-html"></div>
+            </section>
+            <section class="preview-block">
+              <h3>Prompt JSON</h3>
+              <textarea id="preview-json" rows="14" readonly aria-label="Résumé JSON pour prompt"></textarea>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <a class="brand-lockup" href="../../../../index.html">
+        <img class="brand-logo" src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo officiel RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Créateur de la RMS Suite — branding unifié.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 RMS Launchpad — Suite métiers hors ligne.</p>
+    </footer>
+
+    <script type="module" src="site-web.js"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+}
+
+/* HTML
+
+<div class="dock_003">
+<div class="button_003"><a href="#">
+<div class="img_003">
+<img class="hover_003" src="" alt=img>
+<img class="unhover_003" src="" alt=img>
+</div>
+</a>
+</div>
+
+</div>
+
+*/
+
+
+/*Chaque  type de Dock sera une .dock_none*/
+
+@media screen and (max-width: 980px) {
+
+  :root .dock_003 {
+
+
+
+    /*Variable config Dock*/
+
+
+    /*-----------------------------------*/
+    /*-----------------------------------
+    
+    -----------------------------------*/
+    --003-img-size-height: 70px;
+    --003-img-size-width: auto;
+    /* config dock*/
+
+    /*-----------------------------------
+    --003-dock-radius: none;
+    -----------------------------------*/
+    --003-dock-height: 100px;
+    --003-dock-margin-bottom: 35px;
+    --003-dock-margin-top: 50px;
+    --003-dock-width: 95%;
+    --003-dock-margin-left: auto;
+    --003-dock-margin-right: auto;
+    --003-dock-background: none;
+    --003-dock-border: none;
+
+    /* config button*/
+
+    /*-----------------------------------
+    --003-button-margin-right: none;
+    --003-button-margin-left: none;
+    --003-button-margin-top: none;
+    --003-button-margin-bottom: none;
+    --003-button-border: none;
+    --003-button-radius: none;
+    --003-button-background: none;
+    -----------------------------------*/
+    --003-button-height: 100%;
+    --003-button-width: 25%;
+
+    /* décalage unhover*/
+
+    /*-----------------------------------
+    --003-U-margin-right: none;
+    --003-U-margin-bottom: none;
+    -----------------------------------*/
+    --003-U-margin-left: -5px;
+    --003-U-margin-top: -5px;
+  }
+}
+
+@media screen and (min-width:980px) {
+
+  :root .dock_003 {
+
+    /*Variable config Dock*/
+
+
+    --003-img-size-height: 75px;
+    --003-img-size-width: auto;
+    /*-----------------------------------*/
+    /*-----------------------------------
+    
+    -----------------------------------*/
+    /* config dock*/
+
+    --003-dock-width: 80%;
+    --003-dock-height: 100%;
+    /*-----------------------------------
+    --003-dock-margin-right: none;
+    --003-dock-margin-left: none;
+    --003-dock-margin-top: none;
+    -----------------------------------*/
+    --003-dock-margin-bottom: 40px;
+    --003-dock-radius: none;
+    --003-dock-border: none;
+    --003-dock-background: none;
+
+    /* config button*/
+
+    /*-----------------------------------
+    --003-button-height: none;
+    --003-button-width: none;
+    --003-button-margin-right: none;
+    --003-button-margin-left: none;
+    --003-button-margin-top: none;
+    --003-button-margin-bottom: none;
+    --003-button-border: none;
+    --003-button-radius: none;
+    --003-button-background: none;
+    -----------------------------------*/
+
+    /* décalage unhover*/
+
+    /*-----------------------------------
+    --003-U-margin-right: none;
+    --003-U-margin-left: none;
+    --003-U-margin-top: none;
+    --003-U-margin-bottom: none;
+    -----------------------------------*/
+
+  }
+
+}
+
+
+/*button interactif index*/
+
+
+.dock_003 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+
+
+  width: var(--003-dock-width, 90%);
+  height: var(--003-dock-height, 50%);
+  margin-right: var(--003-dock-margin-right, auto);
+  margin-left: var(--003-dock-margin-left, auto);
+  margin-top: var(--003-dock-margin-top, 20px);
+  margin-bottom: var(--003-dock-margin-bottom, 20px);
+  border: var(--003-dock-border, 2px solid black);
+  border-radius: var(--003-dock-radius, 15px);
+  background: var(--003-dock-background, rgba(0, 0, 0, 0.322));
+}
+
+.button_003 {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  height: var(--003-button-height, auto);
+  width: var(--003-button-width, 20%);
+  margin-right: var(--003-button-margin-right, 0);
+  margin-left: var(--003-button-margin-left, 0);
+  margin-top: var(--003-button-margin-top, 0);
+  margin-bottom: var(--003-button-margin-bottom, 0);
+  border: var(--003-button-border, none);
+  border-radius: var(--003-button-radius, none);
+  background: var(--003-button-background, none);
+
+}
+
+.button_003 img {
+  width: var(--003-img-size-width, auto);
+  height: var(--003-img-size-height, 100%);
+
+
+}
+
+.button_003 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.img_003 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  Height: 100%;
+  position: relative;
+}
+
+.unhover_003 {
+
+  opacity: 0;
+  z-index: 0;
+  position: absolute;
+
+  margin-right: var(--003-U-margin-right, 0);
+  margin-left: var(--003-U-margin-left, 5px);
+  margin-top: var(--003-U-margin-top, 5px);
+  margin-bottom: var(--003-U-margin-bottom, 0);
+}
+
+.hover_003 {
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
+
+.button_003:hover .unhover_003 {
+  opacity: 1;
+
+}
+
+.button_003:hover .hover_003 {
+  opacity: 0;
+}

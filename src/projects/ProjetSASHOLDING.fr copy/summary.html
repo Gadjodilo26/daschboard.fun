@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synthèse banquier &mdash; Business Plan EURL Transport Frigorifique</title>
+    <link rel="stylesheet" href="styles.css">
+  <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="summary">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">EURL Froid Horizon</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html" class="is-active" aria-current="page">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--secondary" id="btn-print" type="button">Imprimer / PDF</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="panel__content">
+        <header class="panel__header">
+          <h1>Synthèse pour le banquier</h1>
+          <p>Résumé exécutif, indicateurs clés et analyse qualitative pour soutenir la demande de financement.</p>
+        </header>
+        <article class="executive-summary">
+          <h2>Résumé exécutif</h2>
+          <p id="executive-summary-text"></p>
+        </article>
+        <section class="print-overview">
+          <article>
+            <h3>Compte mensuel</h3>
+            <dl id="summary-monthly-print"></dl>
+          </article>
+          <article>
+            <h3>Financement &amp; BFR</h3>
+            <dl id="summary-financing-print"></dl>
+          </article>
+          <article>
+            <h3>Trésorerie constituée</h3>
+            <dl id="summary-treasury-print"></dl>
+          </article>
+        </section>
+        <section class="analysis-grid">
+          <article>
+            <h3>Ratios financiers</h3>
+            <p class="panel-hint">Survolez chaque indicateur pour lire une définition accessible.</p>
+            <dl id="ratio-list"></dl>
+          </article>
+          <article>
+            <h3>Analyse banquier</h3>
+            <ul id="banker-analysis"></ul>
+          </article>
+          <article>
+            <h3>Fiscalité &amp; TVA</h3>
+            <dl id="fiscal-summary"></dl>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

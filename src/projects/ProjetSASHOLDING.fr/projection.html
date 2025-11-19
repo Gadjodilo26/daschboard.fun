@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévisionnel 3 ans — Atelier Entreprendre</title>
+    <link rel="stylesheet" href="styles.css">
+  <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="projection">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">Atelier Entreprendre</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html" class="is-active" aria-current="page">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="panel__content">
+        <header class="panel__header">
+          <h1>Prévisionnel à 36 mois</h1>
+          <p>Projection intégrant croissance, inflation et mensualités de prêt (assurance incluse et prise en compte du BFR).</p>
+        </header>
+        <div class="chart-card">
+          <canvas
+            id="projection-chart"
+            width="960"
+            height="420"
+            role="img"
+            aria-label="Évolution CA / charges / résultat / trésorerie sur 36 mois"
+          ></canvas>
+        </div>
+        <aside class="summary-cards">
+          <article class="summary-card">
+            <h3>Trésorerie constituée</h3>
+            <dl id="treasury-summary"></dl>
+          </article>
+        </aside>
+        <div class="table-wrapper">
+          <table>
+            <caption>Compte de résultat synthétique</caption>
+            <thead>
+              <tr>
+                <th>Année</th>
+                <th>CA</th>
+                <th>Charges</th>
+                <th>Résultat avant impôt</th>
+                <th>CAF</th>
+                <th>Trésorerie fin d&rsquo;année</th>
+              </tr>
+            </thead>
+            <tbody id="projection-yearly"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

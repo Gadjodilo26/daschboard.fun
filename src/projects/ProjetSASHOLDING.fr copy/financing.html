@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financement &amp; prêt &mdash; Business Plan EURL Transport Frigorifique</title>
+    <link rel="stylesheet" href="styles.css">
+  <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="financing">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">EURL Froid Horizon</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html" class="is-active" aria-current="page">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="panel__content">
+        <header class="panel__header">
+          <h1>Financement &amp; plan d&rsquo;amortissement</h1>
+          <p>Détail du financement du camion frigorifique et couverture du besoin en fonds de roulement.</p>
+        </header>
+        <aside class="summary-cards">
+          <article class="summary-card">
+            <h3>Capitaux &amp; besoins</h3>
+            <dl id="investment-summary"></dl>
+          </article>
+          <article class="summary-card">
+            <h3>Trésorerie constituée</h3>
+            <dl id="treasury-summary"></dl>
+          </article>
+        </aside>
+        <div class="table-wrapper">
+          <table>
+            <caption>Tableau d&rsquo;amortissement (36 premiers mois)</caption>
+            <thead>
+              <tr>
+                <th>Mois</th>
+                <th>Mensualité (assurance incl.)</th>
+                <th>Intérêts</th>
+                <th>Capital remboursé</th>
+                <th>Solde restant</th>
+              </tr>
+            </thead>
+            <tbody id="loan-schedule-table"></tbody>
+          </table>
+        </div>
+        <dl class="loan-overview" id="loan-overview"></dl>
+      </div>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Meta description optimisée pour le SEO -->
+    <meta
+      name="description"
+      content="Découvrez le permis à point en 2025 en France, ses règles, astuces et sanctions renforcées. Informez-vous sur les situations du permis classique et probatoire, la reconstitution du capital de points, et bien plus encore."
+    />
+    <!-- Intégration d'un favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Google Fonts: Roboto -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome pour les icônes dans le footer -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Le permis à point en 2025 en France</title>
+    <style>
+      /* RESET & BASE */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Suppression du padding du body pour permettre au header d'être en pleine largeur */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #fafafa;
+        color: #000;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .section {
+        margin: 0 10px;
+      }
+
+      .logo img {
+        padding: 9px;
+        max-height: 50px;
+      }
+
+      p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: #c95d8a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #a94468;
+      }
+
+      /* EFFECT FONDU */
+      .fade-section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease;
+        margin-bottom: 15px;
+      }
+
+      .fade-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* TITRES */
+      h1 {
+        font-size: 3em;
+        color: #d63384;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
+        font-size: 2em;
+        color: #007bff;
+        margin-top: 20px;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.75em;
+        color: #28a745;
+        margin-top: 20px;
+        margin-bottom: 0.75rem;
+      }
+
+      h4 {
+        font-size: 1.5em;
+        color: #ffc107;
+        margin-bottom: 0.75rem;
+      }
+
+      /* Paragraphes */
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      /* HEADER & MENU – Grille à trois colonnes */
+      header {
+        background-color: #000;
+        padding: 0.5rem 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+      }
+
+      .logo a {
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      /* Menu principal centré */
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ol {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      ul.menu {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+      }
+
+      ul.menu > li {
+        position: relative;
+      }
+
+      ul.menu > li > a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #fff;
+      }
+
+      /* Sous-menu amélioré */
+      ul.menu li ul.dropdown {
+        list-style: none;
+        padding: 0.5rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+        z-index: 100;
+      }
+
+      ul.menu li:hover > ul.dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      ul.menu li ul.dropdown li a {
+        color: #000;
+        padding: 0.5rem 1rem;
+        display: block;
+      }
+
+      /* MENU MOBILE (Bouton hamburger) */
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        height: 3px;
+        width: 25px;
+        background: #fff;
+        margin: 4px 0;
+        transition: 0.3s;
+      }
+
+      .menu-toggle.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      /* SIDEBAR */
+      #sidebar {
+        width: 220px;
+        background: #fff;
+        padding: 1rem;
+        border-right: 1px solid #ccc;
+        position: sticky;
+        top: 4rem;
+        height: calc(100vh - 4rem);
+      }
+
+      #sidebar h3 {
+        margin-bottom: 0.75rem;
+      }
+
+      #sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      #sidebar ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      #sidebar ul li a {
+        display: block;
+        padding: 0.5rem;
+        background: #c95d8a;
+        color: #fff;
+        border-radius: 3px;
+        transition: background 0.3s ease;
+      }
+
+      #sidebar ul li a:hover {
+        background: #a94468;
+      }
+
+      /* LAYOUT : SIDEBAR + MAIN */
+      .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 2rem auto;
+        gap: 1.5rem;
+        padding: 0 20px;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      /* TABLEAUX */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ccc;
+      }
+
+      th,
+      td {
+        padding: 0.75rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      /* BOUTONS */
+      .boutique-btn,
+      .solde-btn {
+        display: inline-block;
+        background-color: #c95d8a;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        font-size: 1.1em;
+        margin: 1rem 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .boutique-btn:hover,
+      .solde-btn:hover {
+        background-color: #a94468;
+        color: #000;
+      }
+
+      /* FOOTER */
+      footer {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 20px;
+      }
+
+      footer a {
+        color: #fff;
+        margin: 0 5px;
+        font-size: 1.2em;
+      }
+
+      .footer-links {
+        margin-top: 10px;
+      }
+
+      /* BOUTON RETOUR EN HAUT */
+      #back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #c95d8a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        display: none;
+        transition: opacity 0.3s ease;
+      }
+
+      #back-to-top:hover {
+        background: #a94468;
+      }
+
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        /* pour un défilement fluide sur iOS */
+        margin-bottom: 15px;
+        /* facultatif */
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        /* On justifie le texte de la page */
+        body,
+        p {
+          text-align: justify;
+        }
+
+        /* On ajuste la marge globale pour le contenu */
+        body {
+          margin: 0 10px 0 10px;
+        }
+
+        /* On ajuste la section pour qu’elle respecte une marge de 10px */
+        .section {
+          margin: 20px 10px 20px 10px;
+          width: auto;
+          /* Suppression de la largeur fixe pour plus de fluidité */
+        }
+
+        /* Ajustement du conteneur principal pour respecter la marge */
+        .container {
+          padding: 0 10px;
+        }
+
+        /* Règles existantes pour le menu et autres éléments mobiles */
+        ul.menu {
+          flex-direction: column;
+          gap: 0.2rem;
+          width: 100%;
+        }
+
+        ul.menu > li > a {
+          padding: 0.5rem 0.75rem;
+        }
+
+        ul.menu li ul.dropdown li a {
+          padding: 0.4rem 0.75rem;
+        }
+
+        #sidebar {
+          display: none;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        h2 {
+          font-size: 1.75em;
+          text-align: center;
+          margin: 50px 0 50px 0;
+        }
+
+        h3 {
+          font-size: 1.5em;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        .table-responsive {
+          font-size: x-small;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        ul.menu > li > a {
+          padding: 0.5rem 0.75rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <a href="#"
+          ><img src="../assets/img/image_permis_de_conduire.png" alt="img"
+        /></a>
+      </div>
+      <nav id="main-nav">
+        <ul class="menu">
+          <li>
+            <a href="#">Navigation</a>
+            <ul class="dropdown">
+              <li><a href="#fonctionnement">Combien de points?</a></li>
+              <li><a href="#bareme">Combien puis-je en perdre?</a></li>
+              <li><a href="#montant">Combien ça coûte?</a></li>
+              <li><a href="#contestations">Pourquoi contester?</a></li>
+              <li><a href="#annulation">Si je perds mon permis?</a></li>
+              <li>
+                <a href="#recuperation">Quand vais-je récupérer mes points?</a>
+              </li>
+              <li><a href="#solde">Solde de points</a></li>
+              <li><a href="#boutique">Boutique</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <!-- LAYOUT : SIDEBAR + MAIN -->
+    <div class="container">
+      <!-- SIDEBAR -->
+      <aside id="sidebar">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="#fonctionnement">Combien de points?</a></li>
+          <li><a href="#bareme">Combien puis-je en perdre?</a></li>
+          <li><a href="#montant">Combien ça coûte?</a></li>
+          <li><a href="#contestations">Pourquoi contester?</a></li>
+          <li><a href="#annulation">Si je perds mon permis?</a></li>
+          <li>
+            <a href="#recuperation">Quand vais-je récupérer mes points?</a>
+          </li>
+          <li><a href="#solde">Solde de points</a></li>
+          <li><a href="#boutique">Boutique</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main>
+        <!-- Section d'introduction avec illustration responsive -->
+        <section id="introduction" class="fade-section">
+          <h1>
+            📌 Permis à Points : Fonctionnement, Sanctions et Récupération
+          </h1>
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="../assets/img/permis-dematerialise.jpg"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcset="../assets/img/permis-dematerialise.jpg"
+            />
+            <img
+              src="../assets/img/permis-dematerialise.jpg"
+              alt="Illustration Introduction"
+              style="width: 100%; height: auto"
+            />
+          </picture>
+          <p>
+            Bienvenue sur notre site dédié au permis à points. Découvrez tout ce
+            qu'il faut savoir sur son fonctionnement, les infractions et les
+            stratégies pour préserver votre permis de conduire.
+          </p>
+        </section>
+
+        <!-- Autres sections du contenu -->
+        <section class="fade-section">
+          <h2>🔧 Comment fonctionne-t-il ?</h2>
+          <p>
+            Le permis de conduire en France est soumis à un système de points
+            permettant d'inciter les conducteurs à respecter le Code de la
+            route. Ce système repose sur un capital de points qui diminue en cas
+            d'infraction et peut être récupéré sous certaines conditions.
+          </p>
+        </section>
+
+        <section id="fonctionnement" class="fade-section">
+          <h2>🎯 Capital initial de points</h2>
+          <ul>
+            <li>
+              <strong
+                >Quelque soit votre permis (voiture, moto, poid lourd) vous
+                bénéficierez de</strong
+              >
+              ✅ 12 points maximum
+            </li>
+            <li>
+              <strong
+                >Lorsque vous obtenez votre permis, c'est un permis probatoire
+                :</strong
+              >
+              🛡️ 6 points au départ, avec une progression vers 12 points sous
+              réserve de ne pas commettre d'infraction.
+            </li>
+          </ul>
+          <p>
+            Sans infraction pendant 3 ans → 12 points<br />
+            Conduite accompagnée (✨ AAC) : progression plus rapide en 2 ans
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h2>🔄 Reconstitution progressive du capital de points</h2>
+          <h3>✅ Formation traditionnelle (permis probatoire de 3 ans)</h3>
+          <ul>
+            <li>💪 Départ : 6 points</li>
+            <li>🌟 Après 1 an sans infraction : +2 points → 8 points</li>
+            <li>🌟 Après 2 ans sans infraction : +2 points → 10 points</li>
+            <li>🌟 Après 3 ans sans infraction : +2 points → 12 points</li>
+          </ul>
+          <h3>👨‍🎓 Conduite accompagnée (AAC, permis probatoire de 2 ans)</h3>
+          <ul>
+            <li>💪 Départ : 6 points</li>
+            <li>🌟 Après 1 an sans infraction : +3 points → 9 points</li>
+            <li>
+              🌟 Après 2 ans sans infraction : +3 points → 12 points (fin de la
+              période probatoire)
+            </li>
+          </ul>
+        </section>
+
+        <section id="bareme" class="fade-section">
+          <h2>⚠️ Perte de points</h2>
+          <p>Les infractions sont relevées par :</p>
+          <ul>
+            <li>🛵 Contrôles routiers (police, gendarmerie)</li>
+            <li>📻 Radars automatiques</li>
+            <li>🎥 Vidéo-verbalisation</li>
+          </ul>
+          <p>
+            <strong>Retrait de points par infraction :</strong> 🔄 De 1 à 6
+            points<br />
+            ⚠️ Maximum : 8 points retirés en une seule fois en cas de cumul
+            d'infractions
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h2>📊 Barème des retraits de points</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Infraction</th>
+                <th>Retrait de points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🚗 Excès de vitesse < 20 km/h</td>
+                <td>1 point</td>
+              </tr>
+              <tr>
+                <td>🚗 Excès de vitesse 20-29 km/h</td>
+                <td>2 points</td>
+              </tr>
+              <tr>
+                <td>🚗 Excès de vitesse 30-39 km/h</td>
+                <td>3 points</td>
+              </tr>
+              <tr>
+                <td>🚗 Excès de vitesse 40-49 km/h</td>
+                <td>4 points + suspension</td>
+              </tr>
+              <tr>
+                <td>🚗 Excès de vitesse > 50 km/h</td>
+                <td>6 points + suspension</td>
+              </tr>
+              <tr>
+                <td>📱 Téléphone en main au volant</td>
+                <td>3 points</td>
+              </tr>
+              <tr>
+                <td>🚲 Non-respect d'un feu rouge ou d'un stop</td>
+                <td>4 points</td>
+              </tr>
+              <tr>
+                <td>🎩 Non-port de la ceinture</td>
+                <td>3 points</td>
+              </tr>
+              <tr>
+                <td>🌟 Refus de priorité à un piéton</td>
+                <td>6 points</td>
+              </tr>
+              <tr>
+                <td>🍾 Conduite sous alcool (0,5 à 0,8 g/L)</td>
+                <td>6 points + suspension voir annulation</td>
+              </tr>
+              <tr>
+                <td>💉 Conduite sous stupéfiants</td>
+                <td>6 points + suspension voir annulation</td>
+              </tr>
+              <tr>
+                <td>⚡ Dépassement dangereux</td>
+                <td>3 points</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="recuperation" class="fade-section">
+          <h2>🛠️ Récupération automatique des points</h2>
+          <ul>
+            <li>✅ 1 point perdu → Récupération en 6 mois sans infraction</li>
+            <li>
+              ✅ Infraction de 1ᵉʳ à 3ᵉʳ classe → Récupération des 12 points en
+              2 ans sans infraction commise
+            </li>
+            <li>
+              ✅ Infraction de 4ᵉʳ et 5ᵉʳ classe → Récupération des 12 points en
+              3 ans sans infraction commise
+            </li>
+          </ul>
+          <p>
+            🔄 Récupération des points perdus pour chaque infraction commise
+            après 10 ans (sous réserve que le permis ne soit ni à 0 ni à 12 pts
+            pendant cette période)
+          </p>
+        </section>
+
+        <section id="montant" class="fade-section">
+          <h2>💸 Montants des amendes et délais de paiement</h2>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Classe</th>
+                  <th>Type</th>
+                  <th>Montant minoré</th>
+                  <th>Montant forfaitaire</th>
+                  <th>Montant majoré</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1ᵉʳ classe</td>
+                  <td>Stationnement</td>
+                  <td>11 €</td>
+                  <td>17 €</td>
+                  <td>33 €</td>
+                </tr>
+                <tr>
+                  <td>2ᵉʳ classe</td>
+                  <td>Clignotants, Assurances, Péages</td>
+                  <td>22 €</td>
+                  <td>35 €</td>
+                  <td>75 €</td>
+                </tr>
+                <tr>
+                  <td>3ᵉʳ classe</td>
+                  <td>Excès de moins de 20 km/h, Problèmes de freins</td>
+                  <td>45 €</td>
+                  <td>68 €</td>
+                  <td>180 €</td>
+                </tr>
+                <tr>
+                  <td>4ᵉʳ classe</td>
+                  <td>Toutes les autres infractions</td>
+                  <td>90 €</td>
+                  <td>135 €</td>
+                  <td>375 €</td>
+                </tr>
+                <tr>
+                  <td>5ᵉʳ classe</td>
+                  <td>Excès de vitesse sup à 50 km/h</td>
+                  <td>N/A</td>
+                  <td>décision du tribunal</td>
+                  <td>N/A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>
+            ⏰ Délais de paiement :<br />
+            Amende minorée : paiement sous 15 jours (30 jours en ligne)<br />
+            Amende forfaitaire : entre 16 et 45 jours (60 jours en ligne)<br />
+            Amende majorée : au-delà de 60 jours
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h2>⚠️ Infractions graves et sanctions</h2>
+          <ul>
+            <li>
+              <strong
+                >📱 Téléphone + autre infraction : suspension jusqu'à 3
+                ans</strong
+              ><br />L'utilisation du téléphone au volant est une
+              <strong>infraction courante et dangereuse.</strong> <br />Si elle
+              est associée à une autre infraction, comme un excès de vitesse, un
+              non-respect d'un feu rouge ou une conduite en état d'ivresse, la
+              sanction peut être particulièrement sévère. <br />En effet, la
+              législation prévoit que, dans de tels cas,
+              <strong
+                >la suspension du permis de conduire peut aller jusqu'à trois
+                ans.</strong
+              >
+              Cette mesure vise à renforcer la sécurité routière en décourageant
+              les comportements à risque qui mettent en danger la vie du
+              conducteur, des passagers, ainsi que celle des autres usagers de
+              la route.
+              <strong
+                >La combinaison de l’usage du téléphone et d’une autre
+                infraction témoigne d'une imprudence accrue et d'un manque de
+                maîtrise du véhicule, justifiant des sanctions plus
+                strictes.</strong
+              >
+            </li>
+            <li>
+              🍾 Conduite sous alcool ou stupéfiants : retrait 6 points +
+              suspension
+            </li>
+            <li>🚗 Vitesse excessive (>50 km/h) : suspension + forte amende</li>
+          </ul>
+          <p>
+            ⛔ Sanctions possibles :<br />
+            🏢 Suspension administrative jusqu'à 3 ans<br />
+            ❌ Annulation judiciaire du permis<br />
+            🛠️ Stage de sensibilisation obligatoire<br />
+            💸 Amende jusqu'à 3 750 €
+          </p>
+          <h3>▶️ Quelques précisions importantes</h3>
+
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="../assets/img/infographie-perte-de-points-permis-probatoire.jpg"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcset="../assets/img/infographie-perte-de-points-permis-probatoire.jpg"
+            />
+            <img
+              src="../assets/img/infographie-perte-de-points-permis-probatoire.jpg"
+              alt="Illustration Introduction"
+              style="width: 100%; height: auto"
+            />
+          </picture>
+          <p>
+            <strong>Effet des infractions :</strong> En cas d'infraction pendant
+            la période probatoire, le conducteur perd les points correspondants.
+            La progression vers le capital complet s'arrête et une période de 2
+            à 3 ans (en fonction de l'infraction) est donc nécessaire pour y
+            parvenir.
+          </p>
+          <p>
+            <strong>Mention sur le permis :</strong> La période probatoire ainsi
+            que le capital initial de 6 points sont clairement indiqués sur le
+            permis. Il est obligatoire d'apposer le signe « A » sur le véhicule
+            pour signaler que le conducteur est en période probatoire.
+          </p>
+          <p>
+            <strong>Importance de préserver son capital :</strong> Si le solde
+            de points atteint zéro, le permis devient invalide, obligeant le
+            conducteur à suivre des démarches administratives et à repasser les
+            examens du code et de la conduite (*uniquement pour les permis < 3
+            ans). Il est donc primordial de respecter le Code de la route dès le
+            début.
+          </p>
+          <h3>▶️ En résumé</h3>
+          <p>
+            <strong>Permis probatoire :</strong> Tout nouveau conducteur
+            commence avec 6 points et n'obtient l'intégralité des 12 points
+            qu'après avoir effectué sa période probatoire sans infraction (3 ans
+            pour une formation traditionnelle ou 2 ans pour la conduite
+            accompagnée). Note essentielle : Jusqu'à l'acquisition du capital
+            complet, le conducteur n'a que 6 points sur son permis, soulignant
+            l'importance d'une conduite prudente dès le début.
+          </p>
+          <p>
+            Pour plus d'informations, consultez les ressources officielles du
+            <a href="https://www.service-public.fr" target="_blank"
+              >Service-Public.fr</a
+            >
+            ou
+            <a href="https://www.permisapoints.fr" target="_blank"
+              >PermisAPoints.fr</a
+            >.
+          </p>
+        </section>
+
+        <section id="annulation" class="fade-section">
+          <h2>🔹 Que faire en cas de perte totale des points ?</h2>
+          <p>
+            La perte de tous les points de votre permis de conduire entraîne son
+            invalidation. Vous recevez alors une notification officielle par
+            courrier (lettre 48SI) vous informant que vous n’avez plus le droit
+            de conduire. Dans ce cas, vous devez impérativement restituer votre
+            permis et suivre plusieurs étapes avant de pouvoir repasser
+            l’examen.
+          </p>
+          <h2>
+            🔹 Comment récupérer son permis après annulation ou suspension ?
+          </h2>
+          <h3>
+            ▶️ Quels sont les délais pour restituer son permis après
+            invalidation ?
+          </h3>
+          <p>
+            Vous disposez d’un délai de 10 jours à compter de la réception de la
+            lettre 48SI pour restituer votre permis de conduire. À remettre par
+            courrier recommandé en préfecture.
+          </p>
+          <h3>▶️ Documents à joindre à votre courrier</h3>
+          <ul>
+            <li>
+              La copie recto/verso de la lettre 48SI du ministère de
+              l’Intérieur.
+            </li>
+            <li>Le permis de conduire original.</li>
+            <li>
+              Une copie recto/verso de votre pièce d’identité en cours de
+              validité.
+            </li>
+            <li>
+              Un justificatif de domicile à votre nom datant de moins de 6 mois.
+            </li>
+            <li>Une enveloppe affranchie au tarif en vigueur.</li>
+          </ul>
+        </section>
+
+        <section class="fade-section">
+          <p>
+            Une fois votre permis reçu par la préfecture, vous recevrez un
+            récépissé de remise d’un permis invalidé (référence 44). Ce document
+            est indispensable pour entamer vos démarches de récupération du
+            permis.
+          </p>
+          <p>
+            Perdre son permis de conduire suite à une annulation ou une
+            suspension peut être une situation complexe. Voici les différentes
+            étapes à suivre pour le récupérer en fonction des motifs et des
+            délais légaux.
+          </p>
+          <h3>🔴 Récupération après une annulation du permis de conduire</h3>
+          <p>
+            L'annulation d'un permis de conduire signifie que celui-ci est
+            totalement invalidé et que son détenteur doit repasser les épreuves
+            du permis pour le récupérer.
+          </p>
+          <ul>
+            <li>
+              <strong>Solde de points nul (0 point)</strong> → Annulation
+              automatique par le ministère de l’Intérieur.
+            </li>
+            <li>
+              <strong>Décision judiciaire</strong> (conduite sous stupéfiants,
+              alcoolémie, délit de fuite, récidive d’infraction grave, etc.).
+            </li>
+          </ul>
+          <h4>✅ Procédure de récupération :</h4>
+          <ol>
+            <li>
+              <strong>Délai d’attente obligatoire :</strong>
+              <ul>
+                <li>
+                  <strong>6 mois minimum</strong> en cas de première annulation.
+                </li>
+                <li>
+                  <strong>1 an minimum</strong> en cas de récidive dans les 5
+                  ans.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Examen médical et psychotechnique :</strong>
+              <ul>
+                <li>
+                  Passer une visite médicale auprès d’un médecin agréé par la
+                  préfecture.
+                </li>
+                <li>
+                  Effectuer des tests psychotechniques (obligatoires si
+                  l'annulation dépasse 6 mois).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Réinscription et passage de l’examen du permis :</strong>
+              <ul>
+                <li>
+                  Si l’annulation dure <strong>moins de 1 an</strong> → seul
+                  l’examen théorique (code de la route) est à repasser.
+                </li>
+                <li>
+                  Si l’annulation dure <strong>plus d’1 an</strong> → obligation
+                  de repasser <strong>le code et la conduite</strong>.
+                </li>
+                <li>
+                  Pour les permis <strong>probatoires</strong> → obligation de
+                  repasser <strong>le code et la conduite</strong>.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <section class="fade-section">
+          <h3>🔹 Récupération après une suspension du permis de conduire</h3>
+          <p>
+            Contrairement à l’annulation, la suspension du permis est temporaire
+            et impose simplement une période d’interdiction de conduire.
+          </p>
+          <ul>
+            <li>
+              <strong>Suspension administrative</strong> → décidée par le préfet
+              après certaines infractions (alcool, stupéfiants, grand excès de
+              vitesse).
+            </li>
+            <li>
+              <strong>Suspension judiciaire</strong> → prononcée par un juge
+              dans le cadre d’un délit routier.
+            </li>
+          </ul>
+          <h4>✅ Procédure de récupération :</h4>
+          <ol>
+            <li>
+              <strong>Respecter la durée de suspension :</strong>
+              <ul>
+                <li>
+                  De <strong>1 à 6 mois</strong> en général (jusqu'à 1 an pour
+                  des cas graves).
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Passer une visite médicale (selon l’infraction) :</strong>
+              <ul>
+                <li>
+                  Obligatoire pour
+                  <strong>alcoolémie, stupéfiants, infractions graves</strong>.
+                </li>
+                <li>
+                  Prise de rendez-vous auprès d'un médecin agréé par la
+                  préfecture.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Tests psychotechniques (dans certains cas) :</strong>
+              <ul>
+                <li>Si la suspension dépasse <strong>6 mois</strong>.</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Retrait du permis en préfecture :</strong>
+              <ul>
+                <li>
+                  Après validation de l’aptitude médicale, le conducteur
+                  récupère son permis auprès de la préfecture ou via l’ANTS.
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <p>
+            &#128279;
+            <a
+              href="https://www.service-public.fr/particuliers/vosdroits/F1803"
+              target="_blank"
+              >Service-Public.fr - Suspension du permis</a
+            >
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h3>⚠️ Infractions majeures cumulées et conséquences</h3>
+          <p>
+            Le cumul de plusieurs infractions graves peut entraîner une
+            <strong>suspension prolongée</strong> ou une
+            <strong>annulation</strong> du permis.
+          </p>
+          <ul>
+            <li>
+              📱 Téléphone au volant <strong>+</strong> grand excès de vitesse.
+            </li>
+            <li>
+              🏢 Conduite sous l’emprise de stupéfiants
+              <strong>+</strong> accident responsable.
+            </li>
+            <li>
+              🍾 Alcoolémie excessive <strong>+</strong> refus d'obtempérer.
+            </li>
+          </ul>
+          <h4>✅ Sanctions possibles :</h4>
+          <ul>
+            <li>❌ Retrait immédiat du permis.</li>
+            <li>👤 Passage devant un tribunal correctionnel.</li>
+            <li>
+              🚫 Interdiction de solliciter un nouveau permis pendant une
+              période donnée.
+            </li>
+          </ul>
+          <h3>📌 À retenir :</h3>
+          <ul>
+            <li>
+              ✅ <strong>Annulation</strong> = obligation de repasser le permis
+              après un délai.
+            </li>
+            <li>
+              ✅ <strong>Suspension</strong> = permis conservé mais inutilisable
+              temporairement.
+            </li>
+            <li>
+              ✅ Des tests médicaux et psychotechniques peuvent être exigés
+              selon l’infraction et la durée de la sanction.
+            </li>
+          </ul>
+          <p>
+            &#128172; En cas de doute, consultez votre préfecture ou un avocat
+            spécialisé en droit routier.
+          </p>
+        </section>
+
+        <section id="contestations" class="fade-section">
+          <h2>
+            🔹 Comment contester une infraction et retarder la perte de points ?
+          </h2>
+          <h3>⏳ Délais légaux pour contester</h3>
+          <ul>
+            <li>
+              <strong>45 jours</strong> : Délai pour contester une infraction
+              après réception de l’avis de contravention.
+            </li>
+            <li>
+              <strong>30 jours</strong> : Délai pour contester une amende
+              majorée à partir de la date d'envoi de celle-ci
+            </li>
+          </ul>
+          <h3>📜 Comment contester une amende ?</h3>
+          <p>
+            La contestation se fait directement en ligne sur le site officiel du
+            gouvernement :
+          </p>
+          <p>
+            <a href="https://www.antai.gouv.fr" target="_blank"
+              >www.antai.gouv.fr</a
+            >
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h3>📌 Délai avant l'enregistrement du retrait de points</h3>
+          <ul>
+            <li>
+              <strong>Si vous payez l’amende immédiatement</strong>, le retrait
+              des points est effectif sous quelques semaines.
+              <strong>Attention</strong> : la date valeur du retrait sera celle
+              de l'enregistrement du paiement.
+            </li>
+            <li>
+              <strong>Si vous ne payez pas</strong>, l’amende devient majorée
+              après <strong>60 jours</strong>.
+            </li>
+            <li>
+              <strong>Si vous contestez</strong>, les points ne sont retirés
+              qu’après une décision judiciaire définitive.
+            </li>
+          </ul>
+          <p>
+            💡 <strong>Astuce</strong> : Contester permet de retarder la perte
+            des points et de vous donner le temps d’effectuer un
+            <strong>stage de récupération</strong>.
+          </p>
+        </section>
+
+        <section class="fade-section">
+          <h3>
+            ⏰ Délais détaillés pour contester et retarder la perte de points
+          </h3>
+          <table border="1">
+            <thead>
+              <tr>
+                <th>📅 Étape</th>
+                <th>⏳ Délai estimé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Contestation initiale</td>
+                <td>45 jours</td>
+              </tr>
+              <tr>
+                <td>Réception de l’amende majorée</td>
+                <td>7 à 30 jours (variable)</td>
+              </tr>
+              <tr>
+                <td>Contestation de l’amende majorée</td>
+                <td>30 jours</td>
+              </tr>
+              <tr>
+                <td>Traitement de la contestation</td>
+                <td>30 jours à plusieurs mois (variable)</td>
+              </tr>
+              <tr>
+                <td>⏳ Total avant retrait effectif des points</td>
+                <td><strong>120 à 180 jours</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="strategie" class="fade-section">
+          <h3>🚧 Stratégie pour retarder la perte de points</h3>
+          <p>
+            En contestant une amende et en patientant jusqu’à la réception de
+            l’amende majorée, un conducteur peut gagner entre
+            <strong>4 à 6 mois</strong> avant la clôture définitive du dossier.
+          </p>
+          <ul>
+            <li>
+              <strong>Faire un stage de récupération de points</strong> et ainsi
+              regagner jusqu’à <strong>4 points</strong>.
+            </li>
+            <li>
+              <strong>Adopter une conduite exemplaire</strong> pour récupérer
+              naturellement des points après 3 ans sans infraction.
+            </li>
+            <li>
+              <strong>Anticiper une solution alternative</strong> en fonction de
+              l’évolution du dossier.
+            </li>
+          </ul>
+        </section>
+
+        <section id="faq" class="fade-section">
+          <h2>💡 FAQ - Questions Fréquentes</h2>
+          <h3>📊 Peut-on contester une amende après 45 jours ?</h3>
+          <p>
+            Non, sauf si elle a été majorée. Dans ce cas, vous avez
+            <strong>30 jours</strong> pour contester la majoration en date de
+            réception de celle-ci.
+          </p>
+          <h3>🎯 Combien de points peut-on récupérer avec un stage ?</h3>
+          <p>
+            Un stage permet de récupérer
+            <strong>jusqu’à 4 points</strong> immédiatement.
+          </p>
+          <ul>
+            <li>
+              Jusqu'à 4 points récupérables via un stage de 2 jours (environ 250
+              €).
+            </li>
+            <li>Limité à 1 stage par an (366 jours entre deux stages).</li>
+            <li>
+              Obligatoire pour les permis probatoires en cas de perte de 3
+              points ou plus.
+            </li>
+          </ul>
+          <h3>
+            🚗 La contestation empêche-t-elle toujours le retrait de points ?
+          </h3>
+          <p>
+            Non. La contestation ne bloque pas définitivement la perte de
+            points, mais elle la <strong>retarde</strong> le temps que le
+            dossier soit traité.
+          </p>
+        </section>
+
+        <section id="taux-legaux" class="fade-section">
+          <h2>⚖️ Barème des taux légaux</h2>
+          <p>
+            Voici les taux légaux appliqués pour le dépistage de l'alcool et des
+            stupéfiants :
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>🍷 Substance</th>
+                <th>📏 Taux légal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alcool (conducteurs expérimentés)</td>
+                <td>0,5 g/L de sang</td>
+              </tr>
+              <tr>
+                <td>Alcool (nouveaux conducteurs)</td>
+                <td>0,2 g/L de sang</td>
+              </tr>
+              <tr>
+                <td>🌿 THC (cannabis)</td>
+                <td>Aucune tolérance (tout résultat positif est sanctionné)</td>
+              </tr>
+              <tr>
+                <td>🚫 Autres stupéfiants</td>
+                <td>Dépistage positif = infraction</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="rouler-en-regle" class="fade-section">
+          <h2>🚦 Importance de rouler en règle</h2>
+          <p>
+            Il est primordial de rouler en toute légalité pour préserver votre
+            sécurité et celle des autres. Voici quelques conseils essentiels :
+          </p>
+          <ul>
+            <li>
+              ✅ Être toujours assuré et posséder un contrôle technique valide.
+            </li>
+            <li>
+              🔧 Entretenir régulièrement votre véhicule pour qu'il reste en
+              parfait état.
+            </li>
+            <li>
+              ⛽ Veiller à avoir suffisamment de carburant, surtout sur
+              autoroute, afin d’éviter les désagréments.
+            </li>
+          </ul>
+          <p>
+            Des projets de loi récents visent à durcir les sanctions en cas
+            d'homicides au volant. Bien que le CBD soit légal sous certaines
+            conditions, il peut entraîner un test positif au dépistage des
+            stupéfiants.
+          </p>
+        </section>
+
+        <section id="sources" class="fade-section">
+          <h2>📚 Sources officielles</h2>
+          <ul>
+            <li>
+              🔗 <a href="https://www.antai.gouv.fr" target="_blank">ANTAI</a>
+            </li>
+            <li>
+              🔗
+              <a href="https://www.service-public.fr" target="_blank"
+                >Service-Public.fr</a
+              >
+            </li>
+            <li>
+              🔗
+              <a href="https://www.securite-routiere.gouv.fr" target="_blank"
+                >Sécurité Routière</a
+              >
+            </li>
+            <li>
+              🔗
+              <a href="https://www.legifrance.gouv.fr" target="_blank"
+                >Legifrance</a
+              >
+            </li>
+            <li>
+              🔗
+              <a href="https://www.interieur.gouv.fr" target="_blank"
+                >Ministère de l'Intérieur</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section avec illustration responsive pour le solde des points -->
+        <section id="solde" class="fade-section">
+          <h2>📊 Consultez votre solde de points</h2>
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="images/solde-mobile.jpg"
+            />
+            <source
+              media="(min-width: 769px)"
+              srcset="images/solde-desktop.jpg"
+            />
+            <img
+              src="images/solde-desktop.jpg"
+              alt="Illustration Solde de Points"
+              style="width: 100%; height: auto"
+            />
+          </picture>
+          <p>
+            Connaître le solde de points de votre permis est essentiel pour
+            gérer efficacement votre capital et anticiper d'éventuelles
+            sanctions. Consultez régulièrement votre solde pour détecter toute
+            anomalie et agir rapidement.
+          </p>
+          <a
+            class="btn"
+            href="https://mespoints.permisdeconduire.gouv.fr/bienvenue"
+            target="_blank"
+            >🔍 Vérifier mon solde de points</a
+          >
+        </section>
+
+        <section id="boutique" class="fade-section">
+          <h2>🛍️ Boutique en ligne</h2>
+          <p>
+            Découvrez notre boutique en ligne dédiée aux conducteurs ! Vous y
+            trouverez des produits pratiques pour votre véhicule, des
+            accessoires auto innovants ainsi que du contenu exclusif (PDF,
+            guides, etc.) à prix réduits.
+          </p>
+          <a
+            class="boutique-btn"
+            href="https://exemple.com/boutique"
+            target="_blank"
+            >🛒 Visiter la Boutique</a
+          >
+          <form
+            action="https://mypos.com/vmp/btn/BZGBKS5W97T89"
+            method="post"
+            target="_blank"
+          >
+            <button
+              type="submit"
+              value="submit"
+              style="
+                min-width: 140px;
+                min-height: 40px;
+                padding: 0 10px;
+                border: none;
+                outline: none;
+                background-color: #1273eb;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                color: #ffffff;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 5px;
+              "
+            >
+              ACHETER MAINTENANT
+            </button>
+          </form>
+          <script src="https://www.paypal.com/sdk/js?client-id=BAAa_O21kFEVqYTUuqM8z3Gv12qLlWQpAa_Yxj-o8d2H2QkqPjJ1jRWrFHNOXiAm-15rnW4tptdRyGP4Ro&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
+          <div id="paypal-container-KCVKV43WZWW44"></div>
+          <script>
+            paypal
+              .HostedButtons({
+                hostedButtonId: "KCVKV43WZWW44",
+              })
+              .render("#paypal-container-KCVKV43WZWW44");
+          </script>
+        </section>
+
+        <section id="conclusion" class="fade-section">
+          <h2>✅ Conclusion</h2>
+          <p>
+            ✔️ Le permis à points est un outil de responsabilisation et de
+            prévention.<br />
+            ✔️ Une bonne connaissance des règles permet d’éviter l’invalidation
+            du permis.<br />
+            ✔️ Les stratégies de contestation et les stages de récupération sont
+            essentiels pour conserver votre permis.
+          </p>
+          <p>
+            <strong>🚗 Un permis bien géré est un permis préservé !</strong>
+          </p>
+        </section>
+
+        <section id="contact" class="fade-section">
+          <h2>📞 Contact</h2>
+          <p>
+            Pour toute question ou information complémentaire, consultez :
+            <a href="https://www.service-public.fr" target="_blank"
+              >Service-Public.fr</a
+            >,
+            <a href="https://www.antai.gouv.fr" target="_blank"
+              >le portail de l’ANTAI</a
+            >
+            ou
+            <a href="https://www.securite-routiere.gouv.fr" target="_blank"
+              >Sécurité Routière</a
+            >.
+          </p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <p>&copy; 2025 - Le Permis à Points en France</p>
+          <div class="footer-links">
+            <a href="mailto:contact@exemple.com" title="Email"
+              ><i class="fa-solid fa-envelope"></i
+            ></a>
+            <a href="#" title="Facebook"
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
+            <a href="#" title="Instagram"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a href="#" title="Boutique en ligne"
+              ><i class="fa-solid fa-store"></i
+            ></a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Bouton Retour en haut -->
+    <button id="back-to-top">Haut de page</button>
+
+    <!-- JavaScript -->
+    <script>
+      // Menu mobile toggle avec transformation de l'icône hamburger
+      const menuToggle = document.getElementById("mobile-menu-toggle");
+      const mainNav = document.getElementById("main-nav");
+      menuToggle.addEventListener("click", function () {
+        mainNav.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+
+      // Effet de fondu pour les sections via DOMContentLoaded
+      document.addEventListener("DOMContentLoaded", function () {
+        const faders = document.querySelectorAll(".fade-section");
+        const appearOptions = {
+          threshold: 0.2,
+          rootMargin: "0px 0px -50px 0px",
+        };
+        const appearOnScroll = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          });
+        }, appearOptions);
+        faders.forEach((fader) => appearOnScroll.observe(fader));
+      });
+
+      // Bouton "Retour en haut"
+      window.addEventListener("scroll", function () {
+        const backToTopBtn = document.getElementById("back-to-top");
+        backToTopBtn.style.display =
+          window.pageYOffset > 300 ? "block" : "none";
+      });
+      document
+        .getElementById("back-to-top")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+  </body>
+</html>

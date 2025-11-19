@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kit de démarrage – Méthode Max Piccinini</title>
+    <meta
+      name="description"
+      content="Kit imprimable pour appliquer la méthode Max Piccinini : vision, rituels, checklists 30 jours et tableaux KPI."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #111827;
+        --muted: #4b5563;
+        --accent: #d97706;
+        --line: #d1d5db;
+        --bg: #fdfcf8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Montserrat", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 32px 20px 60px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", "Times New Roman", serif;
+        margin: 0 0 0.4em;
+        color: var(--ink);
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      p,
+      li,
+      td,
+      th {
+        font-size: 0.95rem;
+      }
+
+      .cover {
+        border: 2px solid var(--ink);
+        padding: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .badge {
+        display: inline-block;
+        border: 1px solid var(--ink);
+        padding: 4px 12px;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .note {
+        border-left: 3px solid var(--accent);
+        padding-left: 12px;
+        margin: 16px 0;
+        color: var(--muted);
+      }
+
+      section {
+        border: 1px solid var(--line);
+        padding: 24px;
+        margin-bottom: 28px;
+        background: #fff;
+      }
+
+      ul {
+        margin: 0 0 1rem 1.2rem;
+        padding: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0;
+      }
+
+      table th,
+      table td {
+        border: 1px solid var(--line);
+        padding: 8px;
+        text-align: left;
+      }
+
+      table th {
+        background: #f5f2eb;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      .checklist li {
+        list-style: none;
+        border-bottom: 1px solid var(--line);
+        padding: 6px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .checkbox {
+        border: 1px solid var(--line);
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        margin-left: 12px;
+      }
+
+      .calendar {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+        margin-top: 16px;
+      }
+
+      .calendar div {
+        border: 1px solid var(--line);
+        padding: 10px;
+        min-height: 60px;
+        font-size: 0.85rem;
+      }
+
+      .signature-line {
+        margin-top: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 6px;
+        font-size: 0.85rem;
+      }
+
+      .upsell-cta {
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      .upsell-cta a {
+        display: inline-block;
+        padding: 12px 28px;
+        background: var(--ink);
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        border-radius: 999px;
+        text-decoration: none;
+      }
+
+      .upsell-cta a:hover {
+        background: var(--accent);
+        color: var(--ink);
+      }
+
+      .print-btn {
+        margin-top: 18px;
+        padding: 12px 26px;
+        border: 2px solid var(--ink);
+        background: transparent;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+      }
+
+      .print-btn:hover {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .howto {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+      }
+
+      .howto article {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        background: #fefdfa;
+      }
+
+      .howto h3 {
+        text-transform: none;
+        letter-spacing: normal;
+        font-size: 1.05rem;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        section {
+          page-break-inside: avoid;
+        }
+        .calendar div {
+          min-height: 70px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="cover">
+        <p class="badge">Réussite Maximum</p>
+        <h1>Kit de démarrage – Méthode Max Piccinini</h1>
+        <p>Clarté · Stratégie · Momentum – prêt à être imprimé et complété à la main.</p>
+        <p>Date : ____________ · Nom : _____________________</p>
+        <p class="note">Conseil : imprimez en recto-verso, reliez et relisez chaque matin pendant 30 jours.</p>
+        <button class="print-btn" type="button" onclick="window.print()">Imprimer le kit</button>
+      </div>
+
+      <section id="mode-emploi">
+        <h2>Mode d’emploi express</h2>
+        <p>Suivez ces trois étapes pour tirer le meilleur de ce kit dès aujourd’hui.</p>
+        <div class="howto">
+          <article>
+            <h3>1. Prépare ton espace</h3>
+            <p>Imprime le PDF, installe un classeur ou un clip board et réserve 15 minutes pour une première lecture.</p>
+          </article>
+          <article>
+            <h3>2. Verrouille tes rituels</h3>
+            <p>Bloc « Matin » et « Soir » = 5 minutes chacun. Utilise les cases à cocher pour voir tes progrès.</p>
+          </article>
+          <article>
+            <h3>3. Synchronise action & lecture</h3>
+            <p>
+              Avance avec les fiches puis ouvre la page « Bibliothèque » pour choisir un livre qui renforce ton objectif du moment.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sommaire">
+        <h2>Sommaire rapide</h2>
+        <ol>
+          <li>Mode d’emploi express</li>
+          <li>Clarté + vision 3 ans condensés</li>
+          <li>Rituel Momentum (matin/soir)</li>
+          <li>Plan 30 jours (actions quotidiennes)</li>
+          <li>Scoreboard des 9 piliers</li>
+          <li>Checklist routines & scripts</li>
+          <li>Pages notes / révélations</li>
+          <li>Revue hebdomadaire & ancrage</li>
+        </ol>
+      </section>
+
+      <section id="vision">
+        <h2>1. Clarté & Vision</h2>
+        <p><strong>Question identitaire :</strong> Qui dois-je devenir pour que mon objectif devienne normal ?</p>
+        <div class="grid-2">
+          <div>
+            <h3>Vision 3 ans condensée</h3>
+            <p>Décris en 5 lignes ton identité, ton style de vie, ton impact.</p>
+            <div style="border:1px solid var(--line); height:140px; margin-top:8px;"></div>
+          </div>
+          <div>
+            <h3>Décisions incontournables</h3>
+            <ul>
+              <li>Décision #1 __________________________________</li>
+              <li>Décision #2 __________________________________</li>
+              <li>Décision #3 __________________________________</li>
+            </ul>
+            <p class="signature-line">Signature & engagement</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="momentum">
+        <h2>2. Rituel Momentum 20</h2>
+        <p>Pratique matin & soir pendant 10 jours pour verrouiller l’état interne.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Bloc</th>
+              <th>Durée</th>
+              <th>Cible</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Respiration 4-7-8</td>
+              <td>5 min</td>
+              <td>Apaiser, oxygéner</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Visualisation identité + gratitude</td>
+              <td>5 min</td>
+              <td>Vibrer la vision</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Plan 3 actions pouvoir</td>
+              <td>7 min</td>
+              <td>Focus business</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1 action contribution</td>
+              <td>3 min</td>
+              <td>Équilibre & famille</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note">
+          Cocher chaque rituel : ☐ Jour 1 ☐ Jour 2 ☐ Jour 3 ☐ Jour 4 ☐ Jour 5 ☐ Jour 6 ☐ Jour 7 ☐ Jour 8 ☐ Jour 9 ☐ Jour 10
+        </div>
+      </section>
+
+      <section id="plan30">
+        <h2>3. Plan d’action – 30 jours</h2>
+        <p>Inscris une micro-action par jour (Mindset / Business / Contribution). Barre quand c’est réalisé.</p>
+        <div class="calendar">
+          <div>Jour 1</div>
+          <div>Jour 2</div>
+          <div>Jour 3</div>
+          <div>Jour 4</div>
+          <div>Jour 5</div>
+          <div>Jour 6</div>
+          <div>Jour 7</div>
+          <div>Jour 8</div>
+          <div>Jour 9</div>
+          <div>Jour10</div>
+          <div>Jour11</div>
+          <div>Jour12</div>
+          <div>Jour13</div>
+          <div>Jour14</div>
+          <div>Jour15</div>
+          <div>Jour16</div>
+          <div>Jour17</div>
+          <div>Jour18</div>
+          <div>Jour19</div>
+          <div>Jour20</div>
+          <div>Jour21</div>
+          <div>Jour22</div>
+          <div>Jour23</div>
+          <div>Jour24</div>
+          <div>Jour25</div>
+          <div>Jour26</div>
+          <div>Jour27</div>
+          <div>Jour28</div>
+          <div>Jour29</div>
+          <div>Jour30</div>
+        </div>
+      </section>
+
+      <section id="kpi">
+        <h2>4. Scoreboard – 9 Piliers</h2>
+        <p>Attribue une note 1-10, écris la prochaine décision et le responsable.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Pilier</th>
+              <th>Score</th>
+              <th>Décision</th>
+              <th>Responsable</th>
+              <th>Échéance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Identité & vision</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2. Énergie & émotions</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3. Mindset financier</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4. Stratégie & offres</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5. Influence & marketing</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>6. Vente & conversion</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>7. Leadership & équipe</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>8. Systèmes & focus</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>9. Contribution & lifestyle</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="routines">
+        <h2>5. Checklists quotidiennes</h2>
+        <div class="grid-2">
+          <div>
+            <h3>Matin</h3>
+            <ul class="checklist">
+              <li>Respiration 4-7-8 <span class="checkbox"></span></li>
+              <li>Lecture vision + phrase identité <span class="checkbox"></span></li>
+              <li>Gratitude + visualisation <span class="checkbox"></span></li>
+              <li>3 actions pouvoir notées <span class="checkbox"></span></li>
+              <li>Mouvement / sport léger <span class="checkbox"></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Soir</h3>
+            <ul class="checklist">
+              <li>Debrief victoires <span class="checkbox"></span></li>
+              <li>Score énergie + émotion <span class="checkbox"></span></li>
+              <li>Journal gratitude / pardon <span class="checkbox"></span></li>
+              <li>Plan 3 actions lendemain <span class="checkbox"></span></li>
+              <li>Digital sunset (écrans off) <span class="checkbox"></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="scripts">
+        <h2>6. Scripts rapides</h2>
+        <h3>Réunion Momentum (18 minutes)</h3>
+        <ul>
+          <li>5 min – Victoires & énergie (tour rapide).</li>
+          <li>5 min – KPI + blocages (9 piliers).</li>
+          <li>5 min – Décisions & responsables.</li>
+          <li>3 min – Célébration & contribution.</li>
+        </ul>
+        <h3>Script closing par coaching</h3>
+        <ol>
+          <li>Connexion : intention + question identitaire.</li>
+          <li>Vision : « Où veux-tu être dans 12 mois ? »</li>
+          <li>Obstacle : « Qu’est-ce qui bloque encore ? »</li>
+          <li>Plan : refléter la méthode adaptée.</li>
+          <li>Invitation claire + engagement.</li>
+        </ol>
+      </section>
+
+      <section id="notes">
+        <h2>7. Notes & révélations</h2>
+        <p>Utilise cet espace pour capturer les insights, idées de contenu, émotions clés.</p>
+        <div style="border:1px solid var(--line); height:220px;"></div>
+        <div style="border:1px solid var(--line); height:220px; margin-top:16px;"></div>
+      </section>
+
+      <section id="revue">
+        <h2>8. Revues hebdomadaires & ancrage</h2>
+        <p>
+          Planifie une revue rapide chaque dimanche soir : célèbre une victoire, ajuste un pilier et décide de la
+          micro-action qui lancera ta semaine.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Semaine</th>
+              <th>Victoire clé</th>
+              <th>Pilier à renforcer</th>
+              <th>Action phare</th>
+              <th>État intérieur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+              <td>___________________________</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Astuce : partage ta revue avec ton partenaire d’accountability pour rester engagé·e.</p>
+      </section>
+
+      <section id="bibliotheque">
+        <h2>Bonus : Bibliothèque officielle de Max Piccinini</h2>
+        <p>
+          Après avoir imprimé ce kit, consolide tes rituels avec une sélection commentée des livres de Max Piccinini.
+          Nous avons préparé une page « upsell » avec les résumés, visuels officiels et nos liens affiliés Amazon.
+        </p>
+        <div class="upsell-cta">
+          <a href="upsell-livres.html" target="_blank" rel="noopener">Découvrir la sélection Amazon</a>
+        </div>
+        <p class="note">En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats qualifiés.</p>
+      </section>
+
+      <p style="text-align:center; font-size:0.85rem; color:var(--muted);">
+        Kit créé pour accompagner les programmes Réussite Maximum & Business Maximum – usage personnel.
+      </p>
+    </main>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

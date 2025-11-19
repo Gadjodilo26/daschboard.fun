@@ -1,0 +1,131 @@
+{
+  "brand": {
+    "name": "RMS Launchpad",
+    "baseline": "Tableau de bord personnel — projets clonables & outils digitaux.",
+    "domain": "https://daschboard.fun"
+  },
+  "contact": {
+    "email": "bonjour@rmslaunchpad.fr",
+    "formspree": "",
+    "availability": "Notes envoyées sur WhatsApp Pro",
+    "ctaLabel": "Ajouter une note",
+    "whatsapp": "33649856716"
+  },
+  "socials": [
+    { "label": "TikTok", "url": "https://www.tiktok.com/@rms_launchpad" },
+    { "label": "YouTube", "url": "https://www.youtube.com/@broscorporation2653" },
+    { "label": "kDrive", "url": "https://kdrive.infomaniak.com/app/share/998824/347ce726-3805-435c-abaa-ba21300b2976" }
+  ],
+  "services": [
+    {
+      "title": "Landing clients 2025",
+      "description": "Synthèse des offres + preuves via projets clonables pour rassurer mes prospects."
+    },
+    {
+      "title": "Pack commerce accessible",
+      "description": "Templates Click & Collect, paiement et mini-e-commerce pour petites structures."
+    },
+    {
+      "title": "Bibliothèque Subvention",
+      "description": "Base d’aides publiques + filtres prêts à intégrer sur les futures landings."
+    }
+  ],
+  "method": [
+    {
+      "step": "1. Collecter & noter",
+      "detail": "Je capture idées, liens et briefs directement depuis ce board (WhatsApp, notes, timeline)."
+    },
+    {
+      "step": "2. Prototyper & tester",
+      "detail": "Chaque projet est consultable, téléchargeable et testé en mobile-first avant diffusion."
+    },
+    {
+      "step": "3. Transformer en offre",
+      "detail": "Je regroupe les workflows + insights pour bâtir la future landing clients (applis, sites, e-commerce)."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Pourquoi ce board perso ?",
+      "answer": "Pour avoir un espace unique (mobile-friendly) où je garde mes ressources, prototypes et idées avant de les packager pour mes clients."
+    },
+    {
+      "question": "Comment sera la future landing clients ?",
+      "answer": "Elle reprendra les workflows documentés ici (applis, sites, e-commerce) + des cas concrets que je peux déjà montrer ou livrer."
+    },
+    {
+      "question": "Quels outils digitaux sont prioritaires ?",
+      "answer": "Sites vitrines rapides, modules commerce abordables, outils IA pour produire du contenu, et un tunnel de notes/WhatsApp pour répondre vite."
+    }
+  ],
+  "workflows": [
+    {
+      "title": "FM Multiservices — refresh mobile",
+      "context": "Client artisan (service)",
+      "steps": [
+        { "label": "Preview live", "url": "/src/projects/Agencementfoessel.fr/index.html" },
+        { "label": "Télécharger le kit", "url": "/src/projects/exports/FM-Multiservices.zip" },
+        { "label": "Checklist responsive (Chrome DevTools)", "url": "https://developer.chrome.com/docs/lighthouse/overview" }
+      ]
+    },
+    {
+      "title": "RMS Suite — mode client",
+      "context": "Outil interne",
+      "steps": [
+        { "label": "Ouvrir la webapp", "url": "/src/projects/RMS-SUITE.com/index.html" },
+        { "label": "Télécharger la version ZIP", "url": "/src/projects/exports/RMS-Suite.zip" },
+        { "label": "Lister les données à masquer", "url": "https://privacy-checklist.readyforzero.com/" }
+      ]
+    },
+    {
+      "title": "Subvention.fr — enrichir la base",
+      "context": "Projet éditorial",
+      "steps": [
+        { "label": "Version actuelle", "url": "/src/projects/subvention.fr./index.html" },
+        { "label": "Exporter données", "url": "/src/projects/exports/Subvention.zip" },
+        { "label": "Source nouvelles aides", "url": "https://www.service-public.fr/particuliers/vosdroits/N19817" }
+      ]
+    }
+  ],
+  "insights": [
+    {"title": "Stripe – Tendances start-up 2025", "url": "https://stripe.com/fr/resources/more/startup-industry-trends-for-2025-what-founders-need-to-know", "topic": "business"},
+    {"title": "Propulse by CA – 7 tendances tech", "url": "https://propulsebyca.fr/actualites/tendances-technologiques", "topic": "business"},
+    {"title": "OCI – 10 tendances technologiques 2025", "url": "https://www.oci.fr/les-10-tendances-technologiques-2025/", "topic": "tech"},
+    {"title": "Ghrenassia – Incontournables high-tech", "url": "https://www.ghrenassia.com/les-tendances-incontournables-du-high-tech-en-2025-ce-que-vous-devez-savoir/", "topic": "tech"},
+    {"title": "Keyrus – Innovations IA", "url": "https://keyrus.com/fr/fr/insights/innovations-ia-2025", "topic": "tech"},
+    {"title": "Keyrus – 25 tendances data", "url": "https://keyrus.com/fr/fr/insights/25-tendances-data-ia-2025", "topic": "tech"},
+    {"title": "Cody – Prévisions IA 2025", "url": "https://meetcody.ai/fr/blog/previsions-2025-pour-lia-tendances-emergentes-technologies-de-pointe-et-transformations-de-lindustrie/", "topic": "tech"},
+    {"title": "Journal du Net – IA & entreprise", "url": "https://www.journaldunet.com/intelligence-artificielle/1539481-ia-les-changements-qui-faconneront-l-entreprise-de-2025/", "topic": "tech"},
+    {"title": "M-Files – Solutions IA", "url": "https://www.m-files.com/fr/blog/articles/ai-2025-transformative-trends-enterprise-solutions/", "topic": "tech"},
+    {"title": "ESG Luxe – Impact IA", "url": "https://www.esg-luxe.com/ressources/impact-ia", "topic": "tech"},
+    {"title": "Forbes – 4 axes business", "url": "https://www.forbes.fr/business/4-axes-essentiels-pour-garantir-le-succes-des-entreprises-en-2025/", "topic": "business"},
+    {"title": "Forbes – 15 grandes tendances", "url": "https://www.forbes.fr/business/les-15-grandes-tendances-qui-faconneront-le-monde-en-2025/", "topic": "business"},
+    {"title": "Forbes – Future of Venture", "url": "https://www.forbes.fr/finance/future-of-venture-pourquoi-2025-est-une-annee-cle-pour-investir-dans-les-leaders-technologiques-prives-avant-leur-ipo/", "topic": "business"},
+    {"title": "Forbes – Budget 2025", "url": "https://www.forbes.fr/politique/budget-2025-quelles-sont-les-mesures-qui-impactent-les-entreprises/", "topic": "business"},
+    {"title": "Hostinger – Démarrer le dropshipping", "url": "https://www.hostinger.fr/tutoriels/comment-commencer-dropshipping", "topic": "dropshipping"},
+    {"title": "Keobiz – Magazine dropshipping", "url": "https://www.keobiz.fr/le-mag/dropshipping/", "topic": "dropshipping"},
+    {"title": "Shopify – Guide complet boutique", "url": "https://www.shopify.com/fr/blog/guide-complet-pour-creer-votre-boutique-en-ligne", "topic": "dropshipping"},
+    {"title": "Shopify – Rentabilité du modèle", "url": "https://www.shopify.com/fr/blog/le-dropshipping-est-il-rentable", "topic": "dropshipping"},
+    {"title": "Dropizi – Blog inspiration", "url": "https://www.dropizi.fr/blog?utm_medium=ads&utm_source=googleads&utm_campaign=dropizi&utm_content=ad", "topic": "dropshipping"},
+    {"title": "Shippingbo – Fournisseurs 2025", "url": "https://www.shippingbo.com/ecommerce/guide-dropshipping-fournisseurs-2025/", "topic": "dropshipping"},
+    {"title": "Spocket – Tendances 2025", "url": "https://www.spocket.co/fr/blogs/avenir-du-dropshipping-tendances-2025", "topic": "dropshipping"},
+    {"title": "SupDropshipping – Business ideas", "url": "https://www.supdropshipping.com/fr/dropshipping-business-ideas/", "topic": "dropshipping"}
+  ],
+  "proofs": [
+    {
+      "title": "Lumia Care",
+      "result": "+38 % de leads SEO",
+      "detail": "Landing + contenu evergreen pour le secteur wellness."
+    },
+    {
+      "title": "Elio Studio",
+      "result": "Scripts TikTok x3",
+      "detail": "Calendrier édito + templates vidéo."
+    },
+    {
+      "title": "Permis à Point",
+      "result": "Tunnel validé",
+      "detail": "Automatisation des prises de contact + paiement."
+    }
+  ]
+}

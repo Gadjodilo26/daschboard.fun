@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Moteur de recherche des subventions 2025 | France</title>
+  <meta name="description" content="Explorez et filtrez les aides publiques 2025 en France : subventions, avances, prêts. Recherche plein texte, filtres sectoriels, territoriaux et favoris." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Moteur de recherche des subventions 2025</h1>
+      </div>
+      <div class="search">
+        <input
+          id="global-search"
+          type="search"
+          placeholder="Rechercher un métier, une aide, un code NAF…"
+          aria-label="Recherche de subventions"
+          autocomplete="off"
+        />
+      </div>
+      <div class="cta">
+        <a class="btn" href="#simulateur">Simuler mes aides</a>
+        <a class="btn primary" href="#contact">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero search-hero">
+      <h2>Tout le catalogue d’aides publiques, filtrable en un clic</h2>
+      <p>
+        Filtrez plus de 40 dispositifs par territoire, secteur, type d’aide, codes NAF ou public.
+        Partagez vos recherches, créez vos favoris, exportez les liens sources.
+      </p>
+      <div class="chips" id="quick-filters" role="list" aria-label="Raccourcis de recherche"></div>
+    </section>
+
+    <div class="layout search-layout" role="region" aria-label="Interface de recherche des subventions">
+      <aside class="sidebar" aria-label="Filtres de recherche">
+        <form id="filters-form" class="filters" novalidate>
+          <p id="filters-description" class="sr-only">
+            Sélectionnez un ou plusieurs filtres. Chaque bouton est un bouton à bascule indiquant le nombre de subventions associées.
+          </p>
+
+          <section class="filters-block" aria-labelledby="filters-heading">
+            <header class="filters-header">
+              <h2 id="filters-heading">Filtres</h2>
+              <button type="button" id="reset-filters" class="btn link">Réinitialiser</button>
+            </header>
+
+            <fieldset class="filter-group" aria-labelledby="regions-label">
+              <legend id="regions-label">Régions</legend>
+              <div class="filter-options" id="filter-regions" role="group" aria-labelledby="regions-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="levels-label">
+              <legend id="levels-label">Niveau</legend>
+              <div class="filter-options" id="filter-levels" role="radiogroup" aria-labelledby="levels-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="sectors-label">
+              <legend id="sectors-label">Secteurs</legend>
+              <div class="filter-options" id="filter-sectors" role="group" aria-labelledby="sectors-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="audiences-label">
+              <legend id="audiences-label">Public</legend>
+              <div class="filter-options" id="filter-audiences" role="group" aria-labelledby="audiences-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="types-label">
+              <legend id="types-label">Type d’aide</legend>
+              <div class="filter-options" id="filter-types" role="group" aria-labelledby="types-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="tags-label">
+              <legend id="tags-label">Tags</legend>
+              <div class="filter-options" id="filter-tags" role="group" aria-labelledby="tags-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group" aria-labelledby="naf-label">
+              <legend id="naf-label">Codes NAF</legend>
+              <div class="filter-options" id="filter-naf" role="group" aria-labelledby="naf-label"></div>
+            </fieldset>
+
+            <fieldset class="filter-group stacked" aria-labelledby="amount-label">
+              <legend id="amount-label">Montant (€)</legend>
+              <div class="range-fields">
+                <label for="amount-min">Min</label>
+                <input id="amount-min" name="amount-min" type="number" inputmode="numeric" placeholder="0" min="0" data-range="amount" />
+                <label for="amount-max">Max</label>
+                <input id="amount-max" name="amount-max" type="number" inputmode="numeric" placeholder="50000" min="0" data-range="amount" />
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group stacked" aria-labelledby="deadline-label">
+              <legend id="deadline-label">Date limite</legend>
+              <div class="range-fields">
+                <label for="deadline-after">Après</label>
+                <input id="deadline-after" name="deadline-after" type="date" data-range="deadline" />
+                <label for="deadline-before">Avant</label>
+                <input id="deadline-before" name="deadline-before" type="date" data-range="deadline" />
+              </div>
+            </fieldset>
+          </section>
+        </form>
+      </aside>
+
+      <section id="results" class="results-area" aria-label="Résultats de la recherche">
+        <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+        <div class="results-toolbar">
+          <div class="results-summary">
+            <p id="results-count" class="results-count" aria-live="polite" aria-atomic="true">Chargement des données…</p>
+            <div id="active-filters" class="active-filters" aria-live="polite" aria-atomic="true" aria-label="Filtres actifs"></div>
+          </div>
+          <div class="results-controls">
+            <label for="sort-select">Trier par</label>
+            <select id="sort-select" name="sort">
+              <option value="relevance">Pertinence</option>
+              <option value="updated_at">Dernière mise à jour</option>
+              <option value="deadline">Deadline la plus proche</option>
+              <option value="amount_max">Montant maximum</option>
+            </select>
+            <label for="page-size">Résultats</label>
+            <select id="page-size" name="pageSize">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="results-list" class="results-list" role="list" aria-label="Liste des subventions"></div>
+
+        <div id="empty-state" class="card empty-state" role="status" aria-live="assertive" hidden>
+          <h3>Aucun résultat</h3>
+          <p>Essayez d’élargir vos filtres ou de modifier votre recherche.</p>
+          <button type="button" class="btn link" id="clear-active-filters">Effacer les filtres actifs</button>
+        </div>
+
+        <nav id="pagination" class="pagination" role="navigation" aria-label="Pagination des résultats"></nav>
+
+        <section id="favorites-panel" class="card favorites-panel" aria-label="Favoris enregistrés">
+          <header class="favorites-header">
+            <h3>Favoris</h3>
+            <p id="favorites-count" class="meta">Aucun favori enregistré</p>
+          </header>
+          <div id="favorites-list" class="favorites-list" role="list"></div>
+          <button type="button" class="btn link" id="clear-favorites">Vider les favoris</button>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="meta">Sources publiques : data.gouv.fr, Ministères, Régions, Europe. Données de démonstration.</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+  <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>linkplace.fun – Liens Utiles</title>
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" />
+  <style>
+    :root {
+      --primary-color: #050505;
+      --secondary-color: #ff9e00;
+      --background-color: #ffffff;
+      --text-color: #333333;
+      --header-gradient: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      --transition-speed: 0.3s;
+      --card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      --card-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Sticky Header */
+    header.sticky-header {
+      position: sticky;
+      top: 0;
+      background: var(--header-gradient);
+      padding: 10px 20px;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .header-content .logo img {
+      height: 40px;
+    }
+
+    .banner-text a {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Intro */
+    .categories-intro {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--background-color);
+    }
+
+    .categories-intro h1 {
+      font-size: 2em;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .categories-intro p {
+      font-size: 1em;
+      color: var(--text-color);
+    }
+
+    /* Partenaire */
+    .partner-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #f9f9f9;
+      padding: 15px;
+      margin: 10px auto;
+      max-width: 1200px;
+      border-radius: 5px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .partner-link img {
+      height: 50px;
+      margin: 0 auto 10px auto;
+    }
+
+    .partner-link-content {
+      text-align: center;
+    }
+
+    .partner-link img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .partner-link-content a {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .partner-link-content p {
+      font-size: 0.95em;
+      color: var(--text-color);
+      margin-top: 4px;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      background: #f5f5f5;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background var(--transition-speed);
+    }
+
+    .filters button.active,
+    .filters button:hover {
+      background: var(--secondary-color);
+    }
+
+    .search-wrapper {
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    .search-wrapper input {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      padding: 15px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: var(--card-shadow);
+      padding: 12px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: box-shadow var(--transition-speed), opacity .6s ease, transform .6s ease;
+    }
+
+    .product-card.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .product-card:hover {
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .product-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .product-icon {
+      font-size: 1.5em;
+      color: var(--secondary-color);
+      margin-right: 8px;
+    }
+
+    .product-name {
+      font-size: 1.1em;
+      color: var(--primary-color);
+    }
+
+    .product-name a {
+      color: inherit;
+    }
+
+    .product-desc {
+      font-size: 0.9em;
+      color: var(--text-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    @media (max-width:768px) {
+      .header-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="sticky-header">
+    <div class="header-content">
+      <div class="logo"><img src="./logo.png" alt="logo linkplace.fun"></div>
+    </div>
+  </header>
+
+  <section class="categories-intro">
+    <h1>Liens Utiles</h1>
+    <p>Filtrer par catégorie ou rechercher directement un outil.</p>
+  </section>
+
+  <!-- Lien Partenaire -->
+  <div class="partner-link">
+
+    <div class="partner-link-content">
+      <a href="https://linkplace.store" target="_blank"><img src="./linkplace-store-logo.png"
+          alt="Logo linkplace.store"></a>
+      <p>Découvrez notre boutique partenaire pour encore plus d'outils et ressources.</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="active" data-filter="all">Tous</button>
+    <button data-filter="IA">IA &amp; Outils</button>
+    <button data-filter="Economies">Économies</button>
+    <button data-filter="Publics">Publics</button>
+    <button data-filter="Productivite">Productivité</button>
+  </div>
+
+  <div class="search-wrapper">
+    <input type="search" id="search" placeholder="🔍 Rechercher un lien…">
+  </div>
+
+  <main class="product-grid">
+    <!-- 🔮 IA & Outils intelligents (15) -->
+    <div class="product-card" data-name="ChatGPT" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-robot product-icon"></i>
+        <h3 class="product-name"><a href="https://chat.openai.com/" target="_blank">ChatGPT</a></h3>
+      </div>
+      <p class="product-desc">Assistant conversationnel avancé par OpenAI.</p>
+    </div>
+    <div class="product-card" data-name="Perplexity.ai" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-search product-icon"></i>
+        <h3 class="product-name"><a href="https://www.perplexity.ai/" target="_blank">Perplexity.ai</a></h3>
+      </div>
+      <p class="product-desc">Moteur de recherche alimenté par IA.</p>
+    </div>
+    <div class="product-card" data-name="Gamma.app" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-lightbulb product-icon"></i>
+        <h3 class="product-name"><a href="https://gamma.app/" target="_blank">Gamma.app</a></h3>
+      </div>
+      <p class="product-desc">Outil de création de présentations IA.</p>
+    </div>
+    <div class="product-card" data-name="Claude AI" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-brain product-icon"></i>
+        <h3 class="product-name"><a href="https://claude.ai/" target="_blank">Claude AI</a></h3>
+      </div>
+      <p class="product-desc">Assistant IA conversationnel sécurisé.</p>
+    </div>
+    <div class="product-card" data-name="Google Gemini" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-atom product-icon"></i>
+        <h3 class="product-name"><a href="https://gemini.google.com/" target="_blank">Google Gemini</a></h3>
+      </div>
+      <p class="product-desc">Plateforme IA multimodale de Google.</p>
+    </div>
+    <div class="product-card" data-name="Mistral" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-wind product-icon"></i>
+        <h3 class="product-name"><a href="https://mistral.ai/" target="_blank">Mistral</a></h3>
+      </div>
+      <p class="product-desc">Modèles de langage open source.</p>
+    </div>
+    <div class="product-card" data-name="HuggingChat" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-comments product-icon"></i>
+        <h3 class="product-name"><a href="https://huggingface.co/chat/" target="_blank">HuggingChat</a></h3>
+      </div>
+      <p class="product-desc">Chatbot open source par Hugging Face.</p>
+    </div>
+    <div class="product-card" data-name="You.com" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-globe product-icon"></i>
+        <h3 class="product-name"><a href="https://you.com/" target="_blank">You.com</a></h3>
+      </div>
+      <p class="product-desc">Moteur de recherche privé et IA.</p>
+    </div>
+    <div class="product-card" data-name="Jasper.ai" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-pen-nib product-icon"></i>
+        <h3 class="product-name"><a href="https://www.jasper.ai/" target="_blank">Jasper.ai</a></h3>
+      </div>
+      <p class="product-desc">Assistant rédactionnel IA.</p>
+    </div>
+    <div class="product-card" data-name="Writesonic" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-keyboard product-icon"></i>
+        <h3 class="product-name"><a href="https://writesonic.com/" target="_blank">Writesonic</a></h3>
+      </div>
+      <p class="product-desc">Générateur de contenu marketing IA.</p>
+    </div>
+    <div class="product-card" data-name="Copy.ai" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-copy product-icon"></i>
+        <h3 class="product-name"><a href="https://www.copy.ai/" target="_blank">Copy.ai</a></h3>
+      </div>
+      <p class="product-desc">Création de textes et slogans IA.</p>
+    </div>
+    <div class="product-card" data-name="Notion AI" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-sticky-note product-icon"></i>
+        <h3 class="product-name"><a href="https://www.notion.so/product/ai" target="_blank">Notion AI</a></h3>
+      </div>
+      <p class="product-desc">IA intégrée à Notion pour notes.</p>
+    </div>
+    <div class="product-card" data-name="AI Dungeon" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-dragon product-icon"></i>
+        <h3 class="product-name"><a href="https://play.aidungeon.io/" target="_blank">AI Dungeon</a></h3>
+      </div>
+      <p class="product-desc">Jeu narratif IA interactif.</p>
+    </div>
+    <div class="product-card" data-name="Synthesia" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-video product-icon"></i>
+        <h3 class="product-name"><a href="https://www.synthesia.io/" target="_blank">Synthesia</a></h3>
+      </div>
+      <p class="product-desc">Générateur de vidéos IA.</p>
+    </div>
+    <div class="product-card" data-name="Runway ML" data-category="IA">
+      <div class="product-header">
+        <i class="fas fa-crop-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://runwayml.com/" target="_blank">Runway ML</a></h3>
+      </div>
+      <p class="product-desc">Outils créatifs IA pour vidéo.</p>
+    </div>
+
+    <!-- 💡 Astuces pour économiser (15) -->
+    <div class="product-card" data-name="Dealabs" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-tags product-icon"></i>
+        <h3 class="product-name"><a href="https://www.dealabs.com/" target="_blank">Dealabs</a></h3>
+      </div>
+      <p class="product-desc">Communauté de bons plans et réductions.</p>
+    </div>
+    <div class="product-card" data-name="Radins.com" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-percent product-icon"></i>
+        <h3 class="product-name"><a href="https://www.radins.com/" target="_blank">Radins.com</a></h3>
+      </div>
+      <p class="product-desc">Réductions et cashback.</p>
+    </div>
+    <div class="product-card" data-name="Ma Reduc" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-ticket-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://www.ma-reduc.com/" target="_blank">Ma Reduc</a></h3>
+      </div>
+      <p class="product-desc">Codes promo mis à jour.</p>
+    </div>
+    <div class="product-card" data-name="Mes Bons Plans" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-lightbulb product-icon"></i>
+        <h3 class="product-name"><a href="https://www.mesbonsplans.fr/" target="_blank">Mes Bons Plans</a></h3>
+      </div>
+      <p class="product-desc">Sélection quotidienne de deals.</p>
+    </div>
+    <div class="product-card" data-name="Idealo" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-balance-scale product-icon"></i>
+        <h3 class="product-name"><a href="https://www.idealo.fr/" target="_blank">Idealo</a></h3>
+      </div>
+      <p class="product-desc">Comparateur de prix produits.</p>
+    </div>
+    <div class="product-card" data-name="LeBonCoin" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-store product-icon"></i>
+        <h3 class="product-name"><a href="https://www.leboncoin.fr/" target="_blank">LeBonCoin</a></h3>
+      </div>
+      <p class="product-desc">Petites annonces et seconde main.</p>
+    </div>
+    <div class="product-card" data-name="Vinted" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-tshirt product-icon"></i>
+        <h3 class="product-name"><a href="https://www.vinted.fr/" target="_blank">Vinted</a></h3>
+      </div>
+      <p class="product-desc">Plateforme de vêtements et accessoires seconde main.</p>
+    </div>
+    <div class="product-card" data-name="iGraal" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-wallet product-icon"></i>
+        <h3 class="product-name"><a href="https://www.igraal.com/" target="_blank">iGraal</a></h3>
+      </div>
+      <p class="product-desc">Cashback sur vos achats en ligne.</p>
+    </div>
+    <div class="product-card" data-name="eBuyClub" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-shopping-cart product-icon"></i>
+        <h3 class="product-name"><a href="https://www.ebuyclub.com/" target="_blank">eBuyClub</a></h3>
+      </div>
+      <p class="product-desc">Cashback et codes promo.</p>
+    </div>
+    <div class="product-card" data-name="CouponBirds" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-cut product-icon"></i>
+        <h3 class="product-name"><a href="https://www.couponbirds.com/" target="_blank">CouponBirds</a></h3>
+      </div>
+      <p class="product-desc">Coupons et deals internationaux.</p>
+    </div>
+    <div class="product-card" data-name="Honey" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-honey-pot product-icon"></i>
+        <h3 class="product-name"><a href="https://www.joinhoney.com/" target="_blank">Honey</a></h3>
+      </div>
+      <p class="product-desc">Extension pour trouver automatiquement des coupons.</p>
+    </div>
+    <div class="product-card" data-name="Promobutler" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-concierge-bell product-icon"></i>
+        <h3 class="product-name"><a href="https://www.promobutler.be/" target="_blank">Promobutler</a></h3>
+      </div>
+      <p class="product-desc">Codes promo belges et français.</p>
+    </div>
+    <div class="product-card" data-name="Revolut" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-credit-card product-icon"></i>
+        <h3 class="product-name"><a href="https://www.revolut.com/" target="_blank">Revolut</a></h3>
+      </div>
+      <p class="product-desc">Banque mobile avec taux de change avantageux.</p>
+    </div>
+    <div class="product-card" data-name="Wise" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-exchange-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://wise.com/" target="_blank">Wise</a></h3>
+      </div>
+      <p class="product-desc">Transferts d’argent internationaux à bas coût.</p>
+    </div>
+    <div class="product-card" data-name="Pick Your Days" data-category="Economies">
+      <div class="product-header">
+        <i class="fas fa-bolt product-icon"></i>
+        <h3 class="product-name"><a href="https://pickyourday.fr/" target="_blank">Pick Your Days</a></h3>
+      </div>
+      <p class="product-desc">Profitez des heures creuses d’électricité.</p>
+    </div>
+
+    <!-- 🛠️ Services publics & administration (15) -->
+    <div class="product-card" data-name="Service-Public.fr" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-university product-icon"></i>
+        <h3 class="product-name"><a href="https://www.service-public.fr/" target="_blank">Service-Public.fr</a></h3>
+      </div>
+      <p class="product-desc">Portail officiel des démarches administratives.</p>
+    </div>
+    <div class="product-card" data-name="ANTS" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-id-card product-icon"></i>
+        <h3 class="product-name"><a href="https://ants.gouv.fr/" target="_blank">ANTS</a></h3>
+      </div>
+      <p class="product-desc">Permis de conduire et carte grise en ligne.</p>
+    </div>
+    <div class="product-card" data-name="Ameli" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-heartbeat product-icon"></i>
+        <h3 class="product-name"><a href="https://www.ameli.fr/" target="_blank">Ameli</a></h3>
+      </div>
+      <p class="product-desc">Remboursements et services santé.</p>
+    </div>
+    <div class="product-card" data-name="Assurance Maladie" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-hospital product-icon"></i>
+        <h3 class="product-name"><a href="https://www.ameli.fr/" target="_blank">Assurance Maladie</a></h3>
+      </div>
+      <p class="product-desc">Informations et démarches santé.</p>
+    </div>
+    <div class="product-card" data-name="Impots.gouv.fr" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-file-invoice-dollar product-icon"></i>
+        <h3 class="product-name"><a href="https://www.impots.gouv.fr/" target="_blank">Impots.gouv.fr</a></h3>
+      </div>
+      <p class="product-desc">Déclaration et paiement des impôts.</p>
+    </div>
+    <div class="product-card" data-name="CAF" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-hand-holding-heart product-icon"></i>
+        <h3 class="product-name"><a href="https://www.caf.fr/" target="_blank">CAF</a></h3>
+      </div>
+      <p class="product-desc">Allocations familiales et sociales.</p>
+    </div>
+    <div class="product-card" data-name="Pôle Emploi" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-briefcase product-icon"></i>
+        <h3 class="product-name"><a href="https://www.pole-emploi.fr/" target="_blank">Pôle Emploi</a></h3>
+      </div>
+      <p class="product-desc">Offres d’emploi et inscription.</p>
+    </div>
+    <div class="product-card" data-name="URSSAF" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-handshake product-icon"></i>
+        <h3 class="product-name"><a href="https://www.urssaf.fr/" target="_blank">URSSAF</a></h3>
+      </div>
+      <p class="product-desc">Cotisations sociales des indépendants.</p>
+    </div>
+    <div class="product-card" data-name="INPI" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-search product-icon"></i>
+        <h3 class="product-name"><a href="https://www.inpi.fr/" target="_blank">INPI</a></h3>
+      </div>
+      <p class="product-desc">Brevets, marques et modèles.</p>
+    </div>
+    <div class="product-card" data-name="LegiFrance" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-gavel product-icon"></i>
+        <h3 class="product-name"><a href="https://www.legifrance.gouv.fr/" target="_blank">LegiFrance</a></h3>
+      </div>
+      <p class="product-desc">Textes législatifs et réglementaires.</p>
+    </div>
+    <div class="product-card" data-name="Justice.fr" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-balance-scale product-icon"></i>
+        <h3 class="product-name"><a href="https://www.justice.fr/" target="_blank">Justice.fr</a></h3>
+      </div>
+      <p class="product-desc">Démarches et ressources judiciaires.</p>
+    </div>
+    <div class="product-card" data-name="CNIL" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-shield-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://www.cnil.fr/" target="_blank">CNIL</a></h3>
+      </div>
+      <p class="product-desc">Protection des données personnelles.</p>
+    </div>
+    <div class="product-card" data-name="La Poste" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-envelope product-icon"></i>
+        <h3 class="product-name"><a href="https://www.laposte.fr/" target="_blank">La Poste</a></h3>
+      </div>
+      <p class="product-desc">Services postaux et suivi d’envoi.</p>
+    </div>
+    <div class="product-card" data-name="RDV Passeport" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-passport product-icon"></i>
+        <h3 class="product-name"><a href="https://passeport.ants.gouv.fr/" target="_blank">RDV Passeport</a></h3>
+      </div>
+      <p class="product-desc">Prise de rendez-vous en mairie.</p>
+    </div>
+    <div class="product-card" data-name="Histovec" data-category="Publics">
+      <div class="product-header">
+        <i class="fas fa-car product-icon"></i>
+        <h3 class="product-name"><a href="https://histovec.interieur.gouv.fr/" target="_blank">Histovec</a></h3>
+      </div>
+      <p class="product-desc">Historique d’un véhicule d’occasion.</p>
+    </div>
+
+    <!-- 📚 Vie digitale & Productivité (15) -->
+    <div class="product-card" data-name="Canva" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-paint-brush product-icon"></i>
+        <h3 class="product-name"><a href="https://www.canva.com/" target="_blank">Canva</a></h3>
+      </div>
+      <p class="product-desc">Outil de design graphique en ligne simple.</p>
+    </div>
+    <div class="product-card" data-name="Remove.bg" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-image product-icon"></i>
+        <h3 class="product-name"><a href="https://www.remove.bg/" target="_blank">Remove.bg</a></h3>
+      </div>
+      <p class="product-desc">Suppression d’arrière-plan d’images.</p>
+    </div>
+    <div class="product-card" data-name="TinyWow" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-file product-icon"></i>
+        <h3 class="product-name"><a href="https://tinywow.com/" target="_blank">TinyWow</a></h3>
+      </div>
+      <p class="product-desc">Outils PDF et conversion gratuits.</p>
+    </div>
+    <div class="product-card" data-name="PDF Escape" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-file-pdf product-icon"></i>
+        <h3 class="product-name"><a href="https://www.pdfescape.com/" target="_blank">PDF Escape</a></h3>
+      </div>
+      <p class="product-desc">Éditeur PDF en ligne.</p>
+    </div>
+    <div class="product-card" data-name="Namechk" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-user-check product-icon"></i>
+        <h3 class="product-name"><a href="https://namechk.com/" target="_blank">Namechk</a></h3>
+      </div>
+      <p class="product-desc">Vérification de disponibilité de nom.</p>
+    </div>
+    <div class="product-card" data-name="TempMail" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-envelope-open product-icon"></i>
+        <h3 class="product-name"><a href="https://temp-mail.org/" target="_blank">TempMail</a></h3>
+      </div>
+      <p class="product-desc">Adresse email jetable temporaire.</p>
+    </div>
+    <div class="product-card" data-name="Zamzar" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-exchange-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://www.zamzar.com/" target="_blank">Zamzar</a></h3>
+      </div>
+      <p class="product-desc">Conversion de fichiers en ligne.</p>
+    </div>
+    <div class="product-card" data-name="Photopea" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-draw-polygon product-icon"></i>
+        <h3 class="product-name"><a href="https://www.photopea.com/" target="_blank">Photopea</a></h3>
+      </div>
+      <p class="product-desc">Éditeur d’images style Photoshop.</p>
+    </div>
+    <div class="product-card" data-name="Unsplash" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-camera product-icon"></i>
+        <h3 class="product-name"><a href="https://unsplash.com/" target="_blank">Unsplash</a></h3>
+      </div>
+      <p class="product-desc">Banque d’images libres de droits.</p>
+    </div>
+    <div class="product-card" data-name="Pexels" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-photo-video product-icon"></i>
+        <h3 class="product-name"><a href="https://www.pexels.com/" target="_blank">Pexels</a></h3>
+      </div>
+      <p class="product-desc">Photos et vidéos gratuites.</p>
+    </div>
+    <div class="product-card" data-name="Loom" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-video product-icon"></i>
+        <h3 class="product-name"><a href="https://www.loom.com/" target="_blank">Loom</a></h3>
+      </div>
+      <p class="product-desc">Enregistrement d’écran et partage vidéo.</p>
+    </div>
+    <div class="product-card" data-name="Notion" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-list-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://www.notion.so/" target="_blank">Notion</a></h3>
+      </div>
+      <p class="product-desc">Gestion et prise de notes tout-en-un.</p>
+    </div>
+    <div class="product-card" data-name="Trello" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-columns product-icon"></i>
+        <h3 class="product-name"><a href="https://trello.com/" target="_blank">Trello</a></h3>
+      </div>
+      <p class="product-desc">Tableaux Kanban collaboratifs.</p>
+    </div>
+    <div class="product-card" data-name="Framadate" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-calendar-alt product-icon"></i>
+        <h3 class="product-name"><a href="https://framadate.org/" target="_blank">Framadate</a></h3>
+      </div>
+      <p class="product-desc">Sondages et planification gratuits.</p>
+    </div>
+    <div class="product-card" data-name="Etherpad" data-category="Productivite">
+      <div class="product-header">
+        <i class="fas fa-keyboard product-icon"></i>
+        <h3 class="product-name"><a href="https://etherpad.org/" target="_blank">Etherpad</a></h3>
+      </div>
+      <p class="product-desc">Éditeur de texte collaboratif en temps réel.</p>
+    </div>
+  </main>
+
+  <footer>&copy; 2025 linkplace.fun – Tous droits réservés</footer>
+
+  <script>
+    // Fade-in
+    const cards = document.querySelectorAll('.product-card');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('fade-in');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 }); cards.forEach(c => obs.observe(c));
+    // Search & Filter
+    const search = document.getElementById('search');
+    const filterButtons = document.querySelectorAll('.filters button');
+    filterButtons.forEach(btn => btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterAll();
+    }));
+    search.addEventListener('input', filterAll);
+    function filterAll() {
+      const term = search.value.toLowerCase();
+      const active = document.querySelector('.filters button.active').dataset.filter;
+      cards.forEach(card => {
+        const matchCat = active === 'all' || card.dataset.category === active;
+        const matchSearch = card.dataset.name.toLowerCase().includes(term);
+        card.style.display = matchCat && matchSearch ? 'block' : 'none';
+      });
+    }
+  </script>
+
+  <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+
+</html>

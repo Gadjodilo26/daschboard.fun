@@ -1,0 +1,3563 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b3a8a" />
+    <title>Suivi hebdomadaire</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <style>
+      :root {
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1f1f1f;
+        background-color: #f4f6fa;
+      }
+
+      body {
+        margin: 0;
+        background: #f4f6fa;
+      }
+
+      .app {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      .site-logo {
+        max-height: 70px;
+        margin-bottom: 8px;
+        object-fit: contain;
+      }
+
+      header h1 {
+        margin-bottom: 0.2rem;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        letter-spacing: 0.035em;
+      }
+
+      header p {
+        margin-top: 0;
+        color: #5f6c80;
+      }
+
+      .week-summary {
+        margin: 0.2rem 0 0;
+        font-weight: 600;
+        color: #1f1f1f;
+      }
+
+      .meta-card,
+      .panel {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        padding: 12px 12px 6px;
+        margin-top: 12px;
+      }
+
+      .collapsible-card {
+        padding: 0;
+      }
+
+      .collapsible-trigger {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .collapsible-trigger:hover {
+        background: rgba(27, 58, 138, 0.05);
+      }
+
+      .collapsible-icon {
+        transition: transform 0.2s ease;
+        font-size: 1.2rem;
+      }
+
+      .collapsible-card.is-collapsed .collapsible-icon {
+        transform: rotate(-90deg);
+      }
+
+      .collapsible-panel {
+        padding: 0 16px 16px;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      label {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"],
+      input[type="time"],
+      textarea {
+        border-radius: 8px;
+        border: 1px solid #d1d7e0;
+        padding: 8px 10px;
+        font-size: 1rem;
+        font-family: inherit;
+        background: #fdfdfd;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        margin-top: 8px;
+        padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+
+      .nav-toggle {
+        display: none;
+        margin-top: 8px;
+        border: 1px solid #1f1f1f;
+        background: #fff;
+        color: #1f1f1f;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .tabs button {
+        flex: 0 0 auto;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: none;
+        background: #e1e8ff;
+        color: #1b3a8a;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .tabs button.active {
+        background: #1b3a8a;
+        color: #fff;
+        box-shadow: 0 8px 16px rgba(27, 58, 138, 0.35);
+      }
+
+      .panel {
+        display: none;
+      }
+
+      .panel.active {
+        display: block;
+      }
+
+      .day-title {
+        margin-top: 0;
+        font-size: 1.4rem;
+        color: #0f172a;
+      }
+
+      .time-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+      }
+
+      .rest-toggle {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .rest-toggle label {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .rest-toggle .absence-select {
+        border-radius: 6px;
+        border: 1px solid #d1d7e0;
+        padding: 6px 10px;
+        font-size: 0.95rem;
+        font-family: inherit;
+        flex: 1;
+      }
+
+      .day-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .actions-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 16px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      .btn-secondary {
+        background: #e2e8f0;
+        color: #1f2937;
+      }
+
+      /* Début : fonctionnalités PWA / ajout à l'écran d'accueil */
+      .pwa-install-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 12px 0;
+      }
+
+      .btn-install {
+        border: none;
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-weight: 600;
+        background: #1b3a8a;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .btn-install[hidden] {
+        display: none;
+      }
+
+      .ios-a2hs-hint {
+        position: relative;
+        padding: 12px 16px;
+        background: #fef3c7;
+        border: 1px solid #f59e0b;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        color: #7c2d12;
+      }
+
+      .ios-a2hs-hint strong {
+        color: #92400e;
+      }
+
+      .ios-a2hs-hint button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        border: none;
+        background: transparent;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: #92400e;
+      }
+      /* Fin : fonctionnalités PWA / ajout à l'écran d'accueil */
+
+      .preview-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .file-field input {
+        padding: 6px;
+      }
+
+      .preview-wrapper {
+        border: 1px solid #cfd8e3;
+        border-radius: 12px;
+        padding: 12px;
+        background: #fff;
+        overflow-x: auto;
+      }
+
+      .preview-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .preview-header img {
+        max-height: 60px;
+        object-fit: contain;
+        flex: 0 0 auto;
+      }
+
+      .preview-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 1rem;
+      }
+
+      .employee-banner {
+        border: 2px solid #1f1f1f;
+        margin: 6px auto 0;
+        padding: 4px 12px;
+        text-align: center;
+        font-weight: 600;
+        max-width: 320px;
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
+
+      .timesheet {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 8px;
+        font-size: 0.85rem;
+        min-width: 900px;
+        table-layout: auto;
+      }
+
+      .timesheet th,
+      .timesheet td {
+        border: 1px solid #222;
+        padding: 8px 5px;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .timesheet td {
+        font-size: 0.9rem;
+      }
+
+      .timesheet th {
+        background: #e5e9f5;
+      }
+
+      .weekly-total-row th {
+        text-align: right;
+      }
+
+      .post-table-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 6px;
+        margin-top: 8px;
+      }
+
+      .notes-field,
+      .signature-box {
+        border: 1px solid #d1d7e0;
+        border-radius: 6px;
+        padding: 4px;
+        background: #fff;
+        page-break-inside: avoid;
+      }
+
+      .notes-field textarea,
+      .notes-field p {
+        min-height: 40px;
+      }
+
+      .signature-box {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        text-align: center;
+        min-height: 40px;
+        justify-content: space-between;
+      }
+
+      .signature-box img {
+        width: 100%;
+        height: 80px;
+        object-fit: contain;
+      }
+
+      .signature-cell {
+        min-width: 90px;
+        text-align: center;
+      }
+
+      .signature-stamp {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .signature-stamp img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .signature-placeholder {
+        font-size: 0.85rem;
+        color: #555;
+      }
+
+      .cp-flag {
+        color: #be123c;
+        font-weight: 600;
+      }
+
+      .stack-cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+      }
+
+      .fuel-panel .panel-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .fuel-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .fuel-forms {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+
+      .fuel-ticket-form {
+        border: 1px solid #cfd8e3;
+        border-radius: 8px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.95rem;
+      }
+
+      .fuel-ticket-form h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: #0f172a;
+      }
+
+      .fuel-ticket-form .form-field {
+        gap: 2px;
+      }
+
+      .fuel-ticket-form input[type="file"] {
+        border: 1px dashed #cbd5f5;
+        padding: 6px;
+        border-radius: 6px;
+        background: #f8fbff;
+      }
+
+      .fuel-preview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+
+      .fuel-preview-card {
+        border: 1px solid #222;
+        border-radius: 8px;
+        padding: 8px;
+        min-height: 170px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .fuel-preview-card strong {
+        font-size: 0.9rem;
+      }
+
+      .fuel-preview-card img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: #f5f7fb;
+      }
+
+      .fuel-preview-card p {
+        margin: 0;
+        font-size: 0.85rem;
+      }
+
+      .fuel-preview-wrapper {
+        margin-top: 12px;
+        border: 1px dashed #d1d7e0;
+        border-radius: 8px;
+        padding: 10px;
+        background: #fdfdfd;
+      }
+
+      .empty-ticket {
+        border: 1px dashed #bbb;
+        border-radius: 6px;
+        min-height: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #777;
+      }
+
+      .fuel-print-header {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        border: 1px solid #d1d7e0;
+        border-radius: 8px;
+        padding: 8px;
+        background: #fff;
+      }
+
+      .fuel-print-header img {
+        max-height: 60px;
+        object-fit: contain;
+      }
+
+      .fuel-week-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.95rem;
+      }
+
+      .file-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+
+      .file-reminder {
+        margin-top: 8px;
+        font-size: 0.9rem;
+        color: #5f6c80;
+      }
+
+      .site-footer {
+        margin-top: 20px;
+        padding: 10px 16px;
+        text-align: center;
+        border-top: 1px solid #d1d7e0;
+        color: #5f6c80;
+        font-size: 0.9rem;
+      }
+
+      .site-footer img {
+        max-height: 40px;
+        margin-left: 12px;
+        vertical-align: middle;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      @media (min-width: 768px) {
+        header h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-toggle {
+          display: none;
+        }
+
+        .tabs {
+          display: flex;
+          width: 100%;
+          background: #fff;
+          border: 1px solid #d1d7e0;
+          border-radius: 8px;
+          padding: 8px;
+          box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+        }
+
+        .tabs button {
+          flex: 1;
+          justify-content: center;
+          scroll-snap-align: start;
+        }
+      }
+
+      /* Format d'impression A4 paysage */
+      @page {
+        size: A4 landscape;
+        margin: 3mm;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          font-size: 0.85rem;
+        }
+
+        header p,
+        header img,
+        header h1,
+        footer,
+        .preview-panel .day-title,
+        .meta-card,
+        .tabs,
+        .preview-controls,
+        .actions-row,
+        .fuel-info,
+        .fuel-actions,
+        .fuel-forms,
+        #driver-comm-btn,
+        #driver-comm-panel {
+          display: none !important;
+        }
+
+        .panel {
+          display: none !important;
+          box-shadow: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .preview-panel {
+          display: block !important;
+        }
+
+        body.print-fuel .preview-panel {
+          display: none !important;
+        }
+
+        body.print-fuel .fuel-panel {
+          display: block !important;
+        }
+
+        .preview-wrapper {
+          border: none;
+          padding: 0;
+          max-width: 100%;
+          margin: 0;
+          overflow: visible;
+        }
+
+        .preview-header {
+          gap: 6px;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .preview-header img {
+          max-height: 40px;
+          margin-right: auto;
+        }
+
+        .preview-meta {
+          font-size: 0.75rem;
+          gap: 4px;
+          text-align: right;
+          margin-left: auto;
+        }
+
+        .employee-banner {
+          margin: 4px auto;
+          padding: 2px 6px;
+          font-size: 0.8rem;
+        }
+
+        .table-scroll {
+          overflow: visible !important;
+          padding-bottom: 0;
+          scrollbar-width: none !important;
+        }
+
+        .table-scroll::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        .timesheet {
+          min-width: auto;
+          width: 100%;
+          table-layout: fixed;
+          font-size: 0.75rem;
+          margin-top: 4px;
+        }
+
+        .timesheet th,
+        .timesheet td {
+          padding: 4px 2px;
+        }
+
+        .timesheet td {
+          font-size: 0.75rem;
+          word-break: break-word;
+        }
+
+        .fuel-panel .fuel-forms {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 4px;
+          width: 100%;
+        }
+
+        .fuel-panel .fuel-ticket-form {
+          padding: 4px;
+          font-size: 0.7rem;
+          gap: 4px;
+          border-width: 1px;
+        }
+
+        .fuel-panel .fuel-ticket-form input,
+        .fuel-panel .fuel-ticket-form label,
+        .fuel-panel .fuel-ticket-form h3 {
+          font-size: 0.65rem;
+        }
+
+        .fuel-preview-card img {
+          max-height: 140px;
+          border-width: 0.5px;
+        }
+
+        .fuel-preview-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 4px;
+          width: 100%;
+        }
+
+        .fuel-preview-card {
+          padding: 4px;
+          font-size: 0.65rem;
+          gap: 3px;
+          max-width: 100%;
+        }
+
+        .fuel-preview-card strong {
+          font-size: 0.7rem;
+        }
+
+        .fuel-preview-card p {
+          font-size: 0.65rem;
+          margin: 1px 0;
+        }
+
+        .signature-stamp {
+          height: 45px;
+        }
+
+        .signature-box img {
+          height: 55px;
+        }
+
+        .post-table-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 4px;
+          margin-top: 4px;
+        }
+
+        .notes-field p {
+          min-height: 40px;
+          font-size: 0.75rem;
+        }
+      }
+
+      @media print and (max-width: 640px) {
+        @page {
+          size: A4 landscape;
+          margin: 2mm;
+        }
+
+        body {
+          font-size: 0.95rem;
+        }
+
+        .preview-wrapper {
+          padding: 0;
+        }
+
+        .timesheet {
+          font-size: 0.9rem;
+          margin-top: 8px;
+        }
+
+        .timesheet th,
+        .timesheet td {
+          padding: 6px 4px;
+        }
+
+        .timesheet td {
+          font-size: 0.9rem;
+        }
+
+        .post-table-grid {
+          margin-top: 8px;
+        }
+
+        .notes-field p {
+          min-height: 50px;
+        }
+      }
+
+      /* Bouton communication chauffeurs */
+      #driver-comm-btn {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        border: none;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: rgba(15, 23, 42, 0.9);
+        color: #fff;
+        font-size: 1.3rem;
+        box-shadow: 0 5px 15px rgba(15, 23, 42, 0.25);
+        cursor: pointer;
+        z-index: 1000;
+      }
+
+      #driver-comm-panel {
+        position: fixed;
+        bottom: 70px;
+        right: 16px;
+        width: 320px;
+        max-width: calc(100% - 32px);
+        background: #fff;
+        border: 1px solid #d1d7e0;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2);
+        padding: 12px;
+        display: none;
+        z-index: 1000;
+      }
+
+      #driver-comm-panel.open {
+        display: block;
+      }
+
+      .driver-comm-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .driver-comm-header h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      .driver-comm-close {
+        border: none;
+        background: transparent;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .driver-comm-section {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 8px;
+        margin-bottom: 10px;
+      }
+
+      .driver-comm-section h4 {
+        margin: 0 0 6px;
+        font-size: 0.9rem;
+      }
+
+      .driver-comm-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 6px;
+      }
+
+      .driver-comm-field label {
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .driver-comm-field input,
+      .driver-comm-field select,
+      .driver-comm-field textarea {
+        border-radius: 6px;
+        border: 1px solid #d1d7e0;
+        padding: 6px;
+        font-family: inherit;
+        font-size: 0.9rem;
+      }
+
+      .driver-comm-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .driver-comm-actions button {
+        flex: 1;
+        min-width: 120px;
+        padding: 6px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .driver-comm-actions button.primary {
+        background: #2563eb;
+        color: #fff;
+      }
+
+      .driver-comm-actions button.secondary {
+        background: #e2e8f0;
+        color: #111;
+      }
+
+      .driver-contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .driver-contact {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 6px 8px;
+      }
+
+      .driver-contact a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #2563eb;
+      }
+
+      @media (max-width: 640px) {
+        #driver-comm-panel {
+          right: 8px;
+          left: 8px;
+          width: auto;
+        }
+
+        #driver-comm-btn {
+          right: 8px;
+          bottom: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <img src="logoFE.png" alt="Logo entreprise" class="site-logo" />
+        <h1>Suivi hebdomadaire</h1>
+        <p>
+          Saisissez chaque journée, sauvegardez en local puis prévisualisez la
+          feuille finale avant impression.
+        </p>
+        <p class="week-summary" id="week-summary">
+          Semaine actuelle : n° -, du - au - — -
+        </p>
+      </header>
+
+      <section class="meta-card collapsible-card">
+        <button
+          type="button"
+          class="collapsible-trigger"
+          data-collapse-target="collapse-mode-emploi"
+        >
+          <span>Mode d'emploi simplifié</span>
+          <span class="collapsible-icon" aria-hidden="true">▾</span>
+        </button>
+        <div class="collapsible-panel" id="collapse-mode-emploi">
+          <p>
+            Ce site enregistre vos heures et vos tickets carburant directement sur
+            votre appareil (aucune connexion nécessaire). Voici comment procéder :
+          </p>
+          <!-- Début : fonctionnalités PWA / ajout à l'écran d'accueil -->
+          <div class="pwa-install-container">
+            <button id="btn-install" class="btn-install" hidden>
+              <span aria-hidden="true">📲</span>
+              Ajouter à l’écran d’accueil
+            </button>
+          </div>
+          <div id="ios-a2hs-hint" class="ios-a2hs-hint" hidden>
+            <button type="button" aria-label="Masquer le rappel" data-ios-hint-close>&times;</button>
+            Pour ajouter ce planning sur votre écran d’accueil iPhone ou iPad&nbsp;:
+            ouvrez le menu <strong>Partager</strong> de Safari puis choisissez
+            <strong>«&nbsp;Sur l’écran d’accueil&nbsp;»</strong>.
+          </div>
+          <!-- Fin : fonctionnalités PWA / ajout à l'écran d'accueil -->
+          <ul>
+            <li>
+              <strong>Navigation simple</strong> : les grands boutons en haut de la page
+              font défiler directement vers la journée choisie, la partie carburant
+              ou la prévisualisation.
+            </li>
+            <li>
+              <strong>Remplis et respire</strong> : horaires, clients, tournées…
+              tout est sauvegardé automatiquement sur l’appareil.
+            </li>
+            <li>
+              <strong>Doutes ?</strong> Les boutons bleus
+              <em>Enregistrer vos données</em> et <em>Charger votre planning</em>
+              te permettent de récupérer ou restaurer un fichier JSON quand tu veux.
+            </li>
+            <li>
+              <strong>Messages chauffeur</strong> : le bouton ✉️ en bas à droite ouvre
+              une mini-console pour pré-remplir un SMS, choisir un destinataire et copier
+              des modèles rapides.
+            </li>
+            <li>
+              <strong>Tickets gasoil</strong> : dans la section « Carburant », saisis chaque
+              plein (date, véhicule, montant) et ajoute la photo du ticket. Utilise le bouton
+              « Aperçu des tickets » pour vérifier les images avant impression.
+            </li>
+            <li>
+              <strong>Impressions rapides</strong> : « Imprimer la semaine » sort le planning A4 paysage,
+              « Imprimer les tickets » génère la fiche carburant dédiée.
+            </li>
+            <li>
+              <strong>Envie de repartir de zéro ?</strong> Le bouton
+              <em>Réinitialiser la semaine</em> nettoie tout en un clic (pense à exporter avant !).
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="meta-card collapsible-card">
+        <button
+          type="button"
+          class="collapsible-trigger"
+          data-collapse-target="collapse-organisation"
+        >
+          <span>Organisation des fichiers</span>
+          <span class="collapsible-icon" aria-hidden="true">▾</span>
+        </button>
+        <div class="collapsible-panel" id="collapse-organisation">
+          <p>
+            Toutes vos saisies restent mémorisées automatiquement sur l’appareil, même si vous fermez
+            la page. Pour être 100% tranquille (changement de téléphone, nettoyage du navigateur, partage
+            avec le bureau), exportez malgré tout un fichier JSON grâce au bouton
+            <strong>Enregistrer vos données</strong> puis rangez-le dans l’arborescence ci-dessous.
+          </p>
+          <p>
+            1. Téléchargez la structure de dossier recommandée.<br />
+            2. Placez vos fichiers exportés dans <em>FrigoEst/Plannings</em> et vos tickets carburant
+            dans <em>FrigoEst/TicketsCarburant</em>.<br />
+            3. Archivez les semaines précédentes dans <em>FrigoEst/Archives</em> si besoin.<br />
+            4. Le lendemain, utilisez <strong>Charger votre planning</strong> pour sélectionner le fichier JSON
+            stocké dans le dossier.
+          </p>
+          <div class="file-actions">
+            <a class="btn btn-secondary" href="structure_frigo_est.zip" download>
+              Télécharger le dossier FrigoEst (ZIP)
+            </a>
+            <button class="btn btn-primary" type="button" id="open-file-manager">
+              Ouvrir les fichiers téléchargés
+            </button>
+          </div>
+          <p class="file-reminder">
+            Conseil : après chaque export, ouvrez vos téléchargements et déplacez
+            manuellement le fichier dans le dossier <em>FrigoEst</em> approprié.
+          </p>
+        </div>
+      </section>
+
+      <section class="meta-card">
+        <h2>Informations générales</h2>
+        <div class="meta-grid">
+          <div class="form-field">
+            <label for="week-number">Semaine N°</label>
+            <input type="number" id="week-number" min="1" max="53" />
+          </div>
+          <div class="form-field">
+            <label for="week-start">Du</label>
+            <input type="date" id="week-start" />
+          </div>
+          <div class="form-field">
+            <label for="week-end">Au</label>
+            <input type="date" id="week-end" />
+          </div>
+          <div class="form-field">
+            <label for="employee-name">Nom du salarié</label>
+            <input type="text" id="employee-name" placeholder="Prénom NOM" />
+          </div>
+          <div class="form-field">
+            <label for="observations">Observations éventuelles</label>
+            <textarea id="observations"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false">
+        ☰ Navigation
+      </button>
+      <nav class="tabs" aria-label="Navigation du planning">
+        <button class="active" data-target="lundi">Lundi</button>
+        <button data-target="mardi">Mardi</button>
+        <button data-target="mercredi">Mercredi</button>
+        <button data-target="jeudi">Jeudi</button>
+        <button data-target="vendredi">Vendredi</button>
+        <button data-target="samedi">Samedi</button>
+        <button data-target="dimanche">Dimanche</button>
+        <button data-target="carburant">Tickets carburant</button>
+        <button data-target="preview">Prévisualisation</button>
+      </nav>
+
+      <main>
+        <section class="panel active" data-panel="lundi">
+          <h2 class="day-title">Lundi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-lundi">Date</label>
+              <input type="date" id="date-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-lundi">Début de journée</label>
+              <input type="time" id="debut-journee-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-lundi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-lundi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-lundi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-lundi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-lundi">Heure de retour</label>
+              <input type="time" id="retour-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-lundi">Véhicule</label>
+              <input type="text" id="vehicule-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-lundi">Tournée</label>
+              <input type="text" id="tournee-lundi" />
+            </div>
+            <div class="form-field">
+              <label for="client-lundi">Client</label>
+              <input type="text" id="client-lundi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-lundi">Statut de la journée</label>
+            <select
+              id="absence-lundi"
+              class="absence-select"
+              data-absence-day="lundi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="mardi">
+          <h2 class="day-title">Mardi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-mardi">Date</label>
+              <input type="date" id="date-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-mardi">Début de journée</label>
+              <input type="time" id="debut-journee-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-mardi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-mardi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-mardi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-mardi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-mardi">Heure de retour</label>
+              <input type="time" id="retour-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-mardi">Véhicule</label>
+              <input type="text" id="vehicule-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-mardi">Tournée</label>
+              <input type="text" id="tournee-mardi" />
+            </div>
+            <div class="form-field">
+              <label for="client-mardi">Client</label>
+              <input type="text" id="client-mardi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-mardi">Statut de la journée</label>
+            <select
+              id="absence-mardi"
+              class="absence-select"
+              data-absence-day="mardi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="mercredi">
+          <h2 class="day-title">Mercredi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-mercredi">Date</label>
+              <input type="date" id="date-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-mercredi">Début de journée</label>
+              <input type="time" id="debut-journee-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-mercredi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-mercredi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-mercredi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-mercredi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-mercredi">Heure de retour</label>
+              <input type="time" id="retour-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-mercredi">Véhicule</label>
+              <input type="text" id="vehicule-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-mercredi">Tournée</label>
+              <input type="text" id="tournee-mercredi" />
+            </div>
+            <div class="form-field">
+              <label for="client-mercredi">Client</label>
+              <input type="text" id="client-mercredi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-mercredi">Statut de la journée</label>
+            <select
+              id="absence-mercredi"
+              class="absence-select"
+              data-absence-day="mercredi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="jeudi">
+          <h2 class="day-title">Jeudi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-jeudi">Date</label>
+              <input type="date" id="date-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-jeudi">Début de journée</label>
+              <input type="time" id="debut-journee-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-jeudi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-jeudi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-jeudi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-jeudi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-jeudi">Heure de retour</label>
+              <input type="time" id="retour-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-jeudi">Véhicule</label>
+              <input type="text" id="vehicule-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-jeudi">Tournée</label>
+              <input type="text" id="tournee-jeudi" />
+            </div>
+            <div class="form-field">
+              <label for="client-jeudi">Client</label>
+              <input type="text" id="client-jeudi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-jeudi">Statut de la journée</label>
+            <select
+              id="absence-jeudi"
+              class="absence-select"
+              data-absence-day="jeudi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="vendredi">
+          <h2 class="day-title">Vendredi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-vendredi">Date</label>
+              <input type="date" id="date-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-vendredi">Début de journée</label>
+              <input type="time" id="debut-journee-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-vendredi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-vendredi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-vendredi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-vendredi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-vendredi">Heure de retour</label>
+              <input type="time" id="retour-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-vendredi">Véhicule</label>
+              <input type="text" id="vehicule-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-vendredi">Tournée</label>
+              <input type="text" id="tournee-vendredi" />
+            </div>
+            <div class="form-field">
+              <label for="client-vendredi">Client</label>
+              <input type="text" id="client-vendredi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-vendredi">Statut de la journée</label>
+            <select
+              id="absence-vendredi"
+              class="absence-select"
+              data-absence-day="vendredi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="samedi">
+          <h2 class="day-title">Samedi</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-samedi">Date</label>
+              <input type="date" id="date-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-samedi">Début de journée</label>
+              <input type="time" id="debut-journee-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-samedi">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-samedi">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-samedi">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-samedi">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="retour-samedi">Heure de retour</label>
+              <input type="time" id="retour-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-samedi">Véhicule</label>
+              <input type="text" id="vehicule-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-samedi">Tournée</label>
+              <input type="text" id="tournee-samedi" />
+            </div>
+            <div class="form-field">
+              <label for="client-samedi">Client</label>
+              <input type="text" id="client-samedi" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-samedi">Statut de la journée</label>
+            <select
+              id="absence-samedi"
+              class="absence-select"
+              data-absence-day="samedi"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel" data-panel="dimanche">
+          <h2 class="day-title">Dimanche</h2>
+          <div class="time-grid">
+            <div class="form-field">
+              <label for="date-dimanche">Date</label>
+              <input type="date" id="date-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="debut-journee-dimanche">Début de journée</label>
+              <input type="time" id="debut-journee-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-debut-dimanche">Pause 1 - début</label>
+              <input type="time" id="pause1-debut-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="pause1-fin-dimanche">Pause 1 - fin</label>
+              <input type="time" id="pause1-fin-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-debut-dimanche">Pause 2 - début</label>
+              <input type="time" id="pause2-debut-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="pause2-fin-dimanche">Pause 2 - fin</label>
+              <input type="time" id="pause2-fin-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="retour-dimanche">Heure de retour</label>
+              <input type="time" id="retour-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="vehicule-dimanche">Véhicule</label>
+              <input type="text" id="vehicule-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="tournee-dimanche">Tournée</label>
+              <input type="text" id="tournee-dimanche" />
+            </div>
+            <div class="form-field">
+              <label for="client-dimanche">Client</label>
+              <input type="text" id="client-dimanche" />
+            </div>
+          </div>
+          <div class="rest-toggle">
+            <label for="absence-dimanche">Statut de la journée</label>
+            <select
+              id="absence-dimanche"
+              class="absence-select"
+              data-absence-day="dimanche"
+            >
+              <option value="">Journée travaillée</option>
+              <option value="repos">Repos</option>
+              <option value="cp">CP</option>
+            </select>
+          </div>
+          <div class="day-actions">
+            <button type="button" class="btn btn-secondary btn-save">
+              Enregistrer vos données
+            </button>
+            <button type="button" class="btn btn-secondary btn-load">
+              Charger votre planning
+            </button>
+          </div>
+        </section>
+
+        <section class="panel preview-panel" data-panel="preview">
+          <h2 class="day-title">Prévisualisation & sauvegarde</h2>
+          <div class="preview-controls">
+            <div class="form-field file-field">
+              <label for="signature-input"
+                >Signature salarié (PNG transparent recommandé)</label
+              >
+              <input type="file" id="signature-input" accept="image/png" />
+            </div>
+            <div class="form-field">
+              <label class="sr-only" for="import-input"
+                >Charger votre planning</label
+              >
+              <button class="btn btn-secondary btn-load" id="import-button" type="button">
+                Charger votre planning
+              </button>
+              <input
+                type="file"
+                id="import-input"
+                accept="application/json"
+                hidden
+              />
+            </div>
+            <div class="form-field">
+              <label class="sr-only" for="export-data"
+                >Enregistrer vos données</label
+              >
+              <button class="btn btn-secondary btn-save" id="export-data" type="button">
+                Enregistrer vos données
+              </button>
+            </div>
+            <div class="form-field">
+              <label class="sr-only" for="reset-data">Réinitialiser</label>
+              <button class="btn btn-secondary" id="reset-data" type="button">
+                Réinitialiser la semaine
+              </button>
+            </div>
+            <div class="form-field">
+              <label class="sr-only" for="print-week">Imprimer</label>
+              <button class="btn btn-primary" id="print-week" type="button">
+                Imprimer / PDF A4 paysage
+              </button>
+            </div>
+          </div>
+
+          <div class="preview-wrapper" id="printable-area">
+            <div class="preview-header">
+              <img id="logo-preview" src="logoFE.png" alt="Logo employeur" />
+              <div class="preview-meta">
+                <span>Semaine n° <strong id="preview-week-number">-</strong></span>
+                <span>Du <strong id="preview-week-start">-</strong> au <strong id="preview-week-end">-</strong></span>
+              </div>
+            </div>
+            <div class="employee-banner">
+              <span>Salarié : <strong id="preview-employee">-</strong></span>
+            </div>
+
+            <div class="table-scroll">
+              <table class="timesheet">
+                <thead>
+                  <tr>
+                  <th>Jour</th>
+                  <th>Date</th>
+                  <th>Début journée</th>
+                  <th>Pause 1</th>
+                  <th>Pause 2</th>
+                  <th>Retour</th>
+                  <th>Total (h décimal)</th>
+                  <th>Véhicule</th>
+                  <th>Tournée</th>
+                  <th>Client</th>
+                  <th>Signature salarié</th>
+                  <th>Signature employeur</th>
+                </tr>
+              </thead>
+              <tbody id="preview-body"></tbody>
+              <tfoot>
+                <tr class="weekly-total-row">
+                  <th colspan="6">Total hebdomadaire</th>
+                  <td id="preview-week-total">0.00 h</td>
+                  <td colspan="5"></td>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="post-table-grid">
+              <div class="notes-field">
+                <strong>Observations :</strong>
+                <p id="preview-observations">-</p>
+              </div>
+
+              <div class="signature-box">
+                <strong>Signature salarié</strong>
+                <div>
+                  <img id="preview-signature" alt="Signature du salarié" />
+                </div>
+              </div>
+              <div class="signature-box">
+                <strong>Signature employeur</strong>
+                <p>À compléter</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel fuel-panel" data-panel="carburant">
+          <h2 class="day-title">Suivi des tickets carburant</h2>
+          <div class="panel-content">
+            <p class="fuel-info">
+              Chaque carte « Plein » correspond à un ticket gasoil : note la date,
+              le véhicule, les km et les montants, puis ajoute la photo du ticket.
+              Le bouton « Aperçu des tickets » te permet de vérifier chaque image
+              avant d’imprimer jusqu’à 5 justificatifs par semaine.
+            </p>
+            <div class="fuel-actions">
+              <button class="btn btn-primary" type="button" id="print-fuel">
+                Imprimer les tickets carburant
+              </button>
+              <button class="btn btn-secondary" type="button" id="toggle-fuel-preview">
+                Afficher l'aperçu des tickets
+              </button>
+            </div>
+            <div class="fuel-print-header">
+              <img src="logoFE.png" alt="Logo" />
+              <div class="fuel-week-info">
+                <span>Semaine n° <strong id="fuel-week-number">-</strong></span>
+                <span>Du <strong id="fuel-week-start">-</strong> au <strong id="fuel-week-end">-</strong></span>
+              </div>
+            </div>
+            <div class="fuel-forms">
+              <div class="fuel-ticket-form">
+                <h3>Plein #1</h3>
+                <div class="form-field">
+                  <label for="ticket-1-date">Date</label>
+                  <input
+                    type="date"
+                    id="ticket-1-date"
+                    data-ticket-index="0"
+                    data-ticket-field="date"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-vehicle">N° Véh.</label>
+                  <input
+                    type="text"
+                    id="ticket-1-vehicle"
+                    data-ticket-index="0"
+                    data-ticket-field="vehicle"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-km">Km</label>
+                  <input
+                    type="number"
+                    id="ticket-1-km"
+                    min="0"
+                    step="1"
+                    data-ticket-index="0"
+                    data-ticket-field="kilometrage"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-quantity">Qté (L)</label>
+                  <input
+                    type="number"
+                    id="ticket-1-quantity"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="0"
+                    data-ticket-field="quantity"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-price">€/L</label>
+                  <input
+                    type="number"
+                    id="ticket-1-price"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="0"
+                    data-ticket-field="pricePerL"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-total">Total €</label>
+                  <input
+                    type="number"
+                    id="ticket-1-total"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="0"
+                    data-ticket-field="total"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-1-image">Photo du ticket</label>
+                  <input
+                    type="file"
+                    id="ticket-1-image"
+                    class="ticket-image-input"
+                    accept="image/png,image/jpeg"
+                    data-ticket-index="0"
+                  />
+                </div>
+              </div>
+
+              <div class="fuel-ticket-form">
+                <h3>Plein #2</h3>
+                <div class="form-field">
+                  <label for="ticket-2-date">Date</label>
+                  <input
+                    type="date"
+                    id="ticket-2-date"
+                    data-ticket-index="1"
+                    data-ticket-field="date"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-vehicle">N° Véh.</label>
+                  <input
+                    type="text"
+                    id="ticket-2-vehicle"
+                    data-ticket-index="1"
+                    data-ticket-field="vehicle"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-km">Km</label>
+                  <input
+                    type="number"
+                    id="ticket-2-km"
+                    min="0"
+                    step="1"
+                    data-ticket-index="1"
+                    data-ticket-field="kilometrage"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-quantity">Qté (L)</label>
+                  <input
+                    type="number"
+                    id="ticket-2-quantity"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="1"
+                    data-ticket-field="quantity"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-price">€/L</label>
+                  <input
+                    type="number"
+                    id="ticket-2-price"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="1"
+                    data-ticket-field="pricePerL"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-total">Total €</label>
+                  <input
+                    type="number"
+                    id="ticket-2-total"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="1"
+                    data-ticket-field="total"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-2-image">Photo du ticket</label>
+                  <input
+                    type="file"
+                    id="ticket-2-image"
+                    class="ticket-image-input"
+                    accept="image/png,image/jpeg"
+                    data-ticket-index="1"
+                  />
+                </div>
+              </div>
+
+              <div class="fuel-ticket-form">
+                <h3>Plein #3</h3>
+                <div class="form-field">
+                  <label for="ticket-3-date">Date</label>
+                  <input
+                    type="date"
+                    id="ticket-3-date"
+                    data-ticket-index="2"
+                    data-ticket-field="date"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-vehicle">N° Véh.</label>
+                  <input
+                    type="text"
+                    id="ticket-3-vehicle"
+                    data-ticket-index="2"
+                    data-ticket-field="vehicle"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-km">Km</label>
+                  <input
+                    type="number"
+                    id="ticket-3-km"
+                    min="0"
+                    step="1"
+                    data-ticket-index="2"
+                    data-ticket-field="kilometrage"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-quantity">Qté (L)</label>
+                  <input
+                    type="number"
+                    id="ticket-3-quantity"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="2"
+                    data-ticket-field="quantity"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-price">€/L</label>
+                  <input
+                    type="number"
+                    id="ticket-3-price"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="2"
+                    data-ticket-field="pricePerL"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-total">Total €</label>
+                  <input
+                    type="number"
+                    id="ticket-3-total"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="2"
+                    data-ticket-field="total"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-3-image">Photo du ticket</label>
+                  <input
+                    type="file"
+                    id="ticket-3-image"
+                    class="ticket-image-input"
+                    accept="image/png,image/jpeg"
+                    data-ticket-index="2"
+                  />
+                </div>
+              </div>
+
+              <div class="fuel-ticket-form">
+                <h3>Plein #4</h3>
+                <div class="form-field">
+                  <label for="ticket-4-date">Date</label>
+                  <input
+                    type="date"
+                    id="ticket-4-date"
+                    data-ticket-index="3"
+                    data-ticket-field="date"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-vehicle">N° Véh.</label>
+                  <input
+                    type="text"
+                    id="ticket-4-vehicle"
+                    data-ticket-index="3"
+                    data-ticket-field="vehicle"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-km">Km</label>
+                  <input
+                    type="number"
+                    id="ticket-4-km"
+                    min="0"
+                    step="1"
+                    data-ticket-index="3"
+                    data-ticket-field="kilometrage"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-quantity">Qté (L)</label>
+                  <input
+                    type="number"
+                    id="ticket-4-quantity"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="3"
+                    data-ticket-field="quantity"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-price">€/L</label>
+                  <input
+                    type="number"
+                    id="ticket-4-price"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="3"
+                    data-ticket-field="pricePerL"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-total">Total €</label>
+                  <input
+                    type="number"
+                    id="ticket-4-total"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="3"
+                    data-ticket-field="total"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-4-image">Photo du ticket</label>
+                  <input
+                    type="file"
+                    id="ticket-4-image"
+                    class="ticket-image-input"
+                    accept="image/png,image/jpeg"
+                    data-ticket-index="3"
+                  />
+                </div>
+              </div>
+
+              <div class="fuel-ticket-form">
+                <h3>Plein #5</h3>
+                <div class="form-field">
+                  <label for="ticket-5-date">Date</label>
+                  <input
+                    type="date"
+                    id="ticket-5-date"
+                    data-ticket-index="4"
+                    data-ticket-field="date"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-vehicle">N° Véh.</label>
+                  <input
+                    type="text"
+                    id="ticket-5-vehicle"
+                    data-ticket-index="4"
+                    data-ticket-field="vehicle"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-km">Km</label>
+                  <input
+                    type="number"
+                    id="ticket-5-km"
+                    min="0"
+                    step="1"
+                    data-ticket-index="4"
+                    data-ticket-field="kilometrage"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-quantity">Qté (L)</label>
+                  <input
+                    type="number"
+                    id="ticket-5-quantity"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="4"
+                    data-ticket-field="quantity"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-price">€/L</label>
+                  <input
+                    type="number"
+                    id="ticket-5-price"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="4"
+                    data-ticket-field="pricePerL"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-total">Total €</label>
+                  <input
+                    type="number"
+                    id="ticket-5-total"
+                    min="0"
+                    step="0.01"
+                    data-ticket-index="4"
+                    data-ticket-field="total"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="ticket-5-image">Photo du ticket</label>
+                  <input
+                    type="file"
+                    id="ticket-5-image"
+                    class="ticket-image-input"
+                    accept="image/png,image/jpeg"
+                    data-ticket-index="4"
+                  />
+                </div>
+              </div>
+
+            </div>
+
+            <div class="fuel-preview-wrapper" id="fuel-preview-wrapper" hidden>
+              <h3>Aperçu des tickets</h3>
+              <div class="fuel-preview-grid" id="fuel-preview-grid"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <button id="driver-comm-btn" type="button" aria-haspopup="true" aria-expanded="false">
+      ✉️
+      <span class="sr-only">Communication chauffeur</span>
+    </button>
+    <div id="driver-comm-panel" role="dialog" aria-labelledby="driver-comm-title" aria-hidden="true">
+      <div class="driver-comm-header">
+        <h3 id="driver-comm-title">Communication chauffeur</h3>
+        <button class="driver-comm-close" type="button" aria-label="Fermer">×</button>
+      </div>
+      <div class="driver-comm-section">
+        <h4>SMS km & points</h4>
+        <div class="driver-comm-field">
+          <label for="driver-contact-select">Destinataire</label>
+          <select id="driver-contact-select">
+            <option value="">-- Sélectionner --</option>
+          </select>
+        </div>
+        <div class="driver-comm-field">
+          <label for="driver-km-input">Kilomètres</label>
+          <input type="number" id="driver-km-input" min="0" step="1" />
+        </div>
+        <div class="driver-comm-field">
+          <label for="driver-points-input">Points</label>
+          <input type="number" id="driver-points-input" min="0" step="1" />
+        </div>
+        <div class="driver-comm-actions">
+          <button class="primary" id="driver-build-message" type="button">Pré-remplir le SMS</button>
+        </div>
+      </div>
+      <div class="driver-comm-section">
+        <h4>Modèles rapides</h4>
+        <div class="driver-comm-field">
+          <label for="driver-template-select">Choisissez un message</label>
+          <select id="driver-template-select">
+            <option value="">-- Sélectionner --</option>
+          </select>
+        </div>
+        <div class="driver-comm-field">
+          <label for="driver-message-content">Message proposé</label>
+          <textarea id="driver-message-content" rows="4" placeholder="Votre message..."></textarea>
+        </div>
+        <div class="driver-comm-actions">
+          <button class="primary" id="driver-copy-message" type="button">Copier</button>
+          <button class="secondary" id="driver-clear-message" type="button">Effacer</button>
+          <button class="primary" id="driver-open-sms" type="button">Ouvrir l'application SMS</button>
+        </div>
+      </div>
+      <div class="driver-comm-section">
+        <h4>Numéros utiles</h4>
+        <div class="driver-contacts" id="driver-contacts-list"></div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <span>Développé par RMS</span>
+        <img src="logoOfficielRMS.svg" alt="Logo RMS" />
+      </div>
+    </footer>
+
+    <script>
+      // -----------------------------
+      // Configuration et état global
+      // -----------------------------
+      // Toutes les valeurs métier de la semaine sont centralisées dans l'objet "state"
+      // et sérialisées dans localStorage afin que l'utilisateur retrouve son brouillon.
+      const STORAGE_KEY = "planningHebdoV2";
+      const PRINT_PLANNING_CLASS = "print-planning";
+      const PRINT_FUEL_CLASS = "print-fuel";
+      let currentPanel = "lundi";
+      let weekSummaryIntervalId = null;
+      const days = [
+        "lundi",
+        "mardi",
+        "mercredi",
+        "jeudi",
+        "vendredi",
+        "samedi",
+        "dimanche",
+      ];
+
+      const TICKET_COUNT = 5;
+      const MAX_TICKET_IMAGE_DIMENSION = 1600;
+      const MAX_TICKET_IMAGE_BYTES = 700 * 1024; // ~700 KB
+      const MAX_SIGNATURE_IMAGE_DIMENSION = 1000;
+      const MAX_SIGNATURE_IMAGE_BYTES = 450 * 1024; // ~450 KB
+      // Messages prédéfinis pour accélérer la communication chauffeur.
+      const DRIVER_TEMPLATES = [
+        {
+          id: "daily-report",
+          label: "Compte rendu fin de journée",
+          text:
+            "Bonsoir, fin de tournée effectuée. Aucun incident à signaler, documents remis et camion stationné comme convenu.",
+        },
+        {
+          id: "maintenance",
+          label: "Demande entretien véhicule",
+          text:
+            "Bonjour, le véhicule a besoin d'un passage à l'atelier (vidange/contrôle). Merci de me confirmer un créneau.",
+        },
+        {
+          id: "warning-light",
+          label: "Voyant allumé",
+          text:
+            "Bonjour, un voyant est apparu sur le tableau de bord (description). Pouvez-vous m'indiquer la marche à suivre ?",
+        },
+        {
+          id: "breakdown",
+          label: "Incident ou panne",
+          text:
+            "Urgent : incident survenu (préciser). Véhicule en sécurité, j'attends vos instructions.",
+        },
+      ];
+      // Carnet d'adresses utilisé à la fois pour l'affichage des numéros utiles
+      // et pour la liste de destinataires SMS.
+      const DRIVER_CONTACTS = [
+        {
+          id: "frigo-est",
+          label: "Frigo Est (standard)",
+          displayName: "Frigo Est",
+          phone: "+33327558227",
+          displayPhone: "03 27 55 82 27",
+        },
+        {
+          id: "exploitation",
+          label: "Exploitation",
+          displayName: "Exploitation",
+          phone: "+33642109149",
+          displayPhone: "06 42 10 91 49",
+        },
+        {
+          id: "pdg",
+          label: "PDG Damien Panel",
+          displayName: "PDG Damien Panel",
+          phone: "+33680599661",
+          displayPhone: "06 80 59 96 61",
+          allowSms: false,
+        },
+      ];
+      // Fabriques d'objets de base pour les formulaires.
+      const defaultTicket = () => ({
+        date: "",
+        vehicle: "",
+        kilometrage: "",
+        quantity: "",
+        pricePerL: "",
+        total: "",
+        image: "",
+      });
+
+      const defaultDay = () => ({
+        date: "",
+        startDay: "",
+        pause1Start: "",
+        pause1End: "",
+        pause2Start: "",
+        pause2End: "",
+        returnTime: "",
+        vehicule: "",
+        tournee: "",
+        client: "",
+        repos: false,
+        absence: "",
+      });
+
+      const defaultState = () => ({
+        meta: {
+          weekNumber: "",
+          weekStart: "",
+          weekEnd: "",
+          employee: "",
+          observations: "",
+        },
+        days: days.reduce((acc, day) => {
+          acc[day] = defaultDay();
+          return acc;
+        }, {}),
+        tickets: Array.from({ length: TICKET_COUNT }, () => defaultTicket()),
+        signature: "",
+      });
+
+      let state = loadState();
+      let storageErrorNotified = false;
+
+      // Convertit HH:MM vers minutes
+      function toMinutes(value) {
+        if (!value) return null;
+        const [h, m] = value.split(":").map(Number);
+        return h * 60 + m;
+      }
+
+      // Convertit des minutes en affichage décimal (2 décimales)
+      function formatMinutes(total) {
+        const safeTotal = Number.isFinite(total) ? total : 0;
+        const decimal = (safeTotal / 60).toFixed(2);
+        return `${decimal} h`;
+      }
+
+      // Calcul du total de la journée hors pause
+      function isDayAbsent(dayData) {
+        return dayData?.absence === "repos" || dayData?.absence === "cp";
+      }
+
+      function computeDayTotal(dayData) {
+        if (isDayAbsent(dayData)) return 0;
+        if (!dayData.startDay || !dayData.returnTime) return null;
+
+        const startMinutes = toMinutes(dayData.startDay);
+        const endMinutes = toMinutes(dayData.returnTime);
+        if (
+          startMinutes === null ||
+          endMinutes === null ||
+          endMinutes <= startMinutes
+        ) {
+          return null;
+        }
+
+        const pausePairs = [
+          [dayData.pause1Start, dayData.pause1End],
+          [dayData.pause2Start, dayData.pause2End],
+        ];
+
+        const pauseMinutes = pausePairs.reduce((acc, [from, to]) => {
+          const fromMinutes = toMinutes(from);
+          const toMinutesValue = toMinutes(to);
+          if (
+            fromMinutes !== null &&
+            toMinutesValue !== null &&
+            toMinutesValue > fromMinutes
+          ) {
+            return acc + (toMinutesValue - fromMinutes);
+          }
+          return acc;
+        }, 0);
+
+        const total = endMinutes - startMinutes - pauseMinutes;
+        return Number.isFinite(total) && total > 0 ? total : 0;
+      }
+
+      // Charge l'état depuis le stockage local
+      /**
+       * Recharge l'état depuis localStorage et fusionne les structures manquantes
+       * (jours/tickets supplémentaires ajoutés dans une version ultérieure).
+       */
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return defaultState();
+          const parsed = JSON.parse(raw);
+          const base = defaultState();
+          const parsedDays = parsed.days || {};
+          const mergedDays = days.reduce((acc, day) => {
+            const merged = { ...defaultDay(), ...(parsedDays[day] || {}) };
+            if (!merged.absence && merged.repos) {
+              merged.absence = "repos";
+            }
+            merged.repos = merged.absence === "repos";
+            acc[day] = merged;
+            return acc;
+          }, {});
+          const parsedTickets = Array.isArray(parsed.tickets)
+            ? parsed.tickets
+            : [];
+          const mergedTickets = Array.from({ length: TICKET_COUNT }, (_, index) => {
+            return {
+              ...defaultTicket(),
+              ...(parsedTickets[index] || {}),
+            };
+          });
+
+          return {
+            ...base,
+            ...parsed,
+            meta: { ...base.meta, ...(parsed.meta || {}) },
+            days: mergedDays,
+            tickets: mergedTickets,
+            signature: parsed.signature || "",
+          };
+        } catch (error) {
+          console.warn(
+            "Impossible de charger les données, utilisation des valeurs par défaut."
+          );
+          return defaultState();
+        }
+      }
+
+      /**
+       * Persiste l'état courant en localStorage puis rafraîchit l'aperçu.
+       * En cas d'échec (quota trop plein), on prévient l'utilisateur sans bloquer l'usage.
+       */
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          storageErrorNotified = false;
+        } catch (error) {
+          console.warn("Impossible d'enregistrer les données localement.", error);
+          if (!storageErrorNotified) {
+            alert(
+              "Le stockage local a échoué (données trop volumineuses). L'aperçu reste visible tant que la page reste ouverte mais importez des photos plus légères ou supprimez-en quelques-unes."
+            );
+            storageErrorNotified = true;
+          }
+        } finally {
+          renderPreview();
+          renderFuelCards();
+        }
+      }
+
+      function resetState() {
+        state = defaultState();
+        saveState();
+        populateForms();
+      }
+
+      // Injecte les valeurs dans les formulaires
+      function populateForms() {
+        document.getElementById("week-number").value = state.meta.weekNumber;
+        document.getElementById("week-start").value = state.meta.weekStart;
+        document.getElementById("week-end").value = state.meta.weekEnd;
+        document.getElementById("employee-name").value = state.meta.employee;
+        document.getElementById("observations").value = state.meta.observations;
+        days.forEach((day) => {
+          const data = state.days[day];
+          setValue(`date-${day}`, data.date);
+          setValue(`debut-journee-${day}`, data.startDay);
+          setValue(`pause1-debut-${day}`, data.pause1Start);
+          setValue(`pause1-fin-${day}`, data.pause1End);
+          setValue(`pause2-debut-${day}`, data.pause2Start);
+          setValue(`pause2-fin-${day}`, data.pause2End);
+          setValue(`retour-${day}`, data.returnTime);
+          setValue(`vehicule-${day}`, data.vehicule);
+          setValue(`tournee-${day}`, data.tournee);
+          setValue(`client-${day}`, data.client);
+          setValue(`absence-${day}`, data.absence || "");
+          toggleDayFields(day, isDayAbsent(data), { clearState: false });
+        });
+
+        populateFuelForms();
+        renderPreview();
+        renderFuelCards();
+      }
+
+      function setValue(id, value) {
+        const input = document.getElementById(id);
+        if (input) input.value = value || "";
+      }
+
+      function formatDateFr(value) {
+        if (!value) return "-";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return "-";
+        return new Intl.DateTimeFormat("fr-FR", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }).format(date);
+      }
+
+      function formatDateNumeric(value) {
+        if (!value) return "-";
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return "-";
+        return new Intl.DateTimeFormat("fr-FR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "2-digit",
+        }).format(date);
+      }
+
+      function populateDriverTemplates(select) {
+        if (!select) return;
+        DRIVER_TEMPLATES.forEach((template) => {
+          const option = document.createElement("option");
+          option.value = template.id;
+          option.textContent = template.label;
+          select.appendChild(option);
+        });
+      }
+
+      // Alimente la liste déroulante (SMS) et l'encart de contacts utiles.
+      function populateDriverContacts(select, listContainer) {
+        const smsContacts = DRIVER_CONTACTS.filter(
+          (contact) => contact.allowSms !== false
+        );
+        if (select) {
+          select.innerHTML = "";
+          const placeholder = document.createElement("option");
+          placeholder.value = "";
+          placeholder.textContent = "-- Sélectionner --";
+          select.appendChild(placeholder);
+          smsContacts.forEach((contact) => {
+            const option = document.createElement("option");
+            option.value = contact.id;
+            option.textContent = contact.label;
+            select.appendChild(option);
+          });
+        }
+        if (listContainer) {
+          listContainer.innerHTML = "";
+          DRIVER_CONTACTS.forEach((contact) => {
+            const wrapper = document.createElement("div");
+            wrapper.className = "driver-contact";
+            const name = document.createElement("span");
+            name.textContent = contact.displayName || contact.label;
+            const link = document.createElement("a");
+            link.href = `tel:${contact.phone}`;
+            link.textContent = contact.displayPhone || contact.phone;
+            wrapper.appendChild(name);
+            wrapper.appendChild(link);
+            listContainer.appendChild(wrapper);
+          });
+        }
+      }
+
+      function formatDateTimeFr(value) {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return "-";
+        return new Intl.DateTimeFormat("fr-FR", {
+          weekday: "long",
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }).format(date);
+      }
+
+      function populateFuelForms() {
+        state.tickets.forEach((ticket, index) => {
+          const position = index + 1;
+          setValue(`ticket-${position}-date`, ticket.date);
+          setValue(`ticket-${position}-vehicle`, ticket.vehicle);
+          setValue(`ticket-${position}-km`, ticket.kilometrage);
+          setValue(`ticket-${position}-quantity`, ticket.quantity);
+          setValue(`ticket-${position}-price`, ticket.pricePerL);
+          setValue(`ticket-${position}-total`, ticket.total);
+        });
+      }
+
+      function getCurrentWeekInfo() {
+        const today = new Date();
+        const start = getMonday(today);
+        const end = new Date(start);
+        end.setDate(start.getDate() + 6);
+        return {
+          week: getISOWeek(today),
+          start: formatDateFr(start.toISOString()),
+          end: formatDateFr(end.toISOString()),
+          datetime: formatDateTimeFr(today),
+        };
+      }
+
+      function getMonday(date) {
+        const d = new Date(date);
+        const day = d.getDay() || 7;
+        if (day !== 1) {
+          d.setDate(d.getDate() - (day - 1));
+        }
+        d.setHours(0, 0, 0, 0);
+        return d;
+      }
+
+      function getISOWeek(date) {
+        const d = new Date(date);
+        d.setHours(0, 0, 0, 0);
+        d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+        const yearStart = new Date(d.getFullYear(), 0, 1);
+        return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+      }
+
+      function updateWeekSummary() {
+        const summary = document.getElementById("week-summary");
+        if (!summary) return;
+        const info = getCurrentWeekInfo();
+        summary.textContent = `Semaine actuelle : n° ${info.week}, du ${info.start} au ${info.end} — ${info.datetime}`;
+      }
+
+      // Rafraîchit l'entête "Semaine actuelle" toutes les 60 s et à la reprise de focus.
+      function startWeekSummaryAutoUpdate() {
+        updateWeekSummary();
+        if (weekSummaryIntervalId) {
+          clearInterval(weekSummaryIntervalId);
+        }
+        weekSummaryIntervalId = setInterval(updateWeekSummary, 60000);
+        if (!startWeekSummaryAutoUpdate.listenerAttached) {
+          document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+              updateWeekSummary();
+            }
+          });
+          startWeekSummaryAutoUpdate.listenerAttached = true;
+        }
+      }
+
+      // Active/désactive les champs d'un jour selon le statut d'absence
+      const timeFieldMap = [
+        { id: "debut-journee", key: "startDay" },
+        { id: "pause1-debut", key: "pause1Start" },
+        { id: "pause1-fin", key: "pause1End" },
+        { id: "pause2-debut", key: "pause2Start" },
+        { id: "pause2-fin", key: "pause2End" },
+        { id: "retour", key: "returnTime" },
+      ];
+
+      function toggleDayFields(day, disabled, options = { clearState: true }) {
+        timeFieldMap.forEach(({ id, key }) => {
+          const input = document.getElementById(`${id}-${day}`);
+          if (!input) return;
+          input.disabled = disabled;
+          if (disabled && options.clearState) {
+            input.value = "";
+            if (state.days?.[day]) {
+              state.days[day][key] = "";
+            }
+          }
+        });
+      }
+
+      // Met à jour la prévisualisation imprimable
+      function renderPreview() {
+        document.getElementById("preview-week-number").textContent =
+          state.meta.weekNumber || "-";
+        document.getElementById("preview-week-start").textContent =
+          formatDateFr(state.meta.weekStart);
+        document.getElementById("preview-week-end").textContent =
+          formatDateFr(state.meta.weekEnd);
+        document.getElementById("preview-employee").textContent =
+          state.meta.employee || "-";
+        const fuelWeekNumber = document.getElementById("fuel-week-number");
+        if (fuelWeekNumber) {
+          fuelWeekNumber.textContent = state.meta.weekNumber || "-";
+        }
+        const fuelWeekStart = document.getElementById("fuel-week-start");
+        if (fuelWeekStart) {
+          fuelWeekStart.textContent = formatDateFr(state.meta.weekStart);
+        }
+        const fuelWeekEnd = document.getElementById("fuel-week-end");
+        if (fuelWeekEnd) {
+          fuelWeekEnd.textContent = formatDateFr(state.meta.weekEnd);
+        }
+        updateWeekSummary();
+
+        const tbody = document.getElementById("preview-body");
+        tbody.innerHTML = "";
+        let weeklyTotal = 0;
+
+        days.forEach((day) => {
+          const data = state.days[day];
+          const minutes = computeDayTotal(data);
+          if (Number.isFinite(minutes)) {
+            weeklyTotal += minutes;
+          }
+          const tr = document.createElement("tr");
+          const totalCell = buildTotalCell(data, minutes);
+          tr.innerHTML = `
+            <td>${capitalize(day)}</td>
+            <td>${formatDateFr(data.date)}</td>
+            <td>${data.startDay || "-"}</td>
+            <td>${buildPauseCell(data.pause1Start, data.pause1End)}</td>
+            <td>${buildPauseCell(data.pause2Start, data.pause2End)}</td>
+            <td>${data.returnTime || "-"}</td>
+            <td>${totalCell}</td>
+            <td>${data.vehicule || "-"}</td>
+            <td>${data.tournee || "-"}</td>
+            <td>${data.client || "-"}</td>
+            <td class="signature-cell">${buildSignatureStamp()}</td>
+            <td class="signature-cell"></td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById("preview-week-total").textContent =
+          formatMinutes(weeklyTotal);
+        document.getElementById("preview-observations").textContent =
+          state.meta.observations || "-";
+
+        const signatureEl = document.getElementById("preview-signature");
+        if (state.signature) {
+          signatureEl.src = state.signature;
+          signatureEl.style.display = "block";
+        } else {
+          signatureEl.removeAttribute("src");
+          signatureEl.style.display = "none";
+        }
+      }
+
+      function minutesFormate(minutes) {
+        const value = Number.isFinite(minutes) ? minutes : 0;
+        return formatMinutes(value);
+      }
+
+      // Construit l'aperçu mosaïque des tickets carburant importés.
+      function renderFuelCards() {
+        const container = document.getElementById("fuel-preview-grid");
+        if (!container) return;
+        const wrapper = document.getElementById("fuel-preview-wrapper");
+        container.innerHTML = state.tickets
+          .map((ticket, index) => {
+            const imageContent = ticket.image
+              ? `<img src="${ticket.image}" alt="Ticket carburant ${index + 1}" />`
+              : `<div class="empty-ticket">Ticket non fourni</div>`;
+            return `
+              <div class="fuel-preview-card">
+                <strong>Plein #${index + 1}</strong>
+                <p>DT : ${formatDateNumeric(ticket.date)}</p>
+                <p>Véh. : ${ticket.vehicle || "-"}</p>
+                <p>Km : ${ticket.kilometrage || "-"}</p>
+                <p>Qté : ${ticket.quantity || "-"} L</p>
+                <p>€/L : ${ticket.pricePerL || "-"}</p>
+                <p>Tot : ${ticket.total || "-"} €</p>
+                ${imageContent}
+              </div>
+            `;
+          })
+          .join("");
+        if (wrapper) {
+          const hasContent = state.tickets.some(
+            (ticket) =>
+              ticket.date ||
+              ticket.vehicle ||
+              ticket.kilometrage ||
+              ticket.quantity ||
+              ticket.pricePerL ||
+              ticket.total ||
+              ticket.image
+          );
+          wrapper.hidden = !hasContent;
+          const toggle = document.getElementById("toggle-fuel-preview");
+          if (toggle) {
+            toggle.textContent = hasContent
+              ? "Masquer l'aperçu des tickets"
+              : "Afficher l'aperçu des tickets";
+          }
+        }
+      }
+
+      function buildPauseCell(start, end) {
+        const debut = start || "-";
+        const fin = end || "-";
+        return `
+          <div class="stack-cell">
+            <span>${debut}</span>
+            <span>${fin}</span>
+          </div>
+        `;
+      }
+
+      function buildTotalCell(dayData, minutes) {
+        if (dayData.absence === "cp") {
+          return `<span class="cp-flag">CP</span>`;
+        }
+        if (dayData.absence === "repos") {
+          return "Repos";
+        }
+        if (minutes === null) {
+          return "-";
+        }
+        return minutesFormate(minutes);
+      }
+
+      function buildSignatureStamp() {
+        if (!state.signature) {
+          return `<span class="signature-placeholder">-</span>`;
+        }
+        return `
+          <div class="signature-stamp">
+            <img src="${state.signature}" alt="Signature salarié" />
+          </div>
+        `;
+      }
+
+      function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      }
+
+      // Table de correspondance entre l'id des inputs quotidiens et les clés du state.
+      const fieldMap = {
+        date: "date",
+        "debut-journee": "startDay",
+        "pause1-debut": "pause1Start",
+        "pause1-fin": "pause1End",
+        "pause2-debut": "pause2Start",
+        "pause2-fin": "pause2End",
+        retour: "returnTime",
+        vehicule: "vehicule",
+        tournee: "tournee",
+        client: "client",
+      };
+
+      // Synchronise chaque champ d'un jour avec l'objet state correspondant.
+      function handleDayInput(event) {
+        const { id, value, type, checked } = event.target;
+        const parts = id.split("-");
+        const day = parts.pop();
+        const field = parts.join("-");
+        const mappedKey = fieldMap[field];
+        if (!mappedKey || !state.days[day]) return;
+
+        if (mappedKey === "date") {
+          state.days[day].date = value;
+        } else {
+          state.days[day][mappedKey] = value;
+        }
+        saveState();
+      }
+
+      // Mémorise les champs "généraux" (semaine, chauffeur, observations).
+      function handleMetaInput(event) {
+        const { id, value } = event.target;
+        if (id === "week-number") state.meta.weekNumber = value;
+        if (id === "week-start") state.meta.weekStart = value;
+        if (id === "week-end") state.meta.weekEnd = value;
+        if (id === "employee-name") state.meta.employee = value;
+        if (id === "observations") state.meta.observations = value;
+        updateWeekSummary();
+        saveState();
+      }
+
+      // Passe un jour en repos/CP : les inputs deviennent inactifs et sont vidés.
+      function handleAbsenceChange(event) {
+        const day = event.target.dataset.absenceDay;
+        if (!day || !state.days[day]) return;
+        const value = event.target.value;
+        state.days[day].absence = value;
+        state.days[day].repos = value === "repos";
+        toggleDayFields(day, Boolean(value));
+        saveState();
+      }
+
+      // Mise à jour des champs d'un ticket carburant.
+      function handleTicketInput(event) {
+        const { ticketIndex, ticketField } = event.target.dataset;
+        if (ticketIndex === undefined || !ticketField) return;
+        const index = Number(ticketIndex);
+        if (!Number.isFinite(index) || !state.tickets[index]) return;
+        state.tickets[index][ticketField] = event.target.value;
+        saveState();
+      }
+
+      // Import d'une photo de ticket avec compression et limites de poids.
+      async function handleTicketImage(event) {
+        const { ticketIndex } = event.target.dataset;
+        if (ticketIndex === undefined) return;
+        const index = Number(ticketIndex);
+        if (!Number.isFinite(index) || !state.tickets[index]) return;
+        const file = event.target.files[0];
+        if (!file) {
+          state.tickets[index].image = "";
+          saveState();
+          return;
+        }
+        try {
+          const processedImage = await prepareTicketImage(file);
+          if (!processedImage) {
+            alert(
+              "La photo est trop volumineuse. Choisissez un fichier plus léger."
+            );
+            return;
+          }
+          state.tickets[index].image = processedImage;
+          saveState();
+        } catch (error) {
+          console.error("Impossible de traiter la photo du ticket.", error);
+          alert(
+            "La photo du ticket n'a pas pu être chargée. Essayez avec une image plus petite."
+          );
+        }
+      }
+
+      // Helpers image : lecture fichier -> dataURL, puis conversion en <img>.
+      function readFileAsDataURL(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function loadImage(dataUrl) {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.onerror = reject;
+          img.src = dataUrl;
+        });
+      }
+
+      function estimateDataUrlBytes(dataUrl) {
+        const base64 = dataUrl.split(",")[1] || "";
+        return Math.ceil((base64.length * 3) / 4);
+      }
+
+      async function prepareTicketImage(file) {
+        const initialDataUrl = await readFileAsDataURL(file);
+        return optimizeTicketImageDataUrl(initialDataUrl);
+      }
+
+      // Compression des images côté client pour ne pas saturer localStorage.
+      async function optimizeTicketImageDataUrl(dataUrl) {
+        if (!dataUrl || typeof dataUrl !== "string") return "";
+        if (!dataUrl.startsWith("data:image")) return dataUrl;
+        try {
+          const imageElement = await loadImage(dataUrl);
+          return compressTicketImageElement(imageElement);
+        } catch (error) {
+          console.warn("Impossible de retraiter la photo du ticket.", error);
+          return "";
+        }
+      }
+
+      async function prepareSignatureImage(file) {
+        const initialDataUrl = await readFileAsDataURL(file);
+        return optimizeSignatureImageDataUrl(initialDataUrl);
+      }
+
+      async function optimizeSignatureImageDataUrl(dataUrl) {
+        if (!dataUrl || typeof dataUrl !== "string") return "";
+        if (!dataUrl.startsWith("data:image")) return dataUrl;
+        try {
+          const imageElement = await loadImage(dataUrl);
+          return compressSignatureImageElement(imageElement);
+        } catch (error) {
+          console.warn("Impossible de retraiter la signature.", error);
+          return "";
+        }
+      }
+
+      function compressTicketImageElement(imageElement) {
+        return compressImageElement(imageElement, {
+          maxDimension: MAX_TICKET_IMAGE_DIMENSION,
+          maxBytes: MAX_TICKET_IMAGE_BYTES,
+          mimeType: "image/jpeg",
+          backgroundColor: "#ffffff",
+        });
+      }
+
+      function compressSignatureImageElement(imageElement) {
+        return compressImageElement(imageElement, {
+          maxDimension: MAX_SIGNATURE_IMAGE_DIMENSION,
+          maxBytes: MAX_SIGNATURE_IMAGE_BYTES,
+          mimeType: "image/png",
+        });
+      }
+
+      function compressImageElement(imageElement, options) {
+        if (!imageElement || !options) return "";
+        const { maxDimension, maxBytes, mimeType = "image/jpeg", backgroundColor } =
+          options;
+        let { width, height } = imageElement;
+        if (!width || !height) return "";
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return "";
+        const limit = maxDimension || 1600;
+        if (width > limit || height > limit) {
+          const scale = Math.min(limit / width, limit / height);
+          width = Math.round(width * scale);
+          height = Math.round(height * scale);
+        }
+        canvas.width = width;
+        canvas.height = height;
+        if (backgroundColor) {
+          ctx.fillStyle = backgroundColor;
+          ctx.fillRect(0, 0, width, height);
+        }
+        ctx.drawImage(imageElement, 0, 0, width, height);
+        const isPng = mimeType === "image/png";
+        let quality = isPng ? undefined : 0.85;
+        let dataUrl = canvas.toDataURL(mimeType, quality);
+        const bytesLimit = maxBytes || MAX_TICKET_IMAGE_BYTES;
+        while (!isPng && estimateDataUrlBytes(dataUrl) > bytesLimit && quality > 0.5) {
+          quality -= 0.1;
+          dataUrl = canvas.toDataURL(mimeType, quality);
+        }
+        if (estimateDataUrlBytes(dataUrl) > bytesLimit) {
+          console.warn("Impossible de compresser suffisamment l'image.");
+          return "";
+        }
+        return dataUrl;
+      }
+
+      // Écouteurs sur tous les inputs horaires et métadonnées.
+      function attachInputs() {
+        document
+          .querySelectorAll(
+            'input[id^="date-"], input[id^="debut-journee-"], input[id^="pause1-"], input[id^="pause2-"], input[id^="retour-"], input[id^="vehicule-"], input[id^="tournee-"], input[id^="client-"]'
+          )
+          .forEach((input) => input.addEventListener("input", handleDayInput));
+        document
+          .querySelectorAll(
+            "#week-number, #week-start, #week-end, #employee-name, #observations"
+          )
+          .forEach((input) => input.addEventListener("input", handleMetaInput));
+      }
+
+      function attachAbsenceInputs() {
+        document
+          .querySelectorAll("[data-absence-day]")
+          .forEach((select) =>
+            select.addEventListener("change", handleAbsenceChange)
+          );
+      }
+
+      // Initialise la console ✉️ (modèles, boutons copier/SMS, sélection du contact).
+      function setupDriverCommunication() {
+        const btn = document.getElementById("driver-comm-btn");
+        const panel = document.getElementById("driver-comm-panel");
+        if (!btn || !panel) return;
+        const closeBtn = panel.querySelector(".driver-comm-close");
+        const templateSelect = document.getElementById("driver-template-select");
+        const messageField = document.getElementById("driver-message-content");
+        const copyBtn = document.getElementById("driver-copy-message");
+        const clearBtn = document.getElementById("driver-clear-message");
+        const buildBtn = document.getElementById("driver-build-message");
+        const kmInput = document.getElementById("driver-km-input");
+        const pointsInput = document.getElementById("driver-points-input");
+        const smsBtn = document.getElementById("driver-open-sms");
+        const contactSelect = document.getElementById("driver-contact-select");
+        const contactsList = document.getElementById("driver-contacts-list");
+
+        populateDriverTemplates(templateSelect);
+        populateDriverContacts(contactSelect, contactsList);
+
+        btn.addEventListener("click", () => toggleDriverPanel(panel, btn));
+        closeBtn?.addEventListener("click", () =>
+          toggleDriverPanel(panel, btn, false)
+        );
+
+        templateSelect?.addEventListener("change", () => {
+          const selected = DRIVER_TEMPLATES.find(
+            (tpl) => tpl.id === templateSelect.value
+          );
+          if (selected && messageField) {
+            messageField.value = selected.text;
+          }
+        });
+
+        buildBtn?.addEventListener("click", () => {
+          if (!messageField) return;
+          const km = kmInput?.value || "-";
+          const pts = pointsInput?.value || "-";
+          const today = new Date().toISOString();
+          messageField.value = `Bonjour, aujourd'hui ${formatDateNumeric(
+            today
+          )} : ${km} km effectués pour ${pts} point(s).`;
+        });
+
+        copyBtn?.addEventListener("click", async () => {
+          if (!messageField || !messageField.value) return;
+          try {
+            await navigator.clipboard.writeText(messageField.value);
+            copyBtn.textContent = "Copié !";
+            setTimeout(() => (copyBtn.textContent = "Copier"), 1500);
+          } catch (error) {
+            alert("Impossible de copier le message.");
+          }
+        });
+
+        clearBtn?.addEventListener("click", () => {
+          if (messageField) messageField.value = "";
+          if (templateSelect) templateSelect.value = "";
+        });
+
+        smsBtn?.addEventListener("click", () => {
+          if (!messageField || !messageField.value.trim()) {
+            alert("Rédigez ou sélectionnez d'abord un message.");
+            messageField?.focus();
+            return;
+          }
+          if (!contactSelect || !contactSelect.value) {
+            alert("Sélectionnez un destinataire pour le SMS.");
+            contactSelect?.focus();
+            return;
+          }
+          const selectedContact = DRIVER_CONTACTS.find(
+            (contact) =>
+              contact.id === contactSelect.value && contact.allowSms !== false
+          );
+          if (!selectedContact) {
+            alert("Ce contact ne peut pas recevoir de SMS.");
+            return;
+          }
+          const phoneNumber = selectedContact.phone.replace(/\s+/g, "");
+          const smsBody = encodeURIComponent(messageField.value);
+          const smsUrl = `sms:${phoneNumber}${smsBody ? `?body=${smsBody}` : ""}`;
+          window.location.href = smsUrl;
+        });
+      }
+
+      function toggleDriverPanel(panel, btn, forceState) {
+        const shouldOpen =
+          typeof forceState === "boolean"
+            ? forceState
+            : !panel.classList.contains("open");
+        panel.classList.toggle("open", shouldOpen);
+        panel.setAttribute("aria-hidden", String(!shouldOpen));
+        btn.setAttribute("aria-expanded", String(shouldOpen));
+      }
+
+      // Inputs et photos des tickets carburant.
+      function attachTicketInputs() {
+        document
+          .querySelectorAll("[data-ticket-field]")
+          .forEach((input) => input.addEventListener("input", handleTicketInput));
+        document
+          .querySelectorAll(".ticket-image-input")
+          .forEach((input) => input.addEventListener("change", handleTicketImage));
+      }
+
+      // Bouton ☰ sur mobile pour ouvrir/fermer la barre d'onglets.
+      function setupNavToggle() {
+        const toggle = document.getElementById("nav-toggle");
+        const tabs = document.querySelector(".tabs");
+        if (!toggle || !tabs) return;
+        toggle.addEventListener("click", () => {
+          const isOpen = !tabs.classList.contains("open");
+          tabs.classList.toggle("open", isOpen);
+          updateNavToggle(isOpen);
+        });
+      }
+
+      // Rend le bouton "Afficher/Masquer l'aperçu des tickets" réactif
+      // et synchronise son libellé avec la présence de données.
+      function setupFuelPreviewToggle() {
+        const toggle = document.getElementById("toggle-fuel-preview");
+        const wrapper = document.getElementById("fuel-preview-wrapper");
+        if (!toggle || !wrapper) return;
+        toggle.addEventListener("click", () => {
+          const shouldShow = wrapper.hidden;
+          wrapper.hidden = !shouldShow;
+          toggle.textContent = shouldShow
+            ? "Masquer l'aperçu des tickets"
+            : "Afficher l'aperçu des tickets";
+        });
+        const hasContent = state.tickets.some(
+          (ticket) =>
+            ticket.date ||
+            ticket.vehicle ||
+            ticket.kilometrage ||
+            ticket.quantity ||
+            ticket.pricePerL ||
+            ticket.total ||
+            ticket.image
+        );
+        wrapper.hidden = !hasContent;
+        toggle.textContent = hasContent
+          ? "Masquer l'aperçu des tickets"
+          : "Afficher l'aperçu des tickets";
+      }
+
+      // Transforme les sections "Mode d'emploi" et "Organisation" en menus déroulants.
+      function setupCollapsibleSections() {
+        document.querySelectorAll(".collapsible-trigger").forEach((trigger) => {
+          const panelId = trigger.dataset.collapseTarget;
+          const panel = document.getElementById(panelId);
+          const container = trigger.closest(".collapsible-card");
+          if (!panel || !container) return;
+          trigger.setAttribute("aria-controls", panelId);
+          panel.hidden = false;
+          trigger.setAttribute("aria-expanded", "true");
+          container.classList.toggle("is-collapsed", panel.hidden);
+          trigger.addEventListener("click", () => {
+            panel.hidden = !panel.hidden;
+            const isOpen = !panel.hidden;
+            trigger.setAttribute("aria-expanded", String(isOpen));
+            container.classList.toggle("is-collapsed", !isOpen);
+          });
+        });
+      }
+
+      // Branche les boutons "Enregistrer/Charger" et les actions associées.
+      function setupSaveLoadButtons() {
+        const importInput = document.getElementById("import-input");
+        document.querySelectorAll(".btn-save").forEach((btn) => {
+          btn.addEventListener("click", () => exportData());
+        });
+        document.querySelectorAll(".btn-load").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            if (importInput) {
+              importInput.click();
+            }
+          });
+        });
+
+        const fileManagerButton = document.getElementById("open-file-manager");
+        if (fileManagerButton) {
+          fileManagerButton.addEventListener("click", () => {
+            if (importInput) {
+              importInput.click();
+              alert(
+                "Après le téléchargement, déplacez vos fichiers exportés vers le dossier FrigoEst (Plannings ou TicketsCarburant)."
+              );
+            }
+          });
+        }
+      }
+
+      // Gestion des onglets pliants : on applique la classe .active et on scrolle vers la section.
+      function attachNavigation() {
+        const buttons = document.querySelectorAll(".tabs button");
+        const tabsContainer = document.querySelector(".tabs");
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            buttons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const target = btn.dataset.target;
+            currentPanel = target;
+            document
+              .querySelectorAll(".panel")
+              .forEach((panel) =>
+                panel.classList.toggle("active", panel.dataset.panel === target)
+              );
+            if (target === "preview") renderPreview();
+            if (
+              tabsContainer &&
+              window.matchMedia("(max-width: 640px)").matches
+            ) {
+              tabsContainer.classList.remove("open");
+              updateNavToggle(false);
+            }
+          });
+        });
+      }
+
+      function updateNavToggle(isOpen) {
+        const toggle = document.getElementById("nav-toggle");
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        }
+      }
+
+      // Gestion générique des imports (signature ou JSON complet).
+      async function handleFileInput(input, key) {
+        const file = input.files[0];
+        if (!file) return;
+        try {
+          if (key === "signature") {
+            const optimizedSignature = await prepareSignatureImage(file);
+            if (!optimizedSignature) {
+              alert(
+                "La signature est trop volumineuse. Réessayez avec une image plus légère (PNG recommandé)."
+              );
+              return;
+            }
+            state[key] = optimizedSignature;
+          } else {
+            state[key] = await readFileAsDataURL(file);
+          }
+          saveState();
+        } catch (error) {
+          console.error("Impossible de charger ce fichier.", error);
+          alert("La signature n'a pas pu être importée.");
+        }
+      }
+
+      // Export JSON (avec indentation) pour conserver une trace hors navigateur.
+      function exportData() {
+        const blob = new Blob([JSON.stringify(state, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `planning-hebdo-${state.meta.weekNumber || "semaine"}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Import JSON puis harmonisation des structures (jours, tickets, images compressées).
+      function importData(file) {
+        const reader = new FileReader();
+        reader.onload = async () => {
+          try {
+            const imported = JSON.parse(reader.result);
+            const base = defaultState();
+            const importedDays = imported.days || {};
+            const mergedDays = days.reduce((acc, day) => {
+              const merged = { ...defaultDay(), ...(importedDays[day] || {}) };
+              if (!merged.absence && merged.repos) {
+                merged.absence = "repos";
+              }
+              merged.repos = merged.absence === "repos";
+              acc[day] = merged;
+              return acc;
+            }, {});
+            const importedTickets = Array.isArray(imported.tickets)
+              ? imported.tickets
+              : [];
+            const mergedTickets = Array.from(
+              { length: TICKET_COUNT },
+              (_, index) => ({
+                ...defaultTicket(),
+                ...(importedTickets[index] || {}),
+              })
+            );
+            const optimizedTickets = await Promise.all(
+              mergedTickets.map(async (ticket) => {
+                if (!ticket.image) return { ...ticket };
+                const optimizedImage = await optimizeTicketImageDataUrl(
+                  ticket.image
+                );
+                return {
+                  ...ticket,
+                  image: optimizedImage,
+                };
+              })
+            );
+            const droppedTickets = optimizedTickets
+              .map((ticket, index) =>
+                mergedTickets[index].image && !ticket.image
+                  ? `#${index + 1}`
+                  : null
+              )
+              .filter(Boolean);
+            const optimizedSignature = imported.signature
+              ? await optimizeSignatureImageDataUrl(imported.signature)
+              : "";
+            state = {
+              ...base,
+              ...imported,
+              meta: { ...base.meta, ...(imported.meta || {}) },
+              days: mergedDays,
+              tickets: optimizedTickets,
+              signature: optimizedSignature,
+            };
+            saveState();
+            populateForms();
+            if (droppedTickets.length) {
+              alert(
+                `Certaines photos de tickets étaient trop volumineuses et n'ont pas pu être importées (${droppedTickets.join(
+                  ", "
+                )}).`
+              );
+            }
+          } catch (error) {
+            console.error("Échec de l'import du fichier JSON :", error);
+            alert("Ce fichier n'est pas valide ou dépasse la limite autorisée.");
+          }
+        };
+        reader.onerror = () => {
+          alert("Impossible de lire ce fichier.");
+        };
+        reader.readAsText(file);
+      }
+
+      // Active la classe d'impression demandée puis lance window.print().
+      function triggerPrint(mode) {
+        applyPrintClass(mode);
+        window.print();
+      }
+
+      function applyPrintClass(mode) {
+        document.body.classList.remove(PRINT_PLANNING_CLASS, PRINT_FUEL_CLASS);
+        const className =
+          mode === "fuel" ? PRINT_FUEL_CLASS : PRINT_PLANNING_CLASS;
+        document.body.classList.add(className);
+      }
+
+      /* Début : fonctionnalités PWA / ajout à l'écran d'accueil */
+      const IOS_HINT_DISMISSED_KEY = "iosA2hsHintDismissed";
+      let deferredInstallPrompt = null;
+
+      // Enregistrement lazy du service worker (après onload) pour l'installabilité.
+      function registerServiceWorker() {
+        if (!("serviceWorker" in navigator)) return;
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .catch((error) =>
+              console.error("Service worker registration failed:", error)
+            );
+        });
+      }
+
+      function initPwaFeatures() {
+        const installButton = document.getElementById("btn-install");
+        const iosHint = document.getElementById("ios-a2hs-hint");
+        const iosHintClose = iosHint?.querySelector("[data-ios-hint-close]");
+        const isIos = /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+        const isInStandaloneMode =
+          window.matchMedia("(display-mode: standalone)").matches ||
+          window.navigator.standalone;
+
+        registerServiceWorker();
+
+        if (
+          iosHint &&
+          isIos &&
+          !isInStandaloneMode &&
+          !localStorage.getItem(IOS_HINT_DISMISSED_KEY)
+        ) {
+          iosHint.hidden = false;
+        }
+
+        iosHintClose?.addEventListener("click", () => {
+          iosHint.hidden = true;
+          localStorage.setItem(IOS_HINT_DISMISSED_KEY, "1");
+        });
+
+        if (isIos) {
+          if (installButton) {
+            installButton.hidden = !!isInStandaloneMode;
+            installButton.addEventListener("click", (event) => {
+              event.preventDefault();
+              if (iosHint) {
+                iosHint.hidden = false;
+                iosHint.scrollIntoView({ behavior: "smooth", block: "center" });
+              } else {
+                alert(
+                  "Sur iOS, utilisez le menu Partager puis « Sur l'écran d'accueil »."
+                );
+              }
+            });
+          }
+          return;
+        }
+
+        if (installButton && isInStandaloneMode) {
+          installButton.hidden = true;
+        }
+
+        window.addEventListener("beforeinstallprompt", (event) => {
+          event.preventDefault();
+          deferredInstallPrompt = event;
+          if (installButton && !isInStandaloneMode) {
+            installButton.hidden = false;
+          }
+        });
+
+        window.addEventListener("appinstalled", () => {
+          deferredInstallPrompt = null;
+          if (installButton) installButton.hidden = true;
+        });
+
+        installButton?.addEventListener("click", async () => {
+          if (!deferredInstallPrompt) return;
+          const result = await deferredInstallPrompt.prompt();
+          deferredInstallPrompt = null;
+          if (installButton) {
+            installButton.hidden = true;
+          }
+          if (result?.outcome) {
+            localStorage.setItem("a2hsPromptOutcome", result.outcome);
+          }
+        });
+      }
+      /* Fin : fonctionnalités PWA / ajout à l'écran d'accueil */
+
+      function init() {
+        populateForms();
+        attachInputs();
+        attachAbsenceInputs();
+        attachTicketInputs();
+        attachNavigation();
+        setupNavToggle();
+        setupFuelPreviewToggle();
+        setupCollapsibleSections();
+        setupSaveLoadButtons();
+        setupDriverCommunication();
+        const activeBtn = document.querySelector(".tabs button.active");
+        if (activeBtn) currentPanel = activeBtn.dataset.target;
+
+        document
+          .getElementById("signature-input")
+          .addEventListener("change", (e) =>
+            handleFileInput(e.target, "signature")
+          );
+        document
+          .getElementById("print-week")
+          .addEventListener("click", () => triggerPrint("planning"));
+        document
+          .getElementById("print-fuel")
+          .addEventListener("click", () => triggerPrint("fuel"));
+        document
+          .getElementById("import-input")
+          .addEventListener("change", (event) => {
+            const file = event.target.files[0];
+            if (file) {
+              importData(file);
+              event.target.value = "";
+            }
+          });
+        document
+          .getElementById("reset-data")
+          .addEventListener("click", () => {
+            if (
+              confirm(
+                "Supprimer toutes les données de la semaine et recommencer ?"
+              )
+            ) {
+              resetState();
+            }
+          });
+
+        window.addEventListener("beforeprint", () => {
+          const mode = currentPanel === "carburant" ? "fuel" : "planning";
+          applyPrintClass(mode);
+        });
+        window.addEventListener("afterprint", () => {
+          document.body.classList.remove(
+            PRINT_PLANNING_CLASS,
+            PRINT_FUEL_CLASS
+          );
+        });
+
+        startWeekSummaryAutoUpdate();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        init();
+        initPwaFeatures();
+      });
+    </script>
+  </body>
+</html>

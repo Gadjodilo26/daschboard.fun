@@ -1,0 +1,102 @@
+{
+  "groups": [
+    {
+      "title": "Vision & positionnement",
+      "accent": "rms",
+      "description": "Références pour cadrer l’offre, le ton et les priorités de la future landing client.",
+      "items": [
+        {"label": "Stripe – Tendances start-up 2025", "url": "https://stripe.com/fr/resources/more/startup-industry-trends-for-2025-what-founders-need-to-know", "type": "resource"},
+        {"label": "Propulse by CA – Tendances tech", "url": "https://propulsebyca.fr/actualites/tendances-technologiques", "type": "resource"},
+        {"label": "OCI – 10 tendances tech", "url": "https://www.oci.fr/les-10-tendances-technologiques-2025/", "type": "resource"},
+        {"label": "Forbes – 4 axes business", "url": "https://www.forbes.fr/business/4-axes-essentiels-pour-garantir-le-succes-des-entreprises-en-2025/", "type": "resource"},
+        {"label": "Forbes – 15 tendances 2025", "url": "https://www.forbes.fr/business/les-15-grandes-tendances-qui-faconneront-le-monde-en-2025/", "type": "resource"},
+        {"label": "Forbes – Future of Venture", "url": "https://www.forbes.fr/finance/future-of-venture-pourquoi-2025-est-une-annee-cle-pour-investir-dans-les-leaders-technologiques-prives-avant-leur-ipo/", "type": "resource"},
+        {"label": "Forbes – Budget entreprise", "url": "https://www.forbes.fr/politique/budget-2025-quelles-sont-les-mesures-qui-impactent-les-entreprises/", "type": "resource"},
+        {"label": "Keyrus – Innovations IA", "url": "https://keyrus.com/fr/fr/insights/innovations-ia-2025", "type": "resource"}
+      ],
+      "slots": 1
+    },
+    {
+      "title": "IA & contenu rapide",
+      "accent": "elio",
+      "description": "Outils que j’utilise pour documenter les projets et alimenter mes futures landings.",
+      "items": [
+        {"label": "ChatGPT", "url": "https://chat.openai.com/", "type": "resource"},
+        {"label": "Perplexity", "url": "https://www.perplexity.ai/", "type": "resource"},
+        {"label": "Copyfy (app)", "url": "https://www.copyfy.io/", "type": "resource"},
+        {"label": "Copyfy (ressource)", "url": "https://e-commerce-marketing.fr/copyfy/", "type": "resource"},
+        {"label": "Pipiads", "url": "https://www.pipiads.com/fr", "type": "resource"},
+        {"label": "Minea", "url": "https://www.minea.com/produits/comment-sourcer-un-produit-gagnant-sur-aliexpress-instantanement", "type": "resource"},
+        {"label": "ADSPY", "url": "https://www.adspy.com/", "type": "resource"},
+        {"label": "Productly", "url": "https://productly.app/?utm_source=youtube&utm_medium=organique-yomi&utm_campaign=formationgratuite2023-2024", "type": "resource"}
+      ]
+    },
+    {
+      "title": "Sites, commerce & tunnels",
+      "accent": "permis",
+      "description": "Templates + guides pour monter vite des sites, boutiques et parcours de paiement.",
+      "items": [
+        {"label": "ZIPWeb (gabarits IA)", "url": "https://zipwp.com/", "type": "resource"},
+        {"label": "Templates CSS free", "url": "https://www.free-css.com/free-css-templates?start=12", "type": "resource"},
+        {"label": "Thèmes Shopify gratuits", "url": "https://www.templatemonster.com/fr/free-shopify-themes/", "type": "resource"},
+        {"label": "Guide Shopify complet", "url": "https://www.shopify.com/fr/blog/guide-complet-pour-creer-votre-boutique-en-ligne", "type": "resource"},
+        {"label": "Rentabilité du modèle", "url": "https://www.shopify.com/fr/blog/le-dropshipping-est-il-rentable", "type": "resource"},
+        {"label": "Tutoriel Hostinger", "url": "https://www.hostinger.fr/tutoriels/comment-commencer-dropshipping", "type": "resource"},
+        {"label": "Magazine Keobiz", "url": "https://www.keobiz.fr/le-mag/dropshipping/", "type": "resource"},
+        {"label": "Blog Dropizi", "url": "https://www.dropizi.fr/blog?utm_medium=ads&utm_source=googleads&utm_campaign=dropizi&utm_content=ad", "type": "resource"}
+      ]
+    },
+    {
+      "title": "Ops, finance & fichiers",
+      "accent": "lumia",
+      "description": "Ce qu’il faut ouvrir pour gérer domaines, paiements et back-ups.",
+      "items": [
+        {"label": "Créer / basculer Gmail", "url": "https://accounts.google.com/v3/signin/identifier?authuser=0", "type": "resource"},
+        {"label": "Manager Infomaniak", "url": "https://manager.infomaniak.com/v3/756771/ng/home", "type": "resource"},
+        {"label": "Gestion des domaines", "url": "https://manager.infomaniak.com/v3/756771/ng/products/web/domains", "type": "resource"},
+        {"label": "kDrive partagé", "url": "https://kdrive.infomaniak.com/app/share/998824/347ce726-3805-435c-abaa-ba21300b2976", "type": "resource"},
+        {"label": "Paiement PayPal", "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=XXXXXXXX", "type": "resource"},
+        {"label": "Paysafecard", "url": "https://www.paysafecard.com/fr/", "type": "resource"},
+        {"label": "Site brasseries (benchmark)", "url": "https://sites.google.com/view/site-des-brasseries/accueil?authuser=0", "type": "resource"}
+      ],
+      "slots": 1
+    }
+  ],
+  "docks": [
+    {
+      "title": "Dock créatif",
+      "accent": "elio",
+      "description": "Écrire, illustrer, générer de la vidéo sans perdre de temps.",
+      "items": [
+        {"label": "ChatGPT", "url": "https://chat.openai.com/", "icon": "/src/assets/img/logo/icons8-chatgpt.svg", "type": "app"},
+        {"label": "Perplexity", "url": "https://www.perplexity.ai/", "icon": "/src/assets/img/logo/perplexity-ai-logo-13120A0AAE-seeklogo.com.svg", "type": "app"},
+        {"label": "Productly", "url": "https://productly.app/?utm_source=youtube&utm_medium=organique-yomi&utm_campaign=formationgratuite2023-2024", "icon": "/src/assets/img/logo/productly-BkKJigd8.png", "type": "app"},
+        {"label": "Leonardo", "url": "https://app.leonardo.ai/", "icon": "https://logo.clearbit.com/leonardo.ai", "type": "app"}
+      ],
+      "slots": 1
+    },
+    {
+      "title": "Dock commerce",
+      "accent": "permis",
+      "description": "Sourcing + plateformes pour tester rapidement des offres.",
+      "items": [
+        {"label": "Shopify", "url": "https://www.shopify.com/fr/login", "icon": "/src/assets/img/logo/shopify-icon.svg", "type": "app"},
+        {"label": "BigBuy", "url": "https://www.bigbuy.eu/fr/dropshipping.html", "icon": "/src/assets/img/logo/bigbuylogo.svg", "type": "app"},
+        {"label": "AliExpress", "url": "https://login.aliexpress.com/", "icon": "/src/assets/img/logo/aliexpress-icon.svg", "type": "app"},
+        {"label": "DSers", "url": "https://accounts.dsers.com/accounts/login", "icon": "/src/assets/img/logo/Dsers-logo.svg", "type": "app"}
+      ]
+    },
+    {
+      "title": "Dock ops & notes",
+      "accent": "rms",
+      "description": "Accès immédiat aux outils d’admin + WhatsApp pro.",
+      "items": [
+        {"label": "Gmail", "url": "https://accounts.google.com/v3/signin/identifier?authuser=0", "icon": "/src/assets/img/logo/google-icon.svg", "type": "app"},
+        {"label": "Infomaniak", "url": "https://manager.infomaniak.com/v3/756771/ng/home", "icon": "/src/assets/img/logo/logo-k.svg", "type": "app"},
+        {"label": "kDrive", "url": "https://kdrive.infomaniak.com/app/share/998824/347ce726-3805-435c-abaa-ba21300b2976", "icon": "/src/assets/img/logo/logo-k.svg", "type": "app"},
+        {"label": "WhatsApp Pro", "url": "https://wa.me/33649856716", "icon": "https://logo.clearbit.com/whatsapp.com", "type": "app"}
+      ],
+      "slots": 1
+    }
+  ]
+}

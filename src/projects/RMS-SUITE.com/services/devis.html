@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RMS Suite — Module Devis</title>
+    <link rel="stylesheet" href="../styles/app.css">
+  </head>
+  <body data-rms-branding="native" class="app theme-default density-normal layout-classic orientation-portrait">
+    <header class="service-toolbar" role="banner">
+      <div class="service-branding">
+        <img src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Signature RMS Suite</small>
+        </span>
+      </div>
+      <nav class="service-toolbar-actions">
+        <a class="btn btn-link" href="../index.html">← Retour à la landing</a>
+        <a class="btn btn-outline" href="factures.html">Module Facture</a>
+        <a class="btn btn-outline" href="cartes.html">Module Cartes</a>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <section class="feature-section" aria-label="Outil de création de devis">
+        <header class="feature-header">
+          <div>
+            <p class="feature-kicker">Module Devis</p>
+            <h2>Composez votre offre en quelques minutes</h2>
+            <p>
+              Travaillez hors connexion, prévisualisez, imprimez ou exportez sans quitter la page.
+              Les exports JSON sont compatibles avec le module Facture et la landing RMS Suite.
+            </p>
+          </div>
+          <div class="feature-actions">
+            <button type="button" class="btn btn-outline" data-action="import-json">Importer</button>
+            <button type="button" class="btn btn-outline" data-action="export-json">Exporter</button>
+            <button type="button" class="btn btn-primary" data-action="toggle-preview">Voir la prévisualisation</button>
+            <button type="button" class="btn btn-outline" data-action="fill-demo">Charger un exemple</button>
+          </div>
+        </header>
+
+        <section class="form-layout" aria-label="Formulaire de saisie du devis">
+          <form id="quote-form" autocomplete="off">
+            <section class="panel">
+              <h2>Émetteur</h2>
+              <div class="grid two">
+                <label>Dénomination<input type="text" data-bind="company.name" placeholder="Votre entreprise"></label>
+                <label>Statut<select data-bind="company.status" id="company-status">
+                  <option value="EI">EI</option>
+                  <option value="Micro-entreprise">Micro-entreprise</option>
+                  <option value="EURL">EURL</option>
+                  <option value="SARL">SARL</option>
+                  <option value="SAS">SAS</option>
+                  <option value="SASU">SASU</option>
+                  <option value="SA">SA</option>
+                  <option value="Association">Association</option>
+                  <option value="Autre">Autre</option>
+                </select></label>
+                <label class="status-other" hidden>Précisez<input type="text" data-bind="company.statusOther"></label>
+                <label>SIREN / SIRET<input type="text" data-bind="company.siren" inputmode="numeric"></label>
+                <label>TVA intracom<input type="text" data-bind="company.vatNumber" placeholder="FRXX..."></label>
+                <label>Téléphone<input type="tel" data-bind="company.phone" placeholder="+33 ..."></label>
+                <label>Email<input type="email" data-bind="company.email" placeholder="contact@exemple.fr"></label>
+                <label>Site web<input type="url" data-bind="company.website" placeholder="https://..."></label>
+              </div>
+              <label>Adresse<textarea data-bind="company.address" rows="3" placeholder="Rue, code postal, ville"></textarea></label>
+              <label>Coordonnées bancaires<textarea data-bind="company.bank" rows="3" placeholder="IBAN / BIC"></textarea></label>
+              <div class="logo-upload">
+                <label>Logo<input type="file" accept="image/png,image/jpeg,image/svg+xml" data-action="upload-logo"></label>
+                <div class="logo-preview" aria-live="polite"><img alt="Logo" hidden></div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2>Client</h2>
+              <div class="grid two">
+                <label>Type<select data-bind="client.type">
+                  <option value="Société">Société</option>
+                  <option value="Particulier">Particulier</option>
+                </select></label>
+                <label>Nom / Raison sociale<input type="text" data-bind="client.name"></label>
+                <label>Contact principal<input type="text" data-bind="client.contact"></label>
+                <label>Email<input type="email" data-bind="client.email"></label>
+                <label>Téléphone<input type="tel" data-bind="client.phone"></label>
+              </div>
+              <label>Adresse<textarea data-bind="client.address" rows="3"></textarea></label>
+            </section>
+
+            <section class="panel">
+              <h2>Devis / Bon de commande</h2>
+              <div class="grid three">
+                <label>Libellé
+                  <input type="text" data-bind="meta.docType" placeholder="Devis">
+                </label>
+                <label>Langue
+                  <select data-bind="meta.language">
+                    <option value="fr">Français</option>
+                    <option value="en">English</option>
+                  </select>
+                </label>
+                <label>N° de devis
+                  <input type="text" data-bind="meta.number" readonly>
+                </label>
+                <label>Date<input type="date" data-bind="meta.date"></label>
+                <label>Validité (jours)<input type="number" min="0" step="1" data-bind="meta.validity"></label>
+                <label>Référence projet<input type="text" data-bind="meta.projectRef"></label>
+                <label>URL de paiement (https)<input type="url" data-bind="meta.paymentUrl" placeholder="https://paiement..."></label>
+                <label>Note de remise<input type="text" data-bind="meta.discountNote" maxlength="120"></label>
+                <label>
+                  <span class="toggle"><input type="checkbox" data-bind="meta.vatExempt"> Exonération TVA (art. 293B CGI)</span>
+                </label>
+              </div>
+              <label>Conditions de paiement<input type="text" data-bind="meta.paymentTerms" placeholder="30 jours fin de mois"></label>
+              <label>Pénalités de retard<textarea data-bind="meta.latePenalties" rows="2"></textarea></label>
+              <label>Notes<textarea data-bind="meta.notes" rows="3"></textarea></label>
+              <label>Mentions légales<textarea data-bind="meta.legalMentions" rows="3"></textarea></label>
+              <label>Notes pied de page<textarea data-bind="meta.footerNotes" rows="2" placeholder="Adresse, RCS, etc."></textarea></label>
+            </section>
+
+            <section class="panel">
+              <h2>Articles & prestations</h2>
+              <div class="table-scroll">
+                <table id="items-table" aria-describedby="items-toolbar">
+                  <thead>
+                    <tr>
+                      <th scope="col" data-column="reference">Réf.</th>
+                      <th scope="col">Désignation</th>
+                      <th scope="col">Qté</th>
+                      <th scope="col" data-column="unit">Unité</th>
+                      <th scope="col">PU HT</th>
+                      <th scope="col" data-column="vatRate">TVA %</th>
+                      <th scope="col">Total HT</th>
+                      <th scope="col" aria-label="Actions"></th>
+                    </tr>
+                  </thead>
+                  <tbody id="items-body"></tbody>
+                </table>
+              </div>
+              <div id="items-toolbar" class="items-toolbar">
+                <button type="button" class="btn btn-outline" data-action="add-item">Ajouter une ligne</button>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2>Totaux & options</h2>
+              <div class="grid three">
+                <label>Devise
+                  <select data-bind="options.currency" id="currency-select">
+                    <option value="EUR">€ Euro</option>
+                    <option value="USD">$ Dollar</option>
+                    <option value="GBP">£ Livre</option>
+                    <option value="CHF">CHF Franc suisse</option>
+                  </select>
+                </label>
+                <label>Format décimal
+                  <select data-bind="options.decimalFormat">
+                    <option value="fr">1 234,56</option>
+                    <option value="en">1,234.56</option>
+                  </select>
+                </label>
+                <label>Frais / Port HT
+                  <input type="number" step="0.01" min="0" data-bind="options.shippingAmount">
+                  <span class="field-error" data-error-path="options.shippingAmount"></span>
+                </label>
+                <label>TVA frais %
+                  <input type="number" step="0.01" min="0" max="100" data-bind="options.shippingVat">
+                  <span class="field-error" data-error-path="options.shippingVat"></span>
+                </label>
+              </div>
+              <fieldset>
+                <legend>Remise</legend>
+                <div class="inline">
+                  <label><input type="radio" name="discount-type" value="none" data-bind="options.discount.type"> Aucune</label>
+                  <label><input type="radio" name="discount-type" value="percent" data-bind="options.discount.type"> %</label>
+                  <input type="number" step="0.01" min="0" max="100" data-bind="options.discount.percent" aria-label="Remise en pourcentage">
+                  <label><input type="radio" name="discount-type" value="amount" data-bind="options.discount.type"> Montant</label>
+                  <input type="number" step="0.01" min="0" data-bind="options.discount.amount" aria-label="Remise en montant">
+                </div>
+                <p class="field-error" data-error-path="options.discount.percent" aria-live="polite"></p>
+              </fieldset>
+              <fieldset>
+                <legend>Acompte</legend>
+                <div class="inline">
+                  <label><input type="radio" name="deposit-type" value="none" data-bind="options.deposit.type"> Aucun</label>
+                  <label><input type="radio" name="deposit-type" value="percent" data-bind="options.deposit.type"> %</label>
+                  <input type="number" step="0.01" min="0" max="100" data-bind="options.deposit.percent" aria-label="Acompte en pourcentage">
+                  <label><input type="radio" name="deposit-type" value="amount" data-bind="options.deposit.type"> Montant</label>
+                  <input type="number" step="0.01" min="0" data-bind="options.deposit.amount" aria-label="Acompte en montant">
+                </div>
+                <p class="field-error" data-error-path="options.deposit.percent" aria-live="polite"></p>
+              </fieldset>
+
+              <div class="totals-grid" aria-live="polite">
+                <div class="totals-card">
+                  <span>Sous-total HT</span>
+                  <strong data-total="subtotal">0,00 €</strong>
+                </div>
+                <div class="totals-card">
+                  <span>Remise</span>
+                  <strong data-total="discount">0,00 €</strong>
+                </div>
+                <div class="totals-card">
+                  <span>TVA totale</span>
+                  <strong data-total="vat">0,00 €</strong>
+                </div>
+                <div class="totals-card highlight">
+                  <span>Total TTC</span>
+                  <strong data-total="total">0,00 €</strong>
+                </div>
+                <div class="totals-card">
+                  <span>Acompte</span>
+                  <strong data-total="deposit">0,00 €</strong>
+                </div>
+                <div class="totals-card">
+                  <span>Reste à payer</span>
+                  <strong data-total="remaining">0,00 €</strong>
+                </div>
+              </div>
+            </section>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <div class="preview-overlay" aria-hidden="true">
+      <div class="preview-modal" role="dialog" aria-modal="true" aria-label="Prévisualisation du devis">
+        <header class="preview-modal-header">
+          <h2>Prévisualisation</h2>
+          <div class="preview-modal-actions">
+            <button type="button" class="btn" data-action="print">Imprimer</button>
+            <button type="button" class="btn btn-link" data-action="close-preview" aria-label="Fermer la prévisualisation">×</button>
+          </div>
+        </header>
+        <div class="preview-modal-body">
+          <article id="preview-document" class="quote-preview" aria-label="Document de devis">
+            <header class="preview-header">
+              <div class="preview-header-columns">
+                <section class="preview-company" aria-label="Entreprise émettrice">
+                  <div class="preview-company-header">
+                    <img id="preview-logo" class="preview-logo hidden" alt="Logo de l'entreprise">
+                    <div class="preview-company-identity">
+                      <h3 data-preview="company.name">—</h3>
+                      <p class="assistive" data-preview="company.identity">—</p>
+                    </div>
+                  </div>
+                  <p data-preview="company.addressHtml"></p>
+                  <p>
+                    <span data-preview="company.phone"></span><br>
+                    <span data-preview="company.email"></span><br>
+                    <span data-preview="company.websiteHtml"></span>
+                  </p>
+                </section>
+                <section class="preview-header-right">
+                  <div class="preview-meta">
+                    <strong data-preview="meta.docLabel">Devis</strong>
+                    <div>N° <span data-preview="meta.number"></span></div>
+                    <div><span data-preview="meta.dateLabel"></span></div>
+                    <div data-preview="meta.validity"></div>
+                    <div data-preview="meta.projectRefHtml"></div>
+                  </div>
+                  <div class="preview-client preview-client-inline" aria-label="Client destinataire">
+                    <div class="preview-client-header">
+                      <h3 data-preview="client.title">Client</h3>
+                      <span class="badge" data-preview="client.type"></span>
+                    </div>
+                    <div class="preview-client-details">
+                      <strong data-preview="client.name"></strong>
+                      <span data-preview="client.contact"></span>
+                      <span data-preview="client.addressHtml"></span>
+                      <span data-preview="client.phone"></span>
+                      <span data-preview="client.email"></span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </header>
+
+            <section class="preview-content">
+              <section class="preview-items">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col" data-column="reference">Réf.</th>
+                      <th scope="col">Désignation</th>
+                      <th scope="col">Qté</th>
+                      <th scope="col" data-column="unit">Unité</th>
+                      <th scope="col">PU HT</th>
+                      <th scope="col" data-column="vatRate">TVA %</th>
+                      <th scope="col">Total HT</th>
+                    </tr>
+                  </thead>
+                  <tbody id="preview-items-body"></tbody>
+                </table>
+              </section>
+
+              <section class="preview-totals">
+                <div class="preview-totals-grid">
+                  <div class="preview-total-item">
+                    <span class="label" data-i18n="subtotal">Sous-total HT</span>
+                    <span class="value" data-preview="totals.subtotal">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item">
+                    <span class="label" data-i18n="discount">Remise</span>
+                    <span class="value" data-preview="totals.discountValue">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item">
+                    <span class="label" data-i18n="shipping">Frais / Port HT</span>
+                    <span class="value" data-preview="totals.shipping">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item">
+                    <span class="label" data-i18n="vatTotal">TVA totale</span>
+                    <span class="value" data-preview="totals.vatTotal">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item total">
+                    <span class="label" data-i18n="total">Total TTC</span>
+                    <span class="value" data-preview="totals.totalTTC">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item">
+                    <span class="label" data-i18n="deposit">Acompte</span>
+                    <span class="value" data-preview="totals.depositValue">0,00 €</span>
+                  </div>
+                  <div class="preview-total-item remaining">
+                    <span class="label" data-i18n="remaining">Reste à payer</span>
+                    <span class="value" data-preview="totals.remaining">0,00 €</span>
+                  </div>
+                </div>
+                <p class="preview-discount-note" data-preview="meta.discountNote"></p>
+                <p class="preview-vat-note" data-preview="meta.vatMention"></p>
+              </section>
+
+              <section class="preview-conditions" data-section="conditions">
+                <h3 data-i18n="conditions">Conditions</h3>
+                <p><strong data-i18n="paymentTerms">Conditions de paiement :</strong> <span data-preview="meta.paymentTerms"></span></p>
+                <p><strong data-i18n="latePenalties">Pénalités de retard :</strong> <span data-preview="meta.latePenalties"></span></p>
+                <p data-preview="meta.notesHtml"></p>
+              </section>
+
+              <section class="preview-legal" data-section="legal">
+                <h3 data-i18n="legalMentions">Mentions légales</h3>
+                <div data-preview="meta.legalMentions"></div>
+              </section>
+
+              <section class="preview-bank" data-section="bank">
+                <h3 data-i18n="bankDetails">Coordonnées bancaires</h3>
+                <p data-preview="company.bank"></p>
+              </section>
+
+              <section class="preview-payment" data-section="qr">
+                <h3 data-i18n="payment">Paiement</h3>
+                <div class="payment-content">
+                  <canvas id="payment-qr" width="160" height="160" aria-hidden="true"></canvas>
+                  <p>
+                    <a href="#" target="_blank" rel="noopener" data-preview="meta.paymentLink">Lien de paiement</a>
+                  </p>
+                </div>
+              </section>
+            </section>
+
+            <footer class="preview-footer" aria-label="Pied de page">
+              <div class="footer-left">
+                <p data-preview="company.footerIdentity"></p>
+              </div>
+              <div class="footer-center">
+                <p data-preview="meta.footerNotes"></p>
+              </div>
+              <div class="footer-right">
+                <p data-preview="meta.printInformation"></p>
+              </div>
+              <div class="footer-signature" data-section="signature">
+                <p data-i18n="signature">Cachet et signature</p>
+                <div class="signature-box"></div>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <a class="brand-lockup" href="../../../../index.html">
+        <img class="brand-logo" src="../../../assets/img/logo/logoOfficielRMS.svg" alt="Logo officiel RMS Launchpad">
+        <span>
+          <strong>RMS Launchpad</strong>
+          <small>Créateur de la RMS Suite — branding unifié.</small>
+        </span>
+      </a>
+      <p class="footer-note">&copy; 2025 RMS Launchpad — Suite métiers hors ligne.</p>
+    </footer>
+
+    <script type="module" src="../scripts/app.js"></script>
+  </body>
+</html>

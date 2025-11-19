@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Automatisation Trading Short Crypto pour les Nuls</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; background-color: #f9f9f9; color: #222;
+      max-width: 960px; margin-left: auto; margin-right: auto; padding: 1rem; line-height: 1.6;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      border-radius: 6px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    h1, h2 {
+      color: #004080;
+    }
+    nav {
+      background-color: #e0e7f0;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    nav a:hover, nav a:focus {
+      background-color: #004080;
+      color: white;
+      outline: none;
+      border-color: #004080;
+    }
+    section {
+      background: white;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid #c0c8d8;
+      border-radius: 6px;
+      box-shadow: 1px 1px 6px #d0d4e0;
+      margin-bottom: 2rem;
+    }
+    ul, ol {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #0066cc;
+    }
+    a:hover, a:focus {
+      color: #004080;
+      text-decoration: underline;
+      outline: none;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #c0c8d8;
+      border-radius: 6px;
+      margin: 0.5rem 0 1rem 0;
+    }
+    .code-block {
+      background-color: #eef3fa;
+      border: 1px solid #ccd9f3;
+      padding: 10px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #c0c8d8;
+      padding: 0.6rem 0.9rem;
+      text-align: left;
+    }
+    th {
+      background-color: #e0e7f0;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    #backToTop:focus {
+      outline: 2px solid #0066cc;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Automatisation Trading Short Crypto pour les Nuls</h1>
+    <p>Une méthode simple et complète pour automatiser vos positions short crypto avec TradingView, 3Commas et Binance</p>
+  </header>
+
+  <nav aria-label="Navigation tutoriel">
+    <a href="#architecture">Architecture</a>
+    <a href="#prerequis">Pré-requis & Sécurité</a>
+    <a href="#connecter">1 - Connecter Binance à 3Commas</a>
+    <a href="#creer-bot">2 - Créer un bot Short</a>
+    <a href="#alertes">3 - Configurer alertes TradingView</a>
+    <a href="#automatisation">4 - Automatiser TP/SL/DCA inversé</a>
+    <a href="#tests">5 - Tester et mettre en production</a>
+    <a href="#presets">Presets & Exemples</a>
+    <a href="#sources">Sources & Liens</a>
+  </nav>
+
+  <section id="architecture">
+    <h2>Architecture du système automatisé</h2>
+    <p>Votre automatisation suit ce schéma :</p>
+    <ul>
+      <li><strong>TradingView :</strong> définit conditions d’achat/vente via indicateurs.</li>
+      <li><strong>Webhook :</strong> envoie alertes à 3Commas dès un signal détecté.</li>
+      <li><strong>3Commas DCA Bot :</strong> exécute les ordres short sur Binance Futures via API.</li>
+      <li><strong>Binance Futures :</strong> plateforme d’exécution des trades.</li>
+      <li><strong>Telegram :</strong> reçoit alertes et confirmations pour suivre vos trades.</li>
+    </ul>
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/b14720da-b70e-47d4-ab9e-740f80eb48ed.png" alt="Illustration du workflow automatisé trading short crypto" />
+  </section>
+
+  <section id="prerequis">
+    <h2>Pré-requis & conseils de sécurité</h2>
+    <ul>
+      <li>Un compte Binance avec Futures activé et authentification 2FA obligatoire.</li>
+      <li>Création de clés API sur Binance : <strong>lecture</strong> + <strong>trading</strong>, retrait désactivé, préférence pour whitelist IP ou utilisation Fast Connect 3Commas.</li>
+      <li>Compte 3Commas configuré et connecté à Binance via Fast Connect (recommandé) ou manuellement.</li>
+      <li>Abonnement TradingView avec accès aux alertes Webhook (payant).</li>
+      <li>Pour vos premiers tests, activez le <em>paper trading</em> sur 3Commas (compte démo).</li>
+    </ul>
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/f9d8f66a-ef07-4ff4-b5a0-d89e92128715.png" alt="Illustration configuration sécurisée API Binance" />
+  </section>
+
+  <section id="connecter">
+    <h2>Étape 1 : Connecter Binance à 3Commas</h2>
+    <p><strong>Option A - Fast Connect (recommandé)</strong></p>
+    <ol>
+      <li>Dans 3Commas, allez dans <em>My Portfolio</em> &rarr; <em>Connect Account</em> &rarr; choisissez Binance &rarr; cliquez sur Fast Connect.</li>
+      <li>Suivez l’assistant, 3Commas crée automatiquement les clés API et whitelist l’IP.</li>
+      <li>Note importante : le portfolio margin Binance n’est pas supporté avec Fast Connect.</li>
+    </ol>
+    <p><strong>Option B - API manuelle</strong></p>
+    <ol>
+      <li>Sur Binance, créez une clé API avec les droits <em>lecture</em> et <em>trading futures</em> (pas de retrait).</li>
+      <li>Dans 3Commas, connectez l’exchange en collant la <em>API key</em> et le <em>secret</em>.</li>
+      <li>Astuce : créez des clés API dédiées par service pour plus de sécurité.</li>
+    </ol>
+  </section>
+
+  <section id="creer-bot">
+    <h2>Étape 2 : Créer un bot Short dans 3Commas</h2>
+    <p>Créez un <strong>DCA Bot Futures</strong>, configuration recommandée :</p>
+    <ul>
+      <li>Exchange : Binance Futures USDT-M.</li>
+      <li>Stratégie : <em>Short</em>, isolated margin.</li>
+      <li>Levier : x2 (sécurité), x3 (modéré), x4-x5 (optimisé).</li>
+      <li>Paires à trader : BTCUSDT, ETHUSDT, SOLUSDT, BNBUSDT.</li>
+      <li>Conditions de début de trade : signaux personnalisés TradingView (webhook).</li>
+      <li>Take Profit : 1.0% - 2.0%, avec Trailing TP activé (0.4% - 0.8%).</li>
+      <li>Stop Loss : 1.2% - 2.2%, option breakeven après prise de bénéfice partielle.</li>
+      <li>Safety Orders : pour DCA inversé, selon preset.</li>
+    </ul>
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/7ac52ecc-a8a1-44a5-b755-fd6e86a28858.png" alt="Illustration configuration bot 3Commas short trading" />
+  </section>
+
+  <section id="alertes">
+    <h2>Étape 3 : Configurer les alertes TradingView</h2>
+    <p>Configurer vos alertes sur le graphique (ex. BTCUSDT), selon méthode « M » :</p>
+    <ul>
+      <li>Indicateurs recommandés : RSI (14), EMA 50/200, volume (moyenne mobile 20).</li>
+      <li>Exemple condition d’entrée short : RSI croise sous 70 et clôture sous EMA50 en timeframe 15 minutes.</li>
+      <li>URL Webhook : <code>https://app.3commas.io/trade_signal/trading_view</code></li>
+      <li>Dans le message d’alerte, collez le texte « deal start » fourni dans votre bot 3Commas.</li>
+      <li>Fréquence recommandée : « once per bar close » pour éviter les doublons.</li>
+    </ul>
+    <img src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/775ce8d0-45e3-4987-896e-3638e05db697.png" alt="Illustration configuration alertes TradingView webhook" />
+  </section>
+
+  <section id="automatisation">
+    <h2>Étape 4 : Automatiser Take Profit, Trailing, DCA inversé</h2>
+    <ul>
+      <li>Activez le Trailing Take Profit (par exemple 0,5%), votre bot suit le prix et sécurise les gains.</li>
+      <li>Configurez les Safety Orders avec échelonnement positif (ex : SO1 à +0,8%, SO2 à +1,3%, etc.) pour renforcer à la hausse contre short.</li>
+      <li>Utilisez les messages webhook complémentaires pour déclencher le trailing ou ajouter des fonds (start_trailing, add_funds_in_quote).</li>
+    </ul>
+  </section>
+
+  <section id="tests">
+    <h2>Étape 5 : Tester et mettre en production</h2>
+    <ul>
+      <li>Activez le mode démo 3Commas pour tester la chaîne complète sans risque réel.</li>
+      <li>Testez ensuite en réel avec un volume minimal (base order 10-20 USDT).</li>
+      <li>Activez les alertes Telegram dans 3Commas pour notifications en temps réel.</li>
+    </ul>
+  </section>
+
+  <section id="presets">
+    <h2>Presets prêts à l’emploi et exemples chiffrés</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Profil</th><th>Levier</th><th>Base/Safety</th><th>Safety Orders (nb / step / scale)</th><th>TP & Trailing TP</th><th>SL & Gestion</th><th>Max deals</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sécurité</td><td>x2</td><td>20 USDT / 20 USDT</td><td>4 / +0,8% / 1,2x</td><td>1,2% TP + 0,5% Trailing</td><td>1,8% SL; Breakeven après TP</td><td>1</td>
+        </tr>
+        <tr>
+          <td>Modéré</td><td>x3</td><td>25 USDT / 25 USDT</td><td>5 / +0,8% → +3% / 1,3x</td><td>1,6% TP + 0,6% Trailing</td><td>2,0% SL; fermeture via webhook si nouvelle négative</td><td>2</td>
+        </tr>
+        <tr>
+          <td>Optimisé</td><td>x4–x5</td><td>30 USDT / 30 USDT</td><td>6 / +0,7% → +3,5% / 1,4x</td><td>2,0% TP + 0,7% Trailing</td><td>2,2% SL; réduction uniquement sur squeeze</td><td>3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Exemple : Avec un capital de 1 000 € et levier x2, base order 20 USDT, vous renforcez à chaque repli suivant les Safety Orders.</p>
+  </section>
+
+  <section id="sources">
+    <h2>Sources officielles & documentation</h2>
+    <ul>
+      <li><a href="https://help.3commas.io/en/articles/3108938-dca-bot-using-tradingview-signals" target="_blank" rel="noopener noreferrer">3Commas DCA Bot + TradingView Signals</a></li>
+      <li><a href="https://www.tradingview.com/support/solutions/43000529348-how-to-configure-webhook-alerts/?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Configurer alertes Webhook sur TradingView</a></li>
+      <li><a href="https://help.3commas.io/en/articles/6980835-binance-how-to-create-api-keys-connect-them-to-3commas-and-update-the-connection?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Créer et configurer clé API Binance</a></li>
+      <li><a href="https://developers.binance.com/docs/wallet/account/api-key-permission?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Permissions API Binance</a></li>
+      <li><a href="https://help.3commas.io/en/articles/3108940-dca-bot-interface-and-main-settings?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Interface & paramètres 3Commas DCA Bot</a></li>
+      <li><a href="https://help.3commas.io/en/articles/3638275-enable-demo-account-paper-trading-account?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer">Activer compte démo 3Commas (paper trading)</a></li>
+    </ul>
+  </section>
+
+  <button id="backToTop" aria-label="Retour en haut" title="Retour en haut">&uarr;</button>
+
+  <script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) backToTop.style.display = 'flex';
+      else backToTop.style.display = 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+  </script>
+  <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>
+

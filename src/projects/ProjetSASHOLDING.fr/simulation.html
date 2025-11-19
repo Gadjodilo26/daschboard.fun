@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation mensuelle — Atelier Entreprendre</title>
+    <link rel="stylesheet" href="styles.css">
+  <script type="module" defer src="src/main.js"></script>
+  </head>
+  <body data-page="simulation">
+    <header class="site-header">
+      <div class="site-brand">
+        <a href="index.html">Atelier Entreprendre</a>
+      </div>
+      <nav class="site-nav">
+        <div class="site-nav__group">
+          <span class="site-nav__label">Simulation</span>
+          <a href="simulation.html" class="is-active" aria-current="page">Simulation</a>
+          <a href="projection.html">Prévisionnel</a>
+          <a href="financing.html">Financement</a>
+          <a href="summary.html">Synthèse</a>
+          <a href="exports.html">Exports</a>
+        </div>
+        <div class="site-nav__group">
+          <span class="site-nav__label">Outils de gestion</span>
+          <a href="bookkeeping.html">Frais &amp; factures</a>
+          <a href="calendar.html">Calendrier</a>
+        </div>
+      </nav>
+      <div class="site-header__actions">
+        <button class="btn btn--outline" id="toggle-autosave" type="button" aria-pressed="true">
+          Sauvegarde auto
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="panel__content">
+        <form id="simulation-form" class="form" novalidate>
+          <fieldset>
+            <legend>Informations générales</legend>
+            <div class="form__grid form__grid--2">
+              <label class="form__field">
+                <span>Nom du projet</span>
+                <input type="text" id="input-company-name" name="companyName" maxlength="80" required>
+                <small class="form__hint">Dénomination ou nom de code du projet (affiché sur toutes les vues et exports).</small>
+              </label>
+              <label class="form__field">
+                <span>Fondateur / dirigeant</span>
+                <input type="text" id="input-manager-name" name="managerName" maxlength="60" required>
+                <small class="form__hint">Identité principale présentée dans le résumé exécutif.</small>
+              </label>
+              <label class="form__field">
+                <span>Client cible</span>
+                <input type="text" id="input-main-client" name="mainClient" maxlength="60">
+                <small class="form__hint">Segment prioritaire ou client pilote à citer aux financeurs.</small>
+              </label>
+              <label class="form__field">
+                <span>Visibilité commerciale</span>
+                <select id="input-contract-stability" name="contractStability">
+                  <option value="cadre">Contrat-cadre 3 ans</option>
+                  <option value="renouvelable">Renouvelable tacitement</option>
+                  <option value="annuel">Engagement annuel</option>
+                </select>
+                <small class="form__hint">Montrez la durée et la solidité des revenus attendus.</small>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Investissement &amp; financement</legend>
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Investissement principal (€)</span>
+                <input type="number" id="input-vehicle-price" name="vehiclePrice" min="0" step="100" required>
+                <small class="form__hint">Montant TTC du matériel, fonds de commerce, MVP ou aménagement clé.</small>
+              </label>
+              <label class="form__field">
+                <span>Apport personnel (€)</span>
+                <input type="number" id="input-personal-contribution" name="personalContribution" min="0" step="1000" required>
+                <small class="form__hint">Capital mobilisé par le fondateur (épargne, bourse, love money…).</small>
+              </label>
+              <label class="form__field">
+                <span>Taux du prêt (% annuel)</span>
+                <input type="number" id="input-loan-rate" name="loanRate" min="0" step="0.1">
+                <small class="form__hint">Taux nominal annuel estimé pour le financement principal.</small>
+              </label>
+              <label class="form__field">
+                <span>Durée du prêt (années)</span>
+                <input type="number" id="input-loan-duration" name="loanDurationYears" min="1" max="10" step="1">
+                <small class="form__hint">Durée d&rsquo;amortissement bancaire (généralement 5 à 7 ans).</small>
+              </label>
+              <label class="form__field">
+                <span>Durée amortissement comptable (années)</span>
+                <input type="number" id="input-amortization-years" name="amortizationYears" min="1" max="10" step="1">
+                <small class="form__hint">Durée comptable utilisée pour amortir l&rsquo;investissement principal.</small>
+              </label>
+              <label class="form__field">
+                <span>Autorisations / droits d'entrée</span>
+                <input type="number" id="input-licenses-count" name="licensesCount" min="1" max="10" step="1">
+                <small class="form__hint">Nombre d&rsquo;achats immatériels (licence, droit d&rsquo;entrée, brevet, formation...).</small>
+              </label>
+              <label class="form__field">
+                <span>Coût unitaire (€)</span>
+                <input type="number" id="input-license-cost" name="licenseCost" min="0" step="50">
+                <small class="form__hint">Montant TTC d&rsquo;une autorisation, formation ou d&rsquo;un package immatériel.</small>
+              </label>
+              <label class="form__field form__field--readonly">
+                <span>Mensualité de prêt estimée (€)</span>
+                <input type="number" id="input-monthly-loan-payment" name="monthlyLoanPayment" readonly aria-readonly="true">
+                <small class="form__hint">Calcul automatique via l&rsquo;annuité bancaire.</small>
+              </label>
+              <label class="form__field form__field--readonly">
+                <span>BFR (avance 2 mois) (€)</span>
+                <input type="number" id="input-advance-treasury" name="advanceTreasury" readonly aria-readonly="true">
+                <small class="form__hint">Trésorerie tampon recommandée pour couvrir 2 mois de charges hors rémunération.</small>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Charges &amp; revenus d&rsquo;exploitation</legend>
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Jours travaillés / mois</span>
+                <input type="number" id="input-working-days" name="workingDays" min="0" max="31">
+                <small class="form__hint">Nombre de journées facturables (hors repos, maintenance, congés).</small>
+              </label>
+              <label class="form__field">
+                <span>CA journalier (€)</span>
+                <input type="number" id="input-daily-revenue" name="dailyRevenue" min="0" step="0.1">
+                <small class="form__hint">Recette moyenne par jour (hors surcharges spécifiques).</small>
+              </label>
+              <label class="form__field">
+                <span>Revenus complémentaires (€)</span>
+                <input type="number" id="input-surcharges" name="surcharges" min="0" step="10">
+                <small class="form__hint">Options, maintenance, ventes additionnelles ou prestations express.</small>
+              </label>
+              <label class="form__field">
+                <span>Frais variables / consommables (€)</span>
+                <input type="number" id="input-fuel" name="fuel" min="0" step="10">
+                <small class="form__hint">Matières premières, énergie, déplacements, expéditions, outils pay-as-you-go.</small>
+              </label>
+              <label class="form__field">
+                <span>Indemnités / avantages (€)</span>
+                <input type="number" id="input-meal-allowance-rate" name="mealAllowanceRate" min="0" step="0.1">
+                <small class="form__hint">Montant par jour pour repas, per diem, indemnités télétravail ou frais commerciaux.</small>
+              </label>
+              <label class="form__field">
+                <span>Assurances (€)</span>
+                <input type="number" id="input-insurance" name="insurance" min="0" step="10">
+                <small class="form__hint">RC pro, multirisque, mutuelle dirigeant, cyber, responsabilité civile exploitation.</small>
+              </label>
+              <label class="form__field">
+                <span>Maintenance &amp; support (€)</span>
+                <input type="number" id="input-maintenance" name="maintenance" min="0" step="10">
+                <small class="form__hint">Contrats d&rsquo;entretien matériel, abonnements logiciels, support cloud.</small>
+              </label>
+              <label class="form__field">
+                <span>Frais logistiques / déplacements (€)</span>
+                <input type="number" id="input-tolls" name="tolls" min="0" step="10">
+                <small class="form__hint">Déplacements clients, salons, hébergements, livraison, coworking ponctuel.</small>
+              </label>
+              <label class="form__field">
+                <span>Autres charges fixes (€)</span>
+                <input type="number" id="input-other-charges" name="otherCharges" min="0" step="10">
+                <small class="form__hint">Divers : parking, outils, frais administratifs, comptabilité…</small>
+              </label>
+              <div class="form__field form__field--full">
+                <span>Autres charges détaillées</span>
+                <div id="misc-charges" class="dynamic-list" aria-live="polite"></div>
+                <button type="button" class="btn btn--ghost btn--small" id="btn-add-misc-charge">Ajouter une ligne</button>
+                <small class="form__hint">Ajoutez autant de lignes que nécessaire (ex : télépéage, assistance juridique, frais bancaires…).</small>
+              </div>
+              <label class="form__field form__field--readonly">
+                <span>Panier repas (auto)</span>
+                <input type="number" id="input-meal-allowance" name="mealAllowance" readonly aria-readonly="true">
+                <small class="form__hint">Calcul automatique : montant par jour × jours travaillés.</small>
+              </label>
+            </div>
+            <div class="course-calculator" aria-labelledby="course-calculator-title">
+              <div class="course-calculator__header">
+                <h3 id="course-calculator-title">Calculateur de CA journalier</h3>
+                <p class="form__hint">
+                  Décomposez votre journée par course et indemnité kilométrique pour fiabiliser le CA journalier. Appliquez le résultat pour mettre à jour le champ «&nbsp;CA journalier&nbsp;».
+                </p>
+              </div>
+              <div class="course-calculator__grid">
+                <label class="form__field">
+                  <span>Indemnité kilométrique (€ / km)</span>
+                  <input type="number" id="input-km-allowance-rate" name="kmAllowanceRate" min="0" step="0.01">
+                  <small class="form__hint">Montant remboursé par kilomètre parcouru sur la journée.</small>
+                </label>
+                <label class="form__field form__field--readonly">
+                  <span>CA estimé (courses + indemnités)</span>
+                  <input type="text" id="input-daily-course-total" readonly aria-readonly="true">
+                  <small class="form__hint">Somme des montants facturés et des indemnités kilométriques.</small>
+                </label>
+                <div class="course-calculator__actions">
+                  <button type="button" class="btn btn--secondary btn--small" id="btn-apply-daily-revenue">
+                    Appliquer au CA journalier
+                  </button>
+                  <small class="form__hint">Met à jour la valeur du champ «&nbsp;CA journalier&nbsp;» ci-dessus.</small>
+                </div>
+              </div>
+              <div class="dynamic-list dynamic-list--courses" id="daily-courses" aria-live="polite"></div>
+              <div class="course-calculator__footer">
+                <button type="button" class="btn btn--ghost btn--small" id="btn-add-course">Ajouter une course</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Fiscalité &amp; TVA</legend>
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Régime fiscal</span>
+                <select id="input-fiscal-regime" name="fiscalRegime">
+                  <option value="micro">Micro-BIC (abattement 50%)</option>
+                  <option value="reel">Régime réel</option>
+                </select>
+                <small class="form__hint">Choisissez le mode d'imposition BIC (micro ou réel). La comparaison des bases imposables est affichée dans la synthèse.</small>
+              </label>
+              <label class="form__field form__field--checkbox">
+                <span>Option IS</span>
+                <input type="checkbox" id="input-is-option" name="isOption">
+                <small class="form__hint">Cochez si la société opte pour l'impôt sur les sociétés (sinon impôt sur le revenu).</small>
+              </label>
+              <label class="form__field form__field--checkbox">
+                <span>Franchise de TVA</span>
+                <input type="checkbox" id="input-vat-franchise" name="vatFranchise">
+                <small class="form__hint">Cocher si CA &lt; 25&nbsp;000&nbsp;€ (pas de TVA collectée/déductible).</small>
+              </label>
+              <label class="form__field">
+                <span>Taux TVA applicable (%)</span>
+                <input type="number" id="input-vat-rate" name="vatRate" min="0" max="25" step="0.1">
+                <small class="form__hint">Taux standard 20&nbsp;% (ajustez si vous bénéficiez d’un taux réduit ou d’un régime particulier).</small>
+              </label>
+              <label class="form__field">
+                <span>Taxes spécifiques (€ / mois)</span>
+                <input type="number" id="input-heavy-vehicle-tax" name="heavyVehicleTax" min="0" step="10">
+                <small class="form__hint">CFE, redevances, licences annuelles ou toute taxe sectorielle récurrente.</small>
+              </label>
+              <label class="form__field">
+                <span>Éco-contributions (€ / mois)</span>
+                <input type="number" id="input-eco-tax" name="ecoTax" min="0" step="10">
+                <small class="form__hint">Filières REP, contributions environnementales, taxes carbone locales.</small>
+              </label>
+              <label class="form__field">
+                <span>Plancher cotisations TNS (€ / mois)</span>
+                <input type="number" id="input-tns-min-contribution" name="tnsMinContribution" min="0" step="10">
+                <small class="form__hint">Charges sociales minimales du gérant (URSSAF) si la rémunération est faible.</small>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Cycle de trésorerie</legend>
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Délai moyen encaissement clients (jours)</span>
+                <input type="number" id="input-client-delay" name="clientPaymentDelay" min="0" max="120" step="1">
+                <small class="form__hint">Nombre de jours avant paiement par les clients (ex : 45 jours fin de mois).</small>
+              </label>
+              <label class="form__field">
+                <span>Délai moyen paiement fournisseurs (jours)</span>
+                <input type="number" id="input-supplier-delay" name="supplierPaymentDelay" min="0" max="120" step="1">
+                <small class="form__hint">Nombre de jours avant règlement des fournisseurs (matières, outils, charges externes…).</small>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Paramètres du gérant (TNS)</legend>
+            <div class="form__grid form__grid--3">
+              <label class="form__field">
+                <span>Rémunération nette cible (€)</span>
+                <input type="number" id="input-net-remuneration" name="netRemuneration" min="0" step="50">
+                <small class="form__hint">Net souhaité par le gérant TNS (peut être modulé selon trésorerie).</small>
+              </label>
+              <label class="form__field">
+                <span>Taux cotisations SSI (%)</span>
+                <input type="number" id="input-ssi-rate" name="ssiRate" min="0" max="80" step="0.5">
+                <small class="form__hint">Estimation moyenne charges sociales TNS (≈45 % du net).</small>
+              </label>
+              <label class="form__field form__field--readonly">
+                <span>Prime / intéressement (auto)</span>
+                <input type="number" id="input-cold-prime" name="coldPrime" readonly aria-readonly="true">
+                <small class="form__hint">Provision automatique (5 % du salaire net) pour une prime ou un intéressement.</small>
+              </label>
+              <label class="form__field">
+                <span>Croissance CA annuelle (%)</span>
+                <input type="number" id="input-growth-rate" name="growthRate" min="0" max="20" step="0.5">
+                <small class="form__hint">Projection de montée en charge annuelle de l&rsquo;activité.</small>
+              </label>
+              <label class="form__field">
+                <span>Inflation charges (%)</span>
+                <input type="number" id="input-inflation-rate" name="inflationRate" min="0" max="10" step="0.5">
+                <small class="form__hint">Augmentation annuelle anticipée des charges variables.</small>
+              </label>
+            </div>
+          </fieldset>
+        </form>
+
+        <aside class="summary-cards" aria-live="polite">
+          <article class="summary-card">
+            <h3>Compte mensuel (prévision)</h3>
+            <dl id="monthly-summary"></dl>
+          </article>
+          <article class="summary-card">
+            <h3>Capitaux &amp; besoins</h3>
+            <dl id="investment-summary"></dl>
+          </article>
+          <article class="summary-card">
+            <h3>Trésorerie constituée</h3>
+            <dl id="treasury-summary"></dl>
+          </article>
+        </aside>
+      </div>
+    </main>
+
+    <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script defer src="../../assets/js/rms-branding.js"></script>
+</body>
+</html>

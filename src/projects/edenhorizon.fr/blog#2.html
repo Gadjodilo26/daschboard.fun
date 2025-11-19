@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eden Horizon | Le pouvoir d’un partenariat gagnant — Publication #2</title>
+  <meta name="description" content="Comment le partenariat encadré Eden Horizon sécurise un loyer garanti, supprime la vacance locative et améliore la performance de votre bien.">
+  <meta name="keywords" content="sous-location encadrée, loyer garanti, zéro vacance locative, partenariat gagnant, Eden Horizon">
+  <meta property="og:title" content="Le pouvoir d’un partenariat gagnant — Eden Horizon" />
+  <meta property="og:description" content="Loyer garanti, zéro vacance visée, gestion 100% encadrée. Découvrez notre modèle de partenariat gagnant." />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="theme-color" content="#0E3A52" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0E3A52; /* bleu pétrole */
+      --accent:#23B6A9;  /* turquoise */
+      --accent-2:#18a0a0;/* turquoise foncé */
+      --bg:#f6fbfa;      /* fond clair */
+      --ink:#1b2a36;     /* texte principal */
+      --muted:#61798a;   /* texte secondaire */
+      --radius:16px;
+      --shadow: 0 10px 30px rgba(14,58,82,.18);
+      --maxw: 980px;
+    }
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 100% -20%, rgba(35,182,169,.20), transparent 60%),
+        linear-gradient(180deg, #eaf7f5 0%, #ffffff 100%);
+    }
+    /* Topbar */
+    .topbar{position:sticky; top:0; z-index:50; backdrop-filter: blur(9px);
+      background:linear-gradient(180deg, rgba(246,251,250,.85), rgba(246,251,250,.65));
+      border-bottom:1px solid rgba(14,58,82,.06);
+    }
+    .topbar .wrap{max-width:var(--maxw); margin:0 auto; display:flex; align-items:center; gap:16px; padding:12px 18px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px; color:var(--primary)}
+    .brand img{width:36px; height:36px; object-fit:contain; filter: drop-shadow(0 4px 10px rgba(14,58,82,.15));}
+    .brand .sub{font-size:12px; color:var(--muted); font-weight:600}
+    .nav{margin-left:auto; display:flex; gap:18px}
+    .nav a{color:var(--ink); text-decoration:none; font-weight:600; font-size:14px; opacity:.85}
+    .nav a:hover{color:var(--primary)}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden;}
+    .hero .bg{
+      background: radial-gradient(1000px 600px at 15% -20%, rgba(14,58,82,.12), transparent 60%),
+                  radial-gradient(600px 400px at 85% 10%, rgba(35,182,169,.18), transparent 60%),
+                  linear-gradient(120deg, #0E3A52 0%, #23B6A9 100%);
+      height:280px; display:grid; place-items:center; color:white;
+    }
+    .hero h1{margin:0; padding:0 18px; text-align:center; max-width:var(--maxw);
+      font-family: Montserrat, Inter, sans-serif; font-weight:700; font-size: clamp(28px, 3.8vw, 42px);}
+    .hero p{margin:10px 0 0; text-align:center; opacity:.92; font-weight:500}
+
+    /* Article */
+    .shell{max-width:var(--maxw); margin:40px auto 80px; padding:0 18px}    article{background:#fff; border-radius:calc(var(--radius) + 4px); box-shadow:var(--shadow);
+      padding: clamp(18px, 2.8vw, 36px);}
+
+    .meta{display:flex; gap:12px; align-items:center; color:var(--muted); font-size:14px; margin: 4px 0 18px}
+    .meta .pill{background: #e9f7f5; color: var(--primary); padding:6px 10px; border-radius: 999px; font-weight:600;}
+
+    h2{font-family: Montserrat, Inter, sans-serif; color:var(--primary); font-weight:700; margin: 26px 0 10px;}
+    h3{font-family: Montserrat, Inter, sans-serif; color:#163447; margin: 14px 0 8px}
+    p{line-height:1.7;}
+    .lead{font-size:18px; color:#163447}
+
+    .grid{display:grid; grid-template-columns: 1fr; gap:16px}
+    @media(min-width:860px){ .grid{grid-template-columns: 1.05fr .95fr;} }
+
+    .card{background:#f8fbfb; border:1px solid rgba(14,58,82,.07); border-radius:12px; padding:16px 16px}
+
+    .check{display:flex; gap:12px; align-items:flex-start; margin:12px 0}
+    .check b{color:var(--primary)}
+
+    .kpi{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin: 16px 0}
+    .kpi .box{background:linear-gradient(180deg,#ffffff, #f3fbfa); border:1px solid rgba(14,58,82,.08); border-radius:12px; padding:14px; text-align:center}
+    .kpi .val{font-size:22px; font-weight:700; color:var(--primary)}
+    .kpi .lab{font-size:12px; color:var(--muted); font-weight:600; letter-spacing:.3px}
+
+    .list{display:grid; gap:10px}
+    .list .row{display:flex; gap:10px; align-items:flex-start}
+
+    .cta{margin-top:24px; display:flex; flex-wrap:wrap; gap:14px; align-items:center}
+    .cta a{
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      color:#fff; text-decoration:none; font-weight:700; padding:12px 16px; border-radius:999px;
+      box-shadow: 0 8px 20px rgba(35,182,169,.28); transition: transform .15s ease, box-shadow .15s ease
+    }
+    .cta a:hover{ transform: translateY(-1px); box-shadow:0 10px 26px rgba(35,182,169,.36) }
+    .cta small{color:var(--muted)}
+
+    footer{max-width:var(--maxw); margin:20px auto 60px; padding:0 18px; color:var(--muted)}
+    footer .line{height:1px; background:rgba(14,58,82,.08); margin:24px 0}
+    .footwrap{display:flex; gap:12px; align-items:center}
+    .footwrap img{width:26px; height:26px; object-fit:contain}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Le pouvoir d’un partenariat gagnant — Publication #2",
+    "description": "Comment le partenariat encadré Eden Horizon sécurise un loyer garanti, supprime la vacance locative et améliore la performance.",
+    "author": {"@type": "Organization", "name": "Eden Horizon"},
+    "publisher": {"@type": "Organization", "name": "Eden Horizon"},
+    "inLanguage": "fr-FR"
+  }
+  </script>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="https://www.eden-horizon.fr" target="_blank" rel="noopener">
+        <img src="assets/img/logo.png" alt="Eden Horizon logo" />
+        <div>
+          <div>Eden Horizon</div>
+          <div class="sub">Sous-location légale & encadrée</div>
+        </div>
+      </a>
+     
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="intro">
+    <div class="bg">
+      <div>
+        <h1>Le pouvoir d’un partenariat gagnant</h1>
+        <p>Publication #2 — Thème : Rentabilité & performance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article -->
+  <div class="shell">
+    <article>
+      <div class="meta">
+        <span class="pill">Partenariat</span>
+        <span>⏱️ Lecture 2 min</span>
+        <span>•</span>
+        <span>Mise à jour : <time datetime="2025-10-04">04/10/2025</time></span>
+      </div>
+
+      <p class="lead">Avec Eden Horizon, vous gardez le contrôle de votre bien tandis que nous assurons une <strong>gestion 100% encadrée</strong> et orientée performance. Résultat : <strong>loyer garanti</strong>, <strong>zéro vacance visée</strong>, et une relation simple, transparente, durable.</p>
+
+      <h2 id="modele">Notre modèle en 3 piliers</h2>
+      <div class="kpi">
+        <div class="box"><div class="val">Loyer garanti</div><div class="lab">Flux stables, visibilité mensuelle</div></div>
+        <div class="box"><div class="val">Zéro vacance</div><div class="lab">Occupation continue visée</div></div>
+        <div class="box"><div class="val">Clé en main</div><div class="lab">Gestion, entretien, suivi visuel</div></div>
+      </div>
+
+      <div class="grid" style="margin-top:16px">
+        <div>
+          <h2>Ce que vous gagnez</h2>
+          <div class="list">
+            <div class="row">✅ <div><b>Tranquillité financière :</b> un loyer fixe, quoi qu’il arrive.</div></div>
+            <div class="row">✅ <div><b>Zero charge mentale :</b> on gère séjours, ménage, maintenance, imprévus.</div></div>
+            <div class="row">✅ <div><b>Transparence :</b> reporting régulier (photos / vidéos) et point mensuel.</div></div>
+            <div class="row">✅ <div><b>Conformité :</b> autorisation écrite, contrat adapté, couverture assurantielle.</div></div>
+          </div>
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin-top:0">Exemple simple</h3>
+            <p><strong>Sans Eden Horizon :</strong> loyers irréguliers + 1–2 mois vides/an.</p>
+            <p><strong>Avec Eden Horizon :</strong> loyer garanti + optimisation d’occupation → <em>revenu net lissé et sécurisé</em>.</p>
+          </div>
+        </div>
+        <aside>
+          <div class="card">
+            <h3 style="margin-top:0;color:var(--primary);font-family:Montserrat,Inter,sans-serif">Engagements contractuels</h3>
+            <p>Notre partenariat repose sur un <strong>contrat clair</strong> : responsabilités, autorisations, durée, modalités de sortie — tout est formalisé pour protéger le propriétaire.</p>
+            <p style="color:var(--muted); font-size:14px">Objectif : performance, conformité, sérénité.</p>
+          </div>
+
+          <div class="card" style="margin-top:12px">
+            <h3 style="margin-top:0;color:var(--primary);font-family:Montserrat,Inter,sans-serif">Focus : Zéro vacance</h3>
+            <p>Nos canaux de diffusion et notre gestion dynamique visent une <strong>occupation continue</strong>. Lorsqu’un créneau se libère, il est immédiatement replacé.</p>
+          </div>
+        </aside>
+      </div>
+
+      <h2 id="garanties">Garanties & conformité</h2>
+      <p>La sous-location est <strong>légale</strong> dès lors que le bailleur <strong>donne son accord</strong> et que le cadre contractuel est respecté. Eden Horizon s’occupe des autorisations, des contrats et des assurances adaptées à votre situation.</p>
+
+      <h2 id="faq">FAQ express</h2>
+      <div class="card">
+        <p><b>Est-ce vraiment sans risque juridique ?</b><br>Nos contrats et procédures sont conçus pour <strong>sécuriser</strong> la relation. Nous veillons au respect des règles et à la transparence totale.</p>
+        <p><b>Combien puis-je gagner ?</b><br>Chaque bien est unique. Une <strong>estimation personnalisée</strong> permet d’objectiver le potentiel selon la localisation, le standing et la demande.</p>
+        <p><b>Qui s’occupe du quotidien ?</b><br>Nous. Vous recevez vos <strong>virements</strong> et des <strong>reportings réguliers</strong>.</p>
+      </div>
+
+      <div class="cta" id="contact">
+        <a href="./index.html/#devis" rel="nofollow">💼 Discuter de mon bien</a>
+        <small>Réponse sous 24h ouvrées.</small>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="line"></div>
+    <div class="footwrap">
+      <img src="assets/img/logo.png" alt="Eden Horizon"/>
+      <div>
+        <strong>Eden Horizon</strong> — Sous-location légale & encadrée<br/>
+        <span style="font-size:13px">© <span id="y"></span> — Tous droits réservés</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
